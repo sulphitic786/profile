@@ -10,7 +10,6 @@ import '../app/utils/style.css';
 
 const App = () => {
   const content = useRoutes(routes);
-  console.log('content', content);
   return (
     <SettingsProvider>
       <AuthProvider>
