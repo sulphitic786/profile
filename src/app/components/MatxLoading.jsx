@@ -22,7 +22,8 @@ const Loading = () => {
   return (
     <StyledLoading>
       <Box position="relative">
-        <img src="/assets/images/favicon.png" alt="sulphite" />
+        <h2>Sulphitic</h2>
+        {/* <img src="/favicon.png" alt="sulphite" /> */}
         {/* <img src="/assets/images/logo-circle.svg" alt="" /> */}
         <CircularProgress className="circleProgress" />
       </Box>

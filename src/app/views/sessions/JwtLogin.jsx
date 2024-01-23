@@ -71,10 +71,6 @@ const JwtLogin = () => {
   //   }
   // };
 
-  const clickHandler = () => {
-    toastNotification('API call successful!', 'success');
-  };
-
   const handleFormSubmit = async (values) => {
     setLoading(true);
     try {
@@ -170,17 +166,6 @@ const JwtLogin = () => {
                       sx={{ my: 2 }}
                     >
                       Login
-                    </LoadingButton>
-
-                    <LoadingButton
-                      // type="submit"
-                      onClick={clickHandler}
-                      color="primary"
-                      loading={loading}
-                      variant="contained"
-                      sx={{ my: 2 }}
-                    >
-                      Toast
                     </LoadingButton>
 
                     <Paragraph>
