@@ -59,11 +59,13 @@ const About = () => {
   const classes = useStyles();
 
   return (
-    <Fragment>
+    <Container>
+      <Box className="breadcrumb">
+        <Breadcrumb
+          routeSegments={[{ name: 'Profile', path: '/portfolio/about' }, { name: 'About' }]}
+        />
+      </Box>
       <ContentBox className="about">
-        <Box className="breadcrumb">
-          <Breadcrumb routeSegments={[{ name: 'Profile', path: '/profile' }, { name: 'About' }]} />
-        </Box>
         <Grid container spacing={3}>
           <Grid item lg={10} md={10} sm={12} xs={12} className="mx-auto">
             <section id="about" className={'section'}>
@@ -143,7 +145,7 @@ const About = () => {
           </Grid>
         </Grid>
       </ContentBox>
-    </Fragment>
+    </Container>
   );
 };
 

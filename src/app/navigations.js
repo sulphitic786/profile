@@ -37,6 +37,17 @@ export const navigations = [
     ]
   },
 
+  { label: "Account Management", type: "label", auth: authRoles.admin },
+  {
+    name: "Management",
+    icon: "manage_accounts",
+    children: [
+      { name: "Responses", path: "/pages/contact-us-list", iconText: "R", auth: authRoles.admin },
+      { name: "Projects", path: "/pages/project-management", iconText: "PM", auth: authRoles.admin },
+      { name: "Users", path: "/pages/users", iconText: "U", auth: authRoles.admin },
+    ],
+  },
+
   { label: "Pages", type: "label" },
 
   {
@@ -53,7 +64,7 @@ export const navigations = [
     icon: "shopping_cart",
     children: [
       { name: "Product List", path: "/pages/product-list", iconText: "PL" },
-      // { name: "View Product", path: "/pages/view-product", iconText: "VP" },
+      { name: "View Product", path: "/pages/view-product", iconText: "VP" },
       { name: "New Product", path: "/pages/new-product", iconText: "NP" },
     ],
   },
@@ -192,19 +203,21 @@ export const navigations = [
 ];
 
 export const getfilteredNavigations = (navList = [], role) => {
-  console.log("navList", navList, "role", role)
   return navList.reduce((array, nav) => {
-    console.log("array", array, "nav", nav)
-    if (nav.auth && nav.auth.includes(role)) {
-      array.push(nav);
-    } else {
-      if (nav.children) {
-        nav.children = getfilteredNavigations(nav.children, role);
-        array.push(nav);
-      }
-
-      array.push(nav);
+    if (nav.auth && !nav.auth.includes(role)) {
+      // If the navigation item requires authentication and the user's role is not included, skip it
+      return array;
     }
+
+    const updatedNav = { ...nav };
+
+    if (nav.children) {
+      // Recursively filter children based on role
+      updatedNav.children = getfilteredNavigations(nav.children, role);
+    }
+
+    array.push(updatedNav);
     return array;
   }, []);
 };
+

@@ -171,3 +171,128 @@ export const flat = (array) => {
   });
   return result;
 };
+
+export const getDateFromTimestamp = (timestamp) => {
+  const dateObject = timestamp?.toDate(); // Convert Firebase timestamp to JavaScript Date object
+  // Get day, month, and year
+  const day = dateObject?.getDate().toString().padStart(2, '0');
+  const month = (dateObject?.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+  const year = dateObject?.getFullYear();
+
+  // Format: dd-mm-yyyy
+  return `${day}-${month}-${year}`;
+};
+
+export const removeTimeFromDate = (date) => {
+  if (date === '' || date === null || date === undefined) {
+    return ''
+  }
+  const currentdate = new Date(date)
+  let month = currentdate.getMonth() + 1
+  let day = currentdate.getDate()
+  if (month < 10) {
+    month = `0${month}`
+  }
+  if (day < 10) {
+    day = `0${day}`
+  }
+  return `${currentdate.getFullYear()}-${month}-${day}`
+}
+
+export const formatDateInSlash = (date) => {
+  if (date === null || date === '' || date === undefined) {
+    return ''
+  }
+
+  date = new Date(date)
+  const currentdate = new Date(date.setDate(date.getDate()))
+
+  const formattedDate = `${currentdate.getMonth() + 1}/${currentdate.getDate()}/${currentdate.getFullYear()}`
+  return formattedDate
+}
+
+export const dateFormater = (date) => {
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var day = date.getDate();
+  // get month from 0 to 11
+  var month = date.getMonth();
+  // conver month digit to month name
+  month = months[month];
+  var year = date.getFullYear();
+
+  // show date in two digits
+  if (day < 10) {
+    day = '0' + day;
+  }
+
+  // now we have day, month and year
+  // arrange them in the format we want
+  return month + ' ' + day + ', ' + year;
+}
+
+export const getLocalDateFromTimestamp = (timestamp) => {
+  const milliseconds = timestamp?.seconds * 1000 + Math?.round(timestamp?.nanoseconds / 1e6);
+  const isoDate = new Date(milliseconds)?.toISOString();
+  return isoDate;
+};
+
+export const getIsoDate = () => {
+  const isoDate = new Date().toISOString();
+  return isoDate;
+};
+
+export const getYearsFromTimestamp = (timestamps) => {
+  // Convert ISO format timestamps to Date objects
+  const startDate = new Date(timestamps[0]);
+  const endDate = new Date(timestamps[1]);
+
+  // Calculate the difference in months
+  const diffMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12 + (endDate.getMonth() - startDate.getMonth());
+
+  // Convert months to years and months
+  const years = Math.floor(diffMonths / 12);
+  const months = diffMonths % 12;
+
+  // Return the duration as a string
+  return `${years}.${months}`;
+}
+
+
+
+export const color = (name) => {
+
+  const colors = {
+    success: "#4caf50", // Green color for success
+    error: "#FF3D57", // Red color for error
+    primary: "#272829", // Blue color for primary
+    secondary: "rgba(255, 255, 255, 0.08)", // Orange color for secondary
+    warning: "#ffeb3b", // Yellow color for warning
+    lightSuccess: "#358311", // Lighter shade of green for success
+    lightError: "#ea8d99", // Lighter shade of red for error
+    lightPrimary: "#64b5f6", // Lighter shade of blue for primary
+    lightSecondary: "#ffb74d", // Lighter shade of orange for secondary
+    lightWarning: "#fff176" // Lighter shade of yellow for warning
+  };
+
+  if (name) {
+    return colors[name];
+  } else {
+    return colors;
+  }
+};
+
+export const stringToJson = (string) => {
+  try {
+    return JSON.parse(string)
+  } catch (e) {
+    return string
+  }
+}
+
+export const jsonToString = (string) => {
+  try {
+    return JSON.stringify(string)
+  } catch (e) {
+    return string
+  }
+}

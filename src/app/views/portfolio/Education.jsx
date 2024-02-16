@@ -8,8 +8,7 @@ import {
   Icon,
   List,
   ListItem,
-  ListItemText,
-  Container
+  ListItemText
 } from '@mui/material';
 import { Fragment } from 'react';
 import { Breadcrumb } from 'app/components';
@@ -24,6 +23,15 @@ import { Breadcrumb } from 'app/components';
 const ContentBox = styled('div')(({ theme }) => ({
   margin: '30px',
   [theme.breakpoints.down('sm')]: { margin: '16px' }
+}));
+
+const Container = styled('div')(({ theme }) => ({
+  margin: '20px',
+  [theme.breakpoints.down('sm')]: { margin: '16px' },
+  '& .breadcrumb': {
+    marginBottom: '30px',
+    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+  }
 }));
 
 const useStyles = styled((theme) => ({
@@ -43,12 +51,14 @@ const Education = () => {
 
   return (
     <Fragment>
-      <ContentBox className="about">
+      <Container>
         <Box className="breadcrumb">
-          <Breadcrumb routeSegments={[{ name: 'Profile', path: '/profile' }, { name: 'About' }]} />
+          <Breadcrumb
+            routeSegments={[{ name: 'Profile', path: '/portfolio/about' }, { name: 'About' }]}
+          />
         </Box>
-        <section id="resume" className="resume">
-          <Container>
+        <ContentBox className="about">
+          <section id="resume" className="resume">
             <div className="section-title">
               <Typography variant="h4">Education / Exeperience</Typography>
               <Typography variant="body1">
@@ -225,9 +235,9 @@ const Education = () => {
                 </div>
               </Grid>
             </Grid>
-          </Container>
-        </section>
-      </ContentBox>
+          </section>
+        </ContentBox>
+      </Container>
     </Fragment>
   );
 };

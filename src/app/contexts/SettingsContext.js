@@ -4,7 +4,7 @@ import { MatxLayoutSettings } from 'app/components/MatxLayout/settings';
 
 const SettingsContext = createContext({
   settings: MatxLayoutSettings,
-  updateSettings: () => {}
+  updateSettings: () => { }
 });
 
 export const SettingsProvider = ({ settings, children }) => {

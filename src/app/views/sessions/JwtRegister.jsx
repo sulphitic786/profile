@@ -8,6 +8,7 @@ import { Formik } from 'formik';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
+import { useAlert } from 'app/contexts/AlertContext';
 
 const FlexBox = styled(Box)(() => ({ display: 'flex', alignItems: 'center' }));
 
@@ -53,6 +54,7 @@ const JwtRegister = () => {
   const { register } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const { showAlert } = useAlert();
 
   const handleFormSubmit = async (values) => {
     setLoading(true);
@@ -60,10 +62,11 @@ const JwtRegister = () => {
     try {
       await register(values.email, values.password);
       navigate('/');
+      showAlert('success', 'User registered successfully.');
       console.log('User is Created Successfully');
     } catch (e) {
+      showAlert('error', 'Unable to create the user.');
       console.log(e);
-    } finally {
       setLoading(false);
     }
   };

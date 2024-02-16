@@ -6,8 +6,21 @@ import useAuth from 'app/hooks/useAuth';
 import { Formik } from 'formik';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { toastNotification } from 'app/contexts/ToastNotification';
+// import ToastNotification from 'app/contexts/ToastNotification';
 import * as Yup from 'yup';
+import { useAlert } from 'app/contexts/AlertContext';
+import { amber, green } from '@mui/material/colors';
+
+const ContentRoot = styled('div')(({ theme }) => ({
+  '& .icon': { fontSize: 20 },
+  '& .success': { backgroundColor: green[600] },
+  '& .warning': { backgroundColor: amber[700] },
+  '& .error': { backgroundColor: theme.palette.error.main },
+  '& .info': { backgroundColor: theme.palette.primary.main },
+  '& .iconVariant': { opacity: 0.9, marginRight: theme.spacing(1) },
+  '& .message': { display: 'flex', alignItems: 'center' },
+  '& .margin': { margin: theme.spacing(1) }
+}));
 
 const FlexBox = styled(Box)(() => ({ display: 'flex', alignItems: 'center' }));
 
@@ -57,7 +70,7 @@ const JwtLogin = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
+  const { showAlert } = useAlert();
   const { login } = useAuth();
 
   // const handleFormSubmit = async (values) => {
@@ -72,17 +85,18 @@ const JwtLogin = () => {
   // };
 
   const handleFormSubmit = async (values) => {
+    console.log('values', values);
     setLoading(true);
     try {
       // Use Firebase signInWithEmail function
-      await login(values.email, values.password);
-      console.log('values', values);
-      toastNotification('API call successful!', 'success');
+      const res = await login(values.email, values.password);
+      console.log('res', res);
+      showAlert('success', 'User Logged in successfully.');
       navigate('/dashboard/default');
     } catch (e) {
       setLoading(false);
       navigate('/');
-      toastNotification('API call failed!', 'error');
+      showAlert('error', 'User Email or Password is Wrong.');
       // Handle any authentication errors
       console.error('Firebase authentication error:', e);
     }
@@ -167,7 +181,6 @@ const JwtLogin = () => {
                     >
                       Login
                     </LoadingButton>
-
                     <Paragraph>
                       Don't have an account?
                       <NavLink

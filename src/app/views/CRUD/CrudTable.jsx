@@ -9,40 +9,40 @@ import {
   TableCell,
   TableHead,
   TablePagination,
-  TableRow,
-} from "@mui/material";
-import Breadcrumb from "app/components/Breadcrumb";
-import ConfirmationDialog from "app/components/ConfirmationDialog";
-import { themeShadows } from "app/components/MatxTheme/themeColors";
-import { useEffect, useState } from "react";
-import shortid from "shortid";
-import MemberEditorDialog from "./MemberEditorDialog";
-import { deleteUser, getAllUser } from "./TableService";
+  TableRow
+} from '@mui/material';
+import Breadcrumb from 'app/components/Breadcrumb';
+import ConfirmationDialog from 'app/components/ConfirmationDialog';
+import { themeShadows } from 'app/components/MatxTheme/themeColors';
+import { useEffect, useState } from 'react';
+import shortid from 'shortid';
+import MemberEditorDialog from './MemberEditorDialog';
+import { deleteUser, getAllUser } from './TableService';
 
-const Container = styled("div")(({ theme }) => ({
-  margin: "30px",
-  [theme.breakpoints.down("sm")]: { margin: "16px" },
-  "& .breadcrumb": {
-    marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+const Container = styled('div')(({ theme }) => ({
+  margin: '30px',
+  [theme.breakpoints.down('sm')]: { margin: '16px' },
+  '& .breadcrumb': {
+    marginBottom: '30px',
+    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+  }
 }));
 
 const ProductTable = styled(Table)(() => ({
   minWidth: 750,
-  whiteSpace: "pre",
-  "& thead": { "& th:first-of-type": { paddingLeft: 16 } },
-  "& td": { borderBottom: "none" },
-  "& td:first-of-type": { paddingLeft: "16px !important" },
+  whiteSpace: 'pre',
+  '& thead': { '& th:first-of-type': { paddingLeft: 16 } },
+  '& td': { borderBottom: 'none' },
+  '& td:first-of-type': { paddingLeft: '16px !important' }
 }));
 
-const Status = styled("small")(({ theme }) => ({
-  color: "#fff",
-  padding: "2px 8px",
-  overflow: "hidden",
-  borderRadius: "300px",
+const Status = styled('small')(({ theme }) => ({
+  color: '#fff',
+  padding: '2px 8px',
+  overflow: 'hidden',
+  borderRadius: '300px',
   boxShadow: themeShadows[3],
-  background: theme.palette.primary.main,
+  background: theme.palette.primary.main
 }));
 
 const CrudTable = () => {
@@ -86,7 +86,7 @@ const CrudTable = () => {
   return (
     <Container>
       <div className="breadcrumb">
-        <Breadcrumb routeSegments={[{ name: "CRUD Table" }]} />
+        <Breadcrumb routeSegments={[{ name: 'CRUD Table' }]} />
       </div>
 
       <Button
@@ -98,7 +98,7 @@ const CrudTable = () => {
         Add New Member
       </Button>
 
-      <Card sx={{ width: "100%", overflow: "auto" }} elevation={6}>
+      <Card sx={{ width: '100%', overflow: 'auto' }} elevation={6}>
         <ProductTable>
           <TableHead>
             <TableRow>
@@ -154,8 +154,8 @@ const CrudTable = () => {
           rowsPerPage={rowsPerPage}
           onPageChange={handleChangePage}
           rowsPerPageOptions={[5, 10, 25]}
-          nextIconButtonProps={{ "aria-label": "Next Page" }}
-          backIconButtonProps={{ "aria-label": "Previous Page" }}
+          nextIconButtonProps={{ 'aria-label': 'Next Page' }}
+          backIconButtonProps={{ 'aria-label': 'Previous Page' }}
           onRowsPerPageChange={({ target: { value } }) => setRowsPerPage(value)}
         />
 

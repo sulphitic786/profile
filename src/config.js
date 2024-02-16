@@ -1,4 +1,6 @@
-//   theme config firebase
+import { initializeApp } from 'firebase/app';
+import { getDatabase } from 'firebase/database';
+import { getFirestore } from 'firebase/firestore';
 
 // export var firebaseConfig = {
 //   apiKey: "AIzaSyBoUdiDtzQdC-m4nj9CPY5SvY7uKJGL71k",
@@ -27,3 +29,8 @@ export const auth0Config = {
   client_id: "XmminWIs0S8gR3gIRBydYLWbF58x81vK",
   domain: "matx.us.auth0.com",
 };
+
+// Initialize Firebase app
+const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseDatabase = getDatabase(firebaseApp);
+export const fireStore = getFirestore();

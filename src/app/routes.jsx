@@ -13,6 +13,17 @@ const Analytics2 = Loadable(lazy(() => import('app/views/dashboard/Analytics2'))
 const Analytics3 = Loadable(lazy(() => import('app/views/dashboard/Analytics3')));
 const InventoryManagement = Loadable(lazy(() => import('app/views/dashboard/InventoryManagement')));
 
+// Management pages
+const ContactUsRequestList = Loadable(
+  lazy(() => import('app/views/pages/management/contactus/ContactUsRequests'))
+);
+const UsersList = Loadable(lazy(() => import('app/views/pages/management/users/Users')));
+const ProjectsList = Loadable(lazy(() => import('app/views/pages/management/projects/Projects')));
+const ProjectForm = Loadable(lazy(() => import('app/views/pages/management/projects/ProjectForm')));
+const ProjectViewer = Loadable(
+  lazy(() => import('app/views/pages/management/projects/ProjectViewer'))
+);
+
 // customer pages
 const CustomerList = Loadable(lazy(() => import('app/views/pages/customers/CustomerList')));
 const CustomerForm = Loadable(
@@ -25,7 +36,9 @@ const CustomerViewer = Loadable(
 // product pages
 const ProductList = Loadable(lazy(() => import('app/views/pages/products/ProductList')));
 const ProductForm = Loadable(lazy(() => import('app/views/pages/products/ProductForm')));
-// const ProductViewer = Loadable(lazy(() => import('app/views/pages/products/')));
+const ProductViewer = Loadable(
+  lazy(() => import('app/views/pages/management/projects/ProjectViewer'))
+);
 
 // orders pages
 const OrderList = Loadable(lazy(() => import('app/views/pages/orders/OrderList')));
@@ -121,6 +134,13 @@ const routes = [
       { path: 'dashboard/alternative', element: <Analytics /> },
       { path: 'dashboard/inventory-management', element: <InventoryManagement /> },
 
+      // Management routes
+      { path: '/pages/contact-us-list', element: <ContactUsRequestList />, auth: authRoles.admin },
+      { path: '/pages/users', element: <UsersList />, auth: authRoles.admin },
+      { path: '/pages/project-management', element: <ProjectsList />, auth: authRoles.admin },
+      { path: '/pages/new-project', element: <ProjectForm />, auth: authRoles.admin },
+      { path: '/pages/view-project', element: <ProjectViewer />, auth: authRoles.admin },
+
       // customer routes
       { path: '/pages/customer-list', element: <CustomerList /> },
       { path: '/pages/new-customer', element: <CustomerForm /> },
@@ -129,7 +149,7 @@ const routes = [
       // product routes
       { path: '/pages/product-list', element: <ProductList /> },
       { path: '/pages/new-product', element: <ProductForm /> },
-      // { path: '/pages/view-product', element: <ProductViewer /> },
+      { path: '/pages/view-product', element: <ProductViewer /> },
 
       // order routes
       { path: '/pages/order-list', element: <OrderList /> },
@@ -211,7 +231,7 @@ const routes = [
   { path: '/session/signup', element: <JwtRegister /> },
   { path: '/session/forgot-password', element: <ForgotPassword /> },
 
-  // { path: '/', element: <Navigate to="dashboard/default" /> },
+  { path: '/', element: <Navigate to="/portfolio/about" /> },
   { path: '/', element: <Redirect /> },
   { path: '*', element: <NotFound /> }
 ];

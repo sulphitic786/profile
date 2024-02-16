@@ -10,10 +10,11 @@ import { MatxLoading } from 'app/components';
 import { fireStore } from 'config';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAlert } from 'app/contexts/AlertContext';
+import ProjectForm from './ProjectForm';
 import ProjectViewer from './ProjectViewer';
 
 const Container = styled('div')(({ theme }) => ({
-  margin: '20px',
+  margin: '30px',
   overflow: 'unset',
   [theme.breakpoints.down('sm')]: {
     margin: '16px'
@@ -62,10 +63,15 @@ const FilterComponent = ({ filterText, onFilter }) => {
 const Projects = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [filterText, setFilterText] = useState('');
   const [view, setView] = useState('');
   const [currentProject, setCurrentProject] = useState(null);
+  const [action, setAction] = useState('');
+  const [shouldOpenConfirmationDialog, setShouldOpenConfirmationDialog] = useState(false);
   const { showAlert } = useAlert();
+  const { location } = useLocation();
+  const { navigate } = useNavigate();
 
   useEffect(() => {
     fetchData(); // Fetch data when the component mounts
@@ -89,12 +95,52 @@ const Projects = () => {
     }
   };
 
+  const deleteRequestHandler = (data) => {
+    setCurrentProject(data);
+    setShouldOpenConfirmationDialog(true);
+  };
+
+  const handleDialogClose = () => {
+    setShouldOpenConfirmationDialog(false);
+  };
+
+  const handleConfirmationResponse = async () => {
+    try {
+      setLoading(true);
+      // Delete the document with the given ID
+      await deleteDoc(doc(fireStore, 'projects', currentProject.id));
+      showAlert('success', 'Data deleted successfully.');
+      setShouldOpenConfirmationDialog(false);
+      setLoading(false);
+      fetchData();
+    } catch (error) {
+      setLoading(false);
+      showAlert('error', 'Error while deleting request.');
+      console.error('Error deleting data from Firebase:', error);
+    }
+  };
+
+  const updateProjectHandler = async (data) => {
+    setShowForm(true);
+    setAction('update');
+    setView('ProjectForm');
+    setCurrentProject(data);
+  };
+
   const viewProjectHandler = async (data) => {
+    setShowForm(true);
     setView('ProjectViewer');
     setCurrentProject(data);
   };
 
+  const addProjectHandler = async () => {
+    setView('ProjectForm');
+    setShowForm(true);
+    setAction('add');
+  };
+
   const back = () => {
+    setShowForm(false);
     setView('');
   };
 
@@ -153,20 +199,20 @@ const Projects = () => {
         </div>
       )
     },
-    // {
-    //   name: <b>Status</b>,
-    //   sortable: true,
-    //   minWidth: '100px',
-    //   sortField: 'status',
-    //   selector: (row) => row.status,
-    //   cell: (row) => (
-    //     <div className="d-flex justify-content-left align-items-center ">
-    //       <Small bgcolor={color(row.status == 'active' ? 'lightSuccess' : 'lightError')}>
-    //         {row.status == 'active' ? 'Active' : 'Inactive'}
-    //       </Small>
-    //     </div>
-    //   )
-    // },
+    {
+      name: <b>Status</b>,
+      sortable: true,
+      minWidth: '100px',
+      sortField: 'status',
+      selector: (row) => row.status,
+      cell: (row) => (
+        <div className="d-flex justify-content-left align-items-center ">
+          <Small bgcolor={color(row.status == 'active' ? 'lightSuccess' : 'lightError')}>
+            {row.status == 'active' ? 'Active' : 'Inactive'}
+          </Small>
+        </div>
+      )
+    },
     {
       name: <b>Client</b>,
       sortable: true,
@@ -191,30 +237,30 @@ const Projects = () => {
         </div>
       )
     },
-    // {
-    //   name: <b>Clint Phone</b>,
-    //   sortable: true,
-    //   minWidth: '150px',
-    //   sortField: 'client_phone',
-    //   selector: (row) => row?.client_phone,
-    //   cell: (row) => (
-    //     <div className="d-flex justify-content-left align-items-center ">
-    //       <div className="d-flex flex-column">{row?.client_phone ?? '-'}</div>
-    //     </div>
-    //   )
-    // },
-    // {
-    //   name: <b>Client Email</b>,
-    //   sortable: true,
-    //   minWidth: '180px',
-    //   sortField: 'email',
-    //   selector: (row) => row?.client_email,
-    //   cell: (row) => (
-    //     <div className="d-flex justify-content-left align-items-center ">
-    //       <div className="d-flex flex-column">{row?.client_email ?? '-'}</div>
-    //     </div>
-    //   )
-    // },
+    {
+      name: <b>Clint Phone</b>,
+      sortable: true,
+      minWidth: '150px',
+      sortField: 'client_phone',
+      selector: (row) => row?.client_phone,
+      cell: (row) => (
+        <div className="d-flex justify-content-left align-items-center ">
+          <div className="d-flex flex-column">{row?.client_phone ?? '-'}</div>
+        </div>
+      )
+    },
+    {
+      name: <b>Client Email</b>,
+      sortable: true,
+      minWidth: '180px',
+      sortField: 'email',
+      selector: (row) => row?.client_email,
+      cell: (row) => (
+        <div className="d-flex justify-content-left align-items-center ">
+          <div className="d-flex flex-column">{row?.client_email ?? '-'}</div>
+        </div>
+      )
+    },
     {
       name: <b>Project Start</b>,
       sortable: true,
@@ -260,8 +306,7 @@ const Projects = () => {
     {
       name: <b>Action</b>,
       sortable: true,
-      center: true,
-      minWidth: '50px',
+      minWidth: '150px',
       sortField: 'date',
       selector: (row) => row,
       cell: (row) => (
@@ -277,17 +322,52 @@ const Projects = () => {
                 visibility
               </Icon>
             </Tooltip>
+            <Tooltip title="Edit/Update User">
+              <Icon
+                // onClick={() => handleAddUpdateUser('update', row)}
+                onClick={() => updateProjectHandler(row)}
+                className="mx-1"
+                color="success"
+                fontSize="small"
+                style={{ cursor: 'pointer' }}
+              >
+                edit
+              </Icon>
+            </Tooltip>
+            <Tooltip title="Delete Request">
+              <Icon
+                onClick={() => deleteRequestHandler(row)}
+                color="error"
+                fontSize="small"
+                style={{ cursor: 'pointer' }}
+              >
+                delete_forever
+              </Icon>
+            </Tooltip>
           </div>
         </div>
       )
     }
   ];
 
+  const ExpandableTable = ({ data }) => {
+    return (
+      <>
+        <div
+          className="d-flex justify-content-center align-items-center py-2"
+          style={{ backgroundColor: '#e0d9d9', opacity: '0.5', fontStyle: 'italic' }}
+        >
+          <div className="d-flex flex-column">{data.message}</div>
+        </div>
+      </>
+    );
+  };
+
   const subheaderComponentHandler = () => {
     return (
       <>
         <div className="mt-1" style={{ width: '-webkit-fill-available' }}>
-          {/* <Button
+          <Button
             color="primary"
             variant="contained"
             sx={{ mt: '6px !important' }}
@@ -295,7 +375,7 @@ const Projects = () => {
             onClick={() => addProjectHandler()}
           >
             + Add New Project
-          </Button> */}
+          </Button>
           <FilterComponent
             className="justify-content-end"
             onFilter={(e) => setFilterText(e.target.value)}
@@ -319,9 +399,16 @@ const Projects = () => {
     <Container>
       {loading && <MatxLoading />}
       <div className="breadcrumb">
-        <Breadcrumb routeSegments={[{ name: 'projects' }]} />
+        <Breadcrumb routeSegments={[{ name: 'project management' }]} />
       </div>
-      {view == 'ProjectViewer' ? (
+      {view == 'ProjectForm' ? (
+        <ProjectForm
+          updateData={action == 'update' ? currentProject : null}
+          back={back}
+          action={action}
+          fetchData={fetchData}
+        />
+      ) : view == 'ProjectViewer' ? (
         <ProjectViewer back={back} data={currentProject} />
       ) : (
         <>
@@ -351,6 +438,15 @@ const Projects = () => {
               paginationRowsPerPageOptions={[25, 50, 75, 100]}
             />
           </Paper>
+
+          {shouldOpenConfirmationDialog && (
+            <ConfirmationDialog
+              text="Are you sure to delete?"
+              open={shouldOpenConfirmationDialog}
+              onConfirmDialogClose={handleDialogClose}
+              onYesClick={handleConfirmationResponse}
+            />
+          )}
         </>
       )}
     </Container>

@@ -7,16 +7,20 @@ import { SettingsProvider } from './contexts/SettingsContext';
 import routes from './routes';
 import '../fake-db';
 import '../app/utils/style.css';
+import { AlertProvider } from './contexts/AlertContext';
 
 const App = () => {
   const content = useRoutes(routes);
+
   return (
     <SettingsProvider>
       <AuthProvider>
-        <MatxTheme>
-          <CssBaseline />
-          {content}
-        </MatxTheme>
+        <AlertProvider>
+          <MatxTheme>
+            <CssBaseline />
+            {content}
+          </MatxTheme>
+        </AlertProvider>
       </AuthProvider>
     </SettingsProvider>
   );

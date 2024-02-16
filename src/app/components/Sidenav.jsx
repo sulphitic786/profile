@@ -3,6 +3,7 @@ import Scrollbar from 'react-perfect-scrollbar';
 import { styled } from '@mui/material';
 import { MatxVerticalNav } from 'app/components';
 import useSettings from 'app/hooks/useSettings';
+import useAuth from 'app/hooks/useAuth';
 import { navigations } from 'app/navigations';
 
 const StyledScrollBar = styled(Scrollbar)(() => ({
@@ -23,8 +24,29 @@ const SideNavMobile = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: { display: 'none' }
 }));
 
+const filterNavigations = (navigations, userRole) => {
+  return navigations.reduce((filtered, item) => {
+    if (!item?.auth || item?.auth?.some((role) => userRole?.includes(role))) {
+      if (item?.children) {
+        const children = filterNavigations(item?.children, userRole);
+        if (children?.length > 0) {
+          filtered.push({ ...item, children });
+        }
+      } else {
+        filtered.push(item);
+      }
+    }
+    return filtered;
+  }, []);
+};
+
 const Sidenav = ({ children }) => {
   const { settings, updateSettings } = useSettings();
+  const { user } = useAuth();
+  // const userRole = user?.roles || [];
+  const userRole = ['ADMIN'];
+
+  const filteredNavigations = filterNavigations(navigations, userRole);
 
   const updateSidebarMode = (sidebarSettings) => {
     let activeLayoutSettingsName = settings.activeLayout + 'Settings';
@@ -46,7 +68,7 @@ const Sidenav = ({ children }) => {
     <Fragment>
       <StyledScrollBar options={{ suppressScrollX: true }}>
         {children}
-        <MatxVerticalNav items={navigations} />
+        <MatxVerticalNav items={filteredNavigations} />
       </StyledScrollBar>
 
       <SideNavMobile onClick={() => updateSidebarMode({ mode: 'close' })} />
