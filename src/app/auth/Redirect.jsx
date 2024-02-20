@@ -4,7 +4,7 @@ const Redirect = () => {
   let location = useLocation();
 
   // Get redirect location or provide fallback
-  const from = location.state?.from || '/dashboard/default';
+  const from = location.state?.from || '/portfolio/about';
   console.log('location.state?.from', location.state?.from);
   console.log(from);
 

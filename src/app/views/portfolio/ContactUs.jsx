@@ -47,7 +47,7 @@ const About = () => {
       // After submitting, you might want to clear the form or perform other actions
       setState({});
       setLoading(false);
-      console.log('response', res);
+      // console.log('response', res);
       showAlert('success', 'Your response sent successfully.');
 
       // You may also want to fetch updated data if needed
@@ -60,7 +60,7 @@ const About = () => {
   };
 
   const handleChange = (event) => {
-    console.log('event', event);
+    // console.log('event', event);
     event.persist();
     setState({ ...state, [event.target.name]: event.target.value });
   };

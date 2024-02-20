@@ -11,6 +11,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -47,6 +48,7 @@ const AuthContext = createContext({
 
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialAuthState);
+  const navigate = useNavigate()
 
   const signInWithEmail = (email, password) => {
     console.log("auth, email, password", auth, email, password)
@@ -62,7 +64,12 @@ export const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = () => signOut(auth);
+  const logout = () => {
+    signOut(auth);
+    sessionStorage.removeItem('userData'); // Clear session data
+    navigate('/portfolio/about');
+  };
+
   const login = (email, password) => signInWithEmailAndPassword(auth, email, password); // Added login function
   const register = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
@@ -115,3 +122,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export default AuthContext;
+

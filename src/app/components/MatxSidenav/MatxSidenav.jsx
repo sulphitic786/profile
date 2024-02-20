@@ -1,35 +1,35 @@
-import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
+import { Box, styled, useMediaQuery, useTheme } from '@mui/material';
 
-const SideNav = styled("div")(({ theme, width }) => ({
-  position: "relative",
+const SideNav = styled('div')(({ theme, width }) => ({
+  position: 'relative',
   width: width,
-  transition: "width 250ms ease",
-  overflow: "hidden",
+  transition: 'width 250ms ease',
+  overflow: 'hidden',
   zIndex: 91,
   background: theme.palette.background.default,
-  [theme.breakpoints.down("sm")]: {
+  [theme.breakpoints.down('sm')]: {
     top: 0,
     left: 0,
     bottom: 0,
-    position: "absolute",
-  },
+    position: 'absolute'
+  }
 }));
 
-const SideNavOverlay = styled("div")(() => ({
-  position: "absolute",
+const SideNavOverlay = styled('div')(() => ({
+  position: 'absolute',
   zIndex: 90,
-  width: "100%",
-  height: "100%",
-  background: "rgba(0, 0, 0, 0.74)",
+  width: '100%',
+  height: '100%',
+  background: 'rgba(0, 0, 0, 0.74)'
 }));
 
-const MatxSidenav = ({ sx, open, children, toggleSidenav, width = "220px" }) => {
+const MatxSidenav = ({ sx, open, children, toggleSidenav, width = '220px' }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <Box height="100%" display="flex">
-      <SideNav sx={sx} width={open || !isMobile ? width : "0px"}>
+      <SideNav sx={sx} width={open || !isMobile ? width : '0px'}>
         {children}
       </SideNav>
 

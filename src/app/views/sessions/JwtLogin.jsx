@@ -10,6 +10,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { useAlert } from 'app/contexts/AlertContext';
 import { amber, green } from '@mui/material/colors';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { fireStore } from 'config';
+import { jsonToString } from 'app/utils/utils';
 
 const ContentRoot = styled('div')(({ theme }) => ({
   '& .icon': { fontSize: 20 },
@@ -85,20 +88,36 @@ const JwtLogin = () => {
   // };
 
   const handleFormSubmit = async (values) => {
-    console.log('values', values);
     setLoading(true);
     try {
       // Use Firebase signInWithEmail function
       const res = await login(values.email, values.password);
-      console.log('res', res);
+      // console.log('res', res);
+      await fetchCurrentUser(res.user.uid);
       showAlert('success', 'User Logged in successfully.');
-      navigate('/dashboard/default');
+      await navigate('/dashboard/default');
     } catch (e) {
       setLoading(false);
       navigate('/');
       showAlert('error', 'User Email or Password is Wrong.');
       // Handle any authentication errors
       console.error('Firebase authentication error:', e);
+    }
+  };
+
+  const fetchCurrentUser = async (user_id) => {
+    try {
+      setLoading(true);
+      const Query = query(collection(fireStore, 'users'), where('user_id', '==', user_id));
+      const response = await getDocs(Query);
+      const dataFromFirebase = response.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      sessionStorage.setItem('userData', JSON.stringify(dataFromFirebase[0]));
+      // console.log('dataFromFirebase', dataFromFirebase, 'response', response);
+    } catch (error) {
+      console.error('Error fetching data:', error);
     }
   };
 
@@ -181,7 +200,7 @@ const JwtLogin = () => {
                     >
                       Login
                     </LoadingButton>
-                    <Paragraph>
+                    {/* <Paragraph>
                       Don't have an account?
                       <NavLink
                         to="/session/signup"
@@ -189,7 +208,7 @@ const JwtLogin = () => {
                       >
                         Register
                       </NavLink>
-                    </Paragraph>
+                    </Paragraph> */}
                   </form>
                 )}
               </Formik>

@@ -1,42 +1,77 @@
-// import { getNotification } from "app/redux/slices/notificationSlice";
-// import { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-
-// const useNotification = () => {
-//   const dispatch = useDispatch();
-//   const { notifications } = useSelector((state) => state.notifications);
-
-//   useEffect(() => {
-//     dispatch(getNotification());
-//   }, [dispatch]);
-
-//   return { notifications };
-// };
-
-// export default useNotification;
-
-
+import { collection, getDocs, addDoc, query, where, deleteDoc, updateDoc, doc } from 'firebase/firestore';
+import { fireStore } from 'config';
 import { useState, useEffect } from "react";
+import { getIsoDate } from 'app/utils/utils';
+import useAuth from './useAuth';
 
 const useNotification = () => {
   const [notifications, setNotifications] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { logout, user, isAuthenticated } = useAuth();
 
   useEffect(() => {
-    const fetchNotifications = async () => {
-      try {
-        // Replace the following URL with your actual notification endpoint
-        const response = await fetch("https://api.example.com/notifications");
-        const data = await response.json();
-        setNotifications(data);
-      } catch (error) {
-        console.error("Error fetching notifications:", error);
-      }
-    };
+    if (isAuthenticated) {
+      fetchNotifications();
+    }
+  }, [user]);
 
-    fetchNotifications();
-  }, []); // The empty dependency array ensures the effect runs only once on mount
+  const fetchNotifications = async () => {
+    setLoading(true);
+    try {
+      const q = query(collection(fireStore, 'notifications'), where('deleted_at', '==', ""));
+      const response = await getDocs(q);
+      const dataFromFirebase = response?.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setLoading(false);
+      setNotifications(dataFromFirebase);
+      // console.log('dataFromFirebase:', dataFromFirebase);
+    } catch (error) {
+      setLoading(false);
+      console.error('Error fetching data:', error);
+    }
+  };
 
-  return { notifications };
+
+  const clearNotifications = async (data) => {
+    // console.log("data", data)
+    setLoading(true);
+    try {
+      const response = await getDocs(collection(fireStore, 'notifications'));
+      const dataFromFirebase = response?.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setLoading(false);
+      setNotifications(dataFromFirebase);
+      console.error('dataFromFirebase:', dataFromFirebase);
+    } catch (error) {
+      setLoading(false);
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const deleteNotification = async (id) => {
+    setLoading(true);
+    try {
+      const notificationRef = doc(fireStore, 'notifications', id);
+      await updateDoc(notificationRef, {
+        deleted_at: getIsoDate() // Set deleted_at to the current date
+      });
+      // Remove the deleted notification from the notifications state
+      setNotifications((prevNotifications) =>
+        prevNotifications.filter((notification) => notification.id !== id)
+      );
+      setLoading(false);
+      console.log('Notification deleted successfully.');
+    } catch (error) {
+      setLoading(false);
+      console.error('Error deleting notification:', error);
+    }
+  };
+
+  return { notifications, loading, clearNotifications, deleteNotification };
 };
 
 export default useNotification;

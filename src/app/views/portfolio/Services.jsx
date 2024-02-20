@@ -10,8 +10,8 @@ import { Breadcrumb } from 'app/components';
 // import UpgradeCard from './shared/UpgradeCard';
 
 const ContentBox = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+  margin: '0px',
+  [theme.breakpoints.down('sm')]: { margin: '6px' }
 }));
 
 const Title = styled('span')(() => ({
@@ -77,14 +77,18 @@ const Services = () => {
                       Whether you require a newly developed website to enhance customer engagement,
                       a web portal to improve visibility and organization, or a robust and
                       feature-rich web app to automate business processes,{' '}
-                      <a href="https://sulphitic786.github.io/portfolio" className="text-primery">
+                      <a
+                        href="https://sulphitic786.github.io/"
+                        target="_blank"
+                        className="text-primary"
+                      >
                         SulphiticCo
                       </a>{' '}
                       has the solution.
                     </p>
                   </div>
 
-                  <div className="row">
+                  <div className="row pt-5">
                     <div className="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
                       <div className="icon">
                         <Icon className="">computer</Icon>

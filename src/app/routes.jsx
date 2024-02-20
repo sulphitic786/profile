@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import Redirect from './auth/Redirect';
-import AuthGuard from './auth/AuthGuard';
 import { authRoles } from './auth/authRoles';
 import Loadable from './components/Loadable';
 import MatxLayout from './components/MatxLayout/MatxLayout';
@@ -120,9 +119,9 @@ const Projects = Loadable(lazy(() => import('app/views/portfolio/Projects')));
 const routes = [
   {
     element: (
-      <AuthGuard>
-        <MatxLayout />
-      </AuthGuard>
+      // <AuthGuard>
+      <MatxLayout />
+      // </AuthGuard>
     ),
     children: [
       ...materialRoutes,
@@ -217,18 +216,18 @@ const routes = [
       { path: '/charts/apex-charts', element: <ApexCharts /> },
 
       // profile section
-      { path: '/portfolio/about', element: <About />, auth: authRoles.editor },
-      { path: '/portfolio/education', element: <Education />, auth: authRoles.editor },
-      { path: '/portfolio/services', element: <Services />, auth: authRoles.editor },
-      { path: '/portfolio/contact_us', element: <ContactUs />, auth: authRoles.editor },
-      { path: '/portfolio/projects', element: <Projects />, auth: authRoles.editor }
+      { path: '/portfolio/about', element: <About /> },
+      { path: '/portfolio/education', element: <Education /> },
+      { path: '/portfolio/services', element: <Services /> },
+      { path: '/portfolio/contact_us', element: <ContactUs /> },
+      { path: '/portfolio/projects', element: <Projects /> }
     ]
   },
 
   // session pages route
-  { path: '/session/404', element: <NotFound /> },
+  // { path: '/session/404', element: <NotFound /> },
   { path: '/session/signin', element: <JwtLogin /> },
-  { path: '/session/signup', element: <JwtRegister /> },
+  // { path: '/session/signup', element: <JwtRegister /> },
   { path: '/session/forgot-password', element: <ForgotPassword /> },
 
   { path: '/', element: <Navigate to="/portfolio/about" /> },

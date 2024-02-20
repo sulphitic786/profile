@@ -15,9 +15,10 @@ import { Link } from 'react-router-dom';
 import useNotification from 'app/hooks/useNotification';
 import useSettings from 'app/hooks/useSettings';
 import { sideNavWidth, topBarHeight } from 'app/utils/constant';
-import { getTimeDifference } from 'app/utils/utils.js';
+import { getTimeDifference, getDateTime } from 'app/utils/utils.js';
 import { themeShadows } from '../MatxTheme/themeColors';
 import { Paragraph, Small } from '../Typography';
+import MatxLoading from '../MatxLoading';
 
 const Notification = styled('div')(() => ({
   padding: '16px',
@@ -72,6 +73,16 @@ const CardLeftContent = styled('div')(({ theme }) => ({
   }
 }));
 
+const CardBottomContent = styled('div')(({ theme }) => ({
+  padding: '8px 8px',
+  display: 'flex',
+  fontSize: '12px',
+  alignItems: 'center',
+  justifyContent: 'end',
+  background: 'rgba(0, 0, 0, 0.01)',
+  color: theme.palette.text.secondary
+}));
+
 const Heading = styled('span')(({ theme }) => ({
   fontWeight: '500',
   marginLeft: '16px',
@@ -83,7 +94,7 @@ const NotificationBar = ({ container }) => {
   const theme = useTheme();
   const secondary = theme.palette.text.secondary;
   const [panelOpen, setPanelOpen] = useState(false);
-  const { deleteNotification, clearNotifications, notifications } = useNotification();
+  const { deleteNotification, clearNotifications, notifications, loading } = useNotification();
 
   const handleDrawerToggle = () => {
     setPanelOpen(!panelOpen);
@@ -94,6 +105,7 @@ const NotificationBar = ({ container }) => {
 
   return (
     <Fragment>
+      {loading && <MatxLoading />}
       <IconButton onClick={handleDrawerToggle}>
         <Badge color="secondary" badgeContent={notifications?.length}>
           <Icon sx={{ color: textColor }}>notifications</Icon>
@@ -117,7 +129,6 @@ const NotificationBar = ({ container }) => {
               <Icon color="primary">notifications</Icon>
               <h5>Notifications</h5>
             </Notification>
-
             {notifications?.map((notification) => (
               <NotificationCard key={notification.id}>
                 <DeleteButton
@@ -135,27 +146,34 @@ const NotificationBar = ({ container }) => {
                   <Card sx={{ mx: 2, mb: 3 }} elevation={3}>
                     <CardLeftContent>
                       <Box display="flex">
-                        <Icon className="icon" color={notification.icon.color}>
-                          {notification.icon.name}
+                        <Icon
+                          className="icon"
+                          color={notification?.icon == 'notifications' ? 'error' : 'primary'}
+                        >
+                          {notification?.icon}
                         </Icon>
-                        <Heading>{notification.heading}</Heading>
+                        <Heading>{notification?.title}</Heading>
                       </Box>
                       <Small className="messageTime">
-                        {getTimeDifference(new Date(notification.timestamp))}
-                        ago
+                        {getTimeDifference(notification?.created_at)} Ago
                       </Small>
                     </CardLeftContent>
                     <Box sx={{ px: 2, pt: 1, pb: 2 }}>
-                      <Paragraph sx={{ m: 0 }}>{notification.title}</Paragraph>
-                      <Small sx={{ color: secondary }}>{notification.subtitle}</Small>
+                      <Paragraph sx={{ m: 0 }}>{notification?.subtitle}</Paragraph>
+                      <Small sx={{ color: secondary }}>{notification?.message}</Small>
                     </Box>
+                    <CardBottomContent justifyContent={'end'}>
+                      {getDateTime(notification?.created_at)}
+                    </CardBottomContent>
                   </Card>
                 </Link>
               </NotificationCard>
             ))}
             {!!notifications?.length && (
               <Box sx={{ color: secondary }}>
-                <Button onClick={clearNotifications}>Clear Notifications</Button>
+                <Button sx={{ width: '100%', borderRadius: 0 }} onClick={clearNotifications}>
+                  Clear Notifications
+                </Button>
               </Box>
             )}
           </Box>

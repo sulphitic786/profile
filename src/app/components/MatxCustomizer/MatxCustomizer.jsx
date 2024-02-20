@@ -35,6 +35,23 @@ const Label = styled(Span)(({ theme }) => ({
   }
 }));
 
+const ICON = styled(Icon)(({ theme }) => ({
+  fontWeight: 700,
+  fontSize: '1rem',
+  cursor: 'pointer',
+  borderRadius: '4px',
+  marginBottom: '2rem',
+  // letterSpacing: '1.5px',
+  padding: '.05rem .05rem',
+  // transform: 'rotate(90deg)',
+  color: theme.palette.secondary.main,
+  backgroundColor: theme.palette.primary.dark,
+  '&:hover, &.open': {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText
+  }
+}));
+
 const MaxCustomaizer = styled('div')(({ theme }) => ({
   top: 0,
   right: 0,
@@ -102,9 +119,9 @@ const MatxCustomizer = () => {
   return (
     <Fragment>
       <Tooltip title="Theme Settings" placement="left">
-        <Label className="open" onClick={tooglePanel}>
-          DEMOS
-        </Label>
+        <ICON className="open" onClick={tooglePanel}>
+          palette
+        </ICON>
       </Tooltip>
 
       <ThemeProvider theme={activeTheme}>
@@ -130,21 +147,21 @@ const MatxCustomizer = () => {
             </Controller>
 
             <Box px={3} mb={2} display="flex">
-              <Button
+              {/* <Button
                 variant="outlined"
                 onClick={() => handleTabChange(0)}
                 color={tabIndex === 0 ? 'secondary' : 'primary'}
                 sx={{ mr: 2 }}
               >
                 Demos
-              </Button>
-              <Button
+              </Button> */}
+              {/* <Button
                 variant="outlined"
                 onClick={() => handleTabChange(1)}
                 color={tabIndex === 1 ? 'secondary' : 'primary'}
               >
                 Settings
-              </Button>
+              </Button> */}
             </Box>
 
             <StyledScrollBar options={{ suppressScrollX: true }}>

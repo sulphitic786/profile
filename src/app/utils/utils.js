@@ -124,16 +124,23 @@ export function scrollTo(scrollableElement, elmID) {
   return false;
 }
 
-export function getTimeDifference(date) {
-  let difference = differenceInSeconds(new Date(), date);
+export function getTimeDifference(dateStringISO) {
+  const currentDate = new Date();
+
+  // Parse ISO 8601 date string manually
+  const [year, month, day, hours, minutes, seconds] = dateStringISO.match(/\d+/g);
+  const date = new Date(year, month - 1, day, hours, minutes, seconds);
+
+  const difference = Math.abs((new Date(currentDate).getTime() - date.getTime()) / 1000); // Difference in seconds
 
   if (difference < 60) return `${Math.floor(difference)} sec`;
   else if (difference < 3600) return `${Math.floor(difference / 60)} min`;
-  else if (difference < 86400) return `${Math.floor(difference / 3660)} h`;
-  else if (difference < 86400 * 30) return `${Math.floor(difference / 86400)} d`;
-  else if (difference < 86400 * 30 * 12) return `${Math.floor(difference / 86400 / 30)} mon`;
-  else return `${(difference / 86400 / 30 / 12).toFixed(1)} y`;
+  else if (difference < 86400) return `${Math.floor(difference / 3600)}h`;
+  else if (difference < 86400 * 30) return `${Math.floor(difference / 86400)}d`;
+  else if (difference < 86400 * 30 * 12) return `${Math.floor(difference / (86400 * 30))} mon`;
+  else return `${Math.floor(difference / (86400 * 30 * 12))} y`;
 }
+
 
 export function generateRandomId() {
   let tempId = Math.random().toString();
@@ -211,6 +218,26 @@ export const formatDateInSlash = (date) => {
   return formattedDate
 }
 
+export const getDateTime = (date) => {
+  if (!date) {
+    return '';
+  }
+  // Parse ISO 8601 date string manually
+  const [year, month, day, hours, minutes, seconds] = date.match(/\d+/g);
+  const currentDate = new Date(year, month - 1, day, hours, minutes, seconds);
+
+  const formattedDate = currentDate.toLocaleString('en-US', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  });
+
+  return formattedDate;
+};
+
 export const dateFormater = (date) => {
   var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var day = date.getDate();
@@ -256,8 +283,6 @@ export const getYearsFromTimestamp = (timestamps) => {
   // Return the duration as a string
   return `${years}.${months}`;
 }
-
-
 
 export const color = (name) => {
 

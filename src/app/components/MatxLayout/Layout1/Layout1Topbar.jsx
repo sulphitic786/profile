@@ -84,7 +84,7 @@ const IconBox = styled('div')(({ theme }) => ({
 const Layout1Topbar = () => {
   const theme = useTheme();
   const { settings, updateSettings } = useSettings();
-  const { logout, user } = useAuth();
+  const { logout, user, isAuthenticated } = useAuth();
   const isMdScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   const updateSidebarMode = (sidebarSettings) => {
@@ -109,66 +109,79 @@ const Layout1Topbar = () => {
           <StyledIconButton onClick={handleSidebarToggle}>
             <Icon>menu</Icon>
           </StyledIconButton>
+          {isAuthenticated ? (
+            <IconBox>
+              <StyledIconButton>
+                <Icon>mail_outline</Icon>
+              </StyledIconButton>
 
-          <IconBox>
-            <StyledIconButton>
-              <Icon>mail_outline</Icon>
-            </StyledIconButton>
-
-            <StyledIconButton>
-              <Icon>web_asset</Icon>
-            </StyledIconButton>
-
-            <StyledIconButton>
-              <Icon>star_outline</Icon>
-            </StyledIconButton>
-          </IconBox>
+              <StyledIconButton>
+                <Icon>star_outline</Icon>
+              </StyledIconButton>
+            </IconBox>
+          ) : (
+            ''
+          )}
         </Box>
 
         <Box display="flex" alignItems="center">
           <MatxSearchBox />
+          {isAuthenticated ? (
+            <NotificationProvider>
+              <NotificationBar />
+            </NotificationProvider>
+          ) : (
+            ''
+          )}
 
-          <NotificationProvider>
-            <NotificationBar />
-          </NotificationProvider>
-
-          <ShoppingCart />
+          {/* <ShoppingCart /> */}
 
           <MatxMenu
             menuButton={
               <UserMenu>
                 <Hidden xsDown>
                   <Span>
-                    Hi <strong>{user?.name}</strong>
+                    <strong>{user?.name}</strong>
                   </Span>
                 </Hidden>
                 <Avatar src={user?.avatar} sx={{ cursor: 'pointer' }} />
               </UserMenu>
             }
           >
-            <StyledItem>
-              <Link to="/">
-                <Icon> home </Icon>
-                <Span> Home </Span>
-              </Link>
-            </StyledItem>
+            {isAuthenticated ? (
+              <>
+                <StyledItem>
+                  <Link to="/">
+                    <Icon> home </Icon>
+                    <Span> Home </Span>
+                  </Link>
+                </StyledItem>
 
-            <StyledItem>
-              <Link to="/page-layouts/user-profile">
-                <Icon> person </Icon>
-                <Span> Profile </Span>
-              </Link>
-            </StyledItem>
+                <StyledItem>
+                  <Link to="/page-layouts/user-profile">
+                    <Icon> person </Icon>
+                    <Span> Profile </Span>
+                  </Link>
+                </StyledItem>
 
-            <StyledItem>
-              <Icon> settings </Icon>
-              <Span> Settings </Span>
-            </StyledItem>
+                <StyledItem>
+                  <Icon> settings </Icon>
+                  <Span> Settings </Span>
+                </StyledItem>
 
-            <StyledItem onClick={logout}>
-              <Icon> power_settings_new </Icon>
-              <Span> Logout </Span>
-            </StyledItem>
+                <StyledItem onClick={logout}>
+                  <Icon> power_settings_new </Icon>
+                  <Span> Logout </Span>
+                </StyledItem>
+              </>
+            ) : (
+              <StyledItem>
+                <Link to="/session/signin">
+                  <Icon> power_settings_new </Icon>
+                  <Span> Login </Span>
+                </Link>
+              </StyledItem>
+            )}
           </MatxMenu>
         </Box>
       </TopbarContainer>
