@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhttps_github_com_sulphitic786_profile=self.webpackChunkhttps_github_com_sulphitic786_profile||[]).push([[8642],{8642:(e,t,s)=>{s.r(t),s.d(t,{default:()=>a});var h=s(74682),i=s(29867),l=s(92834);const p=(0,h.Z)((0,i.lazy)((()=>Promise.all([s.e(9238),s.e(7746)]).then(s.bind(s,77746))))),a=[{path:"/others/drag-and-drop",element:(0,l.jsx)(p,{})}]}}]);
+//# sourceMappingURL=8642.ccf59b4d.chunk.js.map
