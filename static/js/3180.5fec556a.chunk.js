@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmatx_react=self.webpackChunkmatx_react||[]).push([[3180],{3180:(e,a,t)=>{t.r(a),t.d(a,{default:()=>d});var r=t(3483),s=t(5043),n=t(579);const c=(0,r.A)((0,s.lazy)((()=>t.e(6694).then(t.bind(t,6694))))),d=[{path:"/others/drag-and-drop",element:(0,n.jsx)(c,{})}]}}]);
+//# sourceMappingURL=3180.5fec556a.chunk.js.map
