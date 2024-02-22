@@ -10,7 +10,7 @@ import {
   Select,
   Stack,
   styled,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -20,7 +20,7 @@ import { FlexBetween } from "app/components/FlexBox";
 import DollarOutlined from "app/components/icons/DollarOutlined";
 import { H5, Paragraph } from "app/components/Typography";
 import { useState } from "react";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 import Alert from "./common/Alert";
 import { BodyTableCell, HeadTableCell } from "./common/StyledComponents";
 
@@ -29,7 +29,7 @@ const EarningBox = styled(Box)(({ theme }) => ({
   paddingBottom: 12,
   textAlign: "center",
   borderRadius: "8px",
-  border: `1px solid ${theme.palette.grey[100]}`,
+  border: `1px solid ${theme.palette.grey[100]}`
 }));
 
 const Referrals = () => {
@@ -42,29 +42,29 @@ const Referrals = () => {
       amount: 85460,
       Icon: ShowChart,
       name: "Net Earnings",
-      iconColor: theme.palette.primary.main,
+      iconColor: theme.palette.primary.main
     },
     {
       id: 2,
       amount: 44550,
       Icon: DollarOutlined,
       name: "Balance",
-      iconColor: theme.palette.success.main,
+      iconColor: theme.palette.success.main
     },
     {
       id: 3,
       amount: 4550,
       Icon: CheckCircleOutline,
       name: "Avg Deal Size",
-      iconColor: theme.palette.error.main,
+      iconColor: theme.palette.error.main
     },
     {
       id: 4,
       amount: 4550,
       Icon: Login,
       name: "Referral Signup",
-      iconColor: theme.palette.info.main,
-    },
+      iconColor: theme.palette.info.main
+    }
   ];
 
   return (
@@ -111,16 +111,16 @@ const Referrals = () => {
                     width: "100%",
                     fontWeight: 500,
                     padding: "5px 12px",
-                    backgroundColor: "grey.100",
+                    backgroundColor: "grey.100"
                   }}
                 />
-                <CopyToClipboard text={referLink} onCopy={() => true}>
-                  <ButtonBase
-                    sx={{ padding: "0.6rem 1.5rem", backgroundColor: "grey.300", flexShrink: 0 }}
-                  >
-                    Copy Link
-                  </ButtonBase>
-                </CopyToClipboard>
+                {/* <CopyToClipboard text={referLink} onCopy={() => true}> */}
+                <ButtonBase
+                  sx={{ padding: "0.6rem 1.5rem", backgroundColor: "grey.300", flexShrink: 0 }}
+                >
+                  Copy Link
+                </ButtonBase>
+                {/* </CopyToClipboard> */}
               </Stack>
             </Grid>
           </Grid>
@@ -170,29 +170,29 @@ const referList = [
     user: "Marcus Harris",
     date: "Nov 12, 2021",
     bonus: 15,
-    profit: 1200,
+    profit: 1200
   },
   {
     orderId: "678935900",
     user: "Robert Smith",
     date: "Nov 14, 2021",
     bonus: 53,
-    profit: 2400,
+    profit: 2400
   },
   {
     orderId: "678935901",
     user: "Williams Brown",
     date: "Nov 15, 2021",
     bonus: 76,
-    profit: 1200,
+    profit: 1200
   },
   {
     orderId: "678935902",
     user: "Robert Smith",
     date: "Nov 14, 2021",
     bonus: 53,
-    profit: 2400,
-  },
+    profit: 2400
+  }
 ];
 
 export default Referrals;

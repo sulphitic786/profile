@@ -10,7 +10,7 @@ import {
   MenuItem,
   Select,
   styled,
-  Switch,
+  Switch
 } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Table from "@mui/material/Table";
@@ -19,7 +19,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { FlexBetween, FlexBox } from "app/components/FlexBox";
 import { H5, Paragraph, Span, Tiny } from "app/components/Typography";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 import Alert from "./common/Alert";
 import { BodyTableCell, HeadTableCell } from "./common/StyledComponents";
 
@@ -27,7 +27,7 @@ const StyledStatus = styled(Span)(({ theme, error }) => ({
   padding: "3px 8px",
   borderRadius: "4px",
   color: error ? theme.palette.error.main : theme.palette.success.main,
-  backgroundColor: alpha(error ? theme.palette.error.main : theme.palette.success.main, 0.2),
+  backgroundColor: alpha(error ? theme.palette.error.main : theme.palette.success.main, 0.2)
 }));
 
 const ApiKeys = () => {
@@ -127,11 +127,11 @@ const ApiKeys = () => {
                     {item.key}
                   </Tiny>
 
-                  <CopyToClipboard text={item.key} onCopy={() => true}>
+                  {/* <CopyToClipboard text={item.key} onCopy={() => true}>
                     <IconButton>
                       <ContentCopy sx={{ fontSize: 17, color: "text.disabled" }} />
                     </IconButton>
-                  </CopyToClipboard>
+                  </CopyToClipboard> */}
                 </FlexBox>
               </BodyTableCell>
 
@@ -161,7 +161,7 @@ const sessionList = [
     status: "Ok",
     device: "Chrome - Windows",
     ip: "236.125.56.78",
-    time: "2 mins ago",
+    time: "2 mins ago"
   },
   {
     id: 2,
@@ -169,7 +169,7 @@ const sessionList = [
     status: "Ok",
     device: "Safari - Mac OS",
     ip: "236.125.56.79",
-    time: "4 mins ago",
+    time: "4 mins ago"
   },
   {
     id: 3,
@@ -177,8 +177,8 @@ const sessionList = [
     status: "Error",
     device: "Firefox - Windows",
     ip: "236.125.56.74",
-    time: "10 mins ago",
-  },
+    time: "10 mins ago"
+  }
 ];
 
 const keys = [
@@ -186,26 +186,26 @@ const keys = [
     label: "none set",
     key: "fftt456765gjkkjhi83093985",
     created: "Nov 12, 2021",
-    status: "Active",
+    status: "Active"
   },
   {
     label: "Navitare",
     key: "jk076590ygghgh324vd33",
     created: "Nov 14, 2021",
-    status: "Active",
+    status: "Active"
   },
   {
     label: "Docs API Key",
     key: "fftt456765gjkkjhi83093985",
     created: "Nov 14, 2021",
-    status: "Inactive",
+    status: "Inactive"
   },
   {
     label: "Remore Interface",
     key: "jk076590ygghgh324vd33",
     created: "Nov 15, 2021",
-    status: "Active",
-  },
+    status: "Active"
+  }
 ];
 
 export default ApiKeys;

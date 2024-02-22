@@ -2,13 +2,13 @@ import { useTheme } from "@mui/material";
 import { themeShadows } from "app/components/MatxTheme/themeColors";
 import { convertHexToRGB } from "app/utils/utils";
 import { useEffect, useState } from "react";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+// import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 // fake data generator
 const getItems = (count) =>
   Array.from({ length: count }, (v, k) => k).map((k) => ({
     id: `item-${k}`,
-    content: `item ${k}`,
+    content: `item ${k}`
   }));
 
 // a little function to help us with reordering the result
@@ -35,7 +35,7 @@ const getItemStyle = (isDragging, draggableStyle, palette) => ({
     : `rgba(${convertHexToRGB(palette.background.paper)},1)`,
 
   // styles we need to apply on draggables
-  ...draggableStyle,
+  ...draggableStyle
 });
 
 const getListStyle = (isDraggingOver, palette) => ({
@@ -44,7 +44,7 @@ const getListStyle = (isDraggingOver, palette) => ({
     ? "rgba(0,0,0, .1)"
     : `rgba(${convertHexToRGB(palette.background.default)},1)`,
   padding: grid,
-  width: 250,
+  width: 250
 });
 
 const SimpleListDnD = () => {
@@ -66,39 +66,38 @@ const SimpleListDnD = () => {
     setItem(tempItems);
   };
 
-  return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable">
-        {(provided, snapshot) => (
-          <div
-            {...provided.droppableProps}
-            ref={provided.innerRef}
-            style={getListStyle(snapshot.isDraggingOver, palette)}
-          >
-            {item.map((item, index) => (
-              <Draggable key={item.id} draggableId={item.id} index={index}>
-                {(provided, snapshot) => (
-                  <div
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    style={getItemStyle(
-                      snapshot.isDragging,
-                      provided.draggableProps.style,
-                      palette
-                    )}
-                  >
-                    {item.content}
-                  </div>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
-  );
+  return "dddd";
+  // <DragDropContext onDragEnd={onDragEnd}>
+  //   <Droppable droppableId="droppable">
+  //     {(provided, snapshot) => (
+  //       <div
+  //         {...provided.droppableProps}
+  //         ref={provided.innerRef}
+  //         style={getListStyle(snapshot.isDraggingOver, palette)}
+  //       >
+  //         {item.map((item, index) => (
+  //           <Draggable key={item.id} draggableId={item.id} index={index}>
+  //             {(provided, snapshot) => (
+  //               <div
+  //                 ref={provided.innerRef}
+  //                 {...provided.draggableProps}
+  //                 {...provided.dragHandleProps}
+  //                 style={getItemStyle(
+  //                   snapshot.isDragging,
+  //                   provided.draggableProps.style,
+  //                   palette
+  //                 )}
+  //               >
+  //                 {item.content}
+  //               </div>
+  //             )}
+  //           </Draggable>
+  //         ))}
+  //         {provided.placeholder}
+  //       </div>
+  //     )}
+  //   </Droppable>
+  // </DragDropContext>
 };
 
 export default SimpleListDnD;

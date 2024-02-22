@@ -175,7 +175,7 @@ export const navigations = [
       { name: "Buttons", path: "/material/buttons", iconText: "B", auth: authRoles.admin },
       { name: "Checkbox", path: "/material/checkbox", iconText: "C", auth: authRoles.admin },
       { name: "Dialog", path: "/material/dialog", iconText: "D", auth: authRoles.admin },
-      { name: "Drag and Drop", iconText: "D", path: "/others/drag-and-drop", auth: authRoles.admin },
+      // { name: "Drag and Drop", iconText: "D", path: "/others/drag-and-drop", auth: authRoles.admin },
       { name: "Expansion Panel", path: "/material/expansion-panel", iconText: "E", auth: authRoles.admin },
       { name: "Form", path: "/material/form", iconText: "F", auth: authRoles.admin },
       { name: "Icons", path: "/material/icons", iconText: "I", auth: authRoles.admin },

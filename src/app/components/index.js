@@ -14,7 +14,7 @@ export { default as MatxProgressBar } from './MatxProgressBar';
 export { default as MatxSearchBox } from './MatxSearchBox';
 export { default as MatxSidenav } from './MatxSidenav/MatxSidenav';
 export { default as MatxSuspense } from './MatxSuspense';
-export { EchartTheme } from './MatxTheme/EchartTheme';
+// export { EchartTheme } from './MatxTheme/EchartTheme';
 export { default as MatxTheme } from './MatxTheme/MatxTheme';
 export { default as MatxVerticalNav } from './MatxVerticalNav/MatxVerticalNav';
 export { default as MatxVerticalNavExpansionPanel } from './MatxVerticalNav/MatxVerticalNavExpansionPanel';

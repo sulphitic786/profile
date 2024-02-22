@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import { convertHexToRGB } from "app/utils/utils";
-import Chart from "react-apexcharts";
+// import Chart from "react-apexcharts";
 
 const ProfileBarChart = ({ height, color }) => {
   const { palette } = useTheme();
@@ -8,69 +8,68 @@ const ProfileBarChart = ({ height, color }) => {
   const option = {
     chart: {
       toolbar: {
-        show: false,
-      },
+        show: false
+      }
     },
     plotOptions: {
       bar: {
         horizontal: false,
         endingShape: "rounded",
-        columnWidth: "8px",
-      },
+        columnWidth: "8px"
+      }
     },
     dataLabels: {
-      enabled: false,
+      enabled: false
     },
     legend: {
-      show: false,
+      show: false
     },
     grid: {
       borderColor: "transparent",
       row: {
-        opacity: 0,
-      },
+        opacity: 0
+      }
     },
     colors: [`rgba(${convertHexToRGB(palette.primary.main)}, 1)`],
     xaxis: {
       categories: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
       axisBorder: {
-        show: false,
+        show: false
       },
       axisTicks: {
-        show: false,
+        show: false
       },
       labels: {
         style: {
           colors: "rgba(var(--body), 0.87)",
           fontSize: "14px",
           fontFamily: "Roboto, Arial, sans-serif",
-          fontWeight: 400,
-        },
-      },
+          fontWeight: 400
+        }
+      }
     },
     yaxis: {
-      show: false,
-    },
+      show: false
+    }
   };
 
   const series = [
     {
       name: "Data Use",
-      data: [40, 60, 80, 100, 80, 60, 40],
-    },
+      data: [40, 60, 80, 100, 80, 60, 40]
+    }
   ];
 
-  return (
-    <Chart
-      type="bar"
-      height={height}
-      series={series}
-      options={{
-        ...option,
-        color: [...color],
-      }}
-    />
-  );
+  return "Chart";
+  // <Chart
+  //   type="bar"
+  //   height={height}
+  //   series={series}
+  //   options={{
+  //     ...option,
+  //     color: [...color],
+  //   }}
+  // />
 };
 
 export default ProfileBarChart;

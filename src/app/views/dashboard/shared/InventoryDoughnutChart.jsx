@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import { convertHexToRGB } from "app/utils/utils";
-import Chart from "react-apexcharts";
+// import Chart from "react-apexcharts";
 
 const InventoryDoughnutChart = () => {
   const series = [75, 50, 25];
@@ -15,13 +15,14 @@ const InventoryDoughnutChart = () => {
     colors: [
       `rgba(${convertHexToRGB(primary)}, 1)`,
       `rgba(${convertHexToRGB(secondary)}, 1)`,
-      `rgba(${convertHexToRGB(error)}, 1)`,
+      `rgba(${convertHexToRGB(error)}, 1)`
     ],
     dataLabels: { enabled: false },
-    legend: { show: false },
+    legend: { show: false }
   };
 
-  return <Chart options={option} series={series} type="donut" />;
+  return "donut";
+  // return <Chart options={option} series={series} type="donut" />;
 };
 
 export default InventoryDoughnutChart;

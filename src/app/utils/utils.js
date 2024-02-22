@@ -180,15 +180,20 @@ export const flat = (array) => {
 };
 
 export const getDateFromTimestamp = (timestamp) => {
-  const dateObject = timestamp?.toDate(); // Convert Firebase timestamp to JavaScript Date object
+  // Check if timestamp is defined and is an instance of Date
+  if (!timestamp || !(timestamp instanceof Date)) {
+    return '';
+  }
+
   // Get day, month, and year
-  const day = dateObject?.getDate().toString().padStart(2, '0');
-  const month = (dateObject?.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
-  const year = dateObject?.getFullYear();
+  const day = timestamp.getDate().toString().padStart(2, '0');
+  const month = (timestamp.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
+  const year = timestamp.getFullYear();
 
   // Format: dd-mm-yyyy
   return `${day}-${month}-${year}`;
 };
+
 
 export const removeTimeFromDate = (date) => {
   if (date === '' || date === null || date === undefined) {

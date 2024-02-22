@@ -1,10 +1,11 @@
 import React from "react";
-import Chart from "react-apexcharts";
+// import Chart from "react-apexcharts";
 
 const InventoryLineChart = () => {
   const series = [{ name: "Sale", data: [14, 29, 18, 20, 20, 40, 20, 30, 24, 18, 30, 15] }];
 
-  return <Chart options={options} series={series} type="line" height={400} />;
+  return "InventoryLineChart";
+  // return <Chart options={options} series={series} type="line" height={400} />;
 };
 
 export default InventoryLineChart;
@@ -19,9 +20,9 @@ const options = {
       top: 18,
       left: 7,
       blur: 10,
-      opacity: 0.2,
+      opacity: 0.2
     },
-    toolbar: { show: false },
+    toolbar: { show: false }
   },
   colors: ["#5d78ff", "#fbaf0f"],
   dataLabels: { enabled: false },
@@ -48,13 +49,13 @@ const options = {
       "Spetember",
       "October",
       "November",
-      "December",
+      "December"
     ],
     title: { text: "" },
-    axisBorder: { show: false },
+    axisBorder: { show: false }
   },
   yaxis: {
-    title: { text: "" },
+    title: { text: "" }
     // min: 5,
     // max: 40,
   },
@@ -63,6 +64,6 @@ const options = {
     horizontalAlign: "right",
     floating: true,
     offsetY: -25,
-    offsetX: -5,
-  },
+    offsetX: -5
+  }
 };

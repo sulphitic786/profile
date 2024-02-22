@@ -4,7 +4,7 @@ import { FlexBetween } from "app/components/FlexBox";
 import { H2 } from "app/components/Typography";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+// import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useNavigate } from "react-router-dom";
 import TodoItem from "./TodoItem";
 import { getAllTodo, getAllTodoTag, reorderTodoList, updateTodoById } from "./TodoService";
@@ -12,13 +12,13 @@ import { getAllTodo, getAllTodoTag, reorderTodoList, updateTodoById } from "./To
 const StyledCard = styled(Card)(({ theme }) => ({
   margin: "30px",
   position: "relative",
-  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const ContentBox = styled(FlexBetween)(() => ({
   paddingTop: "8px",
   paddingBottom: "8px",
-  background: "rgba(0, 0, 0, 0.01)",
+  background: "rgba(0, 0, 0, 0.01)"
 }));
 
 const TodoList = ({ query }) => {
@@ -31,7 +31,7 @@ const TodoList = ({ query }) => {
   const getAllTodoAndTagList = useCallback(async () => {
     let [{ data: todoList }, { data: tagList }] = await Promise.all([
       getAllTodo(),
-      getAllTodoTag(),
+      getAllTodoTag()
     ]);
     if (isAlive) {
       setFilteredTodoList(todoList);
@@ -139,7 +139,7 @@ const TodoList = ({ query }) => {
       starred: k.starred,
       startDate: k.startDate,
       tag: k.tag,
-      title: k.title,
+      title: k.title
     }));
 
   useEffect(() => {
@@ -215,8 +215,7 @@ const TodoList = ({ query }) => {
         </Box>
       </ContentBox>
 
-      <div className="todo-list">
-        {/* Previous Drag and Drop Code Start*/}
+      {/* <div className="todo-list">
         <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable droppableId="droppable">
             {(provided, snapshot) => (
@@ -245,13 +244,11 @@ const TodoList = ({ query }) => {
             )}
           </Droppable>
         </DragDropContext>
-        {/* Previous Drag and Drop Code End*/}
 
         <Box p={2}>
           <H2>New Drag and Drop Start From Here for testing</H2>
         </Box>
 
-        {/* New Drag and Drop Code Start*/}
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="droppable">
             {(provided, snapshot) => (
@@ -279,8 +276,7 @@ const TodoList = ({ query }) => {
             )}
           </Droppable>
         </DragDropContext>
-        {/* New Drag and Drop Code End*/}
-      </div>
+      </div> */}
     </StyledCard>
   );
 };

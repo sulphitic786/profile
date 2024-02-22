@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material";
-import ReactApexChart from "react-apexcharts";
+// import ReactApexChart from "react-apexcharts";
 
 const AdvanceLineChart = (props) => {
   const { colors, height, chartData } = props;
@@ -11,7 +11,7 @@ const AdvanceLineChart = (props) => {
       type: "line",
       background: "transparent",
       zoom: { enabled: false },
-      toolbar: { show: false },
+      toolbar: { show: false }
     },
     colors: colors,
     dataLabels: { enabled: false },
@@ -20,20 +20,20 @@ const AdvanceLineChart = (props) => {
     tooltip: {
       enabled: true,
       followCursor: true,
-      marker: { show: true },
+      marker: { show: true }
     },
     markers: {
       size: 4,
       colors: "rgba(102, 51, 153)",
       strokeColors: "white",
-      hover: { size: 6 },
+      hover: { size: 6 }
     },
     theme: { mode: palette.type },
     grid: {
       show: true,
       borderColor: palette.grey[300],
       yaxis: { lines: { show: true } },
-      padding: { top: 0, right: 0, bottom: 0, left: 10 },
+      padding: { top: 0, right: 0, bottom: 0, left: 10 }
     },
     xaxis: {
       show: true,
@@ -49,14 +49,15 @@ const AdvanceLineChart = (props) => {
         "Sep",
         "Oct",
         "Nov",
-        "Dec",
-      ],
-    },
+        "Dec"
+      ]
+    }
   };
 
   return (
     <div>
-      <ReactApexChart options={options} series={series} type="line" height={height} />
+      ReactApexChart
+      {/* <ReactApexChart options={options} series={series} type="line" height={height} /> */}
     </div>
   );
 };

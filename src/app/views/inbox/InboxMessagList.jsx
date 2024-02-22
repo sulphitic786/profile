@@ -7,13 +7,13 @@ import { FlexBetween, FlexBox } from "app/components/FlexBox";
 import { H5, Paragraph, Small } from "app/components/Typography";
 import { getTimeDifference } from "app/utils/utils";
 import { format } from "date-fns";
-import HtmlReactParser from "html-react-parser";
+// import HtmlReactParser from "html-react-parser";
 import { Fragment, useState } from "react";
 
 const ContentBox = styled(FlexBetween)({
   flexWrap: 1,
   width: "100%",
-  height: "100%",
+  height: "100%"
 });
 
 const StyledH5 = styled(H5)({ marginLeft: "4px", fontWeight: "500" });
@@ -21,7 +21,7 @@ const StyledH5 = styled(H5)({ marginLeft: "4px", fontWeight: "500" });
 const StyledItem = styled(MenuItem)({
   display: "flex",
   alignItems: "center",
-  "& .icon": { marginRight: "16px" },
+  "& .icon": { marginRight: "16px" }
 });
 
 const InboxMessageList = ({ messageList, handleCheckboxSelection }) => {
@@ -102,9 +102,7 @@ const InboxMessageList = ({ messageList, handleCheckboxSelection }) => {
             </FlexBox>
           </AccordionSummary>
 
-          <AccordionDetails>
-            <div>{HtmlReactParser(message.message)}</div>
-          </AccordionDetails>
+          <AccordionDetails>{/* <div>{HtmlReactParser(message.message)}</div> */}</AccordionDetails>
         </Accordion>
       ))}
     </Box>

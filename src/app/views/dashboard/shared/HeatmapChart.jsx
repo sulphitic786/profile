@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material";
 import { convertHexToRGB } from "app/utils/utils";
-import ReactApexChart from "react-apexcharts";
+// import ReactApexChart from "react-apexcharts";
 
 const HeatmapChart = (props) => {
   const { height, chartData } = props;
@@ -15,11 +15,11 @@ const HeatmapChart = (props) => {
     chart: {
       type: "heatmap",
       background: "transparent",
-      toolbar: { show: false },
+      toolbar: { show: false }
     },
     dataLabels: { enabled: false },
     plotOptions: {
-      heatmap: { radius: "8px", enableShades: false },
+      heatmap: { radius: "8px", enableShades: false }
     },
     colors: [primary3, primary5, primary3, primary5, primary3, primary5],
     xaxis: {
@@ -47,22 +47,23 @@ const HeatmapChart = (props) => {
         "9pm",
         "10pm",
         "11pm",
-        "12pm",
+        "12pm"
       ],
       axisBorder: { show: false },
       axisTicks: { show: false },
       tooltip: { enabled: false },
-      crosshairs: { show: false },
+      crosshairs: { show: false }
     },
     theme: { mode: theme.palette.mode },
     grid: {
       yaxis: { lines: { show: false } },
-      padding: { top: 0, right: 20, bottom: 0, left: 15 },
+      padding: { top: 0, right: 20, bottom: 0, left: 15 }
     },
-    stroke: { show: true, colors: ["#fff"], width: 2 },
+    stroke: { show: true, colors: ["#fff"], width: 2 }
   };
 
-  return <ReactApexChart options={options} series={series} type="heatmap" height={height} />;
+  return "Chart";
+  // return <ReactApexChart options={options} series={series} type="heatmap" height={height} />;
 };
 
 export default HeatmapChart;
