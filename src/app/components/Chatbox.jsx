@@ -1,78 +1,78 @@
-import { Avatar, Box, Divider, Icon, IconButton, styled, TextField, useTheme } from '@mui/material';
-import { ChatAvatar } from 'app/components';
-import { convertHexToRGB } from 'app/utils/utils';
-import { useCallback, useEffect, useState } from 'react';
-import ScrollBar from 'react-perfect-scrollbar';
-import { H5, H6, Span } from './Typography';
+import { Avatar, Box, Divider, Icon, IconButton, styled, TextField, useTheme } from "@mui/material";
+import { ChatAvatar } from "../components";
+import { convertHexToRGB } from "../utils/utils";
+import { useCallback, useEffect, useState } from "react";
+import ScrollBar from "react-perfect-scrollbar";
+import { H5, H6, Span } from "./Typography";
 
-const ChatContainer = styled('div')({
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  background: '#fff'
+const ChatContainer = styled("div")({
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  background: "#fff"
 });
 
 const StyledScrollBar = styled(ScrollBar)({
   flexGrow: 1
 });
 
-const ProfileBox = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  padding: '12px 12px 12px 20px',
+const ProfileBox = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: "12px 12px 12px 20px",
   color: theme.palette.primary.main,
-  background: '#fafafa'
+  background: "#fafafa"
 }));
 
-const ChatStatus = styled('div')(({ theme }) => ({
-  marginLeft: '12px',
+const ChatStatus = styled("div")(({ theme }) => ({
+  marginLeft: "12px",
   color: theme.palette.primary.main,
-  '& h5': {
+  "& h5": {
     marginTop: 0,
-    fontSize: '14px',
-    marginBottom: '3px'
+    fontSize: "14px",
+    marginBottom: "3px"
   },
-  '& span': { fontWeight: '500' }
+  "& span": { fontWeight: "500" }
 }));
 
-const ChatMessage = styled('div')(({ theme }) => ({
-  padding: '8px',
+const ChatMessage = styled("div")(({ theme }) => ({
+  padding: "8px",
   maxWidth: 240,
-  fontSize: '14px',
-  borderRadius: '4px',
-  marginBottom: '8px',
-  whiteSpace: 'pre-wrap',
-  wordBreak: 'break-word',
+  fontSize: "14px",
+  borderRadius: "4px",
+  marginBottom: "8px",
+  whiteSpace: "pre-wrap",
+  wordBreak: "break-word",
   color: theme.palette.primary.main,
-  background: '#fafafa'
+  background: "#fafafa"
 }));
 
-const MessageTime = styled('span')(({ theme }) => ({
-  fontSize: '13px',
-  fontWeight: '500',
+const MessageTime = styled("span")(({ theme }) => ({
+  fontSize: "13px",
+  fontWeight: "500",
   color: theme.palette.primary.main
 }));
 
-const ChatImgContainer = styled('div')({
-  padding: '20px',
-  display: 'flex',
-  justifyContent: 'flex-end'
+const ChatImgContainer = styled("div")({
+  padding: "20px",
+  display: "flex",
+  justifyContent: "flex-end"
 });
 
-const ChatImgBox = styled('div')(({ theme }) => ({
-  padding: '8px',
-  fontSize: '14px',
+const ChatImgBox = styled("div")(({ theme }) => ({
+  padding: "8px",
+  fontSize: "14px",
   maxWidth: 240,
-  borderRadius: '4px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
+  borderRadius: "4px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-end",
   color: theme.palette.primary.main,
-  background: '#fafafa'
+  background: "#fafafa"
 }));
 
-const ChatImg = styled('img')(() => ({ width: '40px' }));
+const ChatImg = styled("img")(() => ({ width: "40px" }));
 const ChatImgSize = styled(MessageTime)(() => ({}));
 
 // for previewing bot message
@@ -80,15 +80,15 @@ const globalMessageList = [];
 
 const Chatbox = ({ togglePopup }) => {
   const [isAlive, setIsAlive] = useState(true);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const currentUserId = '7863a6802ez0e277a0f98534';
-  const chatBottomRef = document.querySelector('#chat-scroll');
+  const currentUserId = "7863a6802ez0e277a0f98534";
+  const chatBottomRef = document.querySelector("#chat-scroll");
 
   const sendMessageOnEnter = (event) => {
-    if (event.key === 'Enter' && !event.shiftKey) {
+    if (event.key === "Enter" && !event.shiftKey) {
       let tempMessage = message.trim();
-      if (tempMessage !== '') {
+      if (tempMessage !== "") {
         let tempList = [...messageList];
         let messageObject = {
           text: tempMessage,
@@ -99,7 +99,7 @@ const Chatbox = ({ togglePopup }) => {
         if (isAlive) setMessageList(tempList);
         dummyReply();
       }
-      setMessage('');
+      setMessage("");
     }
   };
 
@@ -107,10 +107,10 @@ const Chatbox = ({ togglePopup }) => {
     setTimeout(() => {
       let tempList = [...messageList];
       let messageObject = {
-        text: 'Good to hear from you. enjoy!!!',
-        contactId: 'opponents contact id',
-        avatar: '/assets/images/faces/13.jpg',
-        name: 'Frank Powell'
+        text: "Good to hear from you. enjoy!!!",
+        contactId: "opponents contact id",
+        avatar: "/assets/images/faces/13.jpg",
+        name: "Frank Powell"
       };
 
       tempList.push(messageObject);
@@ -123,7 +123,7 @@ const Chatbox = ({ togglePopup }) => {
     if (chatBottomRef) {
       chatBottomRef.scrollTo({
         top: chatBottomRef.scrollHeight,
-        behavior: 'smooth'
+        behavior: "smooth"
       });
     }
   }, [chatBottomRef]);
@@ -132,84 +132,84 @@ const Chatbox = ({ togglePopup }) => {
     if (isAlive) {
       setMessageList([
         {
-          contactId: '323sa680b3249760ea21rt47',
-          text: 'Do you ever find yourself falling into the “discount trap?”',
-          time: '2018-02-10T08:45:28.291Z',
-          id: '323sa680b3249760ea21rt47',
-          name: 'Frank Powell',
-          avatar: '/assets/images/faces/13.jpg',
-          status: 'online',
-          mood: ''
+          contactId: "323sa680b3249760ea21rt47",
+          text: "Do you ever find yourself falling into the “discount trap?”",
+          time: "2018-02-10T08:45:28.291Z",
+          id: "323sa680b3249760ea21rt47",
+          name: "Frank Powell",
+          avatar: "/assets/images/faces/13.jpg",
+          status: "online",
+          mood: ""
         },
         {
-          contactId: '7863a6802ez0e277a0f98534',
-          text: 'Giving away your knowledge or product just to gain clients?',
-          time: '2018-02-10T08:45:28.291Z',
-          id: '7863a6802ez0e277a0f98534',
-          name: 'John Doe',
-          avatar: '/assets/images/face-1.jpg',
-          status: 'online',
-          mood: ''
+          contactId: "7863a6802ez0e277a0f98534",
+          text: "Giving away your knowledge or product just to gain clients?",
+          time: "2018-02-10T08:45:28.291Z",
+          id: "7863a6802ez0e277a0f98534",
+          name: "John Doe",
+          avatar: "/assets/images/face-1.jpg",
+          status: "online",
+          mood: ""
         },
         {
-          contactId: '323sa680b3249760ea21rt47',
-          text: 'Yes',
-          time: '2018-02-10T08:45:28.291Z',
-          id: '323sa680b3249760ea21rt47',
-          name: 'Frank Powell',
-          avatar: '/assets/images/faces/13.jpg',
-          status: 'online',
-          mood: ''
+          contactId: "323sa680b3249760ea21rt47",
+          text: "Yes",
+          time: "2018-02-10T08:45:28.291Z",
+          id: "323sa680b3249760ea21rt47",
+          name: "Frank Powell",
+          avatar: "/assets/images/faces/13.jpg",
+          status: "online",
+          mood: ""
         },
         {
-          contactId: '7863a6802ez0e277a0f98534',
-          text: 'Don’t feel bad. It happens to a lot of us',
-          time: '2018-02-10T08:45:28.291Z',
-          id: '7863a6802ez0e277a0f98534',
-          name: 'John Doe',
-          avatar: '/assets/images/face-1.jpg',
-          status: 'online',
-          mood: ''
+          contactId: "7863a6802ez0e277a0f98534",
+          text: "Don’t feel bad. It happens to a lot of us",
+          time: "2018-02-10T08:45:28.291Z",
+          id: "7863a6802ez0e277a0f98534",
+          name: "John Doe",
+          avatar: "/assets/images/face-1.jpg",
+          status: "online",
+          mood: ""
         },
         {
-          contactId: '323sa680b3249760ea21rt47',
-          text: 'Do you ever find yourself falling into the “discount trap?”',
-          time: '2018-02-10T08:45:28.291Z',
-          id: '323sa680b3249760ea21rt47',
-          name: 'Frank Powell',
-          avatar: '/assets/images/faces/13.jpg',
-          status: 'online',
-          mood: ''
+          contactId: "323sa680b3249760ea21rt47",
+          text: "Do you ever find yourself falling into the “discount trap?”",
+          time: "2018-02-10T08:45:28.291Z",
+          id: "323sa680b3249760ea21rt47",
+          name: "Frank Powell",
+          avatar: "/assets/images/faces/13.jpg",
+          status: "online",
+          mood: ""
         },
         {
-          contactId: '7863a6802ez0e277a0f98534',
-          text: 'Giving away your knowledge or product just to gain clients?',
-          time: '2018-02-10T08:45:28.291Z',
-          id: '7863a6802ez0e277a0f98534',
-          name: 'John Doe',
-          avatar: '/assets/images/face-1.jpg',
-          status: 'online',
-          mood: ''
+          contactId: "7863a6802ez0e277a0f98534",
+          text: "Giving away your knowledge or product just to gain clients?",
+          time: "2018-02-10T08:45:28.291Z",
+          id: "7863a6802ez0e277a0f98534",
+          name: "John Doe",
+          avatar: "/assets/images/face-1.jpg",
+          status: "online",
+          mood: ""
         },
         {
-          contactId: '323sa680b3249760ea21rt47',
-          text: 'Yes',
-          time: '2018-02-10T08:45:28.291Z',
-          id: '323sa680b3249760ea21rt47',
-          name: 'Frank Powell',
-          avatar: '/assets/images/faces/13.jpg',
-          status: 'online',
-          mood: ''
+          contactId: "323sa680b3249760ea21rt47",
+          text: "Yes",
+          time: "2018-02-10T08:45:28.291Z",
+          id: "323sa680b3249760ea21rt47",
+          name: "Frank Powell",
+          avatar: "/assets/images/faces/13.jpg",
+          status: "online",
+          mood: ""
         },
         {
-          contactId: '7863a6802ez0e277a0f98534',
-          text: 'Don’t feel bad. It happens to a lot of us',
-          time: '2018-02-10T08:45:28.291Z',
-          id: '7863a6802ez0e277a0f98534',
-          name: 'John Doe',
-          avatar: '/assets/images/face-1.jpg',
-          status: 'online',
-          mood: ''
+          contactId: "7863a6802ez0e277a0f98534",
+          text: "Don’t feel bad. It happens to a lot of us",
+          time: "2018-02-10T08:45:28.291Z",
+          id: "7863a6802ez0e277a0f98534",
+          name: "John Doe",
+          avatar: "/assets/images/face-1.jpg",
+          status: "online",
+          mood: ""
         }
       ]);
     }
@@ -245,7 +245,7 @@ const Chatbox = ({ togglePopup }) => {
             p="20px"
             display="flex"
             sx={{
-              justifyContent: currentUserId === item.contactId && 'flex-end'
+              justifyContent: currentUserId === item.contactId && "flex-end"
             }}
           >
             {currentUserId !== item.contactId && <Avatar src={item.avatar} />}
@@ -253,8 +253,8 @@ const Chatbox = ({ togglePopup }) => {
               {currentUserId !== item.contactId && (
                 <H5
                   sx={{
-                    mb: '4px',
-                    fontSize: '14px',
+                    mb: "4px",
+                    fontSize: "14px",
                     color: primary
                   }}
                 >
@@ -273,7 +273,7 @@ const Chatbox = ({ togglePopup }) => {
             <ChatImgBox>
               <ChatImg alt="laptop" src="/assets/images/laptop-1.png" />
               <Box ml="12px">
-                <H6 sx={{ mt: 0, mb: '4px' }}>Asus K555LA.png</H6>
+                <H6 sx={{ mt: 0, mb: "4px" }}>Asus K555LA.png</H6>
                 <ChatImgSize>21.5KB</ChatImgSize>
               </Box>
             </ChatImgBox>
@@ -292,7 +292,7 @@ const Chatbox = ({ togglePopup }) => {
           multiline
           rowsMax={4}
           fullWidth
-          sx={{ '& textarea': { color: primary } }}
+          sx={{ "& textarea": { color: primary } }}
           InputProps={{
             endAdornment: (
               <Box display="flex">
@@ -304,7 +304,7 @@ const Chatbox = ({ togglePopup }) => {
                 </IconButton>
               </Box>
             ),
-            classes: { root: 'pl-5 pr-3 py-3 text-body' }
+            classes: { root: "pl-5 pr-3 py-3 text-body" }
           }}
           value={message}
           onChange={(e) => setMessage(e.target.value)}

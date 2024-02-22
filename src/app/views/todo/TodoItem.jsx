@@ -8,25 +8,25 @@ import {
   IconButton,
   MenuItem,
   styled,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import { MatxMenu } from "app/components";
-import { Paragraph } from "app/components/Typography";
+import { MatxMenu } from "../../components";
+import { Paragraph } from "../../components/Typography";
 import { Link } from "react-router-dom";
 
 const FlexBox = styled(Box)({
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const FlexWrap = styled(FlexBox)({
-  flexWrap: "wrap",
+  flexWrap: "wrap"
 });
 
 const StyledLink = styled(Link)({
   flexGrow: 1,
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const TodoItem = ({ todo = { tag: [] }, tagList, updateTodo }) => {

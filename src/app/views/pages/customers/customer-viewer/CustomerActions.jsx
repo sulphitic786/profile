@@ -1,19 +1,19 @@
 import { GetApp } from "@mui/icons-material";
 import { Button, Card, Divider, Icon, styled } from "@mui/material";
-import { FlexBox } from "app/components/FlexBox";
-import { H5, Small } from "app/components/Typography";
+import { FlexBox } from "../../../../components/FlexBox";
+import { H5, Small } from "../../../../components/Typography";
 
 const ContentBox = styled(FlexBox)({
   marginBottom: "16px",
   flexDirection: "column",
-  alignItems: "flex-start",
+  alignItems: "flex-start"
 });
 
 const StyledButton = styled(Button)(({ theme }) => ({
   fontSize: "13px",
   marginBottom: "16px",
   color: theme.palette.text.primary,
-  "& span, svg": { fontSize: "1.25rem", marginRight: "16px" },
+  "& span, svg": { fontSize: "1.25rem", marginRight: "16px" }
 }));
 
 const CustomerActions = () => {

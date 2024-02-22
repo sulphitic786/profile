@@ -1,7 +1,7 @@
-import useSettings from 'app/hooks/useSettings';
-import SecondarySidenavTheme from '../MatxTheme/SecondarySidenavTheme/SecondarySidenavTheme';
-import SecondarySidebarContent from './SecondarySidebarContent';
-import SecondarySidebarToggle from './SecondarySidebarToggle';
+import useSettings from "../../hooks/useSettings";
+import SecondarySidenavTheme from "../MatxTheme/SecondarySidenavTheme/SecondarySidenavTheme";
+import SecondarySidebarContent from "./SecondarySidebarContent";
+import SecondarySidebarToggle from "./SecondarySidebarToggle";
 
 const SecondarySidebar = () => {
   const { settings } = useSettings();

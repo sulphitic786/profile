@@ -1,6 +1,6 @@
 import { Avatar, Box, Card, Divider, Switch, useTheme } from "@mui/material";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H5, Paragraph } from "app/components/Typography";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { H5, Paragraph } from "../../components/Typography";
 import { NavLink } from "react-router-dom";
 
 const accountList = [
@@ -8,26 +8,26 @@ const accountList = [
     id: 1,
     title: "Facebook",
     body: "Plan properly your workflow",
-    image: "/assets/images/social-media/facebook.svg",
+    image: "/assets/images/social-media/facebook.svg"
   },
   {
     id: 2,
     title: "Twitter",
     body: "Keep eye on on your Repositories",
-    image: "/assets/images/social-media/twitter.svg",
+    image: "/assets/images/social-media/twitter.svg"
   },
   {
     id: 3,
     title: "Instagram",
     body: "Keep up with the stories",
-    image: "/assets/images/social-media/instagram.svg",
+    image: "/assets/images/social-media/instagram.svg"
   },
   {
     id: 4,
     title: "Sound Cloud",
     body: "Playlist to get you by",
-    image: "/assets/images/social-media/soundcloud.svg",
-  },
+    image: "/assets/images/social-media/soundcloud.svg"
+  }
 ];
 
 const ConnectedAccounts = () => {
@@ -61,7 +61,7 @@ function SingleItem({ title, body, logo }) {
         borderBottom: 1,
         padding: "1rem 1.5rem",
         borderColor: "grey.100",
-        "&:last-of-type": { borderBottom: 0 },
+        "&:last-of-type": { borderBottom: 0 }
       }}
     >
       <FlexBox alignItems="center" gap={1}>

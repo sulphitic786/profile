@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material";
-import { convertHexToRGB } from "app/utils/utils";
+import { convertHexToRGB } from "../../../utils/utils";
 // import Chart from "react-apexcharts";
 
 const InventoryDoughnutChart = () => {

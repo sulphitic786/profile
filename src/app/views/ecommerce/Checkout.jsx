@@ -8,34 +8,34 @@ import {
   MenuItem,
   styled,
   TextField
-} from '@mui/material';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import { FlexBetween } from 'app/components/FlexBox';
-import { H4, H5, Span } from 'app/components/Typography';
-import { Formik } from 'formik';
-import { Fragment, useState } from 'react';
+} from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { FlexBetween } from "../../components/FlexBox";
+import { H4, H5, Span } from "../../components/Typography";
+import { Formik } from "formik";
+import { Fragment, useState } from "react";
 // import { useSelector } from "react-redux";
-import * as Yup from 'yup';
-import { countries } from './Country';
-import PaymentDialog from './PaymentDialog';
+import * as Yup from "yup";
+import { countries } from "./Country";
+import PaymentDialog from "./PaymentDialog";
 
 const CartRoot = styled(Card)(({ theme }) => ({
-  margin: '30px',
-  padding: '24px',
-  [theme.breakpoints.down('sm')]: { margin: '16px', padding: '16px ' }
+  margin: "30px",
+  padding: "24px",
+  [theme.breakpoints.down("sm")]: { margin: "16px", padding: "16px " }
 }));
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()
-    .min(3, 'Minimum 3 characters required!')
-    .required('First name is required!'),
+    .min(3, "Minimum 3 characters required!")
+    .required("First name is required!"),
   lastName: Yup.string()
-    .min(3, 'Minimum 3 characters required!')
-    .required('First name is required!'),
-  email: Yup.string().email().required('Email is required!'),
-  mobile: Yup.string().min(3).required('Phone is required!'),
-  city: Yup.string().min(2).required('City is required!'),
-  address: Yup.string().min(3).required('Address is required!')
+    .min(3, "Minimum 3 characters required!")
+    .required("First name is required!"),
+  email: Yup.string().email().required("Email is required!"),
+  mobile: Yup.string().min(3).required("Phone is required!"),
+  city: Yup.string().min(2).required("City is required!"),
+  address: Yup.string().min(3).required("Address is required!")
 });
 
 const Checkout = () => {
@@ -62,14 +62,14 @@ const Checkout = () => {
   const toggleDialog = () => setOpen(!open);
 
   const initialValues = {
-    firstName: '',
-    lastName: '',
-    company: '',
-    email: '',
-    mobile: '',
-    country: '',
-    city: '',
-    address: ''
+    firstName: "",
+    lastName: "",
+    company: "",
+    email: "",
+    mobile: "",
+    country: "",
+    city: "",
+    address: ""
   };
 
   const handleFormSubmit = (values) => {

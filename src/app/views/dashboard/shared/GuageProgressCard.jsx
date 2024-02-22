@@ -1,5 +1,5 @@
 import { Box, Card, Icon, IconButton, styled, useTheme } from "@mui/material";
-import { H5, Paragraph, Span } from "app/components/Typography";
+import { H5, Paragraph, Span } from "../../../components/Typography";
 // import Chart from "react-apexcharts";
 
 const CardHeader = styled("div")(() => ({

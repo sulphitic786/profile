@@ -1,4 +1,4 @@
-import RechartCreator from "app/components/charts/RechartCreator";
+import RechartCreator from "../../../components/charts/RechartCreator";
 import { Pie, PieChart, Tooltip } from "recharts";
 
 const data01 = [
@@ -7,7 +7,7 @@ const data01 = [
   { name: "Group C", value: 300 },
   { name: "Group D", value: 200 },
   { name: "Group E", value: 278 },
-  { name: "Group F", value: 189 },
+  { name: "Group F", value: 189 }
 ];
 
 const data02 = [
@@ -16,7 +16,7 @@ const data02 = [
   { name: "Group C", value: 1398 },
   { name: "Group D", value: 9800 },
   { name: "Group E", value: 3908 },
-  { name: "Group F", value: 4800 },
+  { name: "Group F", value: 4800 }
 ];
 
 const TwoSimplePieChart = ({ height, width }) => {

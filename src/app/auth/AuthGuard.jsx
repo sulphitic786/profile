@@ -1,5 +1,5 @@
-import useAuth from 'app/hooks/useAuth';
-import { Navigate, useLocation } from 'react-router-dom';
+import useAuth from "../hooks/useAuth";
+import { Navigate, useLocation } from "react-router-dom";
 
 const AuthGuard = ({ children }) => {
   const { isAuthenticated } = useAuth();

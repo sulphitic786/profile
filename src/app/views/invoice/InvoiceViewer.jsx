@@ -9,10 +9,10 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
+  TableRow
 } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { H5, Paragraph } from "app/components/Typography";
+import { FlexBetween } from "../../components/FlexBox";
+import { H5, Paragraph } from "../../components/Typography";
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -23,17 +23,17 @@ const ButtonBox = styled(FlexBetween)(() => ({
   paddingRight: "16px",
   marginBottom: "20px",
   alignItems: "center",
-  "& button": { fontSize: "13px", textTransform: "capitalize" },
+  "& button": { fontSize: "13px", textTransform: "capitalize" }
 }));
 
 const TextBox = styled("div")(() => ({
   textAlign: "right",
-  "& h5": { fontWeight: "500", textTransform: "capitalize" },
+  "& h5": { fontWeight: "500", textTransform: "capitalize" }
 }));
 
 const StyledH5 = styled(H5)(() => ({
   fontSize: 15,
-  "& span": { fontWeight: "normal" },
+  "& span": { fontWeight: "normal" }
 }));
 
 export const StyledTable = styled(Table)(({ theme }) => ({
@@ -43,19 +43,19 @@ export const StyledTable = styled(Table)(({ theme }) => ({
       "& th": { paddingLeft: 0, paddingRight: 0 },
       "& th:first-of-type": {
         paddingLeft: "24px !important",
-        [theme.breakpoints.down("sm")]: { paddingLeft: "16px !important" },
-      },
-    },
+        [theme.breakpoints.down("sm")]: { paddingLeft: "16px !important" }
+      }
+    }
   },
   "& tbody": {
     "& tr": {
       "& td": { paddingLeft: 0, textTransform: "capitalize" },
       "& td:first-of-type": {
         paddingLeft: "24px !important",
-        [theme.breakpoints.down("sm")]: { paddingLeft: "16px !important" },
-      },
-    },
-  },
+        [theme.breakpoints.down("sm")]: { paddingLeft: "16px !important" }
+      }
+    }
+  }
 }));
 
 const InvoiceViewer = ({ toggleInvoiceEditor }) => {

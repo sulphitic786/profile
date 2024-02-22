@@ -1,6 +1,6 @@
-import { Card, Grid, styled, useTheme, Box, Typography, Icon, List, ListItem } from '@mui/material';
-import { Fragment } from 'react';
-import { Breadcrumb } from 'app/components';
+import { Card, Grid, styled, useTheme, Box, Typography, Icon, List, ListItem } from "@mui/material";
+import { Fragment } from "react";
+import { Breadcrumb } from "../../components";
 // import Campaigns from './shared/Campaigns';
 // import DoughnutChart from './shared/Doughnut';
 // import RowCards from './shared/RowCards';
@@ -9,28 +9,28 @@ import { Breadcrumb } from 'app/components';
 // import TopSellingTable from './shared/TopSellingTable';
 // import UpgradeCard from './shared/UpgradeCard';
 
-const ContentBox = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+const ContentBox = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
-const Title = styled('span')(() => ({
-  fontSize: '1rem',
-  fontWeight: '500',
-  marginRight: '.5rem',
-  textTransform: 'capitalize'
+const Title = styled("span")(() => ({
+  fontSize: "1rem",
+  fontWeight: "500",
+  marginRight: ".5rem",
+  textTransform: "capitalize"
 }));
 
-const SubTitle = styled('span')(({ theme }) => ({
-  fontSize: '0.875rem',
+const SubTitle = styled("span")(({ theme }) => ({
+  fontSize: "0.875rem",
   color: theme.palette.text.secondary
 }));
 
-const H4 = styled('h4')(({ theme }) => ({
-  fontSize: '1rem',
-  fontWeight: '500',
-  marginBottom: '16px',
-  textTransform: 'capitalize',
+const H4 = styled("h4")(({ theme }) => ({
+  fontSize: "1rem",
+  fontWeight: "500",
+  marginBottom: "16px",
+  textTransform: "capitalize",
   color: theme.palette.text.secondary
 }));
 
@@ -40,17 +40,17 @@ const useStyles = styled((theme) => ({
     marginBottom: theme.spacing(4)
   },
   image: {
-    maxWidth: '100%',
-    height: 'auto'
+    maxWidth: "100%",
+    height: "auto"
   }
 }));
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
@@ -62,13 +62,13 @@ const About = () => {
     <Container>
       <Box className="breadcrumb">
         <Breadcrumb
-          routeSegments={[{ name: 'Profile', path: '/portfolio/about' }, { name: 'About' }]}
+          routeSegments={[{ name: "Profile", path: "/portfolio/about" }, { name: "About" }]}
         />
       </Box>
       <ContentBox className="about">
         <Grid container spacing={3}>
           <Grid item lg={10} md={10} sm={12} xs={12} className="mx-auto">
-            <section id="about" className={'section'}>
+            <section id="about" className={"section"}>
               <div className="container">
                 <div className="section-title my-2">
                   <Typography variant="h4">About</Typography>
@@ -100,7 +100,7 @@ const About = () => {
                               <a href="sulphitic786.github.io"> sulphitic786.github.io </a>
                             </ListItem>
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon> <strong>Phone: </strong>{' '}
+                              <Icon color="primary">chevron_right</Icon> <strong>Phone: </strong>{" "}
                               +923244929494
                             </ListItem>
                             <ListItem>
@@ -116,15 +116,15 @@ const About = () => {
                               <strong>Activities: </strong> Reseach | Badminton | Cricket
                             </ListItem>
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon> <strong>Degree: </strong>{' '}
+                              <Icon color="primary">chevron_right</Icon> <strong>Degree: </strong>{" "}
                               Master in Computer Science
                             </ListItem>
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon> <strong>Email: </strong>{' '}
+                              <Icon color="primary">chevron_right</Icon> <strong>Email: </strong>{" "}
                               wqasimg@gmail.com
                             </ListItem>
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon>{' '}
+                              <Icon color="primary">chevron_right</Icon>{" "}
                               <strong>Freelance: </strong> Available
                             </ListItem>
                           </List>
@@ -134,7 +134,7 @@ const About = () => {
                         Showing a balanced portfolio can ease the process of the client trusting you
                         as they can see how creative you can get but also how you can deliver
                         results that the client expects. Sometimes, things that are too flashy might
-                        scare away clients as some have the prejudice of{' '}
+                        scare away clients as some have the prejudice of{" "}
                         <b>“I don’t need an artist, I need a developer”.</b>
                       </Typography>
                     </div>

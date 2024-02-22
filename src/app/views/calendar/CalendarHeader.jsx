@@ -1,5 +1,5 @@
 import { Box, Icon, IconButton, styled, Tooltip } from "@mui/material";
-import { H6 } from "app/components/Typography";
+import { H6 } from "../../components/Typography";
 import React from "react";
 import { navigate } from "react-big-calendar/lib/utils/constants";
 
@@ -9,30 +9,30 @@ const CalenderHeader = styled("div")(({ theme }) => ({
   borderTopLeftRadius: 6,
   borderTopRightRadius: 6,
   justifyContent: "space-between",
-  background: theme.palette.primary.main,
+  background: theme.palette.primary.main
 }));
 
 const viewNameListObject = {
   month: {
     name: "Month",
-    icon: "view_module",
+    icon: "view_module"
   },
   week: {
     name: "Week",
-    icon: "view_week",
+    icon: "view_week"
   },
   work_week: {
     name: "Work week",
-    icon: "view_array",
+    icon: "view_array"
   },
   day: {
     name: "Day",
-    icon: "view_day",
+    icon: "view_day"
   },
   agenda: {
     name: "Agenda",
-    icon: "view_agenda",
-  },
+    icon: "view_agenda"
+  }
 };
 
 const CalendarHeader = (props) => {

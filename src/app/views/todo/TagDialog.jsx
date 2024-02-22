@@ -1,7 +1,7 @@
 import { Box, Button, Dialog, TextField, useTheme } from "@mui/material";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { Span } from "app/components/Typography";
-import { generateRandomId } from "app/utils/utils";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { Span } from "../../components/Typography";
+import { generateRandomId } from "../../utils/utils";
 import { useCallback, useEffect, useState } from "react";
 import { addNewTag, deleteTag, getAllTodoTag } from "./TodoService";
 
@@ -36,7 +36,7 @@ const TagDialog = ({ open, handleClose }) => {
     if (name.trim() !== "") {
       let { data: tag } = await addNewTag({
         id: generateRandomId(),
-        name: name.trim(),
+        name: name.trim()
       });
 
       if (isAlive) {

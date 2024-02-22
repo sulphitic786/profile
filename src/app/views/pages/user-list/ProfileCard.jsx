@@ -1,11 +1,11 @@
 import { Avatar, Box, Button, Card, Divider, Icon, styled } from "@mui/material";
-import { H5 } from "app/components/Typography";
+import { H5 } from "../../../components/Typography";
 import { StyledP } from "./styles";
 
 const FlexBox = styled(Box)({
   display: "flex",
   alignItems: "center",
-  flexDirection: "column",
+  flexDirection: "column"
 });
 
 const StyledButton = styled(Button)(() => ({
@@ -14,7 +14,7 @@ const StyledButton = styled(Button)(() => ({
   paddingLeft: "12px",
   paddingRight: "12px",
   justifyContent: "flex-start",
-  "& span": { marginLeft: "8px" },
+  "& span": { marginLeft: "8px" }
 }));
 
 const ProfileCard = () => {

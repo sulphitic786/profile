@@ -1,4 +1,4 @@
-import { authRoles } from "app/auth/authRoles";
+import { authRoles } from "./auth/authRoles";
 
 export const navigations = [
   {

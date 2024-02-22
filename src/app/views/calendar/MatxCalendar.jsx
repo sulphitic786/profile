@@ -1,6 +1,6 @@
 import { Box, Button, styled } from "@mui/material";
-import Breadcrumb from "app/components/Breadcrumb";
-import { convertHexToRGB } from "app/utils/utils";
+import Breadcrumb from "../../components/Breadcrumb";
+import { convertHexToRGB } from "../../utils/utils";
 import { format, getDay, parse, startOfWeek } from "date-fns";
 import enUS from "date-fns/locale/en-US";
 import { useEffect, useRef, useState } from "react";
@@ -18,8 +18,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     margin: "30px",
-    [theme.breakpoints.down("sm")]: { margin: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { margin: "16px" }
+  }
 }));
 
 const CalendarRoot = styled("div")(({ theme }) => ({
@@ -27,17 +27,17 @@ const CalendarRoot = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   "& .rbc-event": {
-    background: `rgba(${convertHexToRGB(theme.palette.primary.main)},1)`,
+    background: `rgba(${convertHexToRGB(theme.palette.primary.main)},1)`
   },
   "& .rbc-selected": {
-    background: `rgba(${convertHexToRGB(theme.palette.secondary.main)},1)`,
+    background: `rgba(${convertHexToRGB(theme.palette.secondary.main)},1)`
   },
   "& .rbc-calendar": { height: "auto", flexGrow: 1 },
   "& .rbc-header": {
     padding: "12px 16px !important",
     "& a": { paddingBottom: "8px !important" },
-    "& span": { fontSize: "15px !important", fontWeight: 500 },
-  },
+    "& span": { fontSize: "15px !important", fontWeight: 500 }
+  }
 }));
 
 const locales = { "en-US": enUS };
@@ -128,7 +128,7 @@ const MatxCalendar = () => {
               ) : (
                 <div>Header component not found</div>
               );
-            },
+            }
           }}
           // onNavigate={handleNavigate}
           onSelectEvent={(event) => openExistingEventDialog(event)}

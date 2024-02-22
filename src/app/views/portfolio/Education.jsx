@@ -9,9 +9,9 @@ import {
   List,
   ListItem,
   ListItemText
-} from '@mui/material';
-import { Fragment } from 'react';
-import { Breadcrumb } from 'app/components';
+} from "@mui/material";
+import { Fragment } from "react";
+import { Breadcrumb } from "../../components";
 // import Campaigns from './shared/Campaigns';
 // import DoughnutChart from './shared/Doughnut';
 // import RowCards from './shared/RowCards';
@@ -20,17 +20,17 @@ import { Breadcrumb } from 'app/components';
 // import TopSellingTable from './shared/TopSellingTable';
 // import UpgradeCard from './shared/UpgradeCard';
 
-const ContentBox = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+const ContentBox = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '20px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "20px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
@@ -40,8 +40,8 @@ const useStyles = styled((theme) => ({
     marginBottom: theme.spacing(4)
   },
   image: {
-    maxWidth: '100%',
-    height: 'auto'
+    maxWidth: "100%",
+    height: "auto"
   }
 }));
 
@@ -54,7 +54,7 @@ const Education = () => {
       <Container>
         <Box className="breadcrumb">
           <Breadcrumb
-            routeSegments={[{ name: 'Profile', path: '/portfolio/about' }, { name: 'About' }]}
+            routeSegments={[{ name: "Profile", path: "/portfolio/about" }, { name: "About" }]}
           />
         </Box>
         <ContentBox className="about">
@@ -146,7 +146,7 @@ const Education = () => {
                     </li>
                     <li>
                       Collaborate with 3 members of the design team and counsel on all aspects of
-                      the project.{' '}
+                      the project.{" "}
                     </li>
                     <li>
                       Supervised by seniors in order to ensure quality and accuracy of the design

@@ -2,10 +2,10 @@ import { Avatar, Box, Checkbox, Icon, IconButton, MenuItem, styled, useTheme } f
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import { MatxMenu } from "app/components";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H5, Paragraph, Small } from "app/components/Typography";
-import { getTimeDifference } from "app/utils/utils";
+import { MatxMenu } from "../../components";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { H5, Paragraph, Small } from "../../components/Typography";
+import { getTimeDifference } from "../../utils/utils";
 import { format } from "date-fns";
 // import HtmlReactParser from "html-react-parser";
 import { Fragment, useState } from "react";

@@ -1,7 +1,7 @@
 import { Notifications } from "@mui/icons-material";
 import { Box, Button, Stack, useMediaQuery } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { H5, Paragraph } from "app/components/Typography";
+import { FlexBetween } from "../../../components/FlexBox";
+import { H5, Paragraph } from "../../../components/Typography";
 
 const Alert = ({ title, description, btnText, hiddenButton }) => {
   const downSM = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -12,7 +12,7 @@ const Alert = ({ title, description, btnText, hiddenButton }) => {
         padding: 3,
         flexWrap: "wrap",
         borderRadius: "4px",
-        backgroundColor: "grey.100",
+        backgroundColor: "grey.100"
       }}
     >
       <Stack

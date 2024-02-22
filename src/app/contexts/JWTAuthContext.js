@@ -1,6 +1,6 @@
 import { createContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
-import { MatxLoading } from 'app/components';
+import { MatxLoading } from '../components';
 
 const initialState = {
   user: null,

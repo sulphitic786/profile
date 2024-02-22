@@ -8,27 +8,27 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableRow,
+  TableRow
 } from "@mui/material";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H4, Small } from "app/components/Typography";
+import { FlexBetween, FlexBox } from "../../../../components/FlexBox";
+import { H4, Small } from "../../../../components/Typography";
 
 const ContentBox = styled(FlexBox)({
   alignItems: "center",
-  flexDirection: "column",
+  flexDirection: "column"
 });
 
 const StyedSmall = styled(Small)({
   color: "#08ad6c",
   padding: "2px 4px",
   borderRadius: "4px",
-  background: "rgba(9, 182, 109, 0.15)",
+  background: "rgba(9, 182, 109, 0.15)"
 });
 
 const StyledButton = styled(Button)(({ theme }) => ({
   fontSize: "13px",
   color: theme.palette.text.primary,
-  ":hover": { background: "transparent" },
+  ":hover": { background: "transparent" }
 }));
 
 const CustomerInfo = () => {
@@ -79,7 +79,7 @@ const customerInfo = [
   { title: "Country", value: "USA" },
   { title: "State/Region", value: "New York" },
   { title: "Address 1", value: "Street Tailwood, No. 17" },
-  { title: "Address 2", value: "House #19" },
+  { title: "Address 2", value: "House #19" }
 ];
 
 export default CustomerInfo;

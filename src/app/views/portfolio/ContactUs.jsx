@@ -1,32 +1,32 @@
-import { Fragment } from 'react';
-import { Breadcrumb } from 'app/components';
-import { MatxLoading } from 'app/components';
-import { Button, Grid, Icon, Box, styled } from '@mui/material';
-import { Span } from 'app/components/Typography';
-import { useEffect, useState } from 'react';
-import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
-import { addDoc, collection, Timestamp } from 'firebase/firestore';
-import { fireStore } from 'config';
-import { useAlert } from 'app/contexts/AlertContext';
-import { getIsoDate } from 'app/utils/utils';
+import { Fragment } from "react";
+import { Breadcrumb } from "../../components";
+import { MatxLoading } from "../../components";
+import { Button, Grid, Icon, Box, styled } from "@mui/material";
+import { Span } from "../../components/Typography";
+import { useEffect, useState } from "react";
+import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { fireStore } from "../../../config";
+import { useAlert } from "../../contexts/AlertContext";
+import { getIsoDate } from "../../utils/utils";
 
-const ContentBox = styled('div')(({ theme }) => ({
-  margin: '0px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+const ContentBox = styled("div")(({ theme }) => ({
+  margin: "0px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '20px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "20px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
 const TextField = styled(TextValidator)(() => ({
-  width: '100%',
-  marginBottom: '14px'
+  width: "100%",
+  marginBottom: "14px"
 }));
 
 const About = () => {
@@ -39,7 +39,7 @@ const About = () => {
     setLoading(true);
     try {
       // Save data to "contact-us" collection
-      const res = await addDoc(collection(fireStore, 'contact-us'), {
+      const res = await addDoc(collection(fireStore, "contact-us"), {
         ...state,
         created_at: getIsoDate()
       });
@@ -48,13 +48,13 @@ const About = () => {
       setState({});
       setLoading(false);
       // console.log('response', res);
-      showAlert('success', 'Your response sent successfully.');
+      showAlert("success", "Your response sent successfully.");
 
       // You may also want to fetch updated data if needed
       // fetchData();
     } catch (error) {
-      showAlert('error', 'Error while saving data.');
-      console.error('Error saving data to Firebase:', error);
+      showAlert("error", "Error while saving data.");
+      console.error("Error saving data to Firebase:", error);
       setLoading(false);
     }
   };
@@ -73,7 +73,7 @@ const About = () => {
         {loading && <MatxLoading />}
         <Box className="breadcrumb">
           <Breadcrumb
-            routeSegments={[{ name: 'Profile', path: '/portfolio/about' }, { name: 'Contact' }]}
+            routeSegments={[{ name: "Profile", path: "/portfolio/about" }, { name: "Contact" }]}
           />
         </Box>
         <ContentBox className="about">
@@ -117,7 +117,7 @@ const About = () => {
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6640.600245896029!2d73.0127589232893!3d33.67529215132975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbe20192c81c9%3A0x28808a565e31833!2sG-10%20Markaz%20G%2010%20Markaz%20G-10%2C%20Islamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1656798445719!5m2!1sen!2sus"
                       frameborder="0"
-                      style={{ border: '0', width: '92%', height: '250px' }}
+                      style={{ border: "0", width: "92%", height: "250px" }}
                       allowfullscreen=""
                       loading="lazy"
                     ></iframe>
@@ -132,29 +132,29 @@ const About = () => {
                     name="name"
                     id="standard-basic"
                     label="Name *"
-                    value={name || ''}
+                    value={name || ""}
                     onChange={handleChange}
-                    errorMessages={['this field is required']}
-                    validators={['required', 'minStringLength: 4', 'maxStringLength: 35']}
+                    errorMessages={["this field is required"]}
+                    validators={["required", "minStringLength: 4", "maxStringLength: 35"]}
                   />
 
                   <TextField
                     type="text"
                     name="phone"
-                    value={phone || ''}
+                    value={phone || ""}
                     label="Mobile Number *"
                     onChange={handleChange}
                     validators={[
-                      'required',
-                      'isNumber',
-                      'minStringLength:10',
-                      'maxStringLength:10'
+                      "required",
+                      "isNumber",
+                      "minStringLength:10",
+                      "maxStringLength:10"
                     ]}
                     errorMessages={[
-                      'this field is required',
-                      'phone number must contain only digits',
-                      'phone number must be 10 digits',
-                      'phone number must be 10 digits'
+                      "this field is required",
+                      "phone number must contain only digits",
+                      "phone number must be 10 digits",
+                      "phone number must be 10 digits"
                     ]}
                   />
 
@@ -162,7 +162,7 @@ const About = () => {
                     type="email"
                     name="email"
                     label="Email"
-                    value={email || ''}
+                    value={email || ""}
                     onChange={handleChange}
                     // validators={['required', 'isEmail']}
                     // errorMessages={['this field is required', 'email is not valid']}
@@ -173,7 +173,7 @@ const About = () => {
                     name="subject"
                     label="Subject"
                     onChange={handleChange}
-                    value={subject || ''}
+                    value={subject || ""}
                     // validators={['required']}
                     // errorMessages={['this field is required']}
                   />
@@ -186,9 +186,9 @@ const About = () => {
                     name="message"
                     label="Message *"
                     onChange={handleChange}
-                    value={message || ''}
-                    validators={['required']}
-                    errorMessages={['this field is required']}
+                    value={message || ""}
+                    validators={["required"]}
+                    errorMessages={["this field is required"]}
                   />
 
                   <Button
@@ -198,7 +198,7 @@ const About = () => {
                     className="text-center mx-auto"
                   >
                     <Icon>send</Icon>
-                    <Span sx={{ pl: 1, textTransform: 'capitalize' }}>Send Message</Span>
+                    <Span sx={{ pl: 1, textTransform: "capitalize" }}>Send Message</Span>
                   </Button>
                 </ValidatorForm>
               </Grid>

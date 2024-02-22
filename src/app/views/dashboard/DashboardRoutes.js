@@ -1,5 +1,5 @@
-import { authRoles } from "app/auth/authRoles";
-import Loadable from "app/components/Loadable";
+import { authRoles } from "../../auth/authRoles";
+import Loadable from "../../components/Loadable";
 import { lazy } from "react";
 
 // const Analytics = Loadable(lazy(() => import("./Analytics")));

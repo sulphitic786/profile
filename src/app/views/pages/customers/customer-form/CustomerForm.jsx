@@ -12,10 +12,10 @@ import {
   styled,
   Tab,
   Tabs,
-  TextField,
+  TextField
 } from "@mui/material";
-import { Breadcrumb } from "app/components";
-import { H4 } from "app/components/Typography";
+import { Breadcrumb } from "../../../../components";
+import { H4 } from "../../../../components/Typography";
 import { Formik } from "formik";
 import { useState } from "react";
 import AddressForm from "./AddressForm";
@@ -27,8 +27,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const Form = styled("form")(() => ({ padding: "16px" }));
@@ -65,7 +65,7 @@ const CustomerForm = () => {
             handleSubmit,
             isSubmitting,
             setSubmitting,
-            setFieldValue,
+            setFieldValue
           }) => (
             <Form onSubmit={handleSubmit}>
               <Grid container spacing={3} alignItems="center">
@@ -269,7 +269,7 @@ const salutationList = ["Mr.", "Mrs.", "Ms.", "Miss.", "Dr."];
 const tabList = ["Other Details", "Address", "Contact Persons"];
 
 const initialValues = {
-  customerType: "",
+  customerType: ""
 };
 
 export default CustomerForm;

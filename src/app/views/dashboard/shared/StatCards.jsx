@@ -1,5 +1,5 @@
 import { Box, Card, Grid, Icon, IconButton, styled, Tooltip } from "@mui/material";
-import { Small } from "app/components/Typography";
+import { Small } from "../../../components/Typography";
 import React from "react";
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -9,7 +9,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   padding: "24px !important",
   justifyContent: "space-between",
   background: theme.palette.background.paper,
-  [theme.breakpoints.down("sm")]: { padding: "16px !important" },
+  [theme.breakpoints.down("sm")]: { padding: "16px !important" }
 }));
 
 const ContentBox = styled("div")(({ theme }) => ({
@@ -20,8 +20,8 @@ const ContentBox = styled("div")(({ theme }) => ({
   "& .icon": {
     opacity: 0.6,
     fontSize: "44px",
-    color: theme.palette.primary.main,
-  },
+    color: theme.palette.primary.main
+  }
 }));
 
 const Heading = styled("h6")(({ theme }) => ({
@@ -29,14 +29,14 @@ const Heading = styled("h6")(({ theme }) => ({
   marginTop: "4px",
   fontSize: "14px",
   fontWeight: "500",
-  color: theme.palette.primary.main,
+  color: theme.palette.primary.main
 }));
 
 const cardList = [
   { name: "New Leads", amount: 3050, icon: "group" },
   { name: "This week Sales", amount: "$80,500", icon: "attach_money" },
   { name: "Inventory Status", amount: "8.5% Stock Surplus", icon: "store" },
-  { name: "Orders to deliver", amount: "305 Orders", icon: "shopping_cart" },
+  { name: "Orders to deliver", amount: "305 Orders", icon: "shopping_cart" }
 ];
 
 const StatCards = () => {

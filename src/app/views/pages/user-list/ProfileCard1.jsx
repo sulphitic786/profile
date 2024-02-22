@@ -1,8 +1,8 @@
 import { Twitter } from "@mui/icons-material";
 import { Avatar, Box, Card, Icon, MenuItem, styled, useTheme } from "@mui/material";
-import { GoogleIcon, MatxMenu } from "app/components";
-import { FlexBetween } from "app/components/FlexBox";
-import { H4, Paragraph, Span } from "app/components/Typography";
+import { GoogleIcon, MatxMenu } from "../../../components";
+import { FlexBetween } from "../../../components/FlexBox";
+import { H4, Paragraph, Span } from "../../../components/Typography";
 import { Link } from "react-router-dom";
 import { StyledButton } from "./styles";
 
@@ -11,7 +11,7 @@ const StyledLink = styled(Link)(({ theme, iconcolor }) => ({
   alignItems: "center",
   color: theme.palette.text.primary,
   "& span": { marginLeft: "8px" },
-  "& svg": { fontSize: "14px", color: iconcolor },
+  "& svg": { fontSize: "14px", color: iconcolor }
 }));
 
 const ProfileCard1 = ({ user }) => {

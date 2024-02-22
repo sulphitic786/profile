@@ -8,13 +8,13 @@ import {
   MenuItem,
   styled,
   TextField,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import ChatAvatar from "app/components/ChatAvatar";
-import { FlexAlignCenter, FlexBetween } from "app/components/FlexBox";
-import MatxMenu from "app/components/MatxMenu";
-import { Paragraph, Small, Span } from "app/components/Typography";
-import { getTimeDifference } from "app/utils/utils";
+import ChatAvatar from "../../components/ChatAvatar";
+import { FlexAlignCenter, FlexBetween } from "../../components/FlexBox";
+import MatxMenu from "../../components/MatxMenu";
+import { Paragraph, Small, Span } from "../../components/Typography";
+import { getTimeDifference } from "../../utils/utils";
 import { Fragment, useState } from "react";
 import Scrollbar from "react-perfect-scrollbar";
 import shortid from "shortid";
@@ -25,12 +25,12 @@ const ChatRoot = styled(Box)(() => ({
   display: "flex",
   position: "relative",
   flexDirection: "column",
-  background: "rgba(0, 0, 0, 0.05)",
+  background: "rgba(0, 0, 0, 0.05)"
 }));
 
 const LeftContent = styled(FlexBetween)(({ theme }) => ({
   padding: "4px",
-  background: theme.palette.primary.main,
+  background: theme.palette.primary.main
 }));
 
 const UserName = styled("h5")(() => ({
@@ -38,7 +38,7 @@ const UserName = styled("h5")(() => ({
   fontSize: "18px",
   fontWeight: "500",
   whiteSpace: "pre",
-  marginLeft: "16px",
+  marginLeft: "16px"
 }));
 
 const UserStatus = styled("div")(({ theme, userId, contactId }) => ({
@@ -46,30 +46,30 @@ const UserStatus = styled("div")(({ theme, userId, contactId }) => ({
   marginBottom: "8px",
   borderRadius: "4px",
   color: userId === contactId && "#fff",
-  background: userId === contactId ? theme.palette.primary.main : theme.palette.background.paper,
+  background: userId === contactId ? theme.palette.primary.main : theme.palette.background.paper
 }));
 
 const StyledItem = styled(MenuItem)(() => ({
   display: "flex",
   alignItems: "center",
-  "& .icon": { marginRight: "16px" },
+  "& .icon": { marginRight: "16px" }
 }));
 
 const ScrollBox = styled(Scrollbar)(() => ({
   flexGrow: 1,
-  position: "relative",
+  position: "relative"
 }));
 
 const MessageBox = styled(FlexAlignCenter)(() => ({
   flexGrow: 1,
   height: "100%",
-  flexDirection: "column",
+  flexDirection: "column"
 }));
 
 const Message = styled("div")(() => ({
   display: "flex",
   alignItems: "flex-start",
-  padding: "12px 16px",
+  padding: "12px 16px"
 }));
 
 const ChatContainer = ({
@@ -78,7 +78,7 @@ const ChatContainer = ({
   currentChatRoom,
   opponentUser,
   messageList = [],
-  handleMessageSend,
+  handleMessageSend
 }) => {
   const [message, setMessage] = useState("");
   const sendMessageOnEnter = (event) => {

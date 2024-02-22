@@ -7,19 +7,19 @@ import {
   Grid,
   IconButton,
   LinearProgress,
-  styled,
+  styled
 } from "@mui/material";
-import { Breadcrumb, FacebookIcon, GoogleIcon } from "app/components";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H5 } from "app/components/Typography";
-import useUsers from "app/hooks/useUsers";
+import { Breadcrumb, FacebookIcon, GoogleIcon } from "../../../components";
+import { FlexBetween, FlexBox } from "../../../components/FlexBox";
+import { H5 } from "../../../components/Typography";
+import useUsers from "../../../hooks/useUsers";
 import { Container, StyledButton, StyledP } from "./styles";
 
 // styled components
 const StyledIonButton = styled(IconButton)({
   padding: "8px",
   "&:hover": { color: "#ffffff" },
-  "& svg": { fontSize: "14px" },
+  "& svg": { fontSize: "14px" }
 });
 
 const GoogleButton = styled(StyledIonButton)({
@@ -27,7 +27,7 @@ const GoogleButton = styled(StyledIonButton)({
   color: "#ec412c",
   borderColor: "#ec412c",
   backgroundColor: "rgba(236,65,44,.1)",
-  "&:hover": { background: `#ec412c`, color: "#ffffff" },
+  "&:hover": { background: `#ec412c`, color: "#ffffff" }
 });
 
 const FacebookButton = styled(StyledIonButton)({
@@ -35,7 +35,7 @@ const FacebookButton = styled(StyledIonButton)({
   color: "#3765c9",
   borderColor: "#3765c9",
   backgroundColor: "rgba(55,101,201,.1)",
-  "&:hover": { background: `#3765c9`, color: "#ffffff" },
+  "&:hover": { background: `#3765c9`, color: "#ffffff" }
 });
 
 const TwitterButton = styled(StyledIonButton)({
@@ -43,13 +43,13 @@ const TwitterButton = styled(StyledIonButton)({
   color: "#039ff5",
   borderColor: "#039ff5",
   backgroundColor: "rgba(3,159,245,.1)",
-  "&:hover": { background: `#039ff5`, color: "#ffffff" },
+  "&:hover": { background: `#039ff5`, color: "#ffffff" }
 });
 
 const ContentBox = styled(FlexBetween)({
   padding: "20px",
   margin: "-8px",
-  flexWrap: "wrap",
+  flexWrap: "wrap"
 });
 
 const UserList1 = () => {

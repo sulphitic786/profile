@@ -1,5 +1,5 @@
 import { Divider, styled, Tab, Tabs } from "@mui/material";
-import { Breadcrumb } from "app/components";
+import { Breadcrumb } from "../../../../components";
 import { useState } from "react";
 import CustomerDetails from "./CustomerDetails";
 import CustomerInvoice from "./CustomerInvoice";
@@ -10,8 +10,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const CustomerViewer = () => {

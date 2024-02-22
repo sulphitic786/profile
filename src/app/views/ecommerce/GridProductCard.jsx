@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import { Box, Card, styled } from '@mui/material';
-import { AddToCartButton } from 'app/components';
-import { FlexAlignCenter } from 'app/components/FlexBox';
-import { H5 } from 'app/components/Typography';
-// import { addToCart, removeQtyFromCart } from "app/redux/slices/cartSlice";
+import React, { useState } from "react";
+import { Box, Card, styled } from "@mui/material";
+import { AddToCartButton } from "../../components";
+import { FlexAlignCenter } from "../../components/FlexBox";
+import { H5 } from "../../components/Typography";
+// import { addToCart, removeQtyFromCart } from "../../redux/slices/cartSlice";
 // import { useDispatch, useSelector } from "react-redux";
 
 const ProductCard = styled(Card)(() => ({
-  textAlign: 'center',
-  position: 'relative',
-  height: '100% !important',
-  '&:hover': { '& .image-box-overlay': { opacity: 1 } }
+  textAlign: "center",
+  position: "relative",
+  height: "100% !important",
+  "&:hover": { "& .image-box-overlay": { opacity: 1 } }
 }));
 
-const IMG = styled('img')(() => ({ width: '100%' }));
+const IMG = styled("img")(() => ({ width: "100%" }));
 
 const PriceBox = styled(Box)(() => ({
-  display: 'flex',
-  alignItems: 'center',
-  position: 'relative',
-  justifyContent: 'center'
+  display: "flex",
+  alignItems: "center",
+  position: "relative",
+  justifyContent: "center"
 }));
 
 const Price = styled(Box)(({ theme }) => ({
@@ -27,12 +27,12 @@ const Price = styled(Box)(({ theme }) => ({
   right: 0,
   zIndex: 4,
   margin: 0,
-  color: 'white',
-  fontWeight: '500',
-  position: 'absolute',
+  color: "white",
+  fontWeight: "500",
+  position: "absolute",
   borderTopLeftRadius: 26,
   borderBottomLeftRadius: 26,
-  padding: '8px 24px 8px 24px',
+  padding: "8px 24px 8px 24px",
   background: theme.palette.primary.main
 }));
 
@@ -43,9 +43,9 @@ const ImageBox = styled(FlexAlignCenter)(() => ({
   zIndex: 2,
   bottom: 0,
   opacity: 0,
-  position: 'absolute',
-  background: 'rgba(0, 0, 0, 0.74)',
-  transition: 'all 250ms ease-in-out'
+  position: "absolute",
+  background: "rgba(0, 0, 0, 0.74)",
+  transition: "all 250ms ease-in-out"
 }));
 
 const GridProductCard = ({ product }) => {
@@ -86,7 +86,7 @@ const GridProductCard = ({ product }) => {
         totalUnit={product.totalUnit}
         handleAddCart={handleAddCart}
         handleRemoveCart={handleRemoveCart}
-        propStyle={{ mb: 2, px: 2, mx: 'auto' }}
+        propStyle={{ mb: 2, px: 2, mx: "auto" }}
       />
     </ProductCard>
   );

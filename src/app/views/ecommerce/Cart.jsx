@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Avatar,
   Box,
@@ -14,16 +14,16 @@ import {
   TableHead,
   TableRow,
   TextField
-} from '@mui/material';
-import { FlexBetween, FlexBox } from 'app/components/FlexBox';
-import { H5, Paragraph } from 'app/components/Typography';
+} from "@mui/material";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { H5, Paragraph } from "../../components/Typography";
 // import { addToCartByQty, removeFromCart } from 'app/redux/slices/cartSlice';
 // import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const CartRoot = styled(Card)(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const Cart = () => {
@@ -121,7 +121,7 @@ const Cart = () => {
                     variant="outlined"
                     value={product.qty}
                     onChange={handleQtyChange(product)}
-                    inputProps={{ style: { width: '60px' } }}
+                    inputProps={{ style: { width: "60px" } }}
                   />
                 </TableCell>
 
@@ -152,7 +152,7 @@ const Cart = () => {
             <Button
               color="primary"
               variant="contained"
-              onClick={() => navigate('/ecommerce/checkout')}
+              onClick={() => navigate("/ecommerce/checkout")}
             >
               Checkout
             </Button>

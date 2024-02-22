@@ -11,20 +11,20 @@ import {
   RadioGroup,
   styled,
   TextField
-} from '@mui/material';
+} from "@mui/material";
 // import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { Paragraph } from 'app/components/Typography';
-import { useState } from 'react';
-import { countries } from '../ecommerce/Country';
+import { Paragraph } from "../../components/Typography";
+import { useState } from "react";
+import { countries } from "../ecommerce/Country";
 
 // styled components
 const StyledCard = styled(Card)(({ theme }) => ({
-  margin: '30px',
-  padding: '24px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+  margin: "30px",
+  padding: "24px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
-const InputField = styled(TextField)({ marginBottom: '16px' });
+const InputField = styled(TextField)({ marginBottom: "16px" });
 
 const PropertyListingForm = () => {
   const [date, setDate] = useState(new Date());
@@ -167,7 +167,7 @@ const PropertyListingForm = () => {
               key={ind}
               label={item}
               control={<Checkbox />}
-              sx={{ height: 32, display: 'block' }}
+              sx={{ height: 32, display: "block" }}
             />
           ))}
         </Box>
@@ -212,7 +212,7 @@ const PropertyListingForm = () => {
         />
 
         <Box display="flex" justifyContent="center">
-          <Button sx={{ px: '28px' }} variant="contained" color="primary">
+          <Button sx={{ px: "28px" }} variant="contained" color="primary">
             Submit
           </Button>
         </Box>
@@ -221,31 +221,31 @@ const PropertyListingForm = () => {
   );
 };
 
-const stayDurationList = ['Less than a week', 'One week', 'One month', "I'm not sure"];
+const stayDurationList = ["Less than a week", "One week", "One month", "I'm not sure"];
 
 const propertyTypeList = [
-  'Row Land',
-  'Lot in a Development',
-  'Condos',
-  'Single Family Home',
-  'Other'
+  "Row Land",
+  "Lot in a Development",
+  "Condos",
+  "Single Family Home",
+  "Other"
 ];
 
 const locationTypeList = [
-  'Ocean View',
-  'Beach Front',
-  'Near Surf',
-  'In Town',
-  'Farm',
-  'Other',
+  "Ocean View",
+  "Beach Front",
+  "Near Surf",
+  "In Town",
+  "Farm",
+  "Other",
   "Doesn't Matter"
 ];
 
 const budgetList = [
-  '$0 - $50,000',
-  '$50,000 - $100,000',
-  '$100,000 - $500,000',
-  '$500,000 - $1,000,000',
-  '$1,000,000 Plus'
+  "$0 - $50,000",
+  "$50,000 - $100,000",
+  "$100,000 - $500,000",
+  "$500,000 - $1,000,000",
+  "$1,000,000 Plus"
 ];
 export default PropertyListingForm;

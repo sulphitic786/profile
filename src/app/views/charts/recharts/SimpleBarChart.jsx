@@ -1,4 +1,4 @@
-import RechartCreator from "app/components/charts/RechartCreator";
+import RechartCreator from "../../../components/charts/RechartCreator";
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from "recharts";
 
 const SimpleBarChart = ({ height, width, data }) => {

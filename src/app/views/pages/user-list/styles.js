@@ -1,6 +1,6 @@
 import { Button, styled } from "@mui/material";
-import { Paragraph } from "app/components/Typography";
-import { convertHexToRGB } from "app/utils/utils";
+import { Paragraph } from "../../../components/Typography";
+import { convertHexToRGB } from "../../../utils/utils";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   paddingLeft: "20px",

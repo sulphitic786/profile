@@ -8,9 +8,9 @@ import {
   IconButton,
   InputAdornment,
   styled,
-  TextField,
+  TextField
 } from "@mui/material";
-import { Span } from "app/components/Typography";
+import { Span } from "../../components/Typography";
 import { moveCardInList, reorderCardInList, reorderList } from "app/redux/slices/scrumSlice";
 import { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
@@ -24,7 +24,7 @@ const StyledScrollBar = styled(Scrollbar)({
   width: "100%",
   display: "flex",
   position: "relative",
-  paddingBottom: "16px",
+  paddingBottom: "16px"
 });
 
 const StyledCard = styled(Card)({
@@ -32,7 +32,7 @@ const StyledCard = styled(Card)({
   minWidth: 288,
   cursor: "pointer",
   marginLeft: "12px",
-  marginRight: "12px",
+  marginRight: "12px"
 });
 
 const ScrumBoardContainer = ({ list = [], handleAddList, handleAddNewCard }) => {
@@ -80,7 +80,7 @@ const ScrumBoardContainer = ({ list = [], handleAddList, handleAddNewCard }) => 
         boardId: board.id,
         startIndex: source.index,
         listId: source.droppableId,
-        endIndex: destination.index,
+        endIndex: destination.index
       };
 
       dispatch(reorderCardInList(data));
@@ -90,7 +90,7 @@ const ScrumBoardContainer = ({ list = [], handleAddList, handleAddNewCard }) => 
         destination,
         boardId: board.id,
         sourcelistId: source.droppableId,
-        destinationlistId: destination.droppableId,
+        destinationlistId: destination.droppableId
       };
 
       dispatch(moveCardInList(data));
@@ -142,7 +142,7 @@ const ScrumBoardContainer = ({ list = [], handleAddList, handleAddNewCard }) => 
                         <Icon fontSize="small">clear</Icon>
                       </IconButton>
                     </InputAdornment>
-                  ),
+                  )
                 }}
               />
 

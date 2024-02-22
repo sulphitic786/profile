@@ -6,9 +6,9 @@ import {
   InputAdornment,
   Slider,
   styled,
-  TextField,
+  TextField
 } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
+import { FlexBetween } from "../../components/FlexBox";
 
 // styled components
 const FlexBox = styled(Box)({ display: "flex", alignItems: "center" });
@@ -19,7 +19,7 @@ const ListTopbar = ({
   sliderValue,
   handleSldierChange,
   handleInputChange,
-  handleViewChange,
+  handleViewChange
 }) => {
   let marks = [{ value: 25 }, { value: 50 }, { value: 75 }, { value: 100 }];
 
@@ -33,7 +33,7 @@ const ListTopbar = ({
             <InputAdornment position="start">
               <Icon>search</Icon>
             </InputAdornment>
-          ),
+          )
         }}
       />
 

@@ -1,17 +1,17 @@
-import { Box, styled, useMediaQuery, useTheme } from '@mui/material';
-import MatxSidenav from 'app/components/MatxSidenav/MatxSidenav';
-import MatxSidenavContainer from 'app/components/MatxSidenav/MatxSidenavContainer';
-import MatxSidenavContent from 'app/components/MatxSidenav/MatxSidenavContent';
-import { useEffect, useState } from 'react';
-import InboxMessageList from './InboxMessagList';
-import { getAllMessage } from './InboxService';
-import InboxSidenav from './InboxSidenav';
-import InboxTopBar from './InboxTopbar';
+import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
+import MatxSidenav from "../../components/MatxSidenav/MatxSidenav";
+import MatxSidenavContainer from "../../components/MatxSidenav/MatxSidenavContainer";
+import MatxSidenavContent from "../../components/MatxSidenav/MatxSidenavContent";
+import { useEffect, useState } from "react";
+import InboxMessageList from "./InboxMessagList";
+import { getAllMessage } from "./InboxService";
+import InboxSidenav from "./InboxSidenav";
+import InboxTopBar from "./InboxTopbar";
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
-  display: 'flex',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
+  display: "flex",
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const AppInbox = () => {
@@ -21,7 +21,7 @@ const AppInbox = () => {
   const [messageList, setMessageList] = useState([]);
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const toggleSidenav = () => setOpen(!open);
 

@@ -1,16 +1,16 @@
-import { Fab, Icon, IconButton } from '@mui/material';
-import { styled, useTheme } from '@mui/material';
-import useSettings from 'app/hooks/useSettings';
-import clsx from 'clsx';
+import { Fab, Icon, IconButton } from "@mui/material";
+import { styled, useTheme } from "@mui/material";
+import useSettings from "../../hooks/useSettings";
+import clsx from "clsx";
 
-const Toggle = styled('div')(() => ({
-  position: 'fixed',
-  right: '30px',
-  bottom: '50px',
+const Toggle = styled("div")(() => ({
+  position: "fixed",
+  right: "30px",
+  bottom: "50px",
   zIndex: 99,
-  transition: 'all 0.15s ease',
-  '&.open': {
-    right: '10px'
+  transition: "all 0.15s ease",
+  "&.open": {
+    right: "10px"
   }
 }));
 

@@ -7,9 +7,9 @@ import {
   StepLabel,
   Stepper,
   styled,
-  TextField,
+  TextField
 } from "@mui/material";
-import { Span } from "app/components/Typography";
+import { Span } from "../../components/Typography";
 import { useState } from "react";
 
 const InputField = styled(TextField)({ width: "100%" });

@@ -9,9 +9,9 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
+  TableRow
 } from "@mui/material";
-import { ConfirmationDialog } from "app/components";
+import { ConfirmationDialog } from "../../components";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { deleteInvoice, getAllInvoice } from "./InvoiceService";
@@ -19,7 +19,7 @@ import { StyledTable } from "./InvoiceViewer";
 
 const Container = styled(Box)(({ theme }) => ({
   margin: "30px",
-  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const Invoice = styled("small")(({ theme, status }) => ({
@@ -27,16 +27,16 @@ const Invoice = styled("small")(({ theme, status }) => ({
   padding: ".3rem .5rem",
   ...(status === "delivered" && {
     color: theme.palette.primary.main,
-    backgroundColor: alpha(theme.palette.primary.main, 0.1),
+    backgroundColor: alpha(theme.palette.primary.main, 0.1)
   }),
   ...(status === "processing" && {
     color: theme.palette.secondary.main,
-    backgroundColor: alpha(theme.palette.secondary.main, 0.1),
+    backgroundColor: alpha(theme.palette.secondary.main, 0.1)
   }),
   ...(status === "pending" && {
     color: theme.palette.error.main,
-    backgroundColor: alpha(theme.palette.error.main, 0.1),
-  }),
+    backgroundColor: alpha(theme.palette.error.main, 0.1)
+  })
 }));
 
 const InvoiceList = () => {

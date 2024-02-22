@@ -3,22 +3,22 @@ import {
   TimelineContent,
   TimelineDot,
   TimelineItem,
-  TimelineSeparator,
+  TimelineSeparator
 } from "@mui/lab";
 import { styled } from "@mui/material";
-import { H4, Paragraph } from "app/components/Typography";
+import { H4, Paragraph } from "../../../components/Typography";
 import { format } from "date-fns";
 
 const TimelineRoot = styled(TimelineItem)(({ theme }) => ({
   "&:before": {
-    display: "none !important",
+    display: "none !important"
   },
   "& .date": {
     marginTop: 0,
     marginBottom: "20px",
     textTransform: "uppercase",
-    color: theme.palette.text.secondary,
-  },
+    color: theme.palette.text.secondary
+  }
 }));
 
 const RecentUpdateCard = ({ notification, isFirstIndex, isLastIndex }) => {

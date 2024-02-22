@@ -1,5 +1,5 @@
 import { Icon, styled } from "@mui/material";
-import { FlexAlignCenter } from "app/components/FlexBox";
+import { FlexAlignCenter } from "../../components/FlexBox";
 import { themeShadows } from "../../components/MatxTheme/themeColors";
 
 const Container = styled(FlexAlignCenter)(({ theme }) => ({
@@ -9,7 +9,7 @@ const Container = styled(FlexAlignCenter)(({ theme }) => ({
   borderRadius: "300px",
   boxShadow: themeShadows[6],
   background: theme.palette.background.default,
-  "& span": { fontSize: "4rem" },
+  "& span": { fontSize: "4rem" }
 }));
 
 const EmptyMessage = () => {

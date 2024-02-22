@@ -1,6 +1,6 @@
 import { Box, Stack, styled, useTheme } from "@mui/material";
-import Breadcrumb from "app/components/Breadcrumb";
-import SimpleCard from "app/components/SimpleCard";
+import Breadcrumb from "../../../components/Breadcrumb";
+import SimpleCard from "../../../components/SimpleCard";
 import AreaChart from "./AreaChart";
 import ComparisonChart from "./ComparisonChart";
 import DoughnutChart from "./Doughnut";
@@ -11,8 +11,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const AppEchart = () => {
@@ -31,7 +31,7 @@ const AppEchart = () => {
             color={[
               theme.palette.primary.dark,
               theme.palette.primary.main,
-              theme.palette.primary.light,
+              theme.palette.primary.light
             ]}
           />
         </SimpleCard>
@@ -49,7 +49,7 @@ const AppEchart = () => {
             color={[
               theme.palette.primary.dark,
               // theme.palette.primary.main,
-              theme.palette.primary.light,
+              theme.palette.primary.light
             ]}
           />
         </SimpleCard>

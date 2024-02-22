@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel, Grid, MenuItem, TextField } from "@mui/material";
-import { FlexBox } from "app/components/FlexBox";
-import { Paragraph } from "app/components/Typography";
-import { countries } from "app/views/ecommerce/Country";
+import { FlexBox } from "../../../../components/FlexBox";
+import { Paragraph } from "../../../../components/Typography";
+import { countries } from "../../../../views/ecommerce/Country";
 
 const AddressForm = ({ values, setFieldValue, handleChange }) => {
   const handleCheckboxChange = async ({ target: { checked } }) => {

@@ -2,11 +2,11 @@ import { CameraAlt, DateRange, KeyboardArrowDown, MoreHoriz } from "@mui/icons-m
 import { Box, Button, Card, Divider, Grid, styled, TextField, useTheme } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import LinearProgress from "@mui/material/LinearProgress";
-import AvatarBadge from "app/components/AvatarBadge";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import Bratislava from "app/components/icons/Bratislava";
-import MapMarkerIcon from "app/components/icons/MapMarkerIcon";
-import { H4, H5, Small } from "app/components/Typography";
+import AvatarBadge from "../../components/AvatarBadge";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import Bratislava from "../../components/icons/Bratislava";
+import MapMarkerIcon from "../../components/icons/MapMarkerIcon";
+import { H4, H5, Small } from "../../components/Typography";
 import { useFormik } from "formik";
 import { Fragment } from "react";
 import * as Yup from "yup";
@@ -16,7 +16,7 @@ const ContentWrapper = styled(Box)(({ theme }) => ({
   zIndex: 1,
   marginTop: 55,
   position: "relative",
-  [theme.breakpoints.down("sm")]: { paddingLeft: 20, paddingRight: 20 },
+  [theme.breakpoints.down("sm")]: { paddingLeft: 20, paddingRight: 20 }
 }));
 
 const CoverPicWrapper = styled(Box)(() => ({
@@ -26,7 +26,7 @@ const CoverPicWrapper = styled(Box)(() => ({
   width: "100%",
   overflow: "hidden",
   position: "absolute",
-  backgroundColor: "#C6D3ED",
+  backgroundColor: "#C6D3ED"
 }));
 
 const ImageWrapper = styled(Box)(({ theme }) => ({
@@ -37,7 +37,7 @@ const ImageWrapper = styled(Box)(({ theme }) => ({
   borderRadius: "50%",
   border: "2px solid",
   borderColor: "white",
-  backgroundColor: theme.palette.primary[200],
+  backgroundColor: theme.palette.primary[200]
 }));
 
 const BasicInformation = () => {
@@ -53,7 +53,7 @@ const BasicInformation = () => {
     country: "usa",
     state: "New York",
     address: "Corverview, Michigan",
-    zipCode: 4336,
+    zipCode: 4336
   };
 
   const validationSchema = Yup.object({
@@ -68,13 +68,13 @@ const BasicInformation = () => {
     country: Yup.string().required("Country is Required!"),
     state: Yup.string().required("State is Required!"),
     address: Yup.string().required("Address is Required!"),
-    zipCode: Yup.number().required("Zip Code is Required!"),
+    zipCode: Yup.number().required("Zip Code is Required!")
   });
 
   const { values, errors, handleSubmit, handleChange, handleBlur, touched } = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => console.log(values),
+    onSubmit: (values) => console.log(values)
   });
 
   return (
@@ -167,8 +167,8 @@ const BasicInformation = () => {
                 sx={{
                   [theme.breakpoints.down(600)]: { maxWidth: "100%" },
                   [theme.breakpoints.down(400)]: {
-                    "& .MuiButtonBase-root": { width: "100%", mb: 1 },
-                  },
+                    "& .MuiButtonBase-root": { width: "100%", mb: 1 }
+                  }
                 }}
               >
                 <Button variant="outlined">Follow</Button>

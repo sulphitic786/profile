@@ -12,24 +12,24 @@ import {
   TableHead,
   TableRow,
   TextField
-} from '@mui/material';
+} from "@mui/material";
 // import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { FlexBetween, FlexBox } from 'app/components/FlexBox';
-import { H5, Paragraph } from 'app/components/Typography';
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import shortid from 'shortid';
-import { addInvoice, getInvoiceById, updateInvoice } from './InvoiceService';
-import { StyledTable } from './InvoiceViewer';
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { H5, Paragraph } from "../../components/Typography";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import shortid from "shortid";
+import { addInvoice, getInvoiceById, updateInvoice } from "./InvoiceService";
+import { StyledTable } from "./InvoiceViewer";
 
-const StyledH5 = styled('h5')({ fontSize: 15 });
+const StyledH5 = styled("h5")({ fontSize: 15 });
 
-const FlexEndBox = styled(FlexBox)({ justifyContent: 'flex-end' });
+const FlexEndBox = styled(FlexBox)({ justifyContent: "flex-end" });
 
 const FormBox = styled(Box)({
-  display: 'flex',
-  justifyContent: 'space-between',
-  '& .label': { height: 32 }
+  display: "flex",
+  justifyContent: "space-between",
+  "& .label": { height: 32 }
 });
 
 const InvoiceEditor = ({ isNewInvoice, toggleInvoiceEditor }) => {
@@ -63,7 +63,7 @@ const InvoiceEditor = ({ isNewInvoice, toggleInvoiceEditor }) => {
 
   const addItemToInvoiceList = () => {
     let tempItemList = [...state.item];
-    tempItemList.push({ name: '', unit: '', price: '' });
+    tempItemList.push({ name: "", unit: "", price: "" });
     setState({ ...state, item: tempItemList });
   };
 
@@ -147,7 +147,7 @@ const InvoiceEditor = ({ isNewInvoice, toggleInvoiceEditor }) => {
           </Box>
 
           <Box>
-            <FormControl component="fieldset" sx={{ mb: 2, width: '100%' }}>
+            <FormControl component="fieldset" sx={{ mb: 2, width: "100%" }}>
               <RadioGroup aria-label="status" name="status" value={status} onChange={handleChange}>
                 <FormControlLabel
                   value="pending"
@@ -176,7 +176,7 @@ const InvoiceEditor = ({ isNewInvoice, toggleInvoiceEditor }) => {
             </FormControl>
 
             <Box textAlign="right">
-              <StyledH5 sx={{ fontWeight: '500' }}>
+              <StyledH5 sx={{ fontWeight: "500" }}>
                 <strong>Order date: </strong>
               </StyledH5>
             </Box>
@@ -195,15 +195,15 @@ const InvoiceEditor = ({ isNewInvoice, toggleInvoiceEditor }) => {
 
         <FlexBetween flexWrap="nowrap" gap={2} px={2} mb={2}>
           <Box maxWidth={400} width="100%">
-            <StyledH5 sx={{ mb: '20px' }}>Bill From</StyledH5>
+            <StyledH5 sx={{ mb: "20px" }}>Bill From</StyledH5>
             <TextField
               fullWidth
               name="name"
               type="text"
-              sx={{ mb: '20px' }}
+              sx={{ mb: "20px" }}
               label="Seller Name"
               value={seller ? seller.name : null}
-              onChange={(event) => handleSellerBuyerChange(event, 'seller')}
+              onChange={(event) => handleSellerBuyerChange(event, "seller")}
             />
             <TextField
               rows={4}
@@ -213,20 +213,20 @@ const InvoiceEditor = ({ isNewInvoice, toggleInvoiceEditor }) => {
               multiline={true}
               label="Seller Name"
               value={seller ? seller.address : null}
-              onChange={(event) => handleSellerBuyerChange(event, 'seller')}
+              onChange={(event) => handleSellerBuyerChange(event, "seller")}
             />
           </Box>
 
           <Box maxWidth={400} width="100%">
-            <StyledH5 sx={{ mb: '20px' }}>Bill To</StyledH5>
+            <StyledH5 sx={{ mb: "20px" }}>Bill To</StyledH5>
             <TextField
               fullWidth
               type="text"
               name="name"
               label="Buyer Name"
-              sx={{ mb: '20px' }}
+              sx={{ mb: "20px" }}
               value={buyer ? buyer.name : null}
-              onChange={(event) => handleSellerBuyerChange(event, 'buyer')}
+              onChange={(event) => handleSellerBuyerChange(event, "buyer")}
             />
             <TextField
               rows={4}
@@ -236,7 +236,7 @@ const InvoiceEditor = ({ isNewInvoice, toggleInvoiceEditor }) => {
               multiline={true}
               label="Buyer Address"
               value={buyer ? buyer.address : null}
-              onChange={(event) => handleSellerBuyerChange(event, 'buyer')}
+              onChange={(event) => handleSellerBuyerChange(event, "buyer")}
             />
           </Box>
         </FlexBetween>
@@ -359,16 +359,16 @@ const InvoiceEditor = ({ isNewInvoice, toggleInvoiceEditor }) => {
 };
 
 const initialValues = {
-  id: '',
-  vat: '',
+  id: "",
+  vat: "",
   item: [],
-  status: '',
-  orderNo: '',
-  currency: '',
+  status: "",
+  orderNo: "",
+  currency: "",
   loading: false,
   date: new Date(),
-  buyer: { name: '', address: '' },
-  seller: { name: '', address: '' }
+  buyer: { name: "", address: "" },
+  seller: { name: "", address: "" }
 };
 
 export default InvoiceEditor;

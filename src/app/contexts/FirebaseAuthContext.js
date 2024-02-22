@@ -1,5 +1,5 @@
-import { MatxLoading } from "app/components";
-import { firebaseConfig } from "config.js";
+import { MatxLoading } from "../components";
+import { firebaseConfig } from "../../config.js";
 import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,

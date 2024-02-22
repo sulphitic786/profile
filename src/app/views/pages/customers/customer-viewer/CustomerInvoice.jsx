@@ -8,22 +8,22 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow,
+  TableRow
 } from "@mui/material";
-import { H3, Small } from "app/components/Typography";
+import { H3, Small } from "../../../../components/Typography";
 import { format } from "date-fns";
 
 const StyledCell = styled(TableCell)({
   paddingTop: "4px",
   paddingBottom: "4px",
-  textTransform: "capitalize",
+  textTransform: "capitalize"
 });
 
 const StyedSmall = styled(Small)(({ theme, status }) => ({
   color: "#fff",
   padding: "2px 8px",
   borderRadius: "4px",
-  background: status === "paid" ? "#08ad6c" : status === "unpaid" && theme.palette.error.main,
+  background: status === "paid" ? "#08ad6c" : status === "unpaid" && theme.palette.error.main
 }));
 
 const CustomerInvoice = () => {
@@ -95,7 +95,7 @@ const invoiceList = [
     description: "Bit Bass Headphone",
     method: "PayPal",
     total: 15.25,
-    status: "paid",
+    status: "paid"
   },
   {
     _id: "5ece2cef3efdsfsdfcbd61996",
@@ -103,7 +103,7 @@ const invoiceList = [
     description: "Comlion Watch",
     method: "Visa Card",
     total: 75.25,
-    status: "unpaid",
+    status: "unpaid"
   },
   {
     _id: "5ece2cef3e56dsfdsfds61996",
@@ -111,7 +111,7 @@ const invoiceList = [
     description: "Beats Headphone",
     method: "Master Card",
     total: 45.25,
-    status: "paid",
-  },
+    status: "paid"
+  }
 ];
 export default CustomerInvoice;

@@ -1,4 +1,4 @@
-import RechartCreator from "app/components/charts/RechartCreator";
+import RechartCreator from "../../../components/charts/RechartCreator";
 import { CartesianGrid, Scatter, ScatterChart, Tooltip, XAxis, YAxis } from "recharts";
 
 const data = [
@@ -10,7 +10,7 @@ const data = [
   { x: 110, y: 300, z: 100 },
   { x: 130, y: 250, z: 380 },
   { x: 110, y: 400, z: 400 },
-  { x: 190, y: 280, z: 700 },
+  { x: 190, y: 280, z: 700 }
 ];
 
 const SimpleScatterChart = ({ height, width }) => {
@@ -21,7 +21,7 @@ const SimpleScatterChart = ({ height, width }) => {
           top: 20,
           right: 20,
           bottom: 20,
-          left: 20,
+          left: 20
         }}
       >
         <CartesianGrid />

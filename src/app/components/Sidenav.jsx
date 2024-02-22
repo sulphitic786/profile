@@ -1,11 +1,11 @@
 // import { Fragment } from 'react';
 // import Scrollbar from 'react-perfect-scrollbar';
 // import { styled } from '@mui/material';
-// import { MatxVerticalNav } from 'app/components';
-// import useSettings from 'app/hooks/useSettings';
-// import useAuth from 'app/hooks/useAuth';
-// import { navigations } from 'app/navigations';
-// import { stringToJson } from 'app/utils/utils';
+// import { MatxVerticalNav } from '../components';
+// import useSettings from '../hooks/useSettings';
+// import useAuth from '../hooks/useAuth';
+// import { navigations } from '../navigations';
+// import { stringToJson } from '../utils/utils';
 // import { json } from 'react-router-dom';
 
 // const StyledScrollBar = styled(Scrollbar)(() => ({
@@ -86,31 +86,31 @@
 
 // export default Sidenav;
 
-import { Fragment, useEffect, useState } from 'react';
-import Scrollbar from 'react-perfect-scrollbar';
-import { styled } from '@mui/material';
-import { MatxVerticalNav } from 'app/components';
-import useSettings from 'app/hooks/useSettings';
-import useAuth from 'app/hooks/useAuth';
-import { navigations } from 'app/navigations';
-import { stringToJson } from 'app/utils/utils';
+import { Fragment, useEffect, useState } from "react";
+import Scrollbar from "react-perfect-scrollbar";
+import { styled } from "@mui/material";
+import { MatxVerticalNav } from "../components";
+import useSettings from "../hooks/useSettings";
+import useAuth from "../hooks/useAuth";
+import { navigations } from "../navigations";
+import { stringToJson } from "../utils/utils";
 
 const StyledScrollBar = styled(Scrollbar)(() => ({
-  paddingLeft: '1rem',
-  paddingRight: '1rem',
-  position: 'relative'
+  paddingLeft: "1rem",
+  paddingRight: "1rem",
+  position: "relative"
 }));
 
-const SideNavMobile = styled('div')(({ theme }) => ({
-  position: 'fixed',
+const SideNavMobile = styled("div")(({ theme }) => ({
+  position: "fixed",
   top: 0,
   left: 0,
   bottom: 0,
   right: 0,
-  width: '100vw',
-  background: 'rgba(0, 0, 0, 0.54)',
+  width: "100vw",
+  background: "rgba(0, 0, 0, 0.54)",
   zIndex: -1,
-  [theme.breakpoints.up('lg')]: { display: 'none' }
+  [theme.breakpoints.up("lg")]: { display: "none" }
 }));
 
 const filterNavigations = (navigations, userRoles) => {
@@ -135,7 +135,7 @@ const Sidenav = ({ children }) => {
   const { settings, updateSettings } = useSettings();
   const { user } = useAuth();
   const [filteredNavigations, setFilteredNavigations] = useState([]);
-  const userData = stringToJson(sessionStorage.getItem('userData'));
+  const userData = stringToJson(sessionStorage.getItem("userData"));
   const userRoles = userData?.roles || [];
 
   useEffect(() => {
@@ -144,7 +144,7 @@ const Sidenav = ({ children }) => {
   }, [user]);
 
   const updateSidebarMode = (sidebarSettings) => {
-    let activeLayoutSettingsName = settings.activeLayout + 'Settings';
+    let activeLayoutSettingsName = settings.activeLayout + "Settings";
     let activeLayoutSettings = settings[activeLayoutSettingsName];
 
     updateSettings({
@@ -166,7 +166,7 @@ const Sidenav = ({ children }) => {
         <MatxVerticalNav items={filteredNavigations} />
       </StyledScrollBar>
 
-      <SideNavMobile onClick={() => updateSidebarMode({ mode: 'close' })} />
+      <SideNavMobile onClick={() => updateSidebarMode({ mode: "close" })} />
     </Fragment>
   );
 };

@@ -8,33 +8,33 @@ import {
   Select,
   Stack,
   styled,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { FlexBetween } from "app/components/FlexBox";
-import { H5, Paragraph, Span } from "app/components/Typography";
+import { FlexBetween } from "../../components/FlexBox";
+import { H5, Paragraph, Span } from "../../components/Typography";
 import { BodyTableCell, HeadTableCell } from "./common/StyledComponents";
 
 // styled components
 const EarningBoxWrapper = styled(FlexBetween)(({ theme }) => ({
   [theme.breakpoints.down(555)]: {
     flexDirection: "column",
-    "& > .MuiButton-root": { width: "100%" },
+    "& > .MuiButton-root": { width: "100%" }
   },
   [theme.breakpoints.down(706)]: {
-    "& > .MuiButton-root": { marginTop: 16 },
-  },
+    "& > .MuiButton-root": { marginTop: 16 }
+  }
 }));
 
 const StyledStack = styled(Stack)(({ theme }) => ({
   [theme.breakpoints.down(555)]: {
     width: "100%",
     flexDirection: "column",
-    "& > .MuiBox-root": { marginLeft: 0, width: "100%", marginBottom: 16 },
-  },
+    "& > .MuiBox-root": { marginLeft: 0, width: "100%", marginBottom: 16 }
+  }
 }));
 
 const EarningBox = styled(Box)(({ theme }) => ({
@@ -43,7 +43,7 @@ const EarningBox = styled(Box)(({ theme }) => ({
   paddingBottom: 8,
   textAlign: "center",
   borderRadius: "8px",
-  border: `1px solid ${theme.palette.grey[100]}`,
+  border: `1px solid ${theme.palette.grey[100]}`
 }));
 
 const Statements = () => {
@@ -54,22 +54,22 @@ const Statements = () => {
       amount: 4550,
       Icon: ShowChart,
       name: "Net Earnings",
-      iconColor: theme.palette.primary.main,
+      iconColor: theme.palette.primary.main
     },
     {
       id: 2,
       amount: 80,
       name: "Change",
       Icon: DonutLarge,
-      iconColor: theme.palette.warning.main,
+      iconColor: theme.palette.warning.main
     },
     {
       id: 3,
       amount: 2800,
       name: "Fees",
       Icon: ReceiptOutlined,
-      iconColor: theme.palette.info.main,
-    },
+      iconColor: theme.palette.info.main
+    }
   ];
 
   return (

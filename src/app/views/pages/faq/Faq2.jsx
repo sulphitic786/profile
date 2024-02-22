@@ -9,16 +9,16 @@ import {
   styled,
   Tab,
   Tabs,
-  TextField,
+  TextField
 } from "@mui/material";
-import { FlexAlignCenter } from "app/components/FlexBox";
+import { FlexAlignCenter } from "../../../components/FlexBox";
 import { useState } from "react";
 
 // styled components
 const ContentBox = styled(FlexAlignCenter)(({ theme }) => ({
   flexDirection: "column",
   padding: "68px 16px 100px 16px",
-  background: theme.palette.primary.main,
+  background: theme.palette.primary.main
 }));
 
 const CardRoot = styled(Card)(({ theme }) => ({
@@ -29,8 +29,8 @@ const CardRoot = styled(Card)(({ theme }) => ({
   borderRadius: "8px",
   [theme.breakpoints.down("sm")]: {
     marginLeft: "0.5rem",
-    marginRight: "0.5rem",
-  },
+    marginRight: "0.5rem"
+  }
 }));
 
 const Faq2 = () => {
@@ -59,7 +59,7 @@ const Faq2 = () => {
                 Search
               </Button>
             ),
-            style: { background: "white" },
+            style: { background: "white" }
           }}
         />
       </ContentBox>
@@ -174,13 +174,13 @@ const Faq2 = () => {
 const questionList1 = [
   { title: "How to install?" },
   { title: "How can I change colors?" },
-  { title: "How to add page?" },
+  { title: "How to add page?" }
 ];
 
 const questionList2 = [
   { title: "How would I get refund?" },
   { title: "How long will it take to reach product?" },
   { title: "What's the refund policy?" },
-  { title: "What's the customer protection policy?" },
+  { title: "What's the customer protection policy?" }
 ];
 export default Faq2;

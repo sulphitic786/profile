@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { Button, Card, Grid, Icon, Rating, styled, useTheme } from '@mui/material';
-import { AddToCartButton } from 'app/components';
-import { FlexAlignCenter, FlexBetween } from 'app/components/FlexBox';
-import { H3, H5, Paragraph } from 'app/components/Typography';
-// import { addToCart, removeQtyFromCart } from "app/redux/slices/cartSlice";
+import React, { useState } from "react";
+import { Button, Card, Grid, Icon, Rating, styled, useTheme } from "@mui/material";
+import { AddToCartButton } from "../../components";
+import { FlexAlignCenter, FlexBetween } from "../../components/FlexBox";
+import { H3, H5, Paragraph } from "../../components/Typography";
+// import { addToCart, removeQtyFromCart } from "../../redux/slices/cartSlice";
 // import { useDispatch, useSelector } from "react-redux";
 
 const ProductCard = styled(Card)(() => ({
   padding: 16,
-  position: 'relative',
-  height: '100% !important',
-  '&:hover': { '& .image-box-overlay': { opacity: 1 } }
+  position: "relative",
+  height: "100% !important",
+  "&:hover": { "& .image-box-overlay": { opacity: 1 } }
 }));
 
-const IMG = styled('img')(() => ({ width: '100%' }));
+const IMG = styled("img")(() => ({ width: "100%" }));
 
 const ImageBox = styled(FlexAlignCenter)(() => ({
   top: 0,
@@ -22,9 +22,9 @@ const ImageBox = styled(FlexAlignCenter)(() => ({
   bottom: 0,
   zIndex: 2,
   opacity: 0,
-  position: 'absolute',
-  background: 'rgba(0, 0, 0, 0.74)',
-  transition: 'all 250ms ease-in-out'
+  position: "absolute",
+  background: "rgba(0, 0, 0, 0.74)",
+  transition: "all 250ms ease-in-out"
 }));
 
 const ListProductCard = ({ product }) => {
@@ -72,7 +72,7 @@ const ListProductCard = ({ product }) => {
           </FlexAlignCenter>
         </Grid>
 
-        <Grid item sm={6} xs={12} sx={{ p: '12px' }}>
+        <Grid item sm={6} xs={12} sx={{ p: "12px" }}>
           <H3>{product.title}</H3>
 
           <FlexBetween mb={2}>

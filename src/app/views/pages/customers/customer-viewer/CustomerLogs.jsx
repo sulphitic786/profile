@@ -1,5 +1,5 @@
 import { Card, Fade, styled, Table, TableBody, TableCell, TableRow } from "@mui/material";
-import { H3, Small } from "app/components/Typography";
+import { H3, Small } from "../../../../components/Typography";
 import { format } from "date-fns";
 
 const StyledCell = styled(TableCell)({ textTransform: "capitalize" });
@@ -10,7 +10,7 @@ const StyedSmall = styled(Small)(({ theme, status }) => ({
   borderRadius: "4px",
   background: status.toString().includes(2)
     ? "#08ad6c"
-    : status.toString().includes(4) && theme.palette.error.main,
+    : status.toString().includes(4) && theme.palette.error.main
 }));
 
 const CustomerLogs = () => {
@@ -57,7 +57,7 @@ const logList = [
     description: "/api/shop",
     method: "PayPal",
     ip: "110.145.15.25",
-    status: 200,
+    status: 200
   },
   {
     type: "POST",
@@ -65,7 +65,7 @@ const logList = [
     description: "/api/customer",
     method: "Visa Card",
     ip: "110.145.75.25",
-    status: 401,
+    status: 401
   },
   {
     type: "GET",
@@ -73,7 +73,7 @@ const logList = [
     description: "/api/get-customer-details",
     method: "Master Card",
     ip: "110.145.45.25",
-    status: 200,
+    status: 200
   },
   {
     type: "DELETE",
@@ -81,7 +81,7 @@ const logList = [
     description: "/api/delete-customer",
     method: "Master Card",
     ip: "110.145.45.25",
-    status: 200,
-  },
+    status: 200
+  }
 ];
 export default CustomerLogs;

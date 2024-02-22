@@ -1,7 +1,7 @@
 import { Card, Grid, styled, useTheme } from "@mui/material";
-import Breadcrumb from "app/components/Breadcrumb";
-import { H2 } from "app/components/Typography";
-import { convertHexToRGB } from "app/utils/utils";
+import Breadcrumb from "../../../components/Breadcrumb";
+import { H2 } from "../../../components/Typography";
+import { convertHexToRGB } from "../../../utils/utils";
 import AdvanceAreaChart from "./AdvanceAreaChart";
 import AdvanceLineChart from "./AdvanceLineChart";
 import AdvanceLineChart2 from "./AdvanceLineChart2";
@@ -13,8 +13,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const ApexCharts = () => {
@@ -47,7 +47,7 @@ const ApexCharts = () => {
             <AdvanceLineChart2
               chartData={[
                 { name: "Like", data: [40, 80, 20, 90, 30, 80, 40, 90, 130] },
-                { name: "Average like per day", data: [40, 60, 10, 70, 50, 90, 70, 60, 80] },
+                { name: "Average like per day", data: [40, 60, 10, 70, 50, 90, 70, 60, 80] }
               ]}
               colors={[textError, textMuted]}
               height={320}
@@ -68,11 +68,11 @@ const ApexCharts = () => {
         <AdvanceAreaChart
           chartData={[
             { name: "Series 1", data: [20, 90, 20, 90, 20, 90, 20] },
-            { name: "Series 2", data: [90, 20, 90, 20, 90, 20, 90] },
+            { name: "Series 2", data: [90, 20, 90, 20, 90, 20, 90] }
           ]}
           colors={[
             `rgba(${convertHexToRGB(palette.primary.main)}, 0.4)`,
-            `rgba(${convertHexToRGB(palette.text.secondary)}, 0.3)`,
+            `rgba(${convertHexToRGB(palette.text.secondary)}, 0.3)`
           ]}
           height={380}
         />
@@ -86,51 +86,51 @@ const ApexCharts = () => {
               name: "Sat",
               data: [
                 40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                145,
-              ],
+                145
+              ]
             },
             {
               name: "Sun",
               data: [
                 40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                145,
-              ],
+                145
+              ]
             },
             {
               name: "Mon",
               data: [
                 40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                145,
-              ],
+                145
+              ]
             },
             {
               name: "Tue",
               data: [
                 40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                145,
-              ],
+                145
+              ]
             },
             {
               name: "Wed",
               data: [
                 40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                145,
-              ],
+                145
+              ]
             },
             {
               name: "Thu",
               data: [
                 40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                145,
-              ],
+                145
+              ]
             },
             {
               name: "Fri",
               data: [
                 40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                145,
-              ],
-            },
+                145
+              ]
+            }
           ]}
           height={350}
         />

@@ -1,5 +1,5 @@
 import { Box, Button, Card, Divider, Stack, Switch, TextField } from "@mui/material";
-import { H5, Paragraph } from "app/components/Typography";
+import { H5, Paragraph } from "../../components/Typography";
 
 const TwoStepVerification = () => {
   return (

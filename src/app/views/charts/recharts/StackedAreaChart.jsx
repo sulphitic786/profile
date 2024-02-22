@@ -1,4 +1,4 @@
-import RechartCreator from "app/components/charts/RechartCreator";
+import RechartCreator from "../../../components/charts/RechartCreator";
 import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
 
 const StackedAreaChart = ({ height, width, data }) => {

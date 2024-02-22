@@ -8,15 +8,15 @@ import {
   InputAdornment,
   MenuItem,
   styled,
-  TextField,
+  TextField
 } from "@mui/material";
-import { MatxMenu } from "app/components";
-import { FlexBetween } from "app/components/FlexBox";
-import { H4 } from "app/components/Typography";
+import { MatxMenu } from "../../components";
+import { FlexBetween } from "../../components/FlexBox";
+import { H4 } from "../../components/Typography";
 import {
   addNewCardInList,
   deleteListFromBoard,
-  renameListInBoard,
+  renameListInBoard
 } from "app/redux/slices/scrumSlice";
 import { useEffect, useState } from "react";
 import { Draggable, Droppable } from "react-beautiful-dnd";
@@ -29,14 +29,14 @@ const StyledItem = styled(MenuItem)({
   minWidth: 148,
   display: "flex",
   alignItems: "center",
-  "& span": { paddingLeft: "16px" },
+  "& span": { paddingLeft: "16px" }
 });
 
 const StyledScrollBar = styled(Scrollbar)({
   height: 380,
   position: "relative",
   paddingLeft: "16px",
-  paddingRight: "16px",
+  paddingRight: "16px"
 });
 
 const StyledCard = styled(Card)({
@@ -45,7 +45,7 @@ const StyledCard = styled(Card)({
   borderRadius: 0,
   cursor: "pointer",
   position: "absolute",
-  bottom: "0",
+  bottom: "0"
 });
 
 const BoardList = ({ data, handleCardClick }) => {
@@ -131,7 +131,7 @@ const BoardList = ({ data, handleCardClick }) => {
                             <Icon fontSize="small">done</Icon>
                           </IconButton>
                         </InputAdornment>
-                      ),
+                      )
                     }}
                   />
                 </ClickAwayListener>
@@ -207,7 +207,7 @@ const BoardList = ({ data, handleCardClick }) => {
                       <Icon fontSize="small">clear</Icon>
                     </IconButton>
                   </InputAdornment>
-                ),
+                )
               }}
             />
             <Box display="flex" justifyContent="flex-end">

@@ -1,76 +1,76 @@
-import { Box, ButtonBase, Icon, styled } from '@mui/material';
-import useSettings from 'app/hooks/useSettings';
-import React, { Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Paragraph, Span } from '../Typography';
-import MatxVerticalNavExpansionPanel from './MatxVerticalNavExpansionPanel';
+import { Box, ButtonBase, Icon, styled } from "@mui/material";
+import useSettings from "../..//hooks/useSettings";
+import React, { Fragment } from "react";
+import { NavLink } from "react-router-dom";
+import { Paragraph, Span } from "../Typography";
+import MatxVerticalNavExpansionPanel from "./MatxVerticalNavExpansionPanel";
 
 const ListLabel = styled(Paragraph)(({ theme, mode }) => ({
-  fontSize: '12px',
-  marginTop: '20px',
-  marginLeft: '15px',
-  marginBottom: '10px',
-  textTransform: 'uppercase',
-  display: mode === 'compact' && 'none',
+  fontSize: "12px",
+  marginTop: "20px",
+  marginLeft: "15px",
+  marginBottom: "10px",
+  textTransform: "uppercase",
+  display: mode === "compact" && "none",
   color: theme.palette.text.secondary
 }));
 
 const ExtAndIntCommon = {
-  display: 'flex',
-  overflow: 'hidden',
-  borderRadius: '4px',
+  display: "flex",
+  overflow: "hidden",
+  borderRadius: "4px",
   height: 44,
-  whiteSpace: 'pre',
-  marginBottom: '8px',
-  textDecoration: 'none',
-  justifyContent: 'space-between',
-  transition: 'all 150ms ease-in',
-  '&:hover': { background: 'rgba(255, 255, 255, 0.08)' },
-  '&.compactNavItem': {
-    overflow: 'hidden',
-    justifyContent: 'center !important'
+  whiteSpace: "pre",
+  marginBottom: "8px",
+  textDecoration: "none",
+  justifyContent: "space-between",
+  transition: "all 150ms ease-in",
+  "&:hover": { background: "rgba(255, 255, 255, 0.08)" },
+  "&.compactNavItem": {
+    overflow: "hidden",
+    justifyContent: "center !important"
   },
-  '& .icon': {
-    fontSize: '18px',
-    paddingLeft: '16px',
-    paddingRight: '16px',
-    verticalAlign: 'middle'
+  "& .icon": {
+    fontSize: "18px",
+    paddingLeft: "16px",
+    paddingRight: "16px",
+    verticalAlign: "middle"
   }
 };
-const ExternalLink = styled('a')(({ theme }) => ({
+const ExternalLink = styled("a")(({ theme }) => ({
   ...ExtAndIntCommon,
   color: theme.palette.text.primary
 }));
 
 const InternalLink = styled(Box)(({ theme }) => ({
-  '& a': {
+  "& a": {
     ...ExtAndIntCommon,
     color: theme.palette.text.primary
   },
-  '& .navItemActive': {
-    backgroundColor: 'rgba(255, 255, 255, 0.16)'
+  "& .navItemActive": {
+    backgroundColor: "rgba(255, 255, 255, 0.16)"
   }
 }));
 
 const StyledText = styled(Span)(({ mode }) => ({
-  fontSize: '0.875rem',
-  paddingLeft: '0.8rem',
-  display: mode === 'compact' && 'none'
+  fontSize: "0.875rem",
+  paddingLeft: "0.8rem",
+  display: mode === "compact" && "none"
 }));
 
-const BulletIcon = styled('div')(({ theme }) => ({
-  padding: '2px',
-  marginLeft: '24px',
-  marginRight: '8px',
-  overflow: 'hidden',
-  borderRadius: '300px',
+const BulletIcon = styled("div")(({ theme }) => ({
+  padding: "2px",
+  marginLeft: "24px",
+  marginRight: "8px",
+  overflow: "hidden",
+  borderRadius: "300px",
   background: theme.palette.text.primary
 }));
 
-const BadgeValue = styled('div')(() => ({
-  padding: '1px 8px',
-  overflow: 'hidden',
-  borderRadius: '300px'
+const BadgeValue = styled("div")(() => ({
+  padding: "1px 8px",
+  overflow: "hidden",
+  borderRadius: "300px"
 }));
 
 const MatxVerticalNav = ({ items }) => {
@@ -81,7 +81,7 @@ const MatxVerticalNav = ({ items }) => {
     return (
       data &&
       data?.map((item, index) => {
-        if (item.type === 'label')
+        if (item.type === "label")
           return (
             <ListLabel key={index} mode={mode} className="sidenavHoverShow">
               {item.label}
@@ -94,16 +94,16 @@ const MatxVerticalNav = ({ items }) => {
               {renderLevels(item.children)}
             </MatxVerticalNavExpansionPanel>
           );
-        } else if (item.type === 'extLink') {
+        } else if (item.type === "extLink") {
           return (
             <ExternalLink
               key={index}
               href={item.path}
-              className={`${mode === 'compact' && 'compactNavItem'}`}
+              className={`${mode === "compact" && "compactNavItem"}`}
               rel="noopener noreferrer"
               target="_blank"
             >
-              <ButtonBase key={item.name} name="child" sx={{ width: '100%' }}>
+              <ButtonBase key={item.name} name="child" sx={{ width: "100%" }}>
                 {(() => {
                   if (item.icon) {
                     return <Icon className="icon">{item.icon}</Icon>;
@@ -126,11 +126,11 @@ const MatxVerticalNav = ({ items }) => {
                 to={item.path}
                 className={({ isActive }) =>
                   isActive
-                    ? `navItemActive ${mode === 'compact' && 'compactNavItem'}`
-                    : `${mode === 'compact' && 'compactNavItem'}`
+                    ? `navItemActive ${mode === "compact" && "compactNavItem"}`
+                    : `${mode === "compact" && "compactNavItem"}`
                 }
               >
-                <ButtonBase key={item.name} name="child" sx={{ width: '100%' }}>
+                <ButtonBase key={item.name} name="child" sx={{ width: "100%" }}>
                   {item?.icon ? (
                     <Icon className="icon" sx={{ width: 36 }}>
                       {item.icon}
@@ -139,14 +139,14 @@ const MatxVerticalNav = ({ items }) => {
                     <Fragment>
                       <BulletIcon
                         className={`nav-bullet`}
-                        sx={{ display: mode === 'compact' && 'none' }}
+                        sx={{ display: mode === "compact" && "none" }}
                       />
                       <Box
                         className="nav-bullet-text"
                         sx={{
-                          ml: '20px',
-                          fontSize: '11px',
-                          display: mode !== 'compact' && 'none'
+                          ml: "20px",
+                          fontSize: "11px",
+                          display: mode !== "compact" && "none"
                         }}
                       >
                         {item.iconText}

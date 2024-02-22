@@ -1,8 +1,8 @@
-// import { EchartCreator } from "app/components";
-import React from 'react';
+// import { EchartCreator } from "../../components";
+import React from "react";
 
 const option = {
-  backgroundColor: 'rgba(0, 0, 0, 0)',
+  backgroundColor: "rgba(0, 0, 0, 0)",
   grid: {
     left: 0,
     top: 0,
@@ -27,7 +27,7 @@ const option = {
     }
   },
   yAxis: {
-    type: 'value',
+    type: "value",
     axisLine: {
       show: false
     },
@@ -43,12 +43,12 @@ const option = {
         [51.73530129825366, 6.117848837602899],
         [78.23529411764707, 34.80069535650455]
       ],
-      type: 'line',
+      type: "line",
       smooth: true,
       symbolSize: 0,
       lineStyle: {
         width: 2,
-        color: ['rgba(255,255,255,0.87']
+        color: ["rgba(255,255,255,0.87"]
       }
     }
   ]

@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Card, Grid, Icon, styled, useTheme } from "@mui/material";
-import { FlexAlignCenter } from "app/components/FlexBox";
-import { H3, H4, Paragraph, Span } from "app/components/Typography";
-import useAuth from "app/hooks/useAuth";
+import { FlexAlignCenter } from "../../../components/FlexBox";
+import { H3, H4, Paragraph, Span } from "../../../components/Typography";
+import useAuth from "../../../hooks/useAuth";
 
 const FlexBox = styled(Box)(() => ({ display: "flex", alignItems: "center" }));
 
@@ -10,8 +10,8 @@ const SideNav = styled(FlexBox)(({ theme }) => ({
   paddingTop: "74px",
   flexDirection: "column",
   [theme.breakpoints.down("sm")]: {
-    marginTop: -410,
-  },
+    marginTop: -410
+  }
 }));
 
 const ContentBox = styled(FlexBox)(() => ({
@@ -24,9 +24,9 @@ const ContentBox = styled(FlexBox)(() => ({
   "& p": {
     marginBottom: "4px",
     textTransform: "uppercase",
-    color: "rgba(255, 255, 255, 0.54)",
+    color: "rgba(255, 255, 255, 0.54)"
   },
-  "& h3": { color: "#fff", fontWeight: "500" },
+  "& h3": { color: "#fff", fontWeight: "500" }
 }));
 
 const StyledCard = styled(Card)(() => ({
@@ -34,7 +34,7 @@ const StyledCard = styled(Card)(() => ({
   height: 104,
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "center"
 }));
 
 const UserProfileSidenav = () => {
@@ -98,7 +98,7 @@ const UserProfileSidenav = () => {
               sx={{
                 ml: 4,
                 color: textPrimary,
-                fontWeight: "500",
+                fontWeight: "500"
               }}
             >
               Upgrade to premium
@@ -114,24 +114,24 @@ const UserProfileSidenav = () => {
 const shortcutList = [
   {
     title: "stars",
-    icon: "star_outline",
+    icon: "star_outline"
   },
   {
     title: "events",
-    icon: "email",
+    icon: "email"
   },
   {
     title: "Photo",
-    icon: "collections",
+    icon: "collections"
   },
   {
     title: "settings",
-    icon: "brightness_7",
+    icon: "brightness_7"
   },
   {
     title: "contacts",
-    icon: "group",
-  },
+    icon: "group"
+  }
 ];
 
 export default UserProfileSidenav;

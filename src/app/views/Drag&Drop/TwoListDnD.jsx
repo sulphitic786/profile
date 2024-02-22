@@ -1,6 +1,6 @@
 import { Box, useTheme } from "@mui/material";
-import { themeShadows } from "app/components/MatxTheme/themeColors";
-import { convertHexToRGB } from "app/utils/utils";
+import { themeShadows } from "../../components/MatxTheme/themeColors";
+import { convertHexToRGB } from "../../utils/utils";
 import { useEffect, useState } from "react";
 // import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 

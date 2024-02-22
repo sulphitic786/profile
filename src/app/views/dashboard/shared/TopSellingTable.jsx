@@ -12,22 +12,22 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { Paragraph } from "app/components/Typography";
+import { FlexBetween } from "../../../components/FlexBox";
+import { Paragraph } from "../../../components/Typography";
 import React from "react";
 
 const CardHeader = styled(FlexBetween)(() => ({
   paddingLeft: "24px",
   paddingRight: "24px",
-  marginBottom: "12px",
+  marginBottom: "12px"
 }));
 
 const Title = styled("span")(() => ({
   fontSize: "1rem",
   fontWeight: "500",
-  textTransform: "capitalize",
+  textTransform: "capitalize"
 }));
 
 const ProductTable = styled(Table)(() => ({
@@ -37,10 +37,10 @@ const ProductTable = styled(Table)(() => ({
     height: 15,
     width: 50,
     borderRadius: 500,
-    boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)",
+    boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)"
   },
   "& td": { borderBottom: "none" },
-  "& td:first-of-type": { paddingLeft: "16px !important" },
+  "& td:first-of-type": { paddingLeft: "16px !important" }
 }));
 
 const Small = styled("small")(({ bgcolor }) => ({
@@ -51,7 +51,7 @@ const Small = styled("small")(({ bgcolor }) => ({
   borderRadius: "4px",
   overflow: "hidden",
   background: bgcolor,
-  boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)",
+  boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)"
 }));
 
 const TopSellingTable = () => {
@@ -134,32 +134,32 @@ const productList = [
     imgUrl: "/assets/images/products/headphone-2.jpg",
     name: "earphone",
     price: 100,
-    available: 15,
+    available: 15
   },
   {
     imgUrl: "/assets/images/products/headphone-3.jpg",
     name: "earphone",
     price: 1500,
-    available: 30,
+    available: 30
   },
   {
     imgUrl: "/assets/images/products/iphone-2.jpg",
     name: "iPhone x",
     price: 1900,
-    available: 35,
+    available: 35
   },
   {
     imgUrl: "/assets/images/products/iphone-1.jpg",
     name: "iPhone x",
     price: 100,
-    available: 0,
+    available: 0
   },
   {
     imgUrl: "/assets/images/products/headphone-3.jpg",
     name: "Head phone",
     price: 1190,
-    available: 5,
-  },
+    available: 5
+  }
 ];
 
 export default TopSellingTable;

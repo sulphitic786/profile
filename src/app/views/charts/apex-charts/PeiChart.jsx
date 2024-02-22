@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material";
-import { convertHexToRGB } from "app/utils/utils";
+import { convertHexToRGB } from "../../../utils/utils";
 import ReactApexChart from "react-apexcharts";
 
 const PieChart = (props) => {
@@ -18,7 +18,7 @@ const PieChart = (props) => {
     chart: { type: "pie" },
     colors: [primary1, primary2, primary3, primary4, primary5, primary6],
     stroke: { show: true, width: 0, colors: ["transparent"] },
-    legend: { show: false },
+    legend: { show: false }
   };
   return <ReactApexChart options={options} series={series} type="pie" height={height} />;
 };

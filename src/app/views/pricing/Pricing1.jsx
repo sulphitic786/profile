@@ -1,19 +1,19 @@
 import { Box, Button, Card, Grid, lighten, styled } from "@mui/material";
-import { themeShadows } from "app/components/MatxTheme/themeColors";
-import { H1, H3, H4, Paragraph, Small } from "app/components/Typography";
+import { themeShadows } from "../../components/MatxTheme/themeColors";
+import { H1, H3, H4, Paragraph, Small } from "../../components/Typography";
 
 // styled components
 const Container = styled(Box)(({ theme }) => ({
   margin: "30px",
   position: "relative",
-  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const StyledCard = styled(Card)(({ theme }) => ({
   padding: "24px",
   boxShadow: "none",
   marginBottom: "44px",
-  background: lighten(theme.palette.error.main, 0.85),
+  background: lighten(theme.palette.error.main, 0.85)
 }));
 
 const GridContent = styled(Card)(({ theme }) => ({
@@ -22,13 +22,13 @@ const GridContent = styled(Card)(({ theme }) => ({
   transition: "all 0.3s ease",
   padding: "24px !important",
   "&:hover": { boxShadow: themeShadows[12] },
-  [theme.breakpoints.down("sm")]: { padding: "16px !important" },
+  [theme.breakpoints.down("sm")]: { padding: "16px !important" }
 }));
 
 const IMG = styled("img")({
   width: 152,
   height: 152,
-  marginBottom: "16px",
+  marginBottom: "16px"
 });
 
 const Pricing = () => {
@@ -88,7 +88,7 @@ const Pricing = () => {
 const planList = [
   { title: "Starter", price: 75, logo: "/assets/images/illustrations/baby.svg" },
   { title: "Growing", price: 195, logo: "/assets/images/illustrations/upgrade.svg" },
-  { title: "Enterprise", price: 495, logo: "/assets/images/illustrations/business_deal.svg" },
+  { title: "Enterprise", price: 495, logo: "/assets/images/illustrations/business_deal.svg" }
 ];
 
 export default Pricing;

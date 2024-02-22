@@ -1,5 +1,5 @@
 import { Avatar, Box, Button, Icon, styled } from "@mui/material";
-import { H6 } from "app/components/Typography";
+import { H6 } from "../../components/Typography";
 import { useSelector } from "react-redux";
 import ScrumBoardLabelBar from "./ScrumBoardLabelBar";
 
@@ -9,17 +9,17 @@ const ContentBox = styled(Box)({
   marginTop: "12px",
   alignItems: "center",
   fontSize: "0.8125rem",
-  justifyContent: "space-between",
+  justifyContent: "space-between"
 });
 
 const StyledAvatar = styled(Avatar)({
   height: "32px",
-  width: "32px",
+  width: "32px"
 });
 
 const IMG = styled("img")({
   width: "100%",
-  borderRadius: "4px",
+  borderRadius: "4px"
 });
 
 const ScrumBoardCard = ({ card }) => {
@@ -29,7 +29,7 @@ const ScrumBoardCard = ({ card }) => {
     coverImage,
     attachments,
     labels = [],
-    members = [], //members in card
+    members = [] //members in card
   } = card;
 
   const { memberList, labelList } = useSelector((state) => state.scrumboard);

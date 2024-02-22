@@ -1,6 +1,6 @@
 import { Delete, Edit, HomeOutlined } from "@mui/icons-material";
 import { Box, Card, IconButton, Stack } from "@mui/material";
-import { H5, Paragraph } from "app/components/Typography";
+import { H5, Paragraph } from "../../../components/Typography";
 
 const BillingAddressListItem = () => {
   return (
@@ -12,7 +12,7 @@ const BillingAddressListItem = () => {
         alignItems: "center",
         borderColor: "grey.200",
         boxShadow: "none !important",
-        justifyContent: "space-between",
+        justifyContent: "space-between"
       }}
     >
       <Box maxWidth="60%">

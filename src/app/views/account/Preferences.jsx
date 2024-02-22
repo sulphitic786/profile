@@ -8,9 +8,9 @@ import {
   Grid,
   Stack,
   Switch,
-  TextField,
+  TextField
 } from "@mui/material";
-import { H5, Paragraph } from "app/components/Typography";
+import { H5, Paragraph } from "../../components/Typography";
 
 const Preferences = () => {
   return (

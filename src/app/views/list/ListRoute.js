@@ -1,4 +1,4 @@
-import Loadable from "app/components/Loadable";
+import Loadable from "../../components/Loadable";
 import { lazy } from "react";
 
 const AppList = Loadable(lazy(() => import("./AppList")));

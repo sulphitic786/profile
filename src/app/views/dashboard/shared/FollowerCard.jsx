@@ -1,6 +1,6 @@
 import { Box, Card, Icon, useTheme } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { H4, Small } from "app/components/Typography";
+import { FlexBetween } from "../../../components/FlexBox";
+import { H4, Small } from "../../../components/Typography";
 import React from "react";
 import ModifiedAreaChart from "./ModifiedAreaChart";
 
@@ -43,8 +43,8 @@ const FollowerCard = () => {
               smooth: false,
               areaStyle: null,
               data: [8, 32, 18, 27, 39, 53, 36],
-              lineStyle: { width: 2, color: error },
-            },
+              lineStyle: { width: 2, color: error }
+            }
           ],
           xAxis: { data: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"] },
           yAxis: { show: false },
@@ -58,16 +58,16 @@ const FollowerCard = () => {
               colorStops: [
                 {
                   offset: 0,
-                  color: primary, // color at 0% position
+                  color: primary // color at 0% position
                 },
                 {
                   offset: 1,
-                  color: light, // color at 100% position
-                },
+                  color: light // color at 100% position
+                }
               ],
-              global: false, // false by default
-            },
-          ],
+              global: false // false by default
+            }
+          ]
         }}
       />
     </Card>

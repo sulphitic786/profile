@@ -2,8 +2,8 @@ import { Delete } from "@mui/icons-material";
 import { Box, Button, Dialog, Grid, Icon, IconButton, styled } from "@mui/material";
 import MuiTextField from "@mui/material/TextField";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import { FlexBetween } from "app/components/FlexBox";
-import { H4 } from "app/components/Typography";
+import { FlexBetween } from "../../components/FlexBox";
+import { H4 } from "../../components/Typography";
 import { Formik } from "formik";
 import shortId from "shortid";
 import * as Yup from "yup";
@@ -13,7 +13,7 @@ const TextField = styled(MuiTextField)({ marginBottom: 16 });
 
 const DialogHeader = styled(FlexBetween)(({ theme }) => ({
   padding: "10px 15px",
-  background: theme.palette.primary.main,
+  background: theme.palette.primary.main
 }));
 
 const validationSchema = Yup.object().shape({
@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
   note: Yup.string().required("Note is required!"),
   location: Yup.string().required("Location is required!"),
   endingDate: Yup.date().required("Ending Date is required!"),
-  startingDate: Yup.date().required("Staring Date is required!"),
+  startingDate: Yup.date().required("Staring Date is required!")
 });
 
 const EventEditorDialog = ({ event = {}, open, handleClose }) => {
@@ -30,7 +30,7 @@ const EventEditorDialog = ({ event = {}, open, handleClose }) => {
     title: event?.title || "",
     location: event?.location || "",
     endingDate: event?.endingDate || new Date(),
-    startingDate: event?.startingDate || new Date(),
+    startingDate: event?.startingDate || new Date()
   };
 
   const handleFormSubmit = (values) => {

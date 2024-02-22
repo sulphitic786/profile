@@ -1,4 +1,4 @@
-import RechartCreator from "app/components/charts/RechartCreator";
+import RechartCreator from "../../../components/charts/RechartCreator";
 import { Treemap } from "recharts";
 
 const data = [
@@ -9,8 +9,8 @@ const data = [
       { name: "Axis", size: 24593 },
       { name: "AxisGridLine", size: 652 },
       { name: "AxisLabel", size: 636 },
-      { name: "CartesianAxes", size: 6703 },
-    ],
+      { name: "CartesianAxes", size: 6703 }
+    ]
   },
   {
     name: "controls",
@@ -25,8 +25,8 @@ const data = [
       { name: "IControl", size: 763 },
       { name: "PanZoomControl", size: 5222 },
       { name: "SelectionControl", size: 7862 },
-      { name: "TooltipControl", size: 8435 },
-    ],
+      { name: "TooltipControl", size: 8435 }
+    ]
   },
   {
     name: "data",
@@ -42,13 +42,13 @@ const data = [
           { name: "ArrowType", size: 698 },
           { name: "EdgeRenderer", size: 5569 },
           { name: "IRenderer", size: 353 },
-          { name: "ShapeRenderer", size: 2247 },
-        ],
+          { name: "ShapeRenderer", size: 2247 }
+        ]
       },
       { name: "ScaleBinding", size: 11275 },
       { name: "Tree", size: 7147 },
-      { name: "TreeBuilder", size: 9930 },
-    ],
+      { name: "TreeBuilder", size: 9930 }
+    ]
   },
   {
     name: "events",
@@ -56,16 +56,16 @@ const data = [
       { name: "DataEvent", size: 7313 },
       { name: "SelectionEvent", size: 6880 },
       { name: "TooltipEvent", size: 3701 },
-      { name: "VisualizationEvent", size: 2117 },
-    ],
+      { name: "VisualizationEvent", size: 2117 }
+    ]
   },
   {
     name: "legend",
     children: [
       { name: "Legend", size: 20859 },
       { name: "LegendItem", size: 4614 },
-      { name: "LegendRange", size: 10530 },
-    ],
+      { name: "LegendRange", size: 10530 }
+    ]
   },
   {
     name: "operator",
@@ -75,8 +75,8 @@ const data = [
         children: [
           { name: "BifocalDistortion", size: 4461 },
           { name: "Distortion", size: 6314 },
-          { name: "FisheyeDistortion", size: 3444 },
-        ],
+          { name: "FisheyeDistortion", size: 3444 }
+        ]
       },
       {
         name: "encoder",
@@ -85,16 +85,16 @@ const data = [
           { name: "Encoder", size: 4060 },
           { name: "PropertyEncoder", size: 4138 },
           { name: "ShapeEncoder", size: 1690 },
-          { name: "SizeEncoder", size: 1830 },
-        ],
+          { name: "SizeEncoder", size: 1830 }
+        ]
       },
       {
         name: "filter",
         children: [
           { name: "FisheyeTreeFilter", size: 5219 },
           { name: "GraphDistanceFilter", size: 3165 },
-          { name: "VisibilityFilter", size: 3509 },
-        ],
+          { name: "VisibilityFilter", size: 3509 }
+        ]
       },
       { name: "IOperator", size: 1286 },
       {
@@ -102,8 +102,8 @@ const data = [
         children: [
           { name: "Labeler", size: 9956 },
           { name: "RadialLabeler", size: 3899 },
-          { name: "StackedAreaLabeler", size: 3202 },
-        ],
+          { name: "StackedAreaLabeler", size: 3202 }
+        ]
       },
       {
         name: "layout",
@@ -122,16 +122,16 @@ const data = [
           { name: "RadialTreeLayout", size: 12348 },
           { name: "RandomLayout", size: 870 },
           { name: "StackedAreaLayout", size: 9121 },
-          { name: "TreeMapLayout", size: 9191 },
-        ],
+          { name: "TreeMapLayout", size: 9191 }
+        ]
       },
       { name: "Operator", size: 2490 },
       { name: "OperatorList", size: 5248 },
       { name: "OperatorSequence", size: 4190 },
       { name: "OperatorSwitch", size: 2581 },
-      { name: "SortOperator", size: 2023 },
-    ],
-  },
+      { name: "SortOperator", size: 2023 }
+    ]
+  }
 ];
 
 const SimpleTreeMap = ({ height, width }) => {

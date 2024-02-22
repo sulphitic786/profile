@@ -1,51 +1,51 @@
-import { LoadingButton } from '@mui/lab';
-import { Card, Checkbox, Grid, TextField } from '@mui/material';
-import { Box, styled, useTheme } from '@mui/material';
-import { Paragraph } from 'app/components/Typography';
-import useAuth from 'app/hooks/useAuth';
-import { Formik } from 'formik';
-import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-// import ToastNotification from 'app/contexts/ToastNotification';
-import * as Yup from 'yup';
-import { useAlert } from 'app/contexts/AlertContext';
-import { amber, green } from '@mui/material/colors';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { fireStore } from 'config';
-import { jsonToString } from 'app/utils/utils';
+import { LoadingButton } from "@mui/lab";
+import { Card, Checkbox, Grid, TextField } from "@mui/material";
+import { Box, styled, useTheme } from "@mui/material";
+import { Paragraph } from "../../components/Typography";
+import useAuth from "../../hooks/useAuth";
+import { Formik } from "formik";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+// import ToastNotification from '../../contexts/ToastNotification';
+import * as Yup from "yup";
+import { useAlert } from "../../contexts/AlertContext";
+import { amber, green } from "@mui/material/colors";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { fireStore } from "./../../../config";
+import { jsonToString } from "../../utils/utils";
 
-const ContentRoot = styled('div')(({ theme }) => ({
-  '& .icon': { fontSize: 20 },
-  '& .success': { backgroundColor: green[600] },
-  '& .warning': { backgroundColor: amber[700] },
-  '& .error': { backgroundColor: theme.palette.error.main },
-  '& .info': { backgroundColor: theme.palette.primary.main },
-  '& .iconVariant': { opacity: 0.9, marginRight: theme.spacing(1) },
-  '& .message': { display: 'flex', alignItems: 'center' },
-  '& .margin': { margin: theme.spacing(1) }
+const ContentRoot = styled("div")(({ theme }) => ({
+  "& .icon": { fontSize: 20 },
+  "& .success": { backgroundColor: green[600] },
+  "& .warning": { backgroundColor: amber[700] },
+  "& .error": { backgroundColor: theme.palette.error.main },
+  "& .info": { backgroundColor: theme.palette.primary.main },
+  "& .iconVariant": { opacity: 0.9, marginRight: theme.spacing(1) },
+  "& .message": { display: "flex", alignItems: "center" },
+  "& .margin": { margin: theme.spacing(1) }
 }));
 
-const FlexBox = styled(Box)(() => ({ display: 'flex', alignItems: 'center' }));
+const FlexBox = styled(Box)(() => ({ display: "flex", alignItems: "center" }));
 
-const JustifyBox = styled(FlexBox)(() => ({ justifyContent: 'center' }));
+const JustifyBox = styled(FlexBox)(() => ({ justifyContent: "center" }));
 
 const ContentBox = styled(Box)(() => ({
-  height: '100%',
-  padding: '32px',
-  position: 'relative',
-  background: 'rgba(0, 0, 0, 0.01)'
+  height: "100%",
+  padding: "32px",
+  position: "relative",
+  background: "rgba(0, 0, 0, 0.01)"
 }));
 
 const JWTRoot = styled(JustifyBox)(() => ({
-  background: '#1A2038',
-  minHeight: '100% !important',
-  '& .card': {
+  background: "#1A2038",
+  minHeight: "100% !important",
+  "& .card": {
     maxWidth: 800,
     minHeight: 400,
-    margin: '1rem',
-    display: 'flex',
+    margin: "1rem",
+    display: "flex",
     borderRadius: 12,
-    alignItems: 'center'
+    alignItems: "center"
   }
 }));
 
@@ -56,17 +56,17 @@ const JWTRoot = styled(JustifyBox)(() => ({
 //   remember: true
 // };
 const initialValues = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
   remember: true
 };
 
 // form field validation schema
 const validationSchema = Yup.object().shape({
   password: Yup.string()
-    .min(6, 'Password must be 6 character length')
-    .required('Password is required!'),
-  email: Yup.string().email('Invalid Email address').required('Email is required!')
+    .min(6, "Password must be 6 character length")
+    .required("Password is required!"),
+  email: Yup.string().email("Invalid Email address").required("Email is required!")
 });
 
 const JwtLogin = () => {
@@ -94,30 +94,30 @@ const JwtLogin = () => {
       const res = await login(values.email, values.password);
       // console.log('res', res);
       await fetchCurrentUser(res.user.uid);
-      showAlert('success', 'User Logged in successfully.');
-      await navigate('/dashboard/default');
+      showAlert("success", "User Logged in successfully.");
+      await navigate("/dashboard/default");
     } catch (e) {
       setLoading(false);
-      navigate('/');
-      showAlert('error', 'User Email or Password is Wrong.');
+      navigate("/");
+      showAlert("error", "User Email or Password is Wrong.");
       // Handle any authentication errors
-      console.error('Firebase authentication error:', e);
+      console.error("Firebase authentication error:", e);
     }
   };
 
   const fetchCurrentUser = async (user_id) => {
     try {
       setLoading(true);
-      const Query = query(collection(fireStore, 'users'), where('user_id', '==', user_id));
+      const Query = query(collection(fireStore, "users"), where("user_id", "==", user_id));
       const response = await getDocs(Query);
       const dataFromFirebase = response.docs.map((doc) => ({
         id: doc.id,
         ...doc.data()
       }));
-      sessionStorage.setItem('userData', JSON.stringify(dataFromFirebase[0]));
+      sessionStorage.setItem("userData", JSON.stringify(dataFromFirebase[0]));
       // console.log('dataFromFirebase', dataFromFirebase, 'response', response);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 

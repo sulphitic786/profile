@@ -1,8 +1,8 @@
 import { Box, Card, styled, useMediaQuery, useTheme } from "@mui/material";
-import Breadcrumb from "app/components/Breadcrumb";
-import MatxSidenav from "app/components/MatxSidenav/MatxSidenav";
-import MatxSidenavContainer from "app/components/MatxSidenav/MatxSidenavContainer";
-import MatxSidenavContent from "app/components/MatxSidenav/MatxSidenavContent";
+import Breadcrumb from "../../components/Breadcrumb";
+import MatxSidenav from "../../components/MatxSidenav/MatxSidenav";
+import MatxSidenavContainer from "../../components/MatxSidenav/MatxSidenavContainer";
+import MatxSidenavContent from "../../components/MatxSidenav/MatxSidenavContent";
 import { useCallback, useEffect, useRef, useState } from "react";
 import ChatContainer from "./ChatContainer";
 import {
@@ -10,7 +10,7 @@ import {
   getChatRoomByContactId,
   getContactById,
   getRecentContact,
-  sendNewMessage,
+  sendNewMessage
 } from "./ChatService";
 import ChatSidenav from "./ChatSidenav";
 
@@ -19,15 +19,15 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     margin: "30px",
-    [theme.breakpoints.down("sm")]: { margin: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { margin: "16px" }
+  }
 }));
 
 const AppChat = () => {
   const chatBottomRef = document.querySelector("#chat-message-list");
   const [open, setOpen] = useState(true);
   const [currentUser, setCurrentUser] = useState({
-    id: "7863a6802ez0e277a0f98534",
+    id: "7863a6802ez0e277a0f98534"
   });
   const [opponentUser, setOpponentUser] = useState(null);
   const [currentChatRoom, setCurrentChatRoom] = useState("");
@@ -66,7 +66,7 @@ const AppChat = () => {
       chatId: currentChatRoom,
       text: message,
       contactId: id,
-      time: new Date(),
+      time: new Date()
     }).then((data) => {
       setMessageList([...data.data]);
       scrollToBottom();
@@ -78,7 +78,7 @@ const AppChat = () => {
         chatId: currentChatRoom,
         text: `Hi, I'm ${opponentUser.name}. Your imaginary friend.`,
         contactId: opponentUser.id,
-        time: new Date(),
+        time: new Date()
       }).then((data) => {
         setMessageList([...data.data]);
         scrollToBottom();

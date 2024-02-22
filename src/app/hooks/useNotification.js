@@ -1,7 +1,7 @@
 import { collection, getDocs, addDoc, query, where, deleteDoc, updateDoc, doc } from 'firebase/firestore';
-import { fireStore } from 'config';
+import { fireStore } from '../../config';
 import { useState, useEffect } from "react";
-import { getIsoDate } from 'app/utils/utils';
+import { getIsoDate } from '../utils/utils';
 import useAuth from './useAuth';
 
 const useNotification = () => {

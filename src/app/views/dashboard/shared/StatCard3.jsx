@@ -1,28 +1,28 @@
 import { Box, Card, Grid, Icon, IconButton, useTheme } from "@mui/material";
-import { H3, Paragraph } from "app/components/Typography";
+import { H3, Paragraph } from "../../../components/Typography";
 
 const StatCard3 = () => {
   const statList = [
     {
       icon: "people",
       amount: 10495,
-      title: "New Members",
+      title: "New Members"
     },
     {
       icon: "location_on_outlined",
       amount: 30942,
-      title: "Places added",
+      title: "Places added"
     },
     {
       icon: "keyboard_voice",
       amount: 45269,
-      title: "Support Members",
+      title: "Support Members"
     },
     {
       icon: "card_giftcard",
       amount: 20965,
-      title: "Tags Used",
-    },
+      title: "Tags Used"
+    }
   ];
   const { palette } = useTheme();
   const textMuted = palette.text.secondary;
@@ -38,7 +38,7 @@ const StatCard3 = () => {
                   size="small"
                   sx={{
                     padding: "8px",
-                    background: "rgba(0, 0, 0, 0.01)",
+                    background: "rgba(0, 0, 0, 0.01)"
                   }}
                 >
                   <Icon sx={{ color: textMuted }}>{item.icon}</Icon>

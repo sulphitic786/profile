@@ -1,6 +1,6 @@
 import { Box, Card, Divider, Grid, MenuItem, Select, styled, useTheme } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { H4, H5 } from "app/components/Typography";
+import { FlexBetween } from "../../../components/FlexBox";
+import { H4, H5 } from "../../../components/Typography";
 import { Fragment } from "react";
 import InventoryDoughnutChart from "./InventoryDoughnutChart";
 import InventoryLineChart from "./InventoryLineChart";
@@ -13,7 +13,7 @@ const StyledCard = styled(Card)(() => ({
   padding: "20px",
   marginBottom: "16px",
   alignItems: "center",
-  justifyContent: "space-between",
+  justifyContent: "space-between"
 }));
 
 // const FlexBox = styled("div")(() => ({
@@ -24,7 +24,7 @@ const StyledCard = styled(Card)(() => ({
 
 const Heading = styled(H4)(({ theme }) => ({
   marginBottom: "16px",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 const InventoryDashboard = () => {

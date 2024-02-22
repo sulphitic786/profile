@@ -1,6 +1,6 @@
 import { Avatar, Box, Card, Divider, Rating, styled } from "@mui/material";
-import { FlexAlignCenter, FlexBetween } from "app/components/FlexBox";
-import { H4, H5, Paragraph } from "app/components/Typography";
+import { FlexAlignCenter, FlexBetween } from "../../../components/FlexBox";
+import { H4, H5, Paragraph } from "../../../components/Typography";
 import { Link } from "react-router-dom";
 
 // styled components
@@ -9,11 +9,11 @@ const StyledAvatar = styled(Avatar)(({ theme }) => ({
   height: 100,
   marginBottom: 3,
   boxShadow: theme.shadows[3],
-  border: "4px solid rgba(var(--body), 0.03)",
+  border: "4px solid rgba(var(--body), 0.03)"
 }));
 
 const StyledLink = styled(Link)(({ theme }) => ({
-  color: theme.palette.primary.main,
+  color: theme.palette.primary.main
 }));
 
 const InvoiceCustomer = () => {

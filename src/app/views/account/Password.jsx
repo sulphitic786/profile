@@ -1,6 +1,6 @@
 import { Box, Button, Card, Divider, Grid, Stack, styled, TextField } from "@mui/material";
-import { FlexBox } from "app/components/FlexBox";
-import { H5, Paragraph } from "app/components/Typography";
+import { FlexBox } from "../../components/FlexBox";
+import { H5, Paragraph } from "../../components/Typography";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -9,14 +9,14 @@ const Dot = styled(Box)(({ theme }) => ({
   height: 8,
   flexShrink: 0,
   borderRadius: "50%",
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: theme.palette.primary.main
 }));
 
 const Password = () => {
   const initialValues = {
     currentPassword: "12345",
     newPassword: "123456",
-    confirmNewPassword: "123456",
+    confirmNewPassword: "123456"
   };
 
   const validationSchema = Yup.object({
@@ -27,13 +27,13 @@ const Password = () => {
     confirmNewPassword: Yup.string().oneOf(
       [Yup.ref("newPassword"), null],
       "Password doesn't matched"
-    ),
+    )
   });
 
   const { values, errors, handleSubmit, handleChange, handleBlur, touched } = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => console.log(values),
+    onSubmit: (values) => console.log(values)
   });
 
   return (

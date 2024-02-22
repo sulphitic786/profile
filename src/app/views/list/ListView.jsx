@@ -8,22 +8,22 @@ import {
   IconButton,
   MenuItem,
   styled,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import { MatxMenu } from "app/components";
-import { themeShadows } from "app/components/MatxTheme/themeColors";
-import { Paragraph, Small, Span } from "app/components/Typography";
+import { MatxMenu } from "../../components";
+import { themeShadows } from "../../components/MatxTheme/themeColors";
+import { Paragraph, Small, Span } from "../../components/Typography";
 
 // styled components
 const FlexBox = styled(Box)({
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const StyledItem = styled(MenuItem)({
   display: "flex",
   alignItems: "center",
-  "& .icon": { marginRight: 2 },
+  "& .icon": { marginRight: 2 }
 });
 
 const IMG = styled("img")({ height: 75, width: 100 });
@@ -31,7 +31,7 @@ const IMG = styled("img")({ height: 75, width: 100 });
 const StyledIcon = styled(Icon)(({ theme }) => ({
   cursor: "pointer",
   marginRight: "16px",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 const ListCard = styled(Card)(({ theme }) => ({
@@ -46,11 +46,11 @@ const ListCard = styled(Card)(({ theme }) => ({
     zIndex: 1,
     display: "none",
     position: "absolute",
-    background: theme.palette.background.paper,
+    background: theme.palette.background.paper
   },
   "&:hover": {
-    "& .card__button-group": { display: "flex", alignItems: "center" },
-  },
+    "& .card__button-group": { display: "flex", alignItems: "center" }
+  }
 }));
 
 const ListView = ({ list = [] }) => {

@@ -1,6 +1,6 @@
 import { Box, Button, Card, Grid, Icon, styled, Typography, useTheme } from "@mui/material";
-import { themeShadows } from "app/components/MatxTheme/themeColors";
-import { H1, H3, H4 } from "app/components/Typography";
+import { themeShadows } from "../../components/MatxTheme/themeColors";
+import { H1, H3, H4 } from "../../components/Typography";
 import { useState } from "react";
 
 const PricingCard = styled(Card)(({ theme, plan }) => ({
@@ -10,14 +10,14 @@ const PricingCard = styled(Card)(({ theme, plan }) => ({
   flexDirection: "column",
   "& .icon": { fontSize: "72px", marginBottom: "56px" },
   background:
-    plan && plan !== "monthly" ? theme.palette.secondary.main : plan && theme.palette.primary.main,
+    plan && plan !== "monthly" ? theme.palette.secondary.main : plan && theme.palette.primary.main
 }));
 
 const PriceBox = styled(Box)(() => ({
   display: "flex",
   marginBottom: "56px",
   alignItems: "flex-end",
-  "& h1": { fontSize: "48px" },
+  "& h1": { fontSize: "48px" }
 }));
 
 const ContentBox = styled(Box)(() => ({
@@ -26,7 +26,7 @@ const ContentBox = styled(Box)(() => ({
   overflow: "hidden",
   marginBottom: "48px",
   borderRadius: "300px",
-  boxShadow: themeShadows[1],
+  boxShadow: themeShadows[1]
 }));
 
 const StyledButton = styled(Button)(({ plan }) => ({
@@ -34,7 +34,7 @@ const StyledButton = styled(Button)(({ plan }) => ({
   borderRadius: "0px",
   transition: "all 0.3s ease",
   "&:hover": { boxShadow: themeShadows[12] },
-  background: plan !== "monthly" && plan !== "annual" && "#fff",
+  background: plan !== "monthly" && plan !== "annual" && "#fff"
 }));
 
 const RoundedButton = styled(Button)(() => ({
@@ -44,7 +44,7 @@ const RoundedButton = styled(Button)(() => ({
   paddingRight: "28px",
   borderRadius: "300px",
   transition: "all 0.3s ease",
-  "&:hover": { boxShadow: themeShadows[12] },
+  "&:hover": { boxShadow: themeShadows[12] }
 }));
 
 const SimplePricing3 = () => {
@@ -116,8 +116,8 @@ const SimplePricing3 = () => {
                 sx={{
                   "&:hover": {
                     color: "#ffffff",
-                    background: `${palette.secondary.main} !important`,
-                  },
+                    background: `${palette.secondary.main} !important`
+                  }
                 }}
                 variant="outlined"
                 color="secondary"

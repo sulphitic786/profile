@@ -16,14 +16,14 @@ import {
   TextField,
   Tooltip,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import { MatxMenu } from "app/components";
-import { FlexBetween } from "app/components/FlexBox";
-import { H6, Paragraph, Small, Span } from "app/components/Typography";
-import useAuth from "app/hooks/useAuth";
+import { MatxMenu } from "../../components";
+import { FlexBetween } from "../../components/FlexBox";
+import { H6, Paragraph, Small, Span } from "../../components/Typography";
+import useAuth from "../../hooks/useAuth";
 import { updateCardInList } from "app/redux/slices/scrumSlice";
-import { generateRandomId, getTimeDifference } from "app/utils/utils.js";
+import { generateRandomId, getTimeDifference } from "../../utils/utils.js";
 import { useEffect, useState } from "react";
 import Scrollbar from "react-perfect-scrollbar";
 import { useDispatch, useSelector } from "react-redux";
@@ -31,12 +31,12 @@ import { useDispatch, useSelector } from "react-redux";
 // styled components
 const FlexBox = styled(Box)({
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const StyledAvatar = styled(Avatar)({
   height: "32px",
-  width: "32px",
+  width: "32px"
 });
 
 const StyledInput = styled(Input)({
@@ -46,19 +46,19 @@ const StyledInput = styled(Input)({
   paddingLeft: "3px",
   paddingRight: "8px",
   marginLeft: "12px",
-  textTransform: "capitalize",
+  textTransform: "capitalize"
 });
 
 const Heading = styled(H6)(({ theme }) => ({
   textTransform: "uppercase",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 const StyledScrollBar = styled(Scrollbar)({
   maxHeight: 380,
   position: "relative",
   paddingTop: "16px",
-  marginBottom: "16px",
+  marginBottom: "16px"
 });
 
 const ScrollContent = styled("div")(({ theme }) => ({
@@ -66,22 +66,22 @@ const ScrollContent = styled("div")(({ theme }) => ({
   paddingTop: "24px !important",
   [theme.breakpoints.down("sm")]: {
     padding: "0px 12px !important",
-    paddingTop: "16px !important",
-  },
+    paddingTop: "16px !important"
+  }
 }));
 
 const ContentBox = styled(Box)(({ theme }) => ({
   padding: "0px 24px !important",
   paddingTop: "16px !important",
   [theme.breakpoints.down("sm")]: {
-    padding: "0px 12px !important",
-  },
+    padding: "0px 12px !important"
+  }
 }));
 
 const StyledItem = styled(MenuItem)({
   minWidth: 164,
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -90,7 +90,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   paddingTop: "16px !important",
-  background: theme.palette.background.default,
+  background: theme.palette.background.default
 }));
 
 const IMG = styled("img")({ width: "100%" });
@@ -159,7 +159,7 @@ const CardEditorDialog = ({ open, card, handleClose }) => {
       labels = [],
       comments = [],
       cardMembers = [],
-      attachments = [],
+      attachments = []
     } = state;
 
     let card = {
@@ -170,7 +170,7 @@ const CardEditorDialog = ({ open, card, handleClose }) => {
       description,
       attachments,
       members: cardMembers.map((member) => member.id),
-      labels: labels.map((item) => item.id),
+      labels: labels.map((item) => item.id)
     };
 
     dispatch(updateCardInList({ boardId, listId, card }));
@@ -185,7 +185,7 @@ const CardEditorDialog = ({ open, card, handleClose }) => {
         id: generateRandomId(),
         uid: user.id,
         text: commentText.trim(),
-        time: new Date(),
+        time: new Date()
       });
       commentText = "";
     }
@@ -195,7 +195,7 @@ const CardEditorDialog = ({ open, card, handleClose }) => {
   useEffect(() => {
     let {
       members = [], //members in card
-      labels = [],
+      labels = []
     } = card;
 
     let cardMembers = members.map((boardMemberId) =>
@@ -216,7 +216,7 @@ const CardEditorDialog = ({ open, card, handleClose }) => {
       cardMembers,
       boardMembers,
       boardId: board.id,
-      labels: [...modifiedLabelList],
+      labels: [...modifiedLabelList]
     }));
   }, [card, labelList, memberList, board.id, board.members]);
 
@@ -228,7 +228,7 @@ const CardEditorDialog = ({ open, card, handleClose }) => {
     comments = [],
     cardMembers = [],
     attachments = [],
-    boardMembers = [],
+    boardMembers = []
   } = state;
 
   const bgLightGrey = "rgba(0, 0, 0, 0.01)";
@@ -312,7 +312,7 @@ const CardEditorDialog = ({ open, card, handleClose }) => {
                         mr: "4px",
                         color: "#fff",
                         fontSize: "0.8125rem",
-                        textTransform: "capitalize",
+                        textTransform: "capitalize"
                       }}
                     >
                       {label.title}
@@ -411,7 +411,7 @@ const CardEditorDialog = ({ open, card, handleClose }) => {
                           sx={{
                             color: textMuted,
                             fontSize: "0.8125rem",
-                            textTransform: "capitalize",
+                            textTransform: "capitalize"
                           }}
                         >
                           {file.size}

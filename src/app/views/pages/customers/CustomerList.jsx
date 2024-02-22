@@ -1,29 +1,29 @@
-import { Edit, TrendingFlat } from '@mui/icons-material';
-import { Box, Checkbox, Paper, styled, Table, TableBody, TableCell, TableRow } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import TableContainer from '@mui/material/TableContainer';
-import TablePagination from '@mui/material/TablePagination';
-import { Breadcrumb } from 'app/components';
-import TableHead from 'app/components/data-table/TableHead';
-import TableToolbar from 'app/components/data-table/TableToolbar';
-import { getComparator, stableSort } from 'app/components/data-table/utils';
-import { H5 } from 'app/components/Typography';
-import useTable from 'app/hooks/useTable';
-import useUsers from 'app/hooks/useUsers';
-import { useNavigate } from 'react-router-dom';
+import { Edit, TrendingFlat } from "@mui/icons-material";
+import { Box, Checkbox, Paper, styled, Table, TableBody, TableCell, TableRow } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import TableContainer from "@mui/material/TableContainer";
+import TablePagination from "@mui/material/TablePagination";
+import { Breadcrumb } from "../../../components";
+import TableHead from "../../../components/data-table/TableHead";
+import TableToolbar from "../../../components/data-table/TableToolbar";
+import { getComparator, stableSort } from "../../../components/data-table/utils";
+import { H5 } from "../../../components/Typography";
+import useTable from "../../../hooks/useTable";
+import useUsers from "../../../hooks/useUsers";
+import { useNavigate } from "react-router-dom";
 
 // styled components
-const IMG = styled('img')({ height: 32, borderRadius: '4px' });
-const FlexBox = styled(Box)({ display: 'flex', alignItems: 'center' });
+const IMG = styled("img")({ height: 32, borderRadius: "4px" });
+const FlexBox = styled(Box)({ display: "flex", alignItems: "center" });
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: {
-    margin: '16px'
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: {
+    margin: "16px"
   },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
@@ -41,18 +41,18 @@ const CustomerList = () => {
     handleRequestSort,
     handleSelectAllClick,
     handleChangeRowsPerPage
-  } = useTable({ defaultOrderBy: 'name' });
+  } = useTable({ defaultOrderBy: "name" });
 
   const { users } = useUsers();
   const navigate = useNavigate();
 
   // TABLE HEADER COLUMN LIST
   const columns = [
-    { id: 'name', align: 'left', disablePadding: true, label: 'Name' },
-    { id: 'address', align: 'center', disablePadding: false, label: 'Address' },
-    { id: 'company', align: 'center', disablePadding: false, label: 'Company' },
-    { id: 'balance', align: 'center', disablePadding: false, label: 'Balance' },
-    { id: 'edit', align: 'center', disablePadding: false, label: 'Edit' }
+    { id: "name", align: "left", disablePadding: true, label: "Name" },
+    { id: "address", align: "center", disablePadding: false, label: "Address" },
+    { id: "company", align: "center", disablePadding: false, label: "Company" },
+    { id: "balance", align: "center", disablePadding: false, label: "Balance" },
+    { id: "edit", align: "center", disablePadding: false, label: "Edit" }
   ];
 
   const handleSelectAllRows = (event) => {
@@ -73,11 +73,11 @@ const CustomerList = () => {
     <Container>
       <div className="breadcrumb">
         <Breadcrumb
-          routeSegments={[{ name: 'Pages', path: '/pages' }, { name: 'Customer List' }]}
+          routeSegments={[{ name: "Pages", path: "/pages" }, { name: "Customer List" }]}
         />
       </div>
 
-      <Paper sx={{ width: '100%', mb: 2 }}>
+      <Paper sx={{ width: "100%", mb: 2 }}>
         <TableToolbar title="All Customers" numSelected={selected.length} />
 
         <TableContainer>
@@ -126,11 +126,11 @@ const CustomerList = () => {
                       <TableCell align="center">{row.balance}</TableCell>
 
                       <TableCell align="center">
-                        <IconButton onClick={() => navigate('/pages/view-customer')}>
+                        <IconButton onClick={() => navigate("/pages/view-customer")}>
                           <Edit />
                         </IconButton>
 
-                        <IconButton onClick={() => navigate('/pages/new-customer')}>
+                        <IconButton onClick={() => navigate("/pages/new-customer")}>
                           <TrendingFlat />
                         </IconButton>
                       </TableCell>

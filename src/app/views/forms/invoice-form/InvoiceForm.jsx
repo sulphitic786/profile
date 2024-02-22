@@ -1,30 +1,30 @@
-import { Box, Button, Card, Divider, Grid, Icon, MenuItem, styled, TextField } from '@mui/material';
+import { Box, Button, Card, Divider, Grid, Icon, MenuItem, styled, TextField } from "@mui/material";
 // import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { FlexBox } from 'app/components/FlexBox';
-import { H4, Span } from 'app/components/Typography';
-import { Formik } from 'formik';
-import { calculateAmount } from './InvoiceFormService';
-import InvoiceItemTable from './InvoiceItemTable';
+import { FlexBox } from "../../../components/FlexBox";
+import { H4, Span } from "../../../components/Typography";
+import { Formik } from "formik";
+import { calculateAmount } from "./InvoiceFormService";
+import InvoiceItemTable from "./InvoiceItemTable";
 
 // styled components
-const InvoiceRoot = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+const InvoiceRoot = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  padding: '16px',
+  padding: "16px",
   background: theme.palette.background.default
 }));
 
 const StyledInput = styled(TextField)({
-  minWidth: '188px !important',
-  '& label': { fontSize: '14px' },
-  '& label.MuiInputLabel-shrink': { marginTop: '0px' },
-  '& .MuiOutlinedInput-root': {
-    '& .MuiOutlinedInput-input': {
-      fontSize: '14px',
-      padding: '10px 14px !important'
+  minWidth: "188px !important",
+  "& label": { fontSize: "14px" },
+  "& label.MuiInputLabel-shrink": { marginTop: "0px" },
+  "& .MuiOutlinedInput-root": {
+    "& .MuiOutlinedInput-input": {
+      fontSize: "14px",
+      padding: "10px 14px !important"
     }
   }
 });
@@ -81,7 +81,7 @@ const InvoiceForm = () => {
             setSubmitting,
             setFieldValue
           }) => (
-            <form style={{ padding: '16px' }} onSubmit={handleSubmit}>
+            <form style={{ padding: "16px" }} onSubmit={handleSubmit}>
               <Grid container spacing={3} alignItems="center">
                 <Grid item md={2} sm={4} xs={12}>
                   Customer Name
@@ -95,7 +95,7 @@ const InvoiceForm = () => {
                     id="inputField"
                     variant="outlined"
                     name="customerName"
-                    value={values.customerName || ''}
+                    value={values.customerName || ""}
                     onChange={handleChange}
                   >
                     {customerList.map((item) => (
@@ -164,8 +164,8 @@ const InvoiceForm = () => {
                       label="Terms"
                       variant="outlined"
                       onChange={handleChange}
-                      value={values.terms || ''}
-                      sx={{ m: '8px !important' }}
+                      value={values.terms || ""}
+                      sx={{ m: "8px !important" }}
                     >
                       {paymentTermList.map((item) => (
                         <MenuItem value={item} key={item}>
@@ -206,7 +206,7 @@ const InvoiceForm = () => {
                     name="salesPersonName"
                     onChange={handleChange}
                     label="Salesperson Name"
-                    value={values.salesPersonName || ''}
+                    value={values.salesPersonName || ""}
                   >
                     {customerList.map((item, ind) => (
                       <MenuItem value={item} key={item}>
@@ -258,7 +258,7 @@ const InvoiceForm = () => {
 
                         <Grid item xs={6}>
                           <FlexBox alignItems="center">
-                            <Span sx={{ whiteSpace: 'pre' }}>Shipping Charges</Span>
+                            <Span sx={{ whiteSpace: "pre" }}>Shipping Charges</Span>
 
                             <StyledInput
                               size="small"
@@ -266,8 +266,8 @@ const InvoiceForm = () => {
                               variant="outlined"
                               name="shippingCharge"
                               onChange={handleChange}
-                              sx={{ ml: '12px !important' }}
-                              value={values.shippingCharge || ''}
+                              sx={{ ml: "12px !important" }}
+                              value={values.shippingCharge || ""}
                             />
                           </FlexBox>
                         </Grid>
@@ -283,7 +283,7 @@ const InvoiceForm = () => {
                               name="otherField"
                               variant="outlined"
                               onChange={handleChange}
-                              value={values.otherField || ''}
+                              value={values.otherField || ""}
                             />
 
                             <StyledInput
@@ -292,8 +292,8 @@ const InvoiceForm = () => {
                               variant="outlined"
                               onChange={handleChange}
                               name={values.otherField}
-                              sx={{ ml: '12px !important' }}
-                              value={values[values.otherField] || ''}
+                              sx={{ ml: "12px !important" }}
+                              value={values[values.otherField] || ""}
                             />
                           </FlexBox>
                         </Grid>
@@ -339,7 +339,7 @@ const InvoiceForm = () => {
                         color="primary"
                         component="span"
                         variant="contained"
-                        sx={{ textTransform: 'capitalize' }}
+                        sx={{ textTransform: "capitalize" }}
                       >
                         <FlexBox alignItems="center">
                           <Icon sx={{ pr: 4 }}>cloud_upload</Icon>
@@ -352,8 +352,8 @@ const InvoiceForm = () => {
                       multiple
                       type="file"
                       id="upload-multiple-file"
-                      style={{ display: 'none' }}
-                      onChange={(e) => setFieldValue('files', e.target.files)}
+                      style={{ display: "none" }}
+                      onChange={(e) => setFieldValue("files", e.target.files)}
                     />
                   </Grid>
                 </Grid>
@@ -373,28 +373,28 @@ const InvoiceForm = () => {
 };
 
 const paymentTermList = [
-  'NET 15',
-  'NET 30',
-  'NET 45',
-  'NET 60',
-  'Due end of the month',
-  'Due on receive'
+  "NET 15",
+  "NET 30",
+  "NET 45",
+  "NET 60",
+  "Due end of the month",
+  "Due on receive"
 ];
 
 const customerList = [
-  'customer 1',
-  'customer 2',
-  'customer 3',
-  'customer 4',
-  'customer 5',
-  'customer 6',
-  'customer 7',
-  'customer 8'
+  "customer 1",
+  "customer 2",
+  "customer 3",
+  "customer 4",
+  "customer 5",
+  "customer 6",
+  "customer 7",
+  "customer 8"
 ];
 
 const initialValues = {
-  customerType: '',
-  otherField: 'Adjustment'
+  customerType: "",
+  otherField: "Adjustment"
 };
 
 export default InvoiceForm;

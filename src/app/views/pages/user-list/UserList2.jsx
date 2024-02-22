@@ -1,8 +1,8 @@
 import { Avatar, Box, Card, Grid } from "@mui/material";
-import { Breadcrumb } from "app/components";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H5 } from "app/components/Typography";
-import useUsers from "app/hooks/useUsers";
+import { Breadcrumb } from "../../../components";
+import { FlexBetween, FlexBox } from "../../../components/FlexBox";
+import { H5 } from "../../../components/Typography";
+import useUsers from "../../../hooks/useUsers";
 import { Container, StyledButton, StyledP } from "./styles";
 
 const UserList2 = () => {

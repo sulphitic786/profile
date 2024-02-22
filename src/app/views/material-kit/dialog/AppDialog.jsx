@@ -1,22 +1,22 @@
-import { Stack } from '@mui/material';
-import { Box, styled } from '@mui/material';
-import { Breadcrumb, SimpleCard } from 'app/components';
-import ConfirmationDialog from './ConfirmationDialog';
-import CustomizedDialogs from './CustomizedDialog';
-import AlertDialogSlide from './DialogTransition';
-import FormDialog from './FormDialog';
-import FullScreenDialog from './FullScreenDialog';
-import MaxWidthDialog from './OptimalSizeDialog';
-import ResponsiveDialog from './ResponsiveDialog';
-import AlertDialog from './SimpleAlerts';
-import SimpleDialogDemo from './SimpleDialog';
+import { Stack } from "@mui/material";
+import { Box, styled } from "@mui/material";
+import { Breadcrumb, SimpleCard } from "../../../components";
+import ConfirmationDialog from "./ConfirmationDialog";
+import CustomizedDialogs from "./CustomizedDialog";
+import AlertDialogSlide from "./DialogTransition";
+import FormDialog from "./FormDialog";
+import FullScreenDialog from "./FullScreenDialog";
+import MaxWidthDialog from "./OptimalSizeDialog";
+import ResponsiveDialog from "./ResponsiveDialog";
+import AlertDialog from "./SimpleAlerts";
+import SimpleDialogDemo from "./SimpleDialog";
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
@@ -24,7 +24,7 @@ const AppDialog = () => {
   return (
     <Container>
       <Box className="breadcrumb">
-        <Breadcrumb routeSegments={[{ name: 'Material', path: '/material' }, { name: 'Dialog' }]} />
+        <Breadcrumb routeSegments={[{ name: "Material", path: "/material" }, { name: "Dialog" }]} />
       </Box>
 
       <Stack spacing={3}>

@@ -1,12 +1,12 @@
 import { Box, styled } from "@mui/material";
-import { SimpleCard } from "app/components";
+import { SimpleCard } from "../../components";
 import HorizontalStepper from "./HorizontalStepper";
 import VerticalStepper from "./VerticalStepper";
 
 // styled component
 const Container = styled("div")(({ theme }) => ({
   margin: "30px",
-  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const WizardForm = () => {

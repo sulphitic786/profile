@@ -6,11 +6,11 @@ import {
   Icon,
   IconButton,
   styled,
-  Tooltip,
+  Tooltip
 } from "@mui/material";
-import { MatxMenu } from "app/components";
-import { FlexBetween } from "app/components/FlexBox";
-import { H5, Span } from "app/components/Typography";
+import { MatxMenu } from "../../components";
+import { FlexBetween } from "../../components/FlexBox";
+import { H5, Span } from "../../components/Typography";
 import {
   addListInBoard,
   addMemberInBoard,
@@ -18,7 +18,7 @@ import {
   deleteMemberFromBoard,
   getAllLabels,
   getAllMembers,
-  getBoardById,
+  getBoardById
 } from "app/redux/slices/scrumSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,19 +28,19 @@ import ScrumBoardContainer from "./ScrumBoardContainer";
 // styled components
 const Container = styled("div")(({ theme }) => ({
   margin: "30px",
-  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const FlexBox = styled(Box)({
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const StyledAvatar = styled(Avatar)({
   width: 24,
   height: 24,
   marginLeft: "-8px",
-  border: "2px solid white",
+  border: "2px solid white"
 });
 
 const Board = () => {

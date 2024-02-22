@@ -15,10 +15,10 @@ import {
   Slider,
   styled,
   TextField,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { H5, H6, Small, Span } from "app/components/Typography";
+import { FlexBetween } from "../../components/FlexBox";
+import { H5, H6, Small, Span } from "../../components/Typography";
 import { Fragment } from "react";
 
 const ShopHeader = styled("div")({
@@ -26,20 +26,20 @@ const ShopHeader = styled("div")({
   marginTop: "8px",
   marginBottom: "16px",
   paddingLeft: "16px",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const StyledCard = styled(Card)({
   padding: "16px",
   marginBottom: "16px",
-  position: "relative",
+  position: "relative"
 });
 
 const StyledLabel = styled(FormControlLabel)({ height: 32 });
 
 const Badge = styled("small")(({ theme }) => ({
   color: theme.palette.primary.main,
-  background: `rgba(var(--primary), 0.15)`,
+  background: `rgba(var(--primary), 0.15)`
 }));
 
 const ShopSidenav = ({
@@ -60,7 +60,7 @@ const ShopSidenav = ({
   handleBrandChange,
   handleRatingClick,
   handleFreeShippingClick,
-  handleClearAllFilter,
+  handleClearAllFilter
 }) => {
   const { palette } = useTheme();
   const textMuted = palette.text.secondary;
@@ -83,7 +83,7 @@ const ShopSidenav = ({
               <InputAdornment position="start">
                 <Icon fontSize="small">search</Icon>
               </InputAdornment>
-            ),
+            )
           }}
           fullWidth
         />
@@ -187,7 +187,7 @@ const ShopSidenav = ({
                 <InputAdornment position="start">
                   <Icon fontSize="small">search</Icon>
                 </InputAdornment>
-              ),
+              )
             }}
             fullWidth
           ></TextField>

@@ -1,18 +1,18 @@
 import { Box, Divider, styled, useTheme } from "@mui/material";
-import ChatAvatar from "app/components/ChatAvatar";
-import { Paragraph } from "app/components/Typography";
+import ChatAvatar from "../../components/ChatAvatar";
+import { Paragraph } from "../../components/Typography";
 import { format } from "date-fns";
 import Scrollbar from "react-perfect-scrollbar";
 
 const ChatSideNavRoot = styled("div")(({ theme }) => ({
   height: 450,
   borderRight: "1px solid rgba(0, 0, 0, 0.08)",
-  background: theme.palette.background.default,
+  background: theme.palette.background.default
 }));
 
 const StyledScrollBar = styled(Scrollbar)(() => ({
   height: "100%",
-  position: "relative",
+  position: "relative"
 }));
 
 const LeftContent = styled("div")(({ theme }) => ({
@@ -21,7 +21,7 @@ const LeftContent = styled("div")(({ theme }) => ({
   paddingLeft: "16px",
   paddingRight: "16px",
   alignItems: "center",
-  background: theme.palette.primary.main,
+  background: theme.palette.primary.main
 }));
 
 const UserName = styled("h5")(() => ({
@@ -30,7 +30,7 @@ const UserName = styled("h5")(() => ({
   fontSize: "18px",
   fontWeight: "500",
   whiteSpace: "pre",
-  marginLeft: "16px",
+  marginLeft: "16px"
 }));
 
 const ContactList = styled("div")(() => ({
@@ -39,14 +39,14 @@ const ContactList = styled("div")(() => ({
   cursor: "pointer",
   alignItems: "center",
   transition: "background 250ms ease",
-  "&:hover": { background: "rgba(0, 0, 0, 0.054)" },
+  "&:hover": { background: "rgba(0, 0, 0, 0.054)" }
 }));
 
 const ChatSidenav = ({
   currentUser,
   contactList = [],
   handleContactClick,
-  recentContactList = [],
+  recentContactList = []
 }) => {
   const theme = useTheme();
   const secondary = theme.palette.text.secondary;

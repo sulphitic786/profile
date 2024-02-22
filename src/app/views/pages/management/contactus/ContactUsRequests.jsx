@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Paper, styled, Icon, Grid, Tooltip, TextField } from '@mui/material';
-import { Breadcrumb } from 'app/components';
-import DataTable from 'react-data-table-component';
-import { getDateFromTimestamp } from 'app/utils/utils';
+import React, { useEffect, useState } from "react";
+import { Paper, styled, Icon, Grid, Tooltip, TextField } from "@mui/material";
+import { Breadcrumb } from "../../../../components";
+import DataTable from "react-data-table-component";
+import { getDateFromTimestamp } from "../../../../utils/utils";
 // import '@styles/react/libs/tables/react-dataTable-component.scss';
-import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
-import { MatxLoading } from 'app/components';
-import { fireStore } from 'config';
-import { useNavigate } from 'react-router-dom';
-import { useAlert } from 'app/contexts/AlertContext';
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { MatxLoading } from "../../../../components";
+import { fireStore } from "../../../../../config";
+import { useNavigate } from "react-router-dom";
+import { useAlert } from "../../../../contexts/AlertContext";
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: {
-    margin: '16px'
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: {
+    margin: "16px"
   },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
@@ -37,7 +37,7 @@ const FilterComponent = ({ filterText, onFilter }) => {
 const ContactUsRequests = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [filterText, setFilterText] = useState('');
+  const [filterText, setFilterText] = useState("");
   const { showAlert } = useAlert();
 
   useEffect(() => {
@@ -48,32 +48,32 @@ const ContactUsRequests = () => {
     try {
       setLoading(true);
       // Delete the document with the given ID
-      await deleteDoc(doc(fireStore, 'contact-us', data.id));
-      showAlert('success', 'Data deleted successfully.');
+      await deleteDoc(doc(fireStore, "contact-us", data.id));
+      showAlert("success", "Data deleted successfully.");
       setLoading(false);
       fetchData();
     } catch (error) {
       setLoading(false);
-      showAlert('error', 'Error while deleting request.');
-      console.error('Error deleting data from Firebase:', error);
+      showAlert("error", "Error while deleting request.");
+      console.error("Error deleting data from Firebase:", error);
     }
   };
 
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await getDocs(collection(fireStore, 'contact-us'));
+      const response = await getDocs(collection(fireStore, "contact-us"));
       const dataFromFirebase = response.docs.map((doc) => ({
         id: doc.id,
         ...doc.data()
       }));
       setLoading(false);
       setUsers(dataFromFirebase);
-      showAlert('success', 'Data fetch successfully.');
+      showAlert("success", "Data fetch successfully.");
     } catch (error) {
       setLoading(false);
-      showAlert('error', 'Error while fetching data.');
-      console.error('Error fetching data:', error);
+      showAlert("error", "Error while fetching data.");
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -81,10 +81,10 @@ const ContactUsRequests = () => {
 
   const columns = [
     {
-      name: 'Name',
+      name: "Name",
       sortable: true,
-      minWidth: '102px',
-      sortField: 'name',
+      minWidth: "102px",
+      sortField: "name",
       selector: (row) => row.name,
       cell: (row) => (
         <div className="d-flex justify-content-left align-items-center ">
@@ -93,10 +93,10 @@ const ContactUsRequests = () => {
       )
     },
     {
-      name: 'Phone',
+      name: "Phone",
       sortable: true,
-      minWidth: '102px',
-      sortField: 'phone',
+      minWidth: "102px",
+      sortField: "phone",
       selector: (row) => row.phone,
       cell: (row) => (
         <div className="d-flex justify-content-left align-items-center ">
@@ -105,10 +105,10 @@ const ContactUsRequests = () => {
       )
     },
     {
-      name: 'Email',
+      name: "Email",
       sortable: true,
-      minWidth: '102px',
-      sortField: 'email',
+      minWidth: "102px",
+      sortField: "email",
       selector: (row) => row.email,
       cell: (row) => (
         <div className="d-flex justify-content-left align-items-center ">
@@ -117,10 +117,10 @@ const ContactUsRequests = () => {
       )
     },
     {
-      name: 'Subject',
+      name: "Subject",
       sortable: true,
-      minWidth: '102px',
-      sortField: 'subject',
+      minWidth: "102px",
+      sortField: "subject",
       selector: (row) => row.subject,
       cell: (row) => (
         <div className="d-flex justify-content-left align-items-center ">
@@ -129,10 +129,10 @@ const ContactUsRequests = () => {
       )
     },
     {
-      name: 'Message',
+      name: "Message",
       sortable: true,
-      minWidth: '200px',
-      sortField: 'message',
+      minWidth: "200px",
+      sortField: "message",
       selector: (row) => row.message,
       cell: (row) => (
         <div className="d-flex justify-content-left align-items-center ">
@@ -144,10 +144,10 @@ const ContactUsRequests = () => {
       )
     },
     {
-      name: 'Date',
+      name: "Date",
       sortable: true,
-      minWidth: '102px',
-      sortField: 'date',
+      minWidth: "102px",
+      sortField: "date",
       selector: (row) => row.created_at,
       cell: (row) => (
         <div className="d-flex justify-content-left align-items-center ">
@@ -156,10 +156,10 @@ const ContactUsRequests = () => {
       )
     },
     {
-      name: 'Action',
+      name: "Action",
       sortable: true,
-      minWidth: '102px',
-      sortField: 'date',
+      minWidth: "102px",
+      sortField: "date",
       selector: (row) => row.created_at,
       cell: (row) => (
         <div className="d-flex justify-content-left align-items-center ">
@@ -181,7 +181,7 @@ const ContactUsRequests = () => {
       <>
         <div
           className="d-flex justify-content-center align-items-center py-2"
-          style={{ backgroundColor: '#e0d9d9', opacity: '0.5', fontStyle: 'italic' }}
+          style={{ backgroundColor: "#e0d9d9", opacity: "0.5", fontStyle: "italic" }}
         >
           <div className="d-flex flex-column">{data.message}</div>
         </div>
@@ -218,11 +218,11 @@ const ContactUsRequests = () => {
       {loading && <MatxLoading />}
       <div className="breadcrumb">
         <Breadcrumb
-          routeSegments={[{ name: 'Pages', path: '/pages' }, { name: 'contact-us-list' }]}
+          routeSegments={[{ name: "Pages", path: "/pages" }, { name: "contact-us-list" }]}
         />
       </div>
 
-      <Paper sx={{ width: '100%', overflowX: 'scroll' }}>
+      <Paper sx={{ width: "100%", overflowX: "scroll" }}>
         <DataTable
           responsive
           striped

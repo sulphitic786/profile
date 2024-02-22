@@ -1,17 +1,17 @@
 import { Box, Button, Card, Checkbox, Grid, Icon, styled } from "@mui/material";
-import { FlexAlignCenter, FlexBetween, FlexBox } from "app/components/FlexBox";
-import { Paragraph, Small } from "app/components/Typography";
+import { FlexAlignCenter, FlexBetween, FlexBox } from "../../components/FlexBox";
+import { Paragraph, Small } from "../../components/Typography";
 
 // styled components
 const StyledIcon = styled(Icon)({
   color: "#fff",
   cursor: "pointer",
-  marginRight: "12px",
+  marginRight: "12px"
 });
 
 const IMG = styled("img")({
   width: "100%",
-  display: "block",
+  display: "block"
 });
 
 const CardRoot = styled(Card)(({ theme }) => ({
@@ -36,26 +36,26 @@ const CardRoot = styled(Card)(({ theme }) => ({
       bottom: 0,
       right: 0,
       left: 0,
-      zIndex: -1,
-    },
+      zIndex: -1
+    }
   },
   "& .grid__card-top": {
     textAlign: "center",
-    position: "relative",
+    position: "relative"
   },
   "& .grid__card-bottom": {
     textAlign: "center",
-    "& .email": { display: "none" },
+    "& .email": { display: "none" }
   },
   "&:hover": {
     "& .grid__card-overlay": { opacity: 1 },
     "& .grid__card-bottom": {
       "& small": {
         display: "none",
-        color: theme.palette.text.secondary,
-      },
-    },
-  },
+        color: theme.palette.text.secondary
+      }
+    }
+  }
 }));
 
 const calculateColumnPerRow = (value) => {

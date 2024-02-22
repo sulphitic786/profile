@@ -12,35 +12,35 @@ import {
   styled,
   TextField,
   Tooltip
-} from '@mui/material';
+} from "@mui/material";
 // import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { MatxMenu } from 'app/components';
-import { themeShadows } from 'app/components/MatxTheme/themeColors';
-import { Component } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import TagDialog from './TagDialog';
-import { addTodo, deleteTodo, getAllTodoTag, getTodoById, updateTodoById } from './TodoService';
+import { MatxMenu } from "../../components";
+import { themeShadows } from "../../components/MatxTheme/themeColors";
+import { Component } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import TagDialog from "./TagDialog";
+import { addTodo, deleteTodo, getAllTodoTag, getTodoById, updateTodoById } from "./TodoService";
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
   zIndex: 2000,
-  background: '#fff',
-  borderRadius: '4px',
+  background: "#fff",
+  borderRadius: "4px",
   boxShadow: themeShadows[5],
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const FlexBox = styled(Box)({
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignItems: 'center'
+  display: "flex",
+  flexWrap: "wrap",
+  alignItems: "center"
 });
 
 const JustifyBox = styled(FlexBox)({
-  paddingTop: '8px',
-  paddingBottom: '8px',
-  justifyContent: 'space-between',
-  background: 'rgba(0, 0, 0, 0.01)'
+  paddingTop: "8px",
+  paddingBottom: "8px",
+  justifyContent: "space-between",
+  background: "rgba(0, 0, 0, 0.01)"
 });
 
 const withRouter = (WrappedComponent) => (props) => {
@@ -53,8 +53,8 @@ const withRouter = (WrappedComponent) => (props) => {
 class TodoEditor extends Component {
   state = {
     todo: {
-      title: '',
-      note: '',
+      title: "",
+      note: "",
       done: false,
       read: false,
       starred: false,
@@ -71,10 +71,10 @@ class TodoEditor extends Component {
     let { id } = this.props.params;
 
     getAllTodoTag().then(({ data: tagList }) => {
-      if (id !== 'add') {
+      if (id !== "add") {
         getTodoById(id).then(({ data }) => {
           if (!data) {
-            this.props.navigate('/todo/list');
+            this.props.navigate("/todo/list");
             return;
           }
           this.setState({ todo: { ...data }, tagList: [...tagList] });
@@ -88,7 +88,7 @@ class TodoEditor extends Component {
   addNewTodo = () => {
     let id = this.state.tagList.length + 1;
     addTodo({ ...this.state.todo, id }).then(() => {
-      this.props.navigate('/todo/list');
+      this.props.navigate("/todo/list");
     });
   };
 
@@ -128,7 +128,7 @@ class TodoEditor extends Component {
 
   handleTodoDelete = () => {
     deleteTodo({ ...this.state.todo }).then(() => {
-      this.props.navigate('/todo/list');
+      this.props.navigate("/todo/list");
     });
   };
 
@@ -156,11 +156,11 @@ class TodoEditor extends Component {
   handleSubmit = (event) => {
     let { id: todoId } = this.props.params;
 
-    if (todoId === 'add') {
+    if (todoId === "add") {
       this.addNewTodo();
     } else {
       updateTodoById({ ...this.state.todo }).then(() => {
-        this.props.navigate('/todo/list');
+        this.props.navigate("/todo/list");
       });
     }
   };
@@ -200,30 +200,30 @@ class TodoEditor extends Component {
                 sx={{ ml: 1 }}
                 onChange={() => this.updateTodo({ ...this.state, done: !done })}
                 control={<Checkbox checked={done} />}
-                label={`Mark As ${done ? 'Und' : 'D'}one`}
+                label={`Mark As ${done ? "Und" : "D"}one`}
               />
             </Hidden>
           </FlexBox>
 
           <Box display="flex" flexWrap="wrap">
-            <Tooltip title={`Mark As ${read ? 'Unr' : 'R'}ead`} fontSize="large">
+            <Tooltip title={`Mark As ${read ? "Unr" : "R"}ead`} fontSize="large">
               <IconButton onClick={() => this.updateTodo({ ...this.state, read: !read })}>
-                <Icon>{read ? 'drafts' : 'markunread'}</Icon>
+                <Icon>{read ? "drafts" : "markunread"}</Icon>
               </IconButton>
             </Tooltip>
 
-            <Tooltip title={`Mark As ${important ? 'Uni' : 'I'}mportant`} fontSize="large">
+            <Tooltip title={`Mark As ${important ? "Uni" : "I"}mportant`} fontSize="large">
               <IconButton onClick={() => this.updateTodo({ ...this.state, important: !important })}>
-                <Icon color={important ? 'error' : 'inherit'}>
-                  {important ? 'error' : 'error_outline'}
+                <Icon color={important ? "error" : "inherit"}>
+                  {important ? "error" : "error_outline"}
                 </Icon>
               </IconButton>
             </Tooltip>
 
-            <Tooltip title={`Mark As ${starred ? 'Uns' : 'S'}tarred`} fontSize="large">
+            <Tooltip title={`Mark As ${starred ? "Uns" : "S"}tarred`} fontSize="large">
               <IconButton onClick={() => this.updateTodo({ ...this.state, starred: !starred })}>
-                <Icon color={starred ? 'secondary' : 'inherit'}>
-                  {starred ? 'star' : 'star_outline'}
+                <Icon color={starred ? "secondary" : "inherit"}>
+                  {starred ? "star" : "star_outline"}
                 </Icon>
               </IconButton>
             </Tooltip>
@@ -248,7 +248,7 @@ class TodoEditor extends Component {
               {this.state.tagList.map((tag) => (
                 <MenuItem
                   key={tag.id}
-                  sx={{ textTransform: 'capitalize' }}
+                  sx={{ textTransform: "capitalize" }}
                   onClick={() => this.addTagInTodo(tag.id)}
                 >
                   {tag.name}
@@ -276,7 +276,7 @@ class TodoEditor extends Component {
                       key={tagId}
                       label={tagName}
                       onDelete={() => this.handleTagDelete(tagId)}
-                      sx={{ mr: 1, textTransform: 'capitalize' }}
+                      sx={{ mr: 1, textTransform: "capitalize" }}
                     />
                   );
               })}

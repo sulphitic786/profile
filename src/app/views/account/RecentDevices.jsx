@@ -1,8 +1,8 @@
 import { Avatar, Box, Card, Chip, Table, TableHead, TableRow } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H5, Paragraph } from "app/components/Typography";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { H5, Paragraph } from "../../components/Typography";
 import { BodyTableCell, HeadTableCell } from "./common/StyledComponents";
 
 const RecentDevices = () => {
@@ -48,7 +48,7 @@ const RecentDevices = () => {
                           height: 25,
                           color: "white",
                           borderRadius: "10px",
-                          backgroundColor: "success.main",
+                          backgroundColor: "success.main"
                         }}
                       />
                     )}
@@ -73,7 +73,7 @@ const activityList = [
     device: "Dell XPS 12",
     location: "New York, USA",
     recentActivity: "Now",
-    current: true,
+    current: true
   },
   {
     id: 2,
@@ -81,7 +81,7 @@ const activityList = [
     browserIcon: "/assets/images/browsers/mozilla.svg",
     device: "Acer Aspire 300",
     location: "New York, USA",
-    recentActivity: "15 June 2020",
+    recentActivity: "15 June 2020"
   },
   {
     id: 3,
@@ -89,7 +89,7 @@ const activityList = [
     browserIcon: "/assets/images/browsers/safari.svg",
     device: "Macbook Pro 2020",
     location: "London, UK",
-    recentActivity: "05 October 2020",
+    recentActivity: "05 October 2020"
   },
   {
     id: 4,
@@ -97,8 +97,8 @@ const activityList = [
     browserIcon: "/assets/images/browsers/apple.svg",
     device: "IPhone 13 Pro Max",
     location: "Manchester, UK",
-    recentActivity: "05 October 2020",
-  },
+    recentActivity: "05 October 2020"
+  }
 ];
 
 export default RecentDevices;

@@ -1,18 +1,18 @@
-import { Stack } from '@mui/material';
-import { Box, styled } from '@mui/material';
-import { Breadcrumb, SimpleCard } from 'app/components';
-import CustomizedSwitch from './CustomizedSwitch';
-import FormGroupSwitch from './FormGroupSwitch';
-import LabelledSwitch from './LabelledSwitch';
-import PlacingSwitchLabel from './PlacingSwitchLabel';
-import SimpleSwitch from './SijmpleSwitch';
+import { Stack } from "@mui/material";
+import { Box, styled } from "@mui/material";
+import { Breadcrumb, SimpleCard } from "../../../components";
+import CustomizedSwitch from "./CustomizedSwitch";
+import FormGroupSwitch from "./FormGroupSwitch";
+import LabelledSwitch from "./LabelledSwitch";
+import PlacingSwitchLabel from "./PlacingSwitchLabel";
+import SimpleSwitch from "./SijmpleSwitch";
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
@@ -20,7 +20,7 @@ const AppSwitch = () => {
   return (
     <Container>
       <Box className="mb-sm-30">
-        <Breadcrumb routeSegments={[{ name: 'Material', path: '/material' }, { name: 'Switch' }]} />
+        <Breadcrumb routeSegments={[{ name: "Material", path: "/material" }, { name: "Switch" }]} />
       </Box>
 
       <Stack spacing={3}>

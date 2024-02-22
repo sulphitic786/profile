@@ -1,13 +1,13 @@
 import { Button, Card, Grid, Icon, styled, useTheme } from "@mui/material";
-import { FlexAlignCenter } from "app/components/FlexBox";
-import { themeShadows } from "app/components/MatxTheme/themeColors";
-import { H1, H4, Paragraph } from "app/components/Typography";
+import { FlexAlignCenter } from "../../components/FlexBox";
+import { themeShadows } from "../../components/MatxTheme/themeColors";
+import { H1, H4, Paragraph } from "../../components/Typography";
 
 // styled components
 const Container = styled("div")(({ theme }) => ({
   margin: "30px",
   position: "relative",
-  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const CardWrapper = styled(Card)(() => ({
@@ -17,14 +17,14 @@ const CardWrapper = styled(Card)(() => ({
   flexDirection: "column",
   justifyContent: "center",
   "& h4": { marginBottom: "24px", fontSize: "20px" },
-  "& .icon": { fontSize: 72, marginBottom: "32px" },
+  "& .icon": { fontSize: 72, marginBottom: "32px" }
 }));
 
 const GridContent = styled(FlexAlignCenter)(() => ({
   padding: "2rem 0",
   flexDirection: "column",
   "& h4": { marginBottom: "24px", fontSize: "20px" },
-  "& .icon": { fontSize: 72, marginBottom: "32px" },
+  "& .icon": { fontSize: 72, marginBottom: "32px" }
 }));
 
 const ContentBox = styled(FlexAlignCenter)(({ theme }) => ({
@@ -34,8 +34,8 @@ const ContentBox = styled(FlexAlignCenter)(({ theme }) => ({
     padding: "2px",
     overflow: "hidden",
     borderRadius: "300px",
-    background: "rgba(0, 0, 0, 0.15)",
-  },
+    background: "rgba(0, 0, 0, 0.15)"
+  }
 }));
 
 const PriceBox = styled("div")(({ textcolor, theme }) => ({
@@ -46,8 +46,8 @@ const PriceBox = styled("div")(({ textcolor, theme }) => ({
   "& b": {
     marginTop: "6px",
     marginLeft: "4px",
-    color: textcolor && textcolor,
-  },
+    color: textcolor && textcolor
+  }
 }));
 
 const StyledButton = styled(Button)(({ bgcolor }) => ({
@@ -59,13 +59,13 @@ const StyledButton = styled(Button)(({ bgcolor }) => ({
   paddingRight: "28px",
   borderRadius: "300px",
   boxShadow: themeShadows[12],
-  background: bgcolor && bgcolor,
+  background: bgcolor && bgcolor
 }));
 
 const StyledP = styled(Paragraph)(({ theme }) => ({
   marginTop: "8px",
   textAlign: "center",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 const Pricing2 = () => {
@@ -75,7 +75,7 @@ const Pricing2 = () => {
     palette.error.main,
     "rgba(9, 182, 109, 1)",
     palette.secondary.main,
-    palette.primary.main,
+    palette.primary.main
   ];
 
   const textMuted = palette.text.secondary;
@@ -162,22 +162,22 @@ const planList = [
     price: 75,
     title: "Startup",
     icon: "sports_football",
-    features: { domain: 1, users: 5, copies: 10 },
+    features: { domain: 1, users: 5, copies: 10 }
   },
   {
     id: 2,
     price: 175,
     title: "Growth Plan",
     icon: "trending_up",
-    features: { domain: 8, users: 15, copies: 100 },
+    features: { domain: 8, users: 15, copies: 100 }
   },
   {
     id: 3,
     price: 875,
     title: "Enterprise",
     icon: "apartment",
-    features: { domain: 10, users: 25, copies: 1000 },
-  },
+    features: { domain: 10, users: 25, copies: 1000 }
+  }
 ];
 
 const planList2 = [
@@ -186,29 +186,29 @@ const planList2 = [
     price: 20,
     title: "Student",
     icon: "person",
-    features: { domain: 1, users: 5, copies: 10 },
+    features: { domain: 1, users: 5, copies: 10 }
   },
   {
     id: 2,
     price: 75,
     title: "Basic Plan",
     icon: "flight",
-    features: { domain: 8, users: 15, copies: 100 },
+    features: { domain: 8, users: 15, copies: 100 }
   },
   {
     id: 3,
     price: 375,
     title: "For Business",
     icon: "apartment",
-    features: { domain: 10, users: 25, copies: 1000 },
+    features: { domain: 10, users: 25, copies: 1000 }
   },
   {
     id: 4,
     price: 875,
     title: "Enterprise",
     icon: "meeting_room",
-    features: { domain: 18, users: 35, copies: 10000 },
-  },
+    features: { domain: 18, users: 35, copies: 10000 }
+  }
 ];
 
 export default Pricing2;

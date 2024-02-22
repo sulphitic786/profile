@@ -9,18 +9,18 @@ import {
   IconButton,
   lighten,
   styled,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { H1, H3, H4, Paragraph, Span } from "app/components/Typography";
-import { convertHexToRGB } from "app/utils/utils";
+import { FlexBetween } from "../../../components/FlexBox";
+import { H1, H3, H4, Paragraph, Span } from "../../../components/Typography";
+import { convertHexToRGB } from "../../../utils/utils";
 import { Fragment } from "react";
 import DummyChart from "./DummyChart";
 import ProfileBarChart from "./ProfileBarChart";
 
 const FlexBox = styled(Box)(() => ({
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 }));
 
 const ProfileContent = styled("div")(() => ({
@@ -29,21 +29,21 @@ const ProfileContent = styled("div")(() => ({
   paddingRight: "30px",
   paddingLeft: "4px",
   "& .menu-button": {
-    display: "none",
+    display: "none"
   },
   "@media only screen and (max-width: 959px)": {
     marginTop: "-390px",
     paddingTop: "24px",
     paddingRight: "16px",
-    paddingLeft: "16px",
+    paddingLeft: "16px"
   },
   "@media only screen and (max-width: 767px)": {
     marginTop: "-410px",
     paddingTop: "16px",
     paddingRight: "16px",
     paddingLeft: "16px",
-    "& .menu-button": { display: "flex" },
-  },
+    "& .menu-button": { display: "flex" }
+  }
 }));
 
 const StyledCard = styled(Card)(() => ({
@@ -52,38 +52,38 @@ const StyledCard = styled(Card)(() => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  background: "rgba(0, 0, 0, 0.15)",
+  background: "rgba(0, 0, 0, 0.15)"
 }));
 
 const StyledH1 = styled(H1)(() => ({
   fontWeight: "normal",
-  marginBottom: "4px",
+  marginBottom: "4px"
 }));
 
 const StyledSpan = styled(Span)(({ theme }) => ({
   fontWeight: "normal",
   textTransform: "uppercase",
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.secondary
 }));
 
 const StyledFab = styled(Fab)(({ bgcolor, textcolor }) => ({
   boxShadow: "none",
   overflow: "hidden",
   background: bgcolor,
-  "& h3": { color: textcolor, fontWeight: "normal" },
+  "& h3": { color: textcolor, fontWeight: "normal" }
 }));
 
 const TextBox = styled(Box)(({ theme }) => ({
   marginLeft: "16px",
   "& h4": { marginBottom: "4px", fontWeight: "500" },
-  "& p": { color: theme.palette.text.secondary },
+  "& p": { color: theme.palette.text.secondary }
 }));
 
 const StyledCard2 = styled(Card)(() => ({
   display: "flex",
   paddingTop: "8px",
   overflow: "unset",
-  paddingBottom: "8px",
+  paddingBottom: "8px"
 }));
 
 const IMG = styled("img")(() => ({ width: "100%", overflow: "hidden" }));
@@ -93,7 +93,7 @@ const Card2RightContent = styled(FlexBetween)(({ theme }) => ({
   paddingRight: "16px",
   paddingBottom: "12px",
   "& h4": { fontWeight: "500", textTransform: "capitalize" },
-  "& span": { color: theme.palette.text.secondary },
+  "& span": { color: theme.palette.text.secondary }
 }));
 
 const UserProfileContent = ({ toggleSidenav }) => {
@@ -348,7 +348,7 @@ const UserProfileContent = ({ toggleSidenav }) => {
 const projectSummery = [
   { title: "Project Created", amount: 11 },
   { title: "Project Completed", amount: 15 },
-  { title: "Project Published", amount: 25 },
+  { title: "Project Published", amount: 25 }
 ];
 
 const paymentList = [
@@ -356,32 +356,32 @@ const paymentList = [
     img: "/assets/images/payment-methods/master-card.png",
     type: "Master Card",
     product: "Bundled product",
-    amount: 909,
+    amount: 909
   },
   {
     img: "/assets/images/payment-methods/paypal.png",
     type: "Master Card",
     product: "Bundled product",
-    amount: 303,
+    amount: 303
   },
   {
     img: "/assets/images/payment-methods/visa.png",
     type: "Paypal",
     product: "Bundled product",
-    amount: 330,
+    amount: 330
   },
   {
     img: "/assets/images/payment-methods/maestro.png",
     type: "Paypal",
     product: "Bundled product",
-    amount: 909,
+    amount: 909
   },
   {
     img: "/assets/images/payment-methods/maestro.png",
     type: "Master Card",
     product: "Bundled product",
-    amount: 909,
-  },
+    amount: 909
+  }
 ];
 
 export default UserProfileContent;

@@ -1,7 +1,7 @@
 import { Box, Button, Card, Icon, IconButton, MenuItem, styled } from "@mui/material";
-import { MatxMenu } from "app/components";
-import { FlexBetween } from "app/components/FlexBox";
-import { H2 } from "app/components/Typography";
+import { MatxMenu } from "../../components";
+import { FlexBetween } from "../../components/FlexBox";
+import { H2 } from "../../components/Typography";
 import { debounce } from "lodash";
 import { useCallback, useEffect, useState } from "react";
 // import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";

@@ -8,9 +8,9 @@ import {
   MenuItem,
   styled,
   TablePagination,
-  TextField,
+  TextField
 } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
+import { FlexBetween } from "../../components/FlexBox";
 import * as _ from "lodash";
 import { Fragment } from "react";
 import GridProductCard from "./GridProductCard";
@@ -28,7 +28,7 @@ const ShopContainer = ({
   handleChange,
   toggleSidenav,
   setRowsPerPage,
-  handleChangePage,
+  handleChangePage
 }) => {
   return (
     <Fragment>

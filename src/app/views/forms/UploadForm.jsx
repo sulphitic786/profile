@@ -1,6 +1,6 @@
 import { Box, Button, Card, Divider, Fab, Grid, Icon, styled, useTheme } from "@mui/material";
-import { Breadcrumb, MatxProgressBar, SimpleCard } from "app/components";
-import { H5, Paragraph } from "app/components/Typography";
+import { Breadcrumb, MatxProgressBar, SimpleCard } from "../../components";
+import { H5, Paragraph } from "../../components/Typography";
 import { useState } from "react";
 
 // styled components
@@ -9,18 +9,18 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const FlexBox = styled(Box)({
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const FabIcon = styled(Fab)({
   textTransform: "capitalize",
-  "& .icon": { marginRight: "8px" },
+  "& .icon": { marginRight: "8px" }
 });
 
 const HiddenInput = styled("input")({ display: "none" });
@@ -31,7 +31,7 @@ const DragFileBox = styled(FlexBox)({
   borderRadius: "4px",
   marginBottom: "24px",
   justifyContent: "center",
-  background: "rgba(0, 0, 0, 0.01)",
+  background: "rgba(0, 0, 0, 0.01)"
 });
 
 const UploadForm = () => {

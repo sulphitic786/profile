@@ -7,69 +7,69 @@ import {
   IconButton,
   styled,
   useMediaQuery,
-  useTheme,
-} from '@mui/material';
-import { FlexBox } from 'app/components/FlexBox';
-import Apps from 'app/components/icons/Apps';
-import DeleteOutlined from 'app/components/icons/DeleteOutlined';
-import DevicesApple from 'app/components/icons/DevicesApple';
-import DollarOutlined from 'app/components/icons/DollarOutlined';
-import FileOutlined from 'app/components/icons/FileOutlined';
-import Fingerprint from 'app/components/icons/Fingerprint';
-import Instagram from 'app/components/icons/Instagram';
-import Key from 'app/components/icons/Key';
-import Link from 'app/components/icons/Link';
-import LockOutlined from 'app/components/icons/LockOutlined';
-import NotificationOutlined from 'app/components/icons/NotificationOutlined';
-import PremiumOutlined from 'app/components/icons/PremiumOutlined';
-import SettingsOutlined from 'app/components/icons/SettingsOutlined';
-import UserOutlined from 'app/components/icons/UserOutlined';
-import { H5 } from 'app/components/Typography';
-import { Fragment, useState } from 'react';
-import ApiKeys from './ApiKeys';
-import BasicInformation from './BasicInformation';
-import Billing from './Billing';
-import ConnectedAccounts from './ConnectedAccounts';
-import DeleteAccount from './DeleteAccount';
-import Notifications from './Notifications';
-import Password from './Password';
-import Preferences from './Preferences';
-import RecentDevices from './RecentDevices';
-import Referrals from './Referrals';
-import SocialAccounts from './SocialAccounts';
-import Statements from './Statements';
-import TwoStepVerification from './TwoStepVerification';
+  useTheme
+} from "@mui/material";
+import { FlexBox } from "../../components/FlexBox";
+import Apps from "../../components/icons/Apps";
+import DeleteOutlined from "../../components/icons/DeleteOutlined";
+import DevicesApple from "../../components/icons/DevicesApple";
+import DollarOutlined from "../../components/icons/DollarOutlined";
+import FileOutlined from "../../components/icons/FileOutlined";
+import Fingerprint from "../../components/icons/Fingerprint";
+import Instagram from "../../components/icons/Instagram";
+import Key from "../../components/icons/Key";
+import Link from "../../components/icons/Link";
+import LockOutlined from "../../components/icons/LockOutlined";
+import NotificationOutlined from "../../components/icons/NotificationOutlined";
+import PremiumOutlined from "../../components/icons/PremiumOutlined";
+import SettingsOutlined from "../../components/icons/SettingsOutlined";
+import UserOutlined from "../../components/icons/UserOutlined";
+import { H5 } from "../../components/Typography";
+import { Fragment, useState } from "react";
+import ApiKeys from "./ApiKeys";
+import BasicInformation from "./BasicInformation";
+import Billing from "./Billing";
+import ConnectedAccounts from "./ConnectedAccounts";
+import DeleteAccount from "./DeleteAccount";
+import Notifications from "./Notifications";
+import Password from "./Password";
+import Preferences from "./Preferences";
+import RecentDevices from "./RecentDevices";
+import Referrals from "./Referrals";
+import SocialAccounts from "./SocialAccounts";
+import Statements from "./Statements";
+import TwoStepVerification from "./TwoStepVerification";
 
 // styled component
 const StyledButton = styled(Button)(({ theme }) => ({
   borderRadius: 0,
-  overflow: 'hidden',
-  position: 'relative',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
-  padding: '0.6rem 1.5rem',
-  justifyContent: 'flex-start',
-  color: theme.palette.text.primary,
+  overflow: "hidden",
+  position: "relative",
+  whiteSpace: "nowrap",
+  textOverflow: "ellipsis",
+  padding: "0.6rem 1.5rem",
+  justifyContent: "flex-start",
+  color: theme.palette.text.primary
 }));
 
 const Account = () => {
   const theme = useTheme();
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [active, setActive] = useState('Basic Information');
-  const downMd = useMediaQuery((theme) => theme.breakpoints.down('md'));
+  const [active, setActive] = useState("Basic Information");
+  const downMd = useMediaQuery((theme) => theme.breakpoints.down("md"));
 
   const style = {
     color: theme.palette.primary.main,
     backgroundColor: theme.palette.grey[100],
-    '&::before': {
+    "&::before": {
       left: 0,
       width: 4,
       content: '""',
-      height: '100%',
-      position: 'absolute',
-      transition: 'all 0.3s',
-      backgroundColor: theme.palette.primary.main,
-    },
+      height: "100%",
+      position: "absolute",
+      transition: "all 0.3s",
+      backgroundColor: theme.palette.primary.main
+    }
   };
 
   function TabListContent() {
@@ -78,8 +78,8 @@ const Account = () => {
         {tabList.map(({ id, name, Icon }) => (
           <StyledButton
             key={id}
-            startIcon={<Icon sx={{ color: 'text.disabled' }} />}
-            sx={active === name ? style : { '&:hover': style }}
+            startIcon={<Icon sx={{ color: "text.disabled" }} />}
+            sx={active === name ? style : { "&:hover": style }}
             onClick={() => {
               setActive(name);
               setOpenDrawer(false);
@@ -100,7 +100,7 @@ const Account = () => {
             <Fragment>
               <FlexBox alignItems="center" gap={1}>
                 <IconButton sx={{ padding: 0 }} onClick={() => setOpenDrawer(true)}>
-                  <Apps sx={{ color: 'primary.main' }} />
+                  <Apps sx={{ color: "primary.main" }} />
                 </IconButton>
 
                 <H5>Show More</H5>
@@ -113,7 +113,7 @@ const Account = () => {
               </Drawer>
             </Fragment>
           ) : (
-            <Card sx={{ padding: '1rem 0' }}>
+            <Card sx={{ padding: "1rem 0" }}>
               <TabListContent />
             </Card>
           )}
@@ -140,19 +140,19 @@ const Account = () => {
 };
 
 const tabList = [
-  { id: 1, name: 'Basic Information', Icon: UserOutlined },
-  { id: 2, name: 'Password', Icon: LockOutlined },
-  { id: 3, name: 'Preferences', Icon: SettingsOutlined },
-  { id: 4, name: 'Recent Devices', Icon: DevicesApple },
-  { id: 5, name: 'Notifications', Icon: NotificationOutlined },
-  { id: 6, name: 'Two-step verification', Icon: Fingerprint },
-  { id: 7, name: 'Connected accounts', Icon: Link },
-  { id: 8, name: 'Social Account', Icon: Instagram },
-  { id: 9, name: 'Billing', Icon: DollarOutlined },
-  { id: 10, name: 'Statements', Icon: FileOutlined },
-  { id: 11, name: 'Referrals', Icon: PremiumOutlined },
-  { id: 12, name: 'API Keys', Icon: Key },
-  { id: 13, name: 'Delete account', Icon: DeleteOutlined },
+  { id: 1, name: "Basic Information", Icon: UserOutlined },
+  { id: 2, name: "Password", Icon: LockOutlined },
+  { id: 3, name: "Preferences", Icon: SettingsOutlined },
+  { id: 4, name: "Recent Devices", Icon: DevicesApple },
+  { id: 5, name: "Notifications", Icon: NotificationOutlined },
+  { id: 6, name: "Two-step verification", Icon: Fingerprint },
+  { id: 7, name: "Connected accounts", Icon: Link },
+  { id: 8, name: "Social Account", Icon: Instagram },
+  { id: 9, name: "Billing", Icon: DollarOutlined },
+  { id: 10, name: "Statements", Icon: FileOutlined },
+  { id: 11, name: "Referrals", Icon: PremiumOutlined },
+  { id: 12, name: "API Keys", Icon: Key },
+  { id: 13, name: "Delete account", Icon: DeleteOutlined }
 ];
 
 export default Account;

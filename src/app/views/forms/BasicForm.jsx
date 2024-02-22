@@ -1,5 +1,5 @@
 import { Box, Card, styled } from "@mui/material";
-import { Breadcrumb } from "app/components";
+import { Breadcrumb } from "../../components";
 import SimpleForm from "../material-kit/forms/SimpleForm";
 
 // styled component
@@ -8,8 +8,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const BasicForm = () => {

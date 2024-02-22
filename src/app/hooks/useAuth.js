@@ -1,6 +1,6 @@
-// import AuthContext from "app/contexts/JWTAuthContext";
-import AuthContext from "app/contexts/FirebaseAuthContext";
-// import AuthContext from "app/contexts/Auth0Context";
+// import AuthContext from "../contexts/JWTAuthContext";
+import AuthContext from "../contexts/FirebaseAuthContext";
+// import AuthContext from "../contexts/Auth0Context";
 import { useContext } from "react";
 
 const useAuth = () => useContext(AuthContext);

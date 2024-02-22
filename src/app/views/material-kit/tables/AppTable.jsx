@@ -1,5 +1,5 @@
 import { Box, styled } from "@mui/material";
-import { Breadcrumb, SimpleCard } from "app/components";
+import { Breadcrumb, SimpleCard } from "../../../components";
 import PaginationTable from "./PaginationTable";
 import SimpleTable from "./SimpleTable";
 
@@ -8,8 +8,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const AppTable = () => {

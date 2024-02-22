@@ -9,15 +9,15 @@ import {
   TableBody,
   TableCell,
   TableRow,
-  TextField,
+  TextField
 } from "@mui/material";
-import { FlexBox } from "app/components/FlexBox";
-import { H4 } from "app/components/Typography";
+import { FlexBox } from "../../../../components/FlexBox";
+import { H4 } from "../../../../components/Typography";
 
 const ContentBox = styled(FlexBox)({
   marginBottom: "16px",
   flexDirection: "column",
-  alignItems: "flex-start",
+  alignItems: "flex-start"
 });
 
 const CustomerEmailSender = () => {
@@ -68,12 +68,12 @@ const CustomerEmailSender = () => {
 const menuItemList = [
   "Resend Last Invoice",
   "Send Password Reset Email",
-  "Send Verification Email",
+  "Send Verification Email"
 ];
 
 const customerInfo = [
   { title: "27/10/2020 | 12:23", value: "Order Received" },
-  { title: "11/05/2020 | 01:19", value: "Order Confirmation" },
+  { title: "11/05/2020 | 01:19", value: "Order Confirmation" }
 ];
 
 export default CustomerEmailSender;

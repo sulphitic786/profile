@@ -8,54 +8,54 @@ import {
   styled,
   MenuItem,
   Switch
-} from '@mui/material';
-import MuiTextField from '@mui/material/TextField';
-import { H4 } from 'app/components/Typography';
-import { generateRandomId } from 'app/utils/utils';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+} from "@mui/material";
+import MuiTextField from "@mui/material/TextField";
+import { H4 } from "../../../../components/Typography";
+import { generateRandomId } from "../../../../utils/utils";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const TextField = styled(MuiTextField)({ marginBottom: 16 });
 
 const StyledInput = styled(TextField)({
-  minWidth: '100% !important',
-  '& label': { fontSize: '14px', textTransform: 'capitalize' },
-  '& label.MuiInputLabel-shrink': { marginTop: '0px' },
-  '& .MuiOutlinedInput-root': {
-    '& .MuiOutlinedInput-input': {
-      fontSize: '14px',
-      padding: '16px 14px !important',
-      textTransform: 'capitalize'
+  minWidth: "100% !important",
+  "& label": { fontSize: "14px", textTransform: "capitalize" },
+  "& label.MuiInputLabel-shrink": { marginTop: "0px" },
+  "& .MuiOutlinedInput-root": {
+    "& .MuiOutlinedInput-input": {
+      fontSize: "14px",
+      padding: "16px 14px !important",
+      textTransform: "capitalize"
     }
   }
 });
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().min(3, 'Minimum 3 characters required!').required('Name is required!'),
-  email: Yup.string().email().required('Email is required!'),
-  phone: Yup.string().min(9).max(11).required('Phone is required!'),
-  gender: Yup.string().required('Gender is required!'),
-  password: Yup.string().min(6, 'Minimum 6 letters required!').required('Password is required!')
+  name: Yup.string().min(3, "Minimum 3 characters required!").required("Name is required!"),
+  email: Yup.string().email().required("Email is required!"),
+  phone: Yup.string().min(9).max(11).required("Phone is required!"),
+  gender: Yup.string().required("Gender is required!"),
+  password: Yup.string().min(6, "Minimum 6 letters required!").required("Password is required!")
   // phone: Yup.string().min(9).required('Phone is required!'),
   // age: Yup.number().required('Age is required!')
 });
 
 const AddUpdateEditor = ({ open, handleClose, addUpdateData, action, addUser, updateUser }) => {
   let initialValues = {
-    name: addUpdateData?.name || '',
-    email: addUpdateData?.email || '',
-    phone: addUpdateData?.phone || '',
-    gender: addUpdateData?.gender || '',
-    roles: addUpdateData?.roles || '',
-    password: addUpdateData?.password || '',
+    name: addUpdateData?.name || "",
+    email: addUpdateData?.email || "",
+    phone: addUpdateData?.phone || "",
+    gender: addUpdateData?.gender || "",
+    roles: addUpdateData?.roles || "",
+    password: addUpdateData?.password || "",
     isActive: addUpdateData?.isActive || true
   };
 
-  const genderList = ['male', 'female'];
-  const roleList = ['admin', 'client', 'super admin'];
+  const genderList = ["male", "female"];
+  const roleList = ["admin", "client", "super admin"];
 
   const handleFormSubmit = async (values) => {
-    if (action == 'update') {
+    if (action == "update") {
       updateUser(values);
     } else {
       addUser(values);
@@ -65,7 +65,7 @@ const AddUpdateEditor = ({ open, handleClose, addUpdateData, action, addUser, up
   return (
     <Dialog onClose={handleClose} open={open}>
       <Box p={3}>
-        <H4 sx={{ mb: '20px' }}>{action == 'update' ? 'Update User' : 'Add User'}</H4>
+        <H4 sx={{ mb: "20px" }}>{action == "update" ? "Update User" : "Add User"}</H4>
 
         <Formik
           onSubmit={handleFormSubmit}
@@ -75,7 +75,7 @@ const AddUpdateEditor = ({ open, handleClose, addUpdateData, action, addUser, up
           {({ values, errors, touched, handleChange, handleSubmit, handleBlur }) => {
             return (
               <form onSubmit={handleSubmit}>
-                <Grid sx={{ mb: '16px' }} container spacing={4}>
+                <Grid sx={{ mb: "16px" }} container spacing={4}>
                   <Grid item sm={6} xs={12}>
                     <TextField
                       fullWidth
@@ -88,7 +88,7 @@ const AddUpdateEditor = ({ open, handleClose, addUpdateData, action, addUser, up
                       helperText={touched.name && errors.name}
                       error={Boolean(errors.name && touched.name)}
                     />
-                    {action == 'add' ? (
+                    {action == "add" ? (
                       <TextField
                         fullWidth
                         type="text"
@@ -101,7 +101,7 @@ const AddUpdateEditor = ({ open, handleClose, addUpdateData, action, addUser, up
                         error={Boolean(errors.email && touched.email)}
                       />
                     ) : (
-                      ''
+                      ""
                     )}
 
                     <TextField
@@ -116,7 +116,7 @@ const AddUpdateEditor = ({ open, handleClose, addUpdateData, action, addUser, up
                       error={Boolean(errors.phone && touched.phone)}
                     />
 
-                    {addUpdateData?.password !== values?.password && action == 'update' ? (
+                    {addUpdateData?.password !== values?.password && action == "update" ? (
                       <TextField
                         fullWidth
                         type="text"
@@ -126,7 +126,7 @@ const AddUpdateEditor = ({ open, handleClose, addUpdateData, action, addUser, up
                         onChange={handleChange}
                       />
                     ) : (
-                      ''
+                      ""
                     )}
 
                     {/* <FormControlLabel
@@ -155,7 +155,7 @@ const AddUpdateEditor = ({ open, handleClose, addUpdateData, action, addUser, up
                       id="inputField"
                       variant="outlined"
                       name="gender"
-                      value={values.gender || ''}
+                      value={values.gender || ""}
                       onChange={handleChange}
                     >
                       {genderList?.map((item) => (

@@ -8,11 +8,11 @@ import {
   IconButton,
   styled,
   TextField,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { H4, H5, H6, Paragraph, Small, Span } from "app/components/Typography";
-import { convertHexToRGB } from "app/utils/utils";
+import { FlexBetween } from "../../../components/FlexBox";
+import { H4, H5, H6, Paragraph, Small, Span } from "../../../components/Typography";
+import { convertHexToRGB } from "../../../utils/utils";
 import { format } from "date-fns";
 
 // styled components
@@ -23,7 +23,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   paddingLeft: "28px",
   paddingRight: "28px",
   color: theme.palette.primary.main,
-  background: `rgba(${convertHexToRGB(theme.palette.primary.main)}, 0.15)`,
+  background: `rgba(${convertHexToRGB(theme.palette.primary.main)}, 0.15)`
 }));
 
 const StyledGrid = styled(Grid)({ textAlign: "center" });
@@ -31,7 +31,7 @@ const StyledGrid = styled(Grid)({ textAlign: "center" });
 const IMG = styled("img")({
   width: 100,
   borderRadius: "4px",
-  marginRight: "12px",
+  marginRight: "12px"
 });
 
 const StyledP = styled(Paragraph)(({ theme }) => ({
@@ -39,7 +39,7 @@ const StyledP = styled(Paragraph)(({ theme }) => ({
   fontSize: "13px",
   marginBottom: "6px",
   "& .item": { fontWeight: "500" },
-  "& .title": { color: theme.palette.text.secondary },
+  "& .title": { color: theme.palette.text.secondary }
 }));
 
 const InvoiceOverview = () => {
@@ -70,7 +70,7 @@ const InvoiceOverview = () => {
               <Icon sx={{ mr: "12px" }} fontSize="small">
                 search
               </Icon>
-            ),
+            )
           }}
         />
 
@@ -191,7 +191,7 @@ const InvoiceOverview = () => {
             sx={{
               mb: "4px",
               fontWeight: "500",
-              color: textPrimary,
+              color: textPrimary
             }}
           >
             Shipping
@@ -208,7 +208,7 @@ const InvoiceOverview = () => {
             sx={{
               mb: "4px",
               fontWeight: "500",
-              color: textPrimary,
+              color: textPrimary
             }}
           >
             Taxes
@@ -232,7 +232,7 @@ const dummyProductList = [
     title: "Bass Speaker Black",
     category: "audio",
     brand: "Microlab",
-    item: "2019 6582 2365",
+    item: "2019 6582 2365"
   },
   {
     id: "323sa680b324976dfgga21rt47",
@@ -242,8 +242,8 @@ const dummyProductList = [
     title: "Bass Speaker",
     category: "audio",
     brand: "Microlab",
-    item: "2019 6582 2365",
-  },
+    item: "2019 6582 2365"
+  }
 ];
 
 export default InvoiceOverview;

@@ -1,4 +1,4 @@
-import { Clear, Done, TrendingFlat } from '@mui/icons-material';
+import { Clear, Done, TrendingFlat } from "@mui/icons-material";
 import {
   Checkbox,
   IconButton,
@@ -12,32 +12,32 @@ import {
   TableRow,
   Tooltip,
   useTheme
-} from '@mui/material';
-import { Breadcrumb } from 'app/components';
-import TableHead from 'app/components/data-table/TableHead';
-import TableToolbar from 'app/components/data-table/TableToolbar';
-import { getComparator, stableSort } from 'app/components/data-table/utils';
-import { Span } from 'app/components/Typography';
-import useTable from 'app/hooks/useTable';
-import { format } from 'date-fns';
-import { useNavigate } from 'react-router-dom';
+} from "@mui/material";
+import { Breadcrumb } from "../../../components";
+import TableHead from "../../../components/data-table/TableHead";
+import TableToolbar from "../../../components/data-table/TableToolbar";
+import { getComparator, stableSort } from "../../../components/data-table/utils";
+import { Span } from "../../../components/Typography";
+import useTable from "../../../hooks/useTable";
+import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 // styled components
 
 const StyledSpan = styled(Span)(({ bgColor }) => ({
-  color: '#fff',
-  padding: '2px 8px',
-  borderRadius: '4px',
+  color: "#fff",
+  padding: "2px 8px",
+  borderRadius: "4px",
   background: bgColor,
-  textTransform: 'capitalize'
+  textTransform: "capitalize"
 }));
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
@@ -55,25 +55,25 @@ const OrderList = () => {
     handleRequestSort,
     handleSelectAllClick,
     handleChangeRowsPerPage
-  } = useTable({ defaultOrderBy: 'name' });
+  } = useTable({ defaultOrderBy: "name" });
 
   const navigate = useNavigate();
 
   const { palette } = useTheme();
-  const bgGreen = 'rgba(9, 182, 109, 1)';
+  const bgGreen = "rgba(9, 182, 109, 1)";
   const bgError = palette.error.main;
   const bgSecondary = palette.secondary.main;
 
   // TABLE HEADER COLUMN LIST
   const columns = [
-    { id: 'orderNo', align: 'left', disablePadding: true, label: 'Order No' },
-    { id: 'customer', align: 'center', disablePadding: false, label: 'Customer' },
-    { id: 'product', align: 'center', disablePadding: false, label: 'Product' },
-    { id: 'date', align: 'center', disablePadding: false, label: 'Date' },
-    { id: 'status', align: 'center', disablePadding: false, label: 'Status' },
-    { id: 'method', align: 'center', disablePadding: false, label: 'Method' },
-    { id: 'total', align: 'center', disablePadding: false, label: 'Total' },
-    { id: 'edit', align: 'center', disablePadding: false, label: 'Edit' }
+    { id: "orderNo", align: "left", disablePadding: true, label: "Order No" },
+    { id: "customer", align: "center", disablePadding: false, label: "Customer" },
+    { id: "product", align: "center", disablePadding: false, label: "Product" },
+    { id: "date", align: "center", disablePadding: false, label: "Date" },
+    { id: "status", align: "center", disablePadding: false, label: "Status" },
+    { id: "method", align: "center", disablePadding: false, label: "Method" },
+    { id: "total", align: "center", disablePadding: false, label: "Total" },
+    { id: "edit", align: "center", disablePadding: false, label: "Edit" }
   ];
 
   const handleSelectAllRows = (event) => {
@@ -82,18 +82,18 @@ const OrderList = () => {
   };
 
   const renderStatus = (status) => {
-    if (status === 'delivered') return <StyledSpan bgColor={bgGreen}>{status}</StyledSpan>;
-    if (status === 'processing') return <StyledSpan bgColor={bgSecondary}>{status}</StyledSpan>;
-    if (status === 'cancelled') return <StyledSpan bgColor={bgError}>{status}</StyledSpan>;
+    if (status === "delivered") return <StyledSpan bgColor={bgGreen}>{status}</StyledSpan>;
+    if (status === "processing") return <StyledSpan bgColor={bgSecondary}>{status}</StyledSpan>;
+    if (status === "cancelled") return <StyledSpan bgColor={bgError}>{status}</StyledSpan>;
   };
 
   return (
     <Container>
       <div className="breadcrumb">
-        <Breadcrumb routeSegments={[{ name: 'Pages', path: '/pages' }, { name: 'Order List' }]} />
+        <Breadcrumb routeSegments={[{ name: "Pages", path: "/pages" }, { name: "Order List" }]} />
       </div>
 
-      <Paper sx={{ width: '100%', mb: 2 }}>
+      <Paper sx={{ width: "100%", mb: 2 }}>
         <TableToolbar title="All Orders" numSelected={selected.length} />
 
         <TableContainer>
@@ -134,7 +134,7 @@ const OrderList = () => {
 
                       <TableCell align="center">{row.customer}</TableCell>
                       <TableCell align="center">{row.product}</TableCell>
-                      <TableCell align="center">{format(row.date, 'dd MMM, yyyy')}</TableCell>
+                      <TableCell align="center">{format(row.date, "dd MMM, yyyy")}</TableCell>
                       <TableCell align="center">{renderStatus(row.status)}</TableCell>
                       <TableCell align="center">{row.method}</TableCell>
                       <TableCell align="center">${row.total}</TableCell>
@@ -181,40 +181,40 @@ const OrderList = () => {
 
 const orderList = [
   {
-    orderNo: 'lkfjdfjdsjdslgkfjdskjfds',
+    orderNo: "lkfjdfjdsjdslgkfjdskjfds",
     date: new Date(),
-    customer: 'Ben Schieldman',
-    product: 'Bit Bass Headphone',
-    method: 'PayPal',
+    customer: "Ben Schieldman",
+    product: "Bit Bass Headphone",
+    method: "PayPal",
     total: 15.25,
-    status: 'delivered'
+    status: "delivered"
   },
   {
-    orderNo: 'fkjjirewoigkjdhvkcxyhuig',
+    orderNo: "fkjjirewoigkjdhvkcxyhuig",
     date: new Date(),
-    customer: 'Joyce Watson',
-    product: 'Comlion Watch',
-    method: 'Visa Card',
+    customer: "Joyce Watson",
+    product: "Comlion Watch",
+    method: "Visa Card",
     total: 75.25,
-    status: 'cancelled'
+    status: "cancelled"
   },
   {
-    orderNo: 'fdskjkljicuviosduisjd',
+    orderNo: "fdskjkljicuviosduisjd",
     date: new Date(),
-    customer: 'Kayle Brown',
-    product: 'Beats Headphone',
-    method: 'Master Card',
+    customer: "Kayle Brown",
+    product: "Beats Headphone",
+    method: "Master Card",
     total: 45.25,
-    status: 'processing'
+    status: "processing"
   },
   {
-    orderNo: 'fdskfjdsuoiucrwevbgd',
+    orderNo: "fdskfjdsuoiucrwevbgd",
     date: new Date(),
-    customer: 'Ven Helsing',
-    product: 'BMW Bumper',
-    method: 'Master Card',
+    customer: "Ven Helsing",
+    product: "BMW Bumper",
+    method: "Master Card",
     total: 2145.25,
-    status: 'delivered'
+    status: "delivered"
   }
 ];
 

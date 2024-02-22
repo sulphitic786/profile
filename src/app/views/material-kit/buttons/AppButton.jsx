@@ -1,19 +1,19 @@
-import { Box, Button, Fab, Icon, IconButton, styled } from '@mui/material';
-import { Breadcrumb, SimpleCard } from 'app/components';
+import { Box, Button, Fab, Icon, IconButton, styled } from "@mui/material";
+import { Breadcrumb, SimpleCard } from "../../../components";
 
-const AppButtonRoot = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' },
+const AppButtonRoot = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   },
-  '& .button': { margin: theme.spacing(1) },
-  '& .input': { display: 'none' },
+  "& .button": { margin: theme.spacing(1) },
+  "& .input": { display: "none" }
 }));
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  margin: theme.spacing(1),
+  margin: theme.spacing(1)
 }));
 
 export default function AppButton() {
@@ -21,7 +21,7 @@ export default function AppButton() {
     <AppButtonRoot>
       <Box className="breadcrumb">
         <Breadcrumb
-          routeSegments={[{ name: 'Material', path: '/material' }, { name: 'Buttons' }]}
+          routeSegments={[{ name: "Material", path: "/material" }, { name: "Buttons" }]}
         />
       </Box>
 

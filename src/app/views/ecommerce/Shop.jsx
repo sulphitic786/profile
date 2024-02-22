@@ -1,33 +1,33 @@
-import { styled } from '@mui/material';
-import MatxSidenav from 'app/components/MatxSidenav/MatxSidenav';
-import MatxSidenavContainer from 'app/components/MatxSidenav/MatxSidenavContainer';
-import MatxSidenavContent from 'app/components/MatxSidenav/MatxSidenavContent';
-// import { MatxSidenav, ,  } from 'app/components/MatxSidenav';
-import useBrands from 'app/hooks/useBrands';
-import useCategory from 'app/hooks/useCategory';
-import useProducts from 'app/hooks/useProducts';
-import useRatings from 'app/hooks/useRatings';
-import { debounce } from 'lodash';
-import { useEffect, useState } from 'react';
-import ShopContainer from './ShopContainer';
-import ShopSidenav from './ShopSidenav';
+import { styled } from "@mui/material";
+import MatxSidenav from "../../components/MatxSidenav/MatxSidenav";
+import MatxSidenavContainer from "../../components/MatxSidenav/MatxSidenavContainer";
+import MatxSidenavContent from "../../components/MatxSidenav/MatxSidenavContent";
+// import { MatxSidenav, ,  } from '../../components/MatxSidenav';
+import useBrands from "../../hooks/useBrands";
+import useCategory from "../../hooks/useCategory";
+import useProducts from "../../hooks/useProducts";
+import useRatings from "../../hooks/useRatings";
+import { debounce } from "lodash";
+import { useEffect, useState } from "react";
+import ShopContainer from "./ShopContainer";
+import ShopSidenav from "./ShopSidenav";
 
-const ShopRoot = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' }
+const ShopRoot = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const Shop = () => {
   const [page, setPage] = useState(0);
   const [open, setOpen] = useState(true);
-  const [query, setQuery] = useState('');
-  const [view, setView] = useState('grid');
+  const [query, setQuery] = useState("");
+  const [view, setView] = useState("grid");
   const [brands, setBrands] = useState([]);
   const [shipping, setShipping] = useState(false);
   const [categories, setCategories] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(12);
-  const [orderBy, setOrderBy] = useState('default');
-  const [multilevel, setMultilevel] = useState('all');
+  const [orderBy, setOrderBy] = useState("default");
+  const [multilevel, setMultilevel] = useState("all");
   const [sliderRange, setSliderRange] = useState([0, 100]);
   const [filteredProductList, setFilteredProductList] = useState([]);
 
@@ -62,11 +62,11 @@ const Shop = () => {
 
   const handleMultilevelChange = (event) => {
     let eventValue = event.target.value;
-    let range = eventValue.split(',');
+    let range = eventValue.split(",");
 
     setMultilevel(eventValue);
 
-    if (eventValue === 'all') {
+    if (eventValue === "all") {
       setFilteredProductList(products);
       return;
     }
@@ -91,7 +91,7 @@ const Shop = () => {
     }
 
     setCategories(tempCategories);
-    setFilteredProductList(filterProductOnProperty('category', tempCategories));
+    setFilteredProductList(filterProductOnProperty("category", tempCategories));
   };
 
   const handleBrandChange = (event) => {
@@ -103,16 +103,16 @@ const Shop = () => {
       tempBrands = brands.filter((item) => item !== target.name);
     }
     setBrands(tempBrands);
-    setFilteredProductList(filterProductOnProperty('brand', tempBrands));
+    setFilteredProductList(filterProductOnProperty("brand", tempBrands));
   };
 
   const handleRatingClick = (rate) => {
-    setFilteredProductList(filterProductOnProperty('rating', [rate]));
+    setFilteredProductList(filterProductOnProperty("rating", [rate]));
   };
 
   const handleFreeShippingClick = () => {
     setShipping(!shipping);
-    setFilteredProductList(filterProductOnProperty('freeShipping', [shipping]));
+    setFilteredProductList(filterProductOnProperty("freeShipping", [shipping]));
   };
 
   const filterProductOnProperty = (property, value = []) => {
@@ -131,8 +131,8 @@ const Shop = () => {
 
   const handleClearAllFilter = () => {
     setSliderRange([0, 100]);
-    setQuery('');
-    setMultilevel('all');
+    setQuery("");
+    setMultilevel("all");
     setShipping(false);
     setCategories([]);
     setBrands([]);

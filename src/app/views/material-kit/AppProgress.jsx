@@ -1,20 +1,20 @@
-import React from 'react';
-import { Box, styled } from '@mui/material';
-import { Breadcrumb, SimpleCard } from 'app/components';
-import { LinearProgress, CircularProgress } from '@mui/material';
+import React from "react";
+import { Box, styled } from "@mui/material";
+import { Breadcrumb, SimpleCard } from "../../components";
+import { LinearProgress, CircularProgress } from "@mui/material";
 
-const ProgressRoot = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: {
-    margin: '16px'
+const ProgressRoot = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: {
+    margin: "16px"
   },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: '16px'
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: "16px"
     }
   },
-  '& .progress': {
+  "& .progress": {
     margin: theme.spacing(2)
   }
 }));
@@ -43,7 +43,7 @@ const AppProgress = () => {
     <ProgressRoot>
       <div className="breadcrumb">
         <Breadcrumb
-          routeSegments={[{ name: 'Material', path: '/material' }, { name: 'Prgress' }]}
+          routeSegments={[{ name: "Material", path: "/material" }, { name: "Prgress" }]}
         />
       </div>
       <SimpleCard title="Circuar Progress (Indeterminate)">

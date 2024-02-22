@@ -1,5 +1,5 @@
 import { Box, Button, Card, Checkbox, Divider, Stack } from "@mui/material";
-import { H5, H6, Paragraph } from "app/components/Typography";
+import { H5, H6, Paragraph } from "../../components/Typography";
 
 const DeleteAccount = () => {
   return (

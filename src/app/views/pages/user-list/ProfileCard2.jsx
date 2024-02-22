@@ -1,15 +1,15 @@
 import { Twitter } from "@mui/icons-material";
 import { Avatar, Box, Card, Divider, Grid, LinearProgress, styled } from "@mui/material";
-import { GoogleIcon } from "app/components";
-import { FlexBetween } from "app/components/FlexBox";
-import { H5 } from "app/components/Typography";
+import { GoogleIcon } from "../../../components";
+import { FlexBetween } from "../../../components/FlexBox";
+import { H5 } from "../../../components/Typography";
 import { Link } from "react-router-dom";
 import { StyledButton, StyledP } from "./styles";
 
 const StyledLink = styled(Link)({
   display: "flex",
   alignItems: "center",
-  "& span": { marginLeft: "8px" },
+  "& span": { marginLeft: "8px" }
 });
 
 const ProfileCard2 = ({ user }) => {

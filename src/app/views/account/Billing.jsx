@@ -6,8 +6,8 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { FlexBetween } from "app/components/FlexBox";
-import { H5, H6, Paragraph } from "app/components/Typography";
+import { FlexBetween } from "../../components/FlexBox";
+import { H5, H6, Paragraph } from "../../components/Typography";
 import Alert from "./common/Alert";
 import BillingAddressListItem from "./common/BillingAddressListItem";
 import NewAddressCard from "./common/NewAddressCard";
@@ -175,7 +175,7 @@ const billingHistory = [
   { id: 2, description: "Invoice for Uko", amount: 420, invoice: "DOC", date: "Nov 10, 2021" },
   { id: 3, description: "Invoice for Stocky", amount: 590, invoice: "PDF", date: "Nov 24, 2021" },
   { id: 4, description: "Invoice for Aatrox", amount: 750, invoice: "DOC", date: "Nov 19, 2021" },
-  { id: 5, description: "Invoice for Octavia", amount: 890, invoice: "PDF", date: "Nov 12, 2021" },
+  { id: 5, description: "Invoice for Octavia", amount: 890, invoice: "PDF", date: "Nov 12, 2021" }
 ];
 
 export default Billing;

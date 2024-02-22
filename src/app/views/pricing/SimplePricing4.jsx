@@ -1,6 +1,6 @@
 import { Box, Button, Card, Grid, Icon, styled, Typography, useTheme } from "@mui/material";
-import { themeShadows } from "app/components/MatxTheme/themeColors";
-import { H1, H3, H4 } from "app/components/Typography";
+import { themeShadows } from "../../components/MatxTheme/themeColors";
+import { H1, H3, H4 } from "../../components/Typography";
 import { useState } from "react";
 
 const PricingCard = styled(Card)(({ theme, plan }) => ({
@@ -10,14 +10,14 @@ const PricingCard = styled(Card)(({ theme, plan }) => ({
   flexDirection: "column",
   "& .icon": { fontSize: "72px", marginBottom: "56px" },
   background:
-    plan && plan !== "monthly" ? theme.palette.secondary.main : plan && theme.palette.primary.main,
+    plan && plan !== "monthly" ? theme.palette.secondary.main : plan && theme.palette.primary.main
 }));
 
 const PriceBox = styled(Box)(() => ({
   display: "flex",
   alignItems: "flex-end",
   marginBottom: "56px",
-  "& h1": { fontSize: "48px" },
+  "& h1": { fontSize: "48px" }
 }));
 
 const ContentBox = styled(Box)(() => ({
@@ -26,7 +26,7 @@ const ContentBox = styled(Box)(() => ({
   borderRadius: "300px",
   overflow: "hidden",
   marginBottom: "48px",
-  boxShadow: themeShadows[1],
+  boxShadow: themeShadows[1]
 }));
 
 const StyledButton = styled(Button)(({ plan }) => ({
@@ -34,7 +34,7 @@ const StyledButton = styled(Button)(({ plan }) => ({
   borderRadius: "0px",
   transition: "all 0.3s ease",
   "&:hover": { boxShadow: themeShadows[12] },
-  background: plan !== "monthly" && plan !== "annual" && "#fff",
+  background: plan !== "monthly" && plan !== "annual" && "#fff"
 }));
 
 const RoundedButton = styled(Button)(() => ({
@@ -44,7 +44,7 @@ const RoundedButton = styled(Button)(() => ({
   overflow: "hidden",
   borderRadius: "300px",
   transition: "all 0.3s ease",
-  "&:hover": { boxShadow: themeShadows[12] },
+  "&:hover": { boxShadow: themeShadows[12] }
 }));
 
 const SimplePricing4 = () => {
@@ -81,7 +81,7 @@ const SimplePricing4 = () => {
                 sx={{
                   mb: 4,
                   color: textMuted,
-                  textTransform: "capitalize",
+                  textTransform: "capitalize"
                 }}
               >
                 {plan} Product Pricing
@@ -118,8 +118,8 @@ const SimplePricing4 = () => {
                 sx={{
                   "&:hover": {
                     color: "#ffffff",
-                    background: `${palette.secondary.main} !important`,
-                  },
+                    background: `${palette.secondary.main} !important`
+                  }
                 }}
                 variant="outlined"
                 color="secondary"
@@ -153,7 +153,7 @@ const SimplePricing4 = () => {
               elevation={3}
               sx={{
                 color: "#fff",
-                background: "rgba(9, 182, 109, 1)",
+                background: "rgba(9, 182, 109, 1)"
               }}
             >
               <Icon className="icon">apartment</Icon>

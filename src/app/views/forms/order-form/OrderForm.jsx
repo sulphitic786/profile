@@ -1,20 +1,20 @@
 import { Box, Button, Grid, Icon, IconButton, styled } from "@mui/material";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H3 } from "app/components/Typography";
+import { FlexBetween, FlexBox } from "../../../components/FlexBox";
+import { H3 } from "../../../components/Typography";
 import InvoiceCustomer from "./InvoiceCustomer";
 import InvoiceOverview from "./InvoiceOverview";
 
 // styled components
 const Container = styled("div")(({ theme }) => ({
   margin: "30px",
-  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  [theme.breakpoints.down("sm")]: { margin: "16px" }
 }));
 
 const TextBox = styled(Box)({
   color: "#fff",
   fontSize: "11px",
   padding: "3px 12px",
-  borderRadius: "4px",
+  borderRadius: "4px"
 });
 
 const Invoice2 = () => {

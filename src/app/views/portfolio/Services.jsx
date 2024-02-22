@@ -1,6 +1,6 @@
-import { Card, Grid, styled, useTheme, Box, Typography, Icon, List, ListItem } from '@mui/material';
-import { Fragment } from 'react';
-import { Breadcrumb } from 'app/components';
+import { Card, Grid, styled, useTheme, Box, Typography, Icon, List, ListItem } from "@mui/material";
+import { Fragment } from "react";
+import { Breadcrumb } from "../../components";
 // import Campaigns from './shared/Campaigns';
 // import DoughnutChart from './shared/Doughnut';
 // import RowCards from './shared/RowCards';
@@ -9,28 +9,28 @@ import { Breadcrumb } from 'app/components';
 // import TopSellingTable from './shared/TopSellingTable';
 // import UpgradeCard from './shared/UpgradeCard';
 
-const ContentBox = styled('div')(({ theme }) => ({
-  margin: '0px',
-  [theme.breakpoints.down('sm')]: { margin: '6px' }
+const ContentBox = styled("div")(({ theme }) => ({
+  margin: "0px",
+  [theme.breakpoints.down("sm")]: { margin: "6px" }
 }));
 
-const Title = styled('span')(() => ({
-  fontSize: '1rem',
-  fontWeight: '500',
-  marginRight: '.5rem',
-  textTransform: 'capitalize'
+const Title = styled("span")(() => ({
+  fontSize: "1rem",
+  fontWeight: "500",
+  marginRight: ".5rem",
+  textTransform: "capitalize"
 }));
 
-const SubTitle = styled('span')(({ theme }) => ({
-  fontSize: '0.875rem',
+const SubTitle = styled("span")(({ theme }) => ({
+  fontSize: "0.875rem",
   color: theme.palette.text.secondary
 }));
 
-const H4 = styled('h4')(({ theme }) => ({
-  fontSize: '1rem',
-  fontWeight: '500',
-  marginBottom: '16px',
-  textTransform: 'capitalize',
+const H4 = styled("h4")(({ theme }) => ({
+  fontSize: "1rem",
+  fontWeight: "500",
+  marginBottom: "16px",
+  textTransform: "capitalize",
   color: theme.palette.text.secondary
 }));
 
@@ -40,17 +40,17 @@ const useStyles = styled((theme) => ({
     marginBottom: theme.spacing(4)
   },
   image: {
-    maxWidth: '100%',
-    height: 'auto'
+    maxWidth: "100%",
+    height: "auto"
   }
 }));
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '20px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "20px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
@@ -63,7 +63,7 @@ const Services = () => {
       <Container>
         <Box className="breadcrumb">
           <Breadcrumb
-            routeSegments={[{ name: 'Profile', path: '/portfolio/about' }, { name: 'services' }]}
+            routeSegments={[{ name: "Profile", path: "/portfolio/about" }, { name: "services" }]}
           />
         </Box>
         <ContentBox className="about">
@@ -76,14 +76,14 @@ const Services = () => {
                     <p>
                       Whether you require a newly developed website to enhance customer engagement,
                       a web portal to improve visibility and organization, or a robust and
-                      feature-rich web app to automate business processes,{' '}
+                      feature-rich web app to automate business processes,{" "}
                       <a
                         href="https://sulphitic786.github.io/"
                         target="_blank"
                         className="text-primary"
                       >
                         SulphiticCo
-                      </a>{' '}
+                      </a>{" "}
                       has the solution.
                     </p>
                   </div>

@@ -1,7 +1,7 @@
 import { Box, Button, Dialog, FormControlLabel, Grid, Stack, styled, Switch } from "@mui/material";
 import MuiTextField from "@mui/material/TextField";
-import { H4 } from "app/components/Typography";
-import { generateRandomId } from "app/utils/utils";
+import { H4 } from "../../components/Typography";
+import { generateRandomId } from "../../utils/utils";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { addNewUser, updateUser } from "./TableService";
@@ -14,7 +14,7 @@ const validationSchema = Yup.object().shape({
   // phone: Yup.string().min(9).max(11).required("Phone is required!"),
   phone: Yup.string().min(9).required("Phone is required!"),
   balance: Yup.number().required("Phone is required!"),
-  age: Yup.number().required("Age is required!"),
+  age: Yup.number().required("Age is required!")
 });
 
 const MemberEditorDialog = ({ open, handleClose, member }) => {
@@ -26,7 +26,7 @@ const MemberEditorDialog = ({ open, handleClose, member }) => {
     balance: member?.balance || "",
     company: member?.company || "",
     address: member?.address || "",
-    isActive: member?.isActive || false,
+    isActive: member?.isActive || false
   };
 
   const handleFormSubmit = async (values) => {

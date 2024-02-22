@@ -1,5 +1,5 @@
 import { Box, Button, Card } from "@mui/material";
-import { H5, Paragraph } from "app/components/Typography";
+import { H5, Paragraph } from "../../../components/Typography";
 
 const NewAddressCard = () => {
   return (
@@ -13,7 +13,7 @@ const NewAddressCard = () => {
         alignItems: "center",
         borderColor: "grey.200",
         boxShadow: "none !important",
-        justifyContent: "space-between",
+        justifyContent: "space-between"
         // backgroundColor: palette.mode === "light" ? "grey.200" : "divider",
       }}
     >

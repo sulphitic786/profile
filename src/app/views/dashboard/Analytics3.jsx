@@ -1,7 +1,7 @@
 import { Box, Button, Card, Grid, Icon, IconButton, styled, useTheme } from "@mui/material";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H1, H3, Paragraph, Span } from "app/components/Typography";
-import { convertHexToRGB } from "app/utils/utils";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { H1, H3, Paragraph, Span } from "../../components/Typography";
+import { convertHexToRGB } from "../../utils/utils";
 import AdvanceAreaChart from "./shared/AdvanceAreaChart";
 import AdvanceLineChart from "./shared/AdvanceLineChart";
 import AdvanceLineChart2 from "./shared/AdvanceLineChart2";
@@ -9,7 +9,7 @@ import HeatmapChart from "./shared/HeatmapChart";
 
 const AnalyticsRoot = styled("div")(({ theme }) => ({
   margin: 30,
-  [theme.breakpoints.down("sm")]: { margin: 16 },
+  [theme.breakpoints.down("sm")]: { margin: 16 }
 }));
 
 const StyledCard = styled(Card)(({ textcolor, bgcolor }) => ({
@@ -27,8 +27,8 @@ const StyledCard = styled(Card)(({ textcolor, bgcolor }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: "50%",
-  },
+    borderRadius: "50%"
+  }
 }));
 
 const StyledButton = styled(Button)(({ textcolor, bgcolor }) => ({
@@ -42,14 +42,14 @@ const StyledButton = styled(Button)(({ textcolor, bgcolor }) => ({
     color: "#fff",
     background: textcolor,
     boxShadow:
-      "0 14px 26px -12px rgba(47,60,74,.42),0 4px 23px 0 rgba(47,60,74,.12),0 8px 10px -5px rgba(47,60,74,.2)",
-  },
+      "0 14px 26px -12px rgba(47,60,74,.42),0 4px 23px 0 rgba(47,60,74,.12),0 8px 10px -5px rgba(47,60,74,.2)"
+  }
 }));
 
 const ContentBox = styled(FlexBetween)(({ theme }) => ({
   padding: "14px",
   [theme.breakpoints.down("sm")]: { padding: "8px" },
-  "& p": { fontSize: ".9375rem", color: theme.palette.text.secondary },
+  "& p": { fontSize: ".9375rem", color: theme.palette.text.secondary }
 }));
 
 const IMG = styled("img")(() => ({ width: "100%" }));
@@ -62,22 +62,22 @@ const FollowerBox = styled(Box)(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   "& #chart": { width: "60%" },
   [theme.breakpoints.down("md")]: {
     display: "block",
     padding: "1rem .5rem",
     "& #content": { width: "100%" },
-    "& #chart": { width: "100%" },
-  },
+    "& #chart": { width: "100%" }
+  }
 }));
 
 const ChartHeader = styled(FlexBetween)(({ theme }) => ({
   padding: ".8rem 1.25rem",
   justifyContent: "space-between",
   borderBottom: `1px solid ${`rgba(${convertHexToRGB(theme.palette.text.disabled)}, 0.2)`}`,
-  [theme.breakpoints.down("md")]: { padding: "10px 15px" },
+  [theme.breakpoints.down("md")]: { padding: "10px 15px" }
 }));
 
 const TextBox = styled(FlexBox)(({ theme, iconColor }) => ({
@@ -95,8 +95,8 @@ const TextBox = styled(FlexBox)(({ theme, iconColor }) => ({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 4,
-    background: `rgba(${convertHexToRGB(iconColor)}, 0.2)`,
-  },
+    background: `rgba(${convertHexToRGB(iconColor)}, 0.2)`
+  }
 }));
 
 const Analytics3 = () => {
@@ -150,7 +150,7 @@ const Analytics3 = () => {
                     alignItems="center"
                     sx={{
                       "& span": { fontSize: "16px" },
-                      "& .icon": { mx: "4px", color: textMuted },
+                      "& .icon": { mx: "4px", color: textMuted }
                     }}
                   >
                     <Icon className="icon">favorite</Icon>
@@ -262,11 +262,11 @@ const Analytics3 = () => {
           <AdvanceAreaChart
             chartData={[
               { name: "Series 1", data: [20, 90, 20, 90, 20, 90, 20] },
-              { name: "Series 2", data: [90, 20, 90, 20, 90, 20, 90] },
+              { name: "Series 2", data: [90, 20, 90, 20, 90, 20, 90] }
             ]}
             colors={[
               `rgba(${convertHexToRGB(palette.primary.main)}, 0.4)`,
-              `rgba(${convertHexToRGB(palette.text.secondary)}, 0.3)`,
+              `rgba(${convertHexToRGB(palette.text.secondary)}, 0.3)`
             ]}
             height={380}
           />
@@ -309,7 +309,7 @@ const Analytics3 = () => {
               colors={[textError, textMuted]}
               chartData={[
                 { name: "Like", data: [40, 80, 20, 90, 30, 80, 40, 90, 130] },
-                { name: "Average like per day", data: [40, 60, 10, 70, 50, 90, 70, 60, 80] },
+                { name: "Average like per day", data: [40, 60, 10, 70, 50, 90, 70, 60, 80] }
               ]}
             />
           </Card>
@@ -330,7 +330,7 @@ const Analytics3 = () => {
               colors={["#08ad6c", textMuted]}
               chartData={[
                 { name: "Comments", data: [40, 80, 20, 90, 30, 80, 40, 90, 130] },
-                { name: "Average comments per day", data: [40, 60, 10, 70, 50, 90, 70, 60, 80] },
+                { name: "Average comments per day", data: [40, 60, 10, 70, 50, 90, 70, 60, 80] }
               ]}
             />
           </Card>
@@ -352,51 +352,51 @@ const Analytics3 = () => {
                 name: "Sat",
                 data: [
                   40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                  145,
-                ],
+                  145
+                ]
               },
               {
                 name: "Sun",
                 data: [
                   40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                  145,
-                ],
+                  145
+                ]
               },
               {
                 name: "Mon",
                 data: [
                   40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                  145,
-                ],
+                  145
+                ]
               },
               {
                 name: "Tue",
                 data: [
                   40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                  145,
-                ],
+                  145
+                ]
               },
               {
                 name: "Wed",
                 data: [
                   40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                  145,
-                ],
+                  145
+                ]
               },
               {
                 name: "Thu",
                 data: [
                   40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                  145,
-                ],
+                  145
+                ]
               },
               {
                 name: "Fri",
                 data: [
                   40, 80, 20, 90, 30, 80, 40, 90, 130, 120, 135, 145, 30, 80, 40, 90, 130, 120, 135,
-                  145,
-                ],
-              },
+                  145
+                ]
+              }
             ]}
             height={350}
           />
@@ -414,7 +414,7 @@ const topCardData = [
     percent: 12.6,
     arrowIcon: "arrow_drop_down",
     bgColor: "rgba(0,129,255,.17)",
-    color: "#0081FF",
+    color: "#0081FF"
   },
   {
     icon: "touch_app",
@@ -423,7 +423,7 @@ const topCardData = [
     percent: 58.6,
     arrowIcon: "arrow_drop_up",
     bgColor: "rgba(9,182,109,.17)",
-    color: "#09B66D",
+    color: "#09B66D"
   },
   {
     icon: "wifi_tethering",
@@ -432,7 +432,7 @@ const topCardData = [
     percent: "05.6",
     arrowIcon: "arrow_drop_down",
     bgColor: "rgba(255,61,87,.17)",
-    color: "#FF3D57",
+    color: "#FF3D57"
   },
   {
     icon: "rate_review",
@@ -441,8 +441,8 @@ const topCardData = [
     percent: "05.6",
     arrowIcon: "arrow_drop_up",
     bgColor: "rgba(94,92,230,.17)",
-    color: "#5e5ce6",
-  },
+    color: "#5e5ce6"
+  }
 ];
 
 const sealsReportData = [
@@ -452,7 +452,7 @@ const sealsReportData = [
     percent: 12.6,
     arrowIcon: "arrow_drop_down",
     bgColor: "rgba(0,129,255,.17)",
-    color: "#0081FF",
+    color: "#0081FF"
   },
   {
     title: "25.2K",
@@ -460,7 +460,7 @@ const sealsReportData = [
     percent: 58.6,
     arrowIcon: "arrow_drop_up",
     bgColor: "rgba(9,182,109,.17)",
-    color: "#09B66D",
+    color: "#09B66D"
   },
   {
     title: "1.2K",
@@ -468,7 +468,7 @@ const sealsReportData = [
     percent: "05.6",
     arrowIcon: "arrow_drop_down",
     bgColor: "rgba(255,61,87,.17)",
-    color: "#FF3D57",
+    color: "#FF3D57"
   },
   {
     title: "4.2K",
@@ -476,8 +476,8 @@ const sealsReportData = [
     percent: "05.6",
     arrowIcon: "arrow_drop_up",
     bgColor: "rgba(94,92,230,.17)",
-    color: "#5e5ce6",
-  },
+    color: "#5e5ce6"
+  }
 ];
 
 const mostRecentMedia = [
@@ -485,26 +485,26 @@ const mostRecentMedia = [
     like: "2.3K",
     comment: 900,
     uploadDate: "23 days ago",
-    imgUrl: "/assets/images/sq-10.jpg",
+    imgUrl: "/assets/images/sq-10.jpg"
   },
   {
     like: "2.3K",
     comment: 900,
     uploadDate: "23 days ago",
-    imgUrl: "/assets/images/sq-11.jpg",
+    imgUrl: "/assets/images/sq-11.jpg"
   },
   {
     like: "2.3K",
     comment: 900,
     uploadDate: "23 days ago",
-    imgUrl: "/assets/images/sq-12.jpg",
+    imgUrl: "/assets/images/sq-12.jpg"
   },
   {
     like: "2.3K",
     comment: 900,
     uploadDate: "23 days ago",
-    imgUrl: "/assets/images/sq-13.jpg",
-  },
+    imgUrl: "/assets/images/sq-13.jpg"
+  }
 ];
 
 export default Analytics3;

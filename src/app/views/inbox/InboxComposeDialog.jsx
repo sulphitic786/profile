@@ -1,10 +1,10 @@
 import { Box, Button, Dialog, Fab, Icon, IconButton, styled, TextField } from "@mui/material";
-import { Paragraph } from "app/components/Typography";
+import { Paragraph } from "../../components/Typography";
 import { Formik } from "formik";
 
 const FlexBox = styled(Box)({
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 });
 
 const FormController = styled("div")({
@@ -12,7 +12,7 @@ const FormController = styled("div")({
   display: "flex",
   marginBottom: "16px",
   justifyContent: "space-between",
-  "& input": { display: "none" },
+  "& input": { display: "none" }
 });
 
 const InboxComposeDialog = ({ open, handleClose }) => {
@@ -20,7 +20,7 @@ const InboxComposeDialog = ({ open, handleClose }) => {
     to: "",
     subject: "",
     content: "",
-    attachment: null,
+    attachment: null
   };
 
   const handleFormSubmit = (values) => {

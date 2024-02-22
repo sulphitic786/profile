@@ -1,4 +1,4 @@
-import { Edit, TrendingFlat } from '@mui/icons-material';
+import { Edit, TrendingFlat } from "@mui/icons-material";
 import {
   Box,
   Checkbox,
@@ -12,40 +12,40 @@ import {
   TablePagination,
   TableRow,
   useTheme
-} from '@mui/material';
-import { Breadcrumb, MatxLoading } from 'app/components';
-import TableHead from 'app/components/data-table/TableHead';
-import TableToolbar from 'app/components/data-table/TableToolbar';
-import { getComparator, stableSort } from 'app/components/data-table/utils';
-import { H5, Span } from 'app/components/Typography';
-import useProducts from 'app/hooks/useProducts';
-import useTable from 'app/hooks/useTable';
-import { useNavigate } from 'react-router-dom';
+} from "@mui/material";
+import { Breadcrumb, MatxLoading } from "../../../components";
+import TableHead from "../../../components/data-table/TableHead";
+import TableToolbar from "../../../components/data-table/TableToolbar";
+import { getComparator, stableSort } from "../../../components/data-table/utils";
+import { H5, Span } from "../../../components/Typography";
+import useProducts from "../../../hooks/useProducts";
+import useTable from "../../../hooks/useTable";
+import { useNavigate } from "react-router-dom";
 
 // styled components
-const IMG = styled('img')({
+const IMG = styled("img")({
   height: 32,
-  borderRadius: '4px'
+  borderRadius: "4px"
 });
 
 const FlexBox = styled(Box)({
-  display: 'flex',
-  alignItems: 'center'
+  display: "flex",
+  alignItems: "center"
 });
 
-const Container = styled('div')(({ theme }) => ({
-  margin: '30px',
-  [theme.breakpoints.down('sm')]: { margin: '16px' },
-  '& .breadcrumb': {
-    marginBottom: '30px',
-    [theme.breakpoints.down('sm')]: { marginBottom: '16px' }
+const Container = styled("div")(({ theme }) => ({
+  margin: "30px",
+  [theme.breakpoints.down("sm")]: { margin: "16px" },
+  "& .breadcrumb": {
+    marginBottom: "30px",
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
   }
 }));
 
 const StyledSpan = styled(Span)({
-  color: '#fff',
-  padding: '2px 8px',
-  borderRadius: '4px'
+  color: "#fff",
+  padding: "2px 8px",
+  borderRadius: "4px"
 });
 
 const ProductList = () => {
@@ -62,23 +62,23 @@ const ProductList = () => {
     handleRequestSort,
     handleSelectAllClick,
     handleChangeRowsPerPage
-  } = useTable({ defaultOrderBy: 'name' });
+  } = useTable({ defaultOrderBy: "name" });
 
   const navigate = useNavigate();
   const { isLoading, products } = useProducts();
 
   const { palette } = useTheme();
   const bgError = palette.error.main;
-  const bgGreen = 'rgba(9, 182, 109, 1)';
+  const bgGreen = "rgba(9, 182, 109, 1)";
   const bgSecondary = palette.secondary.main;
 
   // TABLE HEADER COLUMN LIST
   const columns = [
-    { id: 'name', align: 'left', disablePadding: true, label: 'Name' },
-    { id: 'description', align: 'center', disablePadding: false, label: 'Description' },
-    { id: 'quantity', align: 'center', disablePadding: false, label: 'Quantity' },
-    { id: 'price', align: 'center', disablePadding: false, label: 'Price' },
-    { id: 'edit', align: 'center', disablePadding: false, label: 'Edit' }
+    { id: "name", align: "left", disablePadding: true, label: "Name" },
+    { id: "description", align: "center", disablePadding: false, label: "Description" },
+    { id: "quantity", align: "center", disablePadding: false, label: "Quantity" },
+    { id: "price", align: "center", disablePadding: false, label: "Price" },
+    { id: "edit", align: "center", disablePadding: false, label: "Edit" }
   ];
 
   // RENDER PRODUCT QUANTITY STATUS
@@ -106,10 +106,10 @@ const ProductList = () => {
   return (
     <Container>
       <div className="breadcrumb">
-        <Breadcrumb routeSegments={[{ name: 'Pages', path: '/pages' }, { name: 'Product List' }]} />
+        <Breadcrumb routeSegments={[{ name: "Pages", path: "/pages" }, { name: "Product List" }]} />
       </div>
 
-      <Paper sx={{ width: '100%', mb: 2 }}>
+      <Paper sx={{ width: "100%", mb: 2 }}>
         <TableToolbar title="All Products" numSelected={selected.length} />
 
         <TableContainer>
@@ -158,11 +158,11 @@ const ProductList = () => {
                       <TableCell align="center">{row.price}</TableCell>
 
                       <TableCell align="center">
-                        <IconButton onClick={() => navigate('/pages/new-product')}>
+                        <IconButton onClick={() => navigate("/pages/new-product")}>
                           <Edit />
                         </IconButton>
 
-                        <IconButton onClick={() => navigate('/pages/view-product')}>
+                        <IconButton onClick={() => navigate("/pages/view-product")}>
                           <TrendingFlat />
                         </IconButton>
                       </TableCell>

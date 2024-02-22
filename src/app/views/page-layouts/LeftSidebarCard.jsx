@@ -8,15 +8,15 @@ import {
   MenuItem,
   styled,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
-import { MatxSidenav, MatxSidenavContainer, MatxSidenavContent } from "app/components";
-import { H5, H6, Paragraph } from "app/components/Typography";
+import { MatxSidenav, MatxSidenavContainer, MatxSidenavContent } from "../../components";
+import { H5, H6, Paragraph } from "../../components/Typography";
 import { useEffect, useState } from "react";
 
 const FlexBox = styled(Box)(() => ({
   display: "flex",
-  alignItems: "center",
+  alignItems: "center"
 }));
 
 const SidebarCardRoot = styled("div")(({ theme }) => ({
@@ -25,22 +25,22 @@ const SidebarCardRoot = styled("div")(({ theme }) => ({
     height: 200,
     background: theme.palette.primary.main,
     backgroundImage: "url('/assets/images/home-bg-black.png')",
-    backgroundSize: "contain",
+    backgroundSize: "contain"
   },
   "& .sidenavHolder": { marginTop: -200 },
   "& .sidenav": {
     background: "transparent !important",
     [theme.breakpoints.down("sm")]: {
-      background: theme.palette.background.default,
-    },
-  },
+      background: theme.palette.background.default
+    }
+  }
 }));
 
 const SideNavHeader = styled(H6)(({ theme }) => ({
   padding: "24px",
   paddingLeft: "36px",
   color: "rgba(255,255,255,0.87) !important",
-  [theme.breakpoints.down("sm")]: { color: "inherit !important" },
+  [theme.breakpoints.down("sm")]: { color: "inherit !important" }
 }));
 
 const LeftSidebarCard = () => {
@@ -113,7 +113,7 @@ const LeftSidebarCard = () => {
                 sx={{
                   p: 3,
                   whiteSpace: "pre-wrap",
-                  wordBreak: "break-word",
+                  wordBreak: "break-word"
                 }}
               >
                 {`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima sapiente earum aspernatur quia officia eaque beatae rem molestiae fuga tempora, architecto doloremque facilis, illum, soluta ducimus dolorum tempore nemo inventore! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima sapiente earum aspernatur quia officia eaque beatae rem molestiae fuga tempora, architecto doloremque facilis, illum, soluta ducimus dolorum tempore nemo inventore! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima sapiente earum aspernatur quia officia eaque beatae rem molestiae fuga tempora, architecto doloremque facilis, illum, soluta ducimus dolorum tempore nemo inventore! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima sapiente earum aspernatur quia officia eaque beatae rem molestiae fuga tempora, architecto doloremque facilis, illum, soluta ducimus dolorum tempore nemo inventore! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima sapiente earum aspernatur quia officia eaque beatae rem molestiae fuga tempora, architecto doloremque facilis, illum, soluta ducimus dolorum tempore nemo inventore!

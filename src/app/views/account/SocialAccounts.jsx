@@ -1,6 +1,6 @@
 import { Avatar, Box, Button, Card, Divider } from "@mui/material";
-import { FlexBetween, FlexBox } from "app/components/FlexBox";
-import { H5, H6, Paragraph } from "app/components/Typography";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { H5, H6, Paragraph } from "../../components/Typography";
 
 const SocialAccounts = () => {
   return (
@@ -15,7 +15,7 @@ const SocialAccounts = () => {
             borderBottom: 1,
             padding: "1rem 1.5rem",
             borderColor: "grey.100",
-            "&:last-of-type": { borderBottom: 0 },
+            "&:last-of-type": { borderBottom: 0 }
           }}
         >
           <FlexBox alignItems="center" gap={1}>
@@ -40,29 +40,29 @@ const accountList = [
     title: "Facebook",
     body: "www.facebook.com/ui-lib",
     image: "/assets/images/social-media/facebook.svg",
-    connect: false,
+    connect: false
   },
   {
     id: 2,
     title: "Twitter",
     body: "www.twitter.com/ui-lib",
     image: "/assets/images/social-media/twitter.svg",
-    connect: false,
+    connect: false
   },
   {
     id: 3,
     title: "Linkedin",
     body: "www.linkedin.com/ui-lib",
     image: "/assets/images/social-media/linkedin.svg",
-    connect: false,
+    connect: false
   },
   {
     id: 4,
     title: "Skype",
     body: "www.skype.com/ui-lib",
     image: "/assets/images/social-media/skype.svg",
-    connect: true,
-  },
+    connect: true
+  }
 ];
 
 export default SocialAccounts;

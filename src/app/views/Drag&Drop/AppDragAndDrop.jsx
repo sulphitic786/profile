@@ -1,6 +1,6 @@
 import { Box, styled } from "@mui/material";
-import Breadcrumb from "app/components/Breadcrumb";
-import SimpleCard from "app/components/SimpleCard";
+import Breadcrumb from "../../components/Breadcrumb";
+import SimpleCard from "../../components/SimpleCard";
 import SimpleHorizontalList from "./SimpleHorizontalList";
 import SimpleListDnD from "./SimpleListDnD";
 import TwoListDnD from "./TwoListDnD";
@@ -10,8 +10,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     margin: "30px",
-    [theme.breakpoints.down("sm")]: { margin: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { margin: "16px" }
+  }
 }));
 
 const AppDragAndDrop = () => {

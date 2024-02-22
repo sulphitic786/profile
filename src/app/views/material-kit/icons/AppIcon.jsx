@@ -1,13 +1,13 @@
 import { Box, Icon, styled, Tooltip } from "@mui/material";
-import { Breadcrumb, SimpleCard } from "app/components";
+import { Breadcrumb, SimpleCard } from "../../../components";
 
 const Container = styled("div")(({ theme }) => ({
   margin: "30px",
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const IconList = [
@@ -942,7 +942,7 @@ const IconList = [
   "youtube_searched_for",
   "zoom_in",
   "zoom_out",
-  "zoom_out_map",
+  "zoom_out_map"
 ];
 
 const AppIcon = () => {

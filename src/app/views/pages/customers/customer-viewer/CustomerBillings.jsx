@@ -7,15 +7,15 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableRow,
+  TableRow
 } from "@mui/material";
-import { FlexBetween } from "app/components/FlexBox";
-import { H4 } from "app/components/Typography";
+import { FlexBetween } from "../../../../components/FlexBox";
+import { H4 } from "../../../../components/Typography";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   fontSize: "13px",
   color: theme.palette.text.primary,
-  ":hover": { background: "transparent" },
+  ":hover": { background: "transparent" }
 }));
 
 const CustomerBillings = () => {
@@ -54,7 +54,7 @@ const customerInfo = [
   { title: "Draft", value: "2 ($150.00)" },
   { title: "Unpaid/Due", value: "1 ($355.00)" },
   { title: "Refunded", value: "0 ($0.00)" },
-  { title: "Gross Income", value: "$2,100.00" },
+  { title: "Gross Income", value: "$2,100.00" }
 ];
 
 export default CustomerBillings;

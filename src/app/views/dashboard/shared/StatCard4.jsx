@@ -1,12 +1,12 @@
 import { Card, Grid, Icon, IconButton, styled } from "@mui/material";
-import { H3, Paragraph } from "app/components/Typography";
+import { H3, Paragraph } from "../../../components/Typography";
 
 const StyledCard = styled(Card)(() => ({
   padding: "20px",
   display: "flex",
   alignItems: "center",
   flexDirection: "column",
-  justifyContent: "center",
+  justifyContent: "center"
 }));
 
 const StatCard4 = () => {
@@ -14,7 +14,7 @@ const StatCard4 = () => {
     { icon: "colorize", amount: 48, title: "New Posts" },
     { icon: "attachment", amount: 291, title: "Attached Files" },
     { icon: "mode_comment", amount: 291, title: "Comments" },
-    { icon: "remove_red_eye", amount: 110, title: "Total Views" },
+    { icon: "remove_red_eye", amount: 110, title: "Total Views" }
   ];
 
   return (

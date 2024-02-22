@@ -4,117 +4,117 @@ import Redirect from "./auth/Redirect";
 import { authRoles } from "./auth/authRoles";
 import Loadable from "./components/Loadable";
 import MatxLayout from "./components/MatxLayout/MatxLayout";
-import materialRoutes from "app/views/material-kit/MaterialRoutes";
+import materialRoutes from "./views/material-kit/MaterialRoutes";
 
 // dashboard page
-const Analytics = Loadable(lazy(() => import("app/views/dashboard/Analytics")));
-const Analytics2 = Loadable(lazy(() => import("app/views/dashboard/Analytics2")));
-const Analytics3 = Loadable(lazy(() => import("app/views/dashboard/Analytics3")));
-const InventoryManagement = Loadable(lazy(() => import("app/views/dashboard/InventoryManagement")));
+const Analytics = Loadable(lazy(() => import("./views/dashboard/Analytics")));
+const Analytics2 = Loadable(lazy(() => import("./views/dashboard/Analytics2")));
+const Analytics3 = Loadable(lazy(() => import("./views/dashboard/Analytics3")));
+const InventoryManagement = Loadable(lazy(() => import("./views/dashboard/InventoryManagement")));
 
 // Management pages
 const ContactUsRequestList = Loadable(
-  lazy(() => import("app/views/pages/management/contactus/ContactUsRequests"))
+  lazy(() => import("./views/pages/management/contactus/ContactUsRequests"))
 );
-const UsersList = Loadable(lazy(() => import("app/views/pages/management/users/Users")));
-const ProjectsList = Loadable(lazy(() => import("app/views/pages/management/projects/Projects")));
-const ProjectForm = Loadable(lazy(() => import("app/views/pages/management/projects/ProjectForm")));
+const UsersList = Loadable(lazy(() => import("./views/pages/management/users/Users")));
+const ProjectsList = Loadable(lazy(() => import("./views/pages/management/projects/Projects")));
+const ProjectForm = Loadable(lazy(() => import("./views/pages/management/projects/ProjectForm")));
 const ProjectViewer = Loadable(
-  lazy(() => import("app/views/pages/management/projects/ProjectViewer"))
+  lazy(() => import("./views/pages/management/projects/ProjectViewer"))
 );
 
 // customer pages
-const CustomerList = Loadable(lazy(() => import("app/views/pages/customers/CustomerList")));
+const CustomerList = Loadable(lazy(() => import("./views/pages/customers/CustomerList")));
 const CustomerForm = Loadable(
-  lazy(() => import("app/views/pages/customers/customer-form/CustomerForm"))
+  lazy(() => import("./views/pages/customers/customer-form/CustomerForm"))
 );
 const CustomerViewer = Loadable(
-  lazy(() => import("app/views/pages/customers/customer-viewer/CustomerViewer"))
+  lazy(() => import("./views/pages/customers/customer-viewer/CustomerViewer"))
 );
 
 // product pages
-const ProductList = Loadable(lazy(() => import("app/views/pages/products/ProductList")));
-const ProductForm = Loadable(lazy(() => import("app/views/pages/products/ProductForm")));
+const ProductList = Loadable(lazy(() => import("./views/pages/products/ProductList")));
+const ProductForm = Loadable(lazy(() => import("./views/pages/products/ProductForm")));
 const ProductViewer = Loadable(
-  lazy(() => import("app/views/pages/management/projects/ProjectViewer"))
+  lazy(() => import("./views/pages/management/projects/ProjectViewer"))
 );
 
 // orders pages
-const OrderList = Loadable(lazy(() => import("app/views/pages/orders/OrderList")));
+const OrderList = Loadable(lazy(() => import("./views/pages/orders/OrderList")));
 
 // FAQ pages
-const Faq1 = Loadable(lazy(() => import("app/views/pages/faq/Faq1")));
-const Faq2 = Loadable(lazy(() => import("app/views/pages/faq/Faq2")));
+const Faq1 = Loadable(lazy(() => import("./views/pages/faq/Faq1")));
+const Faq2 = Loadable(lazy(() => import("./views/pages/faq/Faq2")));
 
 // Pricing pages
-const Pricing1 = Loadable(lazy(() => import("app/views/pricing/Pricing1")));
-const Pricing2 = Loadable(lazy(() => import("app/views/pricing/Pricing2")));
-const Pricing3 = Loadable(lazy(() => import("app/views/pricing/Pricing3")));
-const Pricing4 = Loadable(lazy(() => import("app/views/pricing/SimplePricing4")));
+const Pricing1 = Loadable(lazy(() => import("./views/pricing/Pricing1")));
+const Pricing2 = Loadable(lazy(() => import("./views/pricing/Pricing2")));
+const Pricing3 = Loadable(lazy(() => import("./views/pricing/Pricing3")));
+const Pricing4 = Loadable(lazy(() => import("./views/pricing/SimplePricing4")));
 
 // User pages
-const UserList1 = Loadable(lazy(() => import("app/views/pages/user-list/UserList1")));
-const UserList2 = Loadable(lazy(() => import("app/views/pages/user-list/UserList2")));
-const UserList3 = Loadable(lazy(() => import("app/views/pages/user-list/UserList3")));
-const UserList4 = Loadable(lazy(() => import("app/views/pages/user-list/UserList4")));
+const UserList1 = Loadable(lazy(() => import("./views/pages/user-list/UserList1")));
+const UserList2 = Loadable(lazy(() => import("./views/pages/user-list/UserList2")));
+const UserList3 = Loadable(lazy(() => import("./views/pages/user-list/UserList3")));
+const UserList4 = Loadable(lazy(() => import("./views/pages/user-list/UserList4")));
 
 // session pages
-const NotFound = Loadable(lazy(() => import("app/views/sessions/NotFound")));
-const JwtLogin = Loadable(lazy(() => import("app/views/sessions/JwtLogin")));
-const JwtRegister = Loadable(lazy(() => import("app/views/sessions/JwtRegister")));
-const ForgotPassword = Loadable(lazy(() => import("app/views/sessions/ForgotPassword")));
+const NotFound = Loadable(lazy(() => import("./views/sessions/NotFound")));
+const JwtLogin = Loadable(lazy(() => import("./views/sessions/JwtLogin")));
+const JwtRegister = Loadable(lazy(() => import("./views/sessions/JwtRegister")));
+const ForgotPassword = Loadable(lazy(() => import("./views/sessions/ForgotPassword")));
 
 // forms page
-const BasicForm = Loadable(lazy(() => import("app/views/forms/BasicForm")));
-const UploadForm = Loadable(lazy(() => import("app/views/forms/UploadForm")));
-const WizardForm = Loadable(lazy(() => import("app/views/forms/WizardForm")));
-const OrderForm = Loadable(lazy(() => import("app/views/forms/order-form/OrderForm")));
-const InvoiceForm = Loadable(lazy(() => import("app/views/forms/invoice-form/InvoiceForm")));
-const PropertyListingForm = Loadable(lazy(() => import("app/views/forms/PropertyListingForm")));
+const BasicForm = Loadable(lazy(() => import("./views/forms/BasicForm")));
+const UploadForm = Loadable(lazy(() => import("./views/forms/UploadForm")));
+const WizardForm = Loadable(lazy(() => import("./views/forms/WizardForm")));
+const OrderForm = Loadable(lazy(() => import("./views/forms/order-form/OrderForm")));
+const InvoiceForm = Loadable(lazy(() => import("./views/forms/invoice-form/InvoiceForm")));
+const PropertyListingForm = Loadable(lazy(() => import("./views/forms/PropertyListingForm")));
 
 // AppLIst page
-const AppList = Loadable(lazy(() => import("app/views/list/AppList")));
+const AppList = Loadable(lazy(() => import("./views/list/AppList")));
 
 // UserProfile page
-const UserProfile = Loadable(lazy(() => import("app/views/page-layouts/user-profile/UserProfile")));
+const UserProfile = Loadable(lazy(() => import("./views/page-layouts/user-profile/UserProfile")));
 
 // Account page
-const Account = Loadable(lazy(() => import("app/views/account/index")));
+const Account = Loadable(lazy(() => import("./views/account/index")));
 
 // ecommerce page
-const Shop = Loadable(lazy(() => import("app/views/ecommerce/Shop")));
-const Cart = Loadable(lazy(() => import("app/views/ecommerce/Cart")));
-const Checkout = Loadable(lazy(() => import("app/views/ecommerce/Checkout")));
+const Shop = Loadable(lazy(() => import("./views/ecommerce/Shop")));
+const Cart = Loadable(lazy(() => import("./views/ecommerce/Cart")));
+const Checkout = Loadable(lazy(() => import("./views/ecommerce/Checkout")));
 
 // InvoiceList page
-const InvoiceList = Loadable(lazy(() => import("app/views/invoice/InvoiceList")));
-const InvoiceDetails = Loadable(lazy(() => import("app/views/invoice/InvoiceDetails")));
-const InvoiceList2 = Loadable(lazy(() => import("app/views/invoice/InvoiceList")));
+const InvoiceList = Loadable(lazy(() => import("./views/invoice/InvoiceList")));
+const InvoiceDetails = Loadable(lazy(() => import("./views/invoice/InvoiceDetails")));
+const InvoiceList2 = Loadable(lazy(() => import("./views/invoice/InvoiceList")));
 
 // AppChat page
-const AppChat = Loadable(lazy(() => import("app/views/chat-box/AppChat")));
+const AppChat = Loadable(lazy(() => import("./views/chat-box/AppChat")));
 
 // AppInbox routes
-const AppInbox = Loadable(lazy(() => import("app/views/inbox/AppInbox")));
+const AppInbox = Loadable(lazy(() => import("./views/inbox/AppInbox")));
 
 // AppTodo page
-const AppTodo = Loadable(lazy(() => import("app/views/todo/AppTodo")));
-const TodoEditor = Loadable(lazy(() => import("app/views/todo/TodoEditor")));
+const AppTodo = Loadable(lazy(() => import("./views/todo/AppTodo")));
+const TodoEditor = Loadable(lazy(() => import("./views/todo/TodoEditor")));
 
 // CrudTable page
-const CrudTable = Loadable(lazy(() => import("app/views/CRUD/CrudTable")));
+const CrudTable = Loadable(lazy(() => import("./views/CRUD/CrudTable")));
 
 // echart page
-// const AppEchart = Loadable(lazy(() => import('app/views/charts/echarts/AppEchart')));
-// const AppRechart = Loadable(lazy(() => import('app/views/charts/recharts/AppRechart')));
-// const ApexCharts = Loadable(lazy(() => import('app/views/charts/apex-charts/ApexCharts')));
+// const AppEchart = Loadable(lazy(() => import('./views/charts/echarts/AppEchart')));
+// const AppRechart = Loadable(lazy(() => import('./views/charts/recharts/AppRechart')));
+// const ApexCharts = Loadable(lazy(() => import('./views/charts/apex-charts/ApexCharts')));
 
 // Portfolio page
-const About = Loadable(lazy(() => import("app/views/portfolio/About")));
-const Education = Loadable(lazy(() => import("app/views/portfolio/Education")));
-const Services = Loadable(lazy(() => import("app/views/portfolio/Services")));
-const ContactUs = Loadable(lazy(() => import("app/views/portfolio/ContactUs")));
-const Projects = Loadable(lazy(() => import("app/views/portfolio/Projects")));
+const About = Loadable(lazy(() => import("./views/portfolio/About")));
+const Education = Loadable(lazy(() => import("./views/portfolio/Education")));
+const Services = Loadable(lazy(() => import("./views/portfolio/Services")));
+const ContactUs = Loadable(lazy(() => import("./views/portfolio/ContactUs")));
+const Projects = Loadable(lazy(() => import("./views/portfolio/Projects")));
 
 const routes = [
   {

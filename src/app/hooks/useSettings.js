@@ -1,4 +1,4 @@
-import SettingsContext from "app/contexts/SettingsContext";
+import SettingsContext from "../contexts/SettingsContext";
 import { useContext } from "react";
 
 const useSettings = () => useContext(SettingsContext);

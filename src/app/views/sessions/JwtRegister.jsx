@@ -1,52 +1,52 @@
-import { useTheme } from '@emotion/react';
-import { LoadingButton } from '@mui/lab';
-import { Card, Checkbox, Grid, TextField } from '@mui/material';
-import { Box, styled } from '@mui/material';
-import { Paragraph } from 'app/components/Typography';
-import useAuth from 'app/hooks/useAuth';
-import { Formik } from 'formik';
-import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import * as Yup from 'yup';
-import { useAlert } from 'app/contexts/AlertContext';
+import { useTheme } from "@emotion/react";
+import { LoadingButton } from "@mui/lab";
+import { Card, Checkbox, Grid, TextField } from "@mui/material";
+import { Box, styled } from "@mui/material";
+import { Paragraph } from "../../components/Typography";
+import useAuth from "../../hooks/useAuth";
+import { Formik } from "formik";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import { useAlert } from "../../contexts/AlertContext";
 
-const FlexBox = styled(Box)(() => ({ display: 'flex', alignItems: 'center' }));
+const FlexBox = styled(Box)(() => ({ display: "flex", alignItems: "center" }));
 
-const JustifyBox = styled(FlexBox)(() => ({ justifyContent: 'center' }));
+const JustifyBox = styled(FlexBox)(() => ({ justifyContent: "center" }));
 
 const ContentBox = styled(JustifyBox)(() => ({
-  height: '100%',
-  padding: '32px',
-  background: 'rgba(0, 0, 0, 0.01)'
+  height: "100%",
+  padding: "32px",
+  background: "rgba(0, 0, 0, 0.01)"
 }));
 
 const JWTRegister = styled(JustifyBox)(() => ({
-  background: '#1A2038',
-  minHeight: '100vh !important',
-  '& .card': {
+  background: "#1A2038",
+  minHeight: "100vh !important",
+  "& .card": {
     maxWidth: 800,
     minHeight: 400,
-    margin: '1rem',
-    display: 'flex',
+    margin: "1rem",
+    display: "flex",
     borderRadius: 12,
-    alignItems: 'center'
+    alignItems: "center"
   }
 }));
 
 // inital login credentials
 const initialValues = {
-  email: '',
-  password: '',
-  username: '',
+  email: "",
+  password: "",
+  username: "",
   remember: true
 };
 
 // form field validation schema
 const validationSchema = Yup.object().shape({
   password: Yup.string()
-    .min(6, 'Password must be 6 character length')
-    .required('Password is required!'),
-  email: Yup.string().email('Invalid Email address').required('Email is required!')
+    .min(6, "Password must be 6 character length")
+    .required("Password is required!"),
+  email: Yup.string().email("Invalid Email address").required("Email is required!")
 });
 
 const JwtRegister = () => {
@@ -61,11 +61,11 @@ const JwtRegister = () => {
 
     try {
       await register(values.email, values.password);
-      navigate('/');
-      showAlert('success', 'User registered successfully.');
-      console.log('User is Created Successfully');
+      navigate("/");
+      showAlert("success", "User registered successfully.");
+      console.log("User is Created Successfully");
     } catch (e) {
-      showAlert('error', 'Unable to create the user.');
+      showAlert("error", "Unable to create the user.");
       console.log(e);
       setLoading(false);
     }

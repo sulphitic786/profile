@@ -1,5 +1,5 @@
-import { ThemeProvider, useTheme } from '@mui/material';
-import useSettings from 'app/hooks/useSettings';
+import { ThemeProvider, useTheme } from "@mui/material";
+import useSettings from "../../../hooks/useSettings";
 
 const SidenavTheme = ({ children }) => {
   const theme = useTheme();

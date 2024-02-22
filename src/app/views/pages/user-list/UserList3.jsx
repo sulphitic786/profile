@@ -1,6 +1,6 @@
 import { Box, Grid, TablePagination } from "@mui/material";
-import { Breadcrumb } from "app/components";
-import useUsers from "app/hooks/useUsers";
+import { Breadcrumb } from "../../../components";
+import useUsers from "../../../hooks/useUsers";
 import { useState } from "react";
 import ProfileCard from "./ProfileCard";
 import ProfileCard1 from "./ProfileCard1";

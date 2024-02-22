@@ -3,7 +3,7 @@ import { Box, Button, Card, Checkbox, Stack, Table, TextField } from "@mui/mater
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { H5, Paragraph } from "app/components/Typography";
+import { H5, Paragraph } from "../../components/Typography";
 import { BodyTableCell, HeadTableCell } from "./common/StyledComponents";
 
 const Notifications = () => {
@@ -82,7 +82,7 @@ const notificationSettings = [
   { id: 2, type: "Account activity", email: true, browser: true, app: true },
   { id: 3, type: "A new browser used to sign in", email: true, browser: true, app: true },
   { id: 4, type: "A new device is linked", email: false, browser: true, app: false },
-  { id: 5, type: "A new device connected", email: true, browser: false, app: false },
+  { id: 5, type: "A new device connected", email: true, browser: false, app: false }
 ];
 
 export default Notifications;

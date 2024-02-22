@@ -1,8 +1,8 @@
 import { Box, Button, Card, Divider, Grid, Icon, MenuItem, styled, TextField } from "@mui/material";
-import { Breadcrumb } from "app/components";
-import { FlexAlignCenter, FlexBox } from "app/components/FlexBox";
-import { H4 } from "app/components/Typography";
-import { convertHexToRGB } from "app/utils/utils";
+import { Breadcrumb } from "../../../components";
+import { FlexAlignCenter, FlexBox } from "../../../components/FlexBox";
+import { H4 } from "../../../components/Typography";
+import { convertHexToRGB } from "../../../utils/utils";
 import { Formik } from "formik";
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
@@ -14,8 +14,8 @@ const Container = styled("div")(({ theme }) => ({
   [theme.breakpoints.down("sm")]: { margin: "16px" },
   "& .breadcrumb": {
     marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" },
-  },
+    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
+  }
 }));
 
 const StyledTextField = styled(TextField)({ marginBottom: "16px" });
@@ -30,15 +30,15 @@ const DropZone = styled(FlexAlignCenter)(({ isDragActive, theme }) => ({
   transition: "all 350ms ease-in-out",
   border: `2px dashed rgba(${convertHexToRGB(theme.palette.text.primary)}, 0.3)`,
   "&:hover": {
-    background: `rgb(${convertHexToRGB(theme.palette.text.primary)}, 0.2) !important`,
+    background: `rgb(${convertHexToRGB(theme.palette.text.primary)}, 0.2) !important`
   },
-  background: isDragActive ? "rgb(0, 0, 0, 0.15)" : "rgb(0, 0, 0, 0.01)",
+  background: isDragActive ? "rgb(0, 0, 0, 0.15)" : "rgb(0, 0, 0, 0.01)"
 }));
 
 const ProductForm = () => {
   const [imageList, setImageList] = useState([]);
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
-    accept: { "image/*": [".jpg", ".png"] },
+    accept: { "image/*": [".jpg", ".png"] }
   });
 
   const handleSubmit = async (values) => {
@@ -231,7 +231,7 @@ const productSchema = yup.object().shape({
   name: yup.string().required("Name is required"),
   price: yup.number().required("Price is required"),
   category: yup.string().required("Category is required"),
-  quantity: yup.number().required("Quantity is required"),
+  quantity: yup.number().required("Quantity is required")
 });
 
 const initialValues = {
@@ -239,7 +239,7 @@ const initialValues = {
   sku: "",
   price: "",
   category: "",
-  quantity: "",
+  quantity: ""
 };
 
 const categoryList = ["Electronics", "Clothes", "Toys", "Books", "Utensils"];
