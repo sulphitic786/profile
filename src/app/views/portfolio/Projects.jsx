@@ -81,10 +81,10 @@ const Projects = () => {
       }));
       setLoading(false);
       setUsers(dataFromFirebase);
-      showAlert("success", "Data fetch successfully.");
+      // showAlert("success", "Data fetch successfully.");
     } catch (error) {
       setLoading(false);
-      showAlert("error", "Error while fetching data.");
+      showAlert("error", "Error while fetching projects data.");
       console.error("Error fetching data:", error);
     }
   };
