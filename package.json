@@ -7,7 +7,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ghp": "react-scripts build && gh-pages -d build"
+    "deploy:ghp": "react-scripts build && gh-pages -d build",
+    "deploy:vercel": "vercel --prod"
   },
   "eslintConfig": {
     "extends": [
