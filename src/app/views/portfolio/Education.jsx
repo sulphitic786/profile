@@ -127,15 +127,15 @@ const Education = () => {
                     <em>The University of Lahore</em>
                   </p>
                   <p>A helpful course about fullstack web development using backend in PHP.</p>
-                  <li>Designing foucus on front-end. </li>
-                  <li>Development and implimentation of the designs. </li>
-                  <li>Foucus on the modern programming technologies. </li>
+                  <li>Designing focus on front-end. </li>
+                  <li>Development and implementation of the designs. </li>
+                  <li>Focus on the modern programming technologies. </li>
                   <li>Supervised by professionals for the assessment of all development. </li>
                 </div>
 
                 <div className="resume-item">
                   <h4>Web Developer Internship(Mussawar I.T Solutions)</h4>
-                  <h5>Dec-2019 - Feb-2020</h5>
+                  <h5>Dec/2019 - Feb/2020</h5>
                   <p>
                     <em>Jeff Heights Near Hafeez Center Liberty Lahore </em>
                   </p>

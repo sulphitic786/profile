@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     signOut(auth);
-    sessionStorage.removeItem('userData'); // Clear session data
+    localStorage.removeItem('userData'); // Clear session data
     navigate('/portfolio/about');
   };
 

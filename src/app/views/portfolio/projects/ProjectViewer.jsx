@@ -1,6 +1,6 @@
 import { Card, Divider, Box, Link, Grid, a, Icon, styled, useTheme, Button } from "@mui/material";
-import { H4, H5, Paragraph, Span } from "../../components/Typography";
-import { removeTimeFromDate } from "../../utils/utils";
+import { H4, H5, Paragraph, Span } from "../../../components/Typography";
+import { removeTimeFromDate } from "../../../utils/utils";
 import { useState } from "react";
 
 // styled components
@@ -44,7 +44,7 @@ const ThumbImg = styled("img")({
 });
 
 const ProductViewer = (props) => {
-  const [selectedImage, setSelectedImage] = useState("/assets/images/favicon.png");
+  const [selectedImage, setSelectedImage] = useState(props?.data?.images[0] ?? "");
   const projectData = props.data;
 
   const theme = useTheme();
@@ -119,12 +119,13 @@ const ProductViewer = (props) => {
               Have questions about this project (Client Info)
             </Paragraph>
 
-            <CallBox className="d-flex justify-content-around">
+            <CallBox sx={{ display: "flex", justifyContent: "space-around" }}>
               <Span className="text-center">
                 <Icon fontSize="small" color="primary">
                   person
                 </Icon>
-                <H5 sx={{ color: secondary }}>{projectData?.client_name ?? "-"}</H5>
+                {console.log("projectData", projectData)}
+                <H5 sx={{ color: secondary }}>{projectData?.client ?? "-"}</H5>
               </Span>
               {/* <Span className="text-center">
                 <Icon fontSize="small" color="primary">
@@ -145,12 +146,15 @@ const ProductViewer = (props) => {
                 <H5 sx={{ color: secondary }}>{projectData?.client_region ?? "-"}</H5>
               </Span>
             </CallBox>
-
             <Divider sx={{ mb: 2 }} />
-            <H4 sx={{ mt: 0, mb: 2, fontSize: 16, fontWeight: "bold", color: secondary }}>
+          </Grid>
+          <Grid item md={12} xs={12}>
+            <H4 sx={{ ml: 0, mb: 1, fontSize: 16, fontWeight: "bold", color: secondary }}>
               Description
             </H4>
-            <p style={{ fontSize: 13 }}>{projectData?.description ?? "-"}</p>
+            <Paragraph style={{ fontSize: 13, textIndent: "2em" }}>
+              {projectData?.description ?? "-"}
+            </Paragraph>
           </Grid>
         </Grid>
         <Divider sx={{ mb: 2 }} />

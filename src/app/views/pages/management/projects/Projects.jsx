@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Paper, styled, Icon, Grid, Button, Tooltip, TextField, Box } from "@mui/material";
+import {
+  Paper,
+  styled,
+  Icon,
+  InputAdornment,
+  Button,
+  Tooltip,
+  TextField,
+  Box
+} from "@mui/material";
 import { Breadcrumb } from "../../../../components";
 import DataTable from "react-data-table-component";
 import ConfirmationDialog from "../../../../components/ConfirmationDialog";
@@ -50,12 +59,18 @@ const FlexBox = styled(Box)({
 const FilterComponent = ({ filterText, onFilter }) => {
   return (
     <TextField
-      placeholder="Search Input"
-      label="Quick Search"
+      id="search"
+      variant="standard"
+      placeholder="Quick Search"
       value={filterText}
       onChange={onFilter}
-      id="search"
-      className=""
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <Icon>search</Icon>
+          </InputAdornment>
+        )
+      }}
     />
   );
 };

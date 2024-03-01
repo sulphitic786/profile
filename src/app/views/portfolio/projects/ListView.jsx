@@ -1,93 +1,53 @@
 import React, { useEffect, useState } from "react";
-import { Paper, styled, Icon, Grid, Button, Tooltip, TextField, Box } from "@mui/material";
-import { Breadcrumb } from "../../components";
+import {
+  Avatar,
+  Box,
+  Icon,
+  styled,
+  useTheme,
+  Paper,
+  Tooltip,
+  InputAdornment,
+  TextField,
+  Link
+} from "@mui/material";
 import DataTable from "react-data-table-component";
-import ConfirmationDialog from "../../components/ConfirmationDialog";
-import { color, getYearsFromTimestamp, removeTimeFromDate } from "../../utils/utils";
-// import '@styles/react/libs/tables/react-dataTable-component.scss';
-import { collection, getDocs, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
-import { MatxLoading } from "../../components";
-import { fireStore } from "./../../../config";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useAlert } from "../../contexts/AlertContext";
+import { getYearsFromTimestamp, removeTimeFromDate } from "../../../utils/utils";
 import ProjectViewer from "./ProjectViewer";
 
-const Container = styled("div")(({ theme }) => ({
-  margin: "20px",
-  overflow: "unset",
-  [theme.breakpoints.down("sm")]: {
-    margin: "16px"
-  },
-  "& .breadcrumb": {
-    marginBottom: "30px",
-    [theme.breakpoints.down("sm")]: { marginBottom: "16px" }
-  }
-}));
-
-const Small = styled("small")(({ bgcolor }) => ({
-  height: 20,
-  width: 60,
-  color: "#fff",
-  padding: "3px 8px",
-  textAlign: "center",
-  borderRadius: "4px",
-  overflow: "hidden",
-  background: bgcolor,
-  boxShadow: "0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)"
-}));
-
-const IMG = styled("img")({
-  height: 35,
-  borderRadius: "4px"
-});
-
+// styled components
 const FlexBox = styled(Box)({
   display: "flex",
   alignItems: "center"
 });
 
+const IMG = styled("img")({ maxHeight: 100, maxWidth: 120, padding: "5px" });
+
 const FilterComponent = ({ filterText, onFilter }) => {
   return (
     <TextField
-      placeholder="Search Input"
-      label="Quick Search"
+      id="search"
+      variant="standard"
+      placeholder="Quick Search"
       value={filterText}
       onChange={onFilter}
-      id="search"
-      className=""
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <Icon>search</Icon>
+          </InputAdornment>
+        )
+      }}
     />
   );
 };
 
-const Projects = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+const ListView = ({ list = [] }) => {
   const [filterText, setFilterText] = useState("");
   const [view, setView] = useState("");
   const [currentProject, setCurrentProject] = useState(null);
-  const { showAlert } = useAlert();
-
-  useEffect(() => {
-    fetchData(); // Fetch data when the component mounts
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const response = await getDocs(collection(fireStore, "projects"));
-      const dataFromFirebase = response?.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setLoading(false);
-      setUsers(dataFromFirebase);
-      // showAlert("success", "Data fetch successfully.");
-    } catch (error) {
-      setLoading(false);
-      showAlert("error", "Error while fetching projects data.");
-      console.error("Error fetching data:", error);
-    }
-  };
+  console.log("list", list);
+  const { palette } = useTheme();
 
   const viewProjectHandler = async (data) => {
     setView("ProjectViewer");
@@ -102,7 +62,7 @@ const Projects = () => {
     {
       name: <b>Image</b>,
       sortable: true,
-      minWidth: "100px",
+      minWidth: "150px",
       sortField: "name",
       selector: (row) => row.images,
       cell: (row) => (
@@ -286,16 +246,7 @@ const Projects = () => {
   const subheaderComponentHandler = () => {
     return (
       <>
-        <div className="mt-1" style={{ width: "-webkit-fill-available" }}>
-          {/* <Button
-            color="primary"
-            variant="contained"
-            sx={{ mt: '6px !important' }}
-            style={{ float: 'left' }}
-            onClick={() => addProjectHandler()}
-          >
-            + Add New Project
-          </Button> */}
+        <div className="mt-1" style={{ width: "-webkit-fill-available", marginTop: "15px" }}>
           <FilterComponent
             className="justify-content-end"
             onFilter={(e) => setFilterText(e.target.value)}
@@ -306,21 +257,15 @@ const Projects = () => {
     );
   };
 
-  const handleSelectAllRows = (event) => {};
-
-  if (users) {
-    var filteredData = users.filter((item) => {
+  if (list) {
+    var filteredData = list.filter((item) => {
       const itemString = JSON.stringify(item).toLowerCase();
       return itemString.includes(filterText.toLowerCase());
     });
   }
 
   return (
-    <Container>
-      {loading && <MatxLoading />}
-      <div className="breadcrumb">
-        <Breadcrumb routeSegments={[{ name: "projects" }]} />
-      </div>
+    <div>
       {view == "ProjectViewer" ? (
         <ProjectViewer back={back} data={currentProject} />
       ) : (
@@ -353,8 +298,8 @@ const Projects = () => {
           </Paper>
         </>
       )}
-    </Container>
+    </div>
   );
 };
 
-export default Projects;
+export default ListView;

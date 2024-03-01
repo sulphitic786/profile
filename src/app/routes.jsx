@@ -114,7 +114,7 @@ const About = Loadable(lazy(() => import("./views/portfolio/About")));
 const Education = Loadable(lazy(() => import("./views/portfolio/Education")));
 const Services = Loadable(lazy(() => import("./views/portfolio/Services")));
 const ContactUs = Loadable(lazy(() => import("./views/portfolio/ContactUs")));
-const Projects = Loadable(lazy(() => import("./views/portfolio/Projects")));
+const Projects = Loadable(lazy(() => import("./views/portfolio/projects/Projects")));
 
 const routes = [
   {

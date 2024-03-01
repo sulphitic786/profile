@@ -50,7 +50,7 @@
 //   const { user, isAuthenticated } = useAuth();
 //   // const userRole = ['ADMIN'];
 
-//   let userData = stringToJson(sessionStorage.getItem('userData'));
+//   let userData = stringToJson(localStorage.getItem('userData'));
 //   // console.log('userData', userData);
 //   const userRole = userData?.roles || [];
 
@@ -135,7 +135,7 @@ const Sidenav = ({ children }) => {
   const { settings, updateSettings } = useSettings();
   const { user } = useAuth();
   const [filteredNavigations, setFilteredNavigations] = useState([]);
-  const userData = stringToJson(sessionStorage.getItem("userData"));
+  const userData = stringToJson(localStorage.getItem("userData"));
   const userRoles = userData?.roles || [];
 
   useEffect(() => {

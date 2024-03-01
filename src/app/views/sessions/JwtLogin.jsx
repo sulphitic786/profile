@@ -114,7 +114,7 @@ const JwtLogin = () => {
         id: doc.id,
         ...doc.data()
       }));
-      sessionStorage.setItem("userData", JSON.stringify(dataFromFirebase[0]));
+      localStorage.setItem("userData", JSON.stringify(dataFromFirebase[0]));
       // console.log('dataFromFirebase', dataFromFirebase, 'response', response);
     } catch (error) {
       console.error("Error fetching data:", error);
