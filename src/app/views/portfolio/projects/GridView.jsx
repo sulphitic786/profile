@@ -122,7 +122,7 @@ const GridView = ({ list = [], sliderValue }) => {
 
                 <Box py={1} className="grid__card-bottom">
                   <Paragraph sx={{ color: secondary, fontWeight: "700" }}>{item?.name}</Paragraph>
-                  <Small sx={{ display: "none" }}>{item.date}</Small>
+                  <Small sx={{ display: "none" }}>{item?.date}</Small>
                   <Small sx={{ display: "block" }}>
                     {removeTimeFromDate(item?.project_duration[0] ?? "-")} |{" "}
                     {removeTimeFromDate(item?.project_duration[1] ?? "-")}
