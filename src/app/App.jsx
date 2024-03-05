@@ -10,7 +10,7 @@ import { AlertProvider } from "./contexts/AlertContext";
 
 const App = () => {
   const content = useRoutes(routes);
-
+  // netlify deploy --dir=./build
   return (
     <SettingsProvider>
       <AuthProvider>
