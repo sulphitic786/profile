@@ -90,6 +90,7 @@ const GridView = ({ list = [], sliderValue }) => {
         <ProjectViewer back={back} data={currentProject} />
       ) : (
         <Grid container spacing={2}>
+          {console.log("grid view")}
           {list.map((item) => (
             <Grid item key={item.id} sm={calculateColumnPerRow(sliderValue)}>
               <CardRoot sx={{ boxSizing: "border-box" }} elevation={6}>

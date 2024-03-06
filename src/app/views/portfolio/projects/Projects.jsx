@@ -5,9 +5,8 @@ import GridView from "./GridView";
 import ListTopbar from "./ListTopbar";
 import ListView from "./ListView";
 import { MatxLoading } from "../../../components";
-import { collection, getDocs, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
+import { collection, getDocs, addDoc, deleteDoc, query, where } from "firebase/firestore";
 import { fireStore } from "../../../../config";
-import ProjectViewer from "./ProjectViewer";
 import { useAlert } from "../../../contexts/AlertContext";
 
 // styled component
@@ -31,14 +30,15 @@ const Projects = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await getDocs(collection(fireStore, "projects"));
+      const response = await getDocs(
+        query(collection(fireStore, "projects"), where("status", "==", "active"))
+      );
       const dataFromFirebase = response?.docs.map((doc) => ({
         id: doc.id,
         ...doc.data()
       }));
       setLoading(false);
       setList(dataFromFirebase);
-      setOriginalList(dataFromFirebase);
       // showAlert("success", "Data fetch successfully.");
     } catch (error) {
       setLoading(false);
@@ -81,15 +81,11 @@ const Projects = () => {
       </Box>
 
       <Hidden xsDown>
-        {viewMode === "list" ? (
-          <ListView list={list}></ListView>
-        ) : (
+        {viewMode === "grid" ? (
           <GridView list={list} sliderValue={sliderValue}></GridView>
+        ) : (
+          <ListView list={list}></ListView>
         )}
-      </Hidden>
-
-      <Hidden smUp>
-        <GridView list={list} sliderValue={sliderValue}></GridView>
       </Hidden>
     </Container>
   );

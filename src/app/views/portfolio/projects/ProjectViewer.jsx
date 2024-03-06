@@ -54,7 +54,6 @@ const ProductViewer = (props) => {
 
   return (
     <Container>
-      {console.log("projectData", projectData)}
       <Card sx={{ px: 4, pb: 2, pt: 4 }} elevation={3}>
         <Grid container spacing={3}>
           <Grid item md={6} xs={12}>
@@ -124,7 +123,6 @@ const ProductViewer = (props) => {
                 <Icon fontSize="small" color="primary">
                   person
                 </Icon>
-                {console.log("projectData", projectData)}
                 <H5 sx={{ color: secondary }}>{projectData?.client ?? "-"}</H5>
               </Span>
               {/* <Span className="text-center">
@@ -148,8 +146,16 @@ const ProductViewer = (props) => {
             </CallBox>
             <Divider sx={{ mb: 2 }} />
           </Grid>
-          <Grid item md={12} xs={12}>
-            <H4 sx={{ ml: 0, mb: 1, fontSize: 16, fontWeight: "bold", color: secondary }}>
+          <Grid item md={12} xs={12} sx={{ textAlign: "justify" }}>
+            <H4
+              sx={{
+                ml: 0,
+                mb: 1,
+                fontSize: 16,
+                fontWeight: "bold",
+                color: secondary
+              }}
+            >
               Description
             </H4>
             <Paragraph style={{ fontSize: 13, textIndent: "2em" }}>
@@ -174,9 +180,4 @@ const ProductViewer = (props) => {
   );
 };
 
-const imageList = [
-  "/assets/images/laptop-1.png",
-  "/assets/images/laptop-2.png",
-  "/assets/images/laptop-3.png"
-];
 export default ProductViewer;

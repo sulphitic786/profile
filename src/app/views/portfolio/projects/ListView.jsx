@@ -270,6 +270,7 @@ const ListView = ({ list = [] }) => {
         <ProjectViewer back={back} data={currentProject} />
       ) : (
         <>
+          {console.log("list view")}
           <Paper sx={{ width: "100%" }}>
             <DataTable
               // title="Movie List"
