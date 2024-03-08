@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Breadcrumb } from "../../components";
 import { MatxLoading } from "../../components";
 import { Button, Grid, Icon, Box, styled } from "@mui/material";
-import { Span } from "../../components/Typography";
+import { Paragraph, H5, H4, Span } from "../../components/Typography";
 import { useEffect, useState } from "react";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
@@ -77,43 +77,47 @@ const About = () => {
           />
         </Box>
         <ContentBox className="about">
-          <div className="p-2">
+          <div className="">
             <div className="section-title">
-              <h2>Contact</h2>
-              <p>
-                Here is my contact info to reach me out easily by the public, so feel free to
-                contact me regarding any tachnical devlopment assitance or issue.
-              </p>
+              <H4 sx={{ fontWeight: "bold", fontSize: "19px", ml: 2 }}>Contact Us</H4>
+              <Paragraph sx={{ mx: 2, textAlign: "justify", textIndent: "2em" }}>
+                If you have any questions, feedback, or inquiries, we're here to help! Our dedicated
+                team is ready to assist you with any queries you may have regarding our products,
+                services, or anything else related to our business. Whether you're a customer,
+                partner, or simply interested in learning more about what we do, feel free to reach
+                out to us using the contact information provided below. Your satisfaction is our
+                priority, and we look forward to hearing from you soon!
+              </Paragraph>
             </div>
             <Grid container spacing={6} className="contact">
               <Grid item lg={6} md={6} sm={12} xs={12} sx={{ mt: 2 }}>
                 <div className="d-flex align-items-stretch">
-                  <div className="info">
-                    <div className="address">
+                  <Box className="info">
+                    <Box className="address">
                       <i className="icofont-phone me-3">
                         <Icon color="primary">location_on</Icon>
                       </i>
-                      <h6 className="fw-bold">Location:</h6>
-                      <p>Islamabad</p>
-                    </div>
+                      {/* <H5 className="fw-bold"></H5> */}
+                      <p style={{ paddingTop: "10px" }}>Islamabad, Pakistan</p>
+                    </Box>
 
-                    <div className="email">
+                    <Box sx={{ display: "block" }} className="email">
                       <i className="icofont-phone me-3">
                         <Icon color="primary" className="">
                           mail_outline
                         </Icon>
                       </i>
-                      <h6 className="fw-bold">Email:</h6>
-                      <p>wqasimg@gmail.com</p>
-                    </div>
+                      {/* <h6 className="fw-bold">Email:</h6> */}
+                      <p style={{ paddingTop: "10px" }}>wqasimg@gmail.com</p>
+                    </Box>
 
-                    <div className="phone">
+                    <Box sx={{ paddingBottom: "20px" }} className="phone">
                       <i className="icofont-phone me-3">
                         <Icon color="primary">phone_in_talk</Icon>
                       </i>
-                      <h6 className="fw-bold">Call:</h6>
-                      <p>+92324 4929494</p>
-                    </div>
+                      {/* <h6 className="fw-bold">Call:</h6> */}
+                      <p style={{ paddingTop: "10px" }}>+92324 4929494</p>
+                    </Box>
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6640.600245896029!2d73.0127589232893!3d33.67529215132975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbe20192c81c9%3A0x28808a565e31833!2sG-10%20Markaz%20G%2010%20Markaz%20G-10%2C%20Islamabad%2C%20Islamabad%20Capital%20Territory%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1656798445719!5m2!1sen!2sus"
                       frameborder="0"
@@ -121,7 +125,7 @@ const About = () => {
                       allowfullscreen=""
                       loading="lazy"
                     ></iframe>
-                  </div>
+                  </Box>
                 </div>
               </Grid>
 

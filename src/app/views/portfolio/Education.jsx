@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { Fragment } from "react";
 import { Breadcrumb } from "../../components";
+import { H4, H5, H6 } from "../../components/Typography";
 // import Campaigns from './shared/Campaigns';
 // import DoughnutChart from './shared/Doughnut';
 // import RowCards from './shared/RowCards';
@@ -54,13 +55,15 @@ const Education = () => {
       <Container>
         <Box className="breadcrumb">
           <Breadcrumb
-            routeSegments={[{ name: "Profile", path: "/portfolio/about" }, { name: "About" }]}
+            routeSegments={[{ name: "Profile", path: "/portfolio/about" }, { name: "Education" }]}
           />
         </Box>
         <ContentBox className="about">
           <section id="resume" className="resume">
             <div className="section-title">
-              <Typography variant="h4">Education / Exeperience</Typography>
+              <Typography style={{ fontWeight: "bold" }} variant="h5">
+                Education / Experience
+              </Typography>
               <Typography variant="body1">
                 Always seeking a position in a highly competitive area of challenge, utilization,
                 and abilities on the way to success for the organization to earn more and more
@@ -71,7 +74,7 @@ const Education = () => {
             <Grid container spacing={3}>
               <Grid item lg={6}>
                 <div data-aos="fade-up">
-                  <Typography variant="h3" className="resume-title">
+                  <Typography variant="h4" className="resume-title">
                     Education / Certifications
                   </Typography>
                   {/* <div className="resume-item pb-0">
@@ -105,27 +108,27 @@ const Education = () => {
 
                 {/* Education and Internship sections */}
                 <div className="resume-item">
-                  <h4>Master In Computer Science</h4>
-                  <h5>Aug/2017 - Aug/2019</h5>
-                  <p>
+                  <H4 style={{ fontSize: "12px" }}>Master In Computer Science</H4>
+                  <H5 style={{ fontSize: "11px" }}>Aug/2017 - Aug/2019</H5>
+                  <H6>
                     <em>University of Agriculture Faisalabad Pakistan</em>
-                  </p>
+                  </H6>
                 </div>
 
                 <div className="resume-item">
-                  <h4>Bachelor In Computer Science</h4>
-                  <h5>Aug/2014 - Aug/2016</h5>
-                  <p>
+                  <H4 style={{ fontSize: "12px" }}>Bachelor In Computer Science</H4>
+                  <H5 style={{ fontSize: "11px" }}>Aug/2014 - Aug/2016</H5>
+                  <H6>
                     <em>The University of Punjab</em>
-                  </p>
+                  </H6>
                 </div>
 
                 <div className="resume-item">
-                  <h4>Web Development (Certification)</h4>
-                  <h5>jul/2019 - Dec/2019</h5>
-                  <p>
+                  <H4 style={{ fontSize: "12px" }}>Web Development (Certification)</H4>
+                  <H5 style={{ fontSize: "11px" }}>jul/2019 - Dec/2019</H5>
+                  <H6>
                     <em>The University of Lahore</em>
-                  </p>
+                  </H6>
                   <p>A helpful course about fullstack web development using backend in PHP.</p>
                   <li>Designing focus on front-end. </li>
                   <li>Development and implementation of the designs. </li>
@@ -134,11 +137,13 @@ const Education = () => {
                 </div>
 
                 <div className="resume-item">
-                  <h4>Web Developer Internship(Mussawar I.T Solutions)</h4>
-                  <h5>Dec/2019 - Feb/2020</h5>
-                  <p>
+                  <H4 style={{ fontSize: "12px" }}>
+                    Web Developer Internship(Mussawar I.T Solutions)
+                  </H4>
+                  <H5 style={{ fontSize: "11px" }}>Dec/2019 - Feb/2020</H5>
+                  <H6>
                     <em>Jeff Heights Near Hafeez Center Liberty Lahore </em>
-                  </p>
+                  </H6>
                   <ul>
                     <li>
                       Lead by the design, development, and implementation of the layout, and
@@ -179,48 +184,48 @@ const Education = () => {
                   </div> */}
                   {/* Other professional experience */}
                   <div className="resume-item">
-                    <h4>ReactJs/Frontend Developer(Multi-Telesoft)</h4>
-                    <h5>Nov/2021 - Mar/2023</h5>
-                    <p>
-                      <em> Islamabad </em>
-                    </p>
+                    <H4 style={{ fontSize: "12px" }}>ReactJs/Frontend Developer(Multi-Telesoft)</H4>
+                    <H5 style={{ fontSize: "11px" }}>Nov/2021 - Mar/2023</H5>
+                    <H6>
+                      <em> G-10/1 Near High Court, Islamabad </em>
+                    </H6>
                     <ul>
                       <li>
                         Supporting development, maintaining, and updating web portals and dashboards
                         as well websites.
                       </li>
                       <li>Assisting in deployment and development of websites. </li>
-                      <li>Writting codes for web based Solutions. </li>
+                      <li>Writing codes for web based Solutions. </li>
                       <li>Technical documentation and presentation.</li>
                       <li>Troubleshooting websites problems.</li>
                     </ul>
                   </div>
                   <div className="resume-item">
-                    <h4>ReactJs Developer(NextLogixs)</h4>
-                    <h5>Feb/2020 - Sep/2021</h5>
-                    <p>
-                      <em> Township Lahore </em>
-                    </p>
+                    <H4 style={{ fontSize: "12px" }}>ReactJs Developer(NextLogixs)</H4>
+                    <H5 style={{ fontSize: "11px" }}>Feb/2020 - Sep/2021</H5>
+                    <H6>
+                      <em> Link Road, Model Town Lahore </em>
+                    </H6>
                     <ul>
                       <li>
                         Supporting development, maintaining, and updating web portals as well
                         websites.
                       </li>
                       <li>Assisting in deployment and development of websites. </li>
-                      <li>Writting codes for web based Solutions. </li>
+                      <li>Writing codes for web based Solutions. </li>
                       <li>Technical documentation and presentation.</li>
                       <li>Troubleshooting websites problems .</li>
                     </ul>
                   </div>
                   <div className="resume-item">
-                    <h4>Web Developer in Micrologix</h4>
-                    <h5>Oct/2018 - Nov/2019</h5>
-                    <p>
-                      <em>Garden Town Opps to UAF Gate Faisalabad</em>
-                    </p>
+                    <H4 style={{ fontSize: "12px" }}>Web Developer in Micrologix</H4>
+                    <H5 style={{ fontSize: "11px" }}>Oct/2018 - Nov/2019</H5>
+                    <H6>
+                      <em>Garden Town Opposite to UAF Gate Faisalabad</em>
+                    </H6>
                     <ul>
                       <li>
-                        Developed numerous front end programs (Commerace, Blogs,Online Store,
+                        Developed numerous front end programs (Commerce, Blogs,Online Store,
                         presentations, and advertisements).
                       </li>
                       <li>
