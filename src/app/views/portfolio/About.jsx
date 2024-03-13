@@ -144,14 +144,14 @@ const About = () => {
               </FlexBox>
 
               <FlexBox alignItems="center" gap={1}>
-                <MapMarkerIcon sx={{ color: "text.disabled" }} />
+                <MapMarkerIcon color="primary" />
                 <Small fontWeight={600} color="text.disabled">
                   Islamabad, Pakistan
                 </Small>
               </FlexBox>
 
               <FlexBox alignItems="center" gap={1}>
-                <DateRange sx={{ color: "text.disabled" }} />
+                <DateRange color="primary" />
                 <Small fontWeight={600} color="text.disabled">
                   Joined March 17, 2019
                 </Small>
@@ -210,7 +210,7 @@ const About = () => {
             <section id="about" className={"section"}>
               <div className="container">
                 <div className="section-title my-2">
-                  <Typography variant="h4">About</Typography>
+                  <Typography variant="h5">About</Typography>
                   <Typography textAlign="justify" variant="body1">
                     As a web developer focused on customer satisfaction, I manage all aspects of web
                     development from concept to requirements definition, design, development,
@@ -222,9 +222,11 @@ const About = () => {
                   {/* <Grid item lg={4} data-aos="fade-right">
                     <img src="assets/img/profile-img.jpg" className={'image'} alt="Waseem Qasim" />
                   </Grid> */}
-                  <Grid item lg={12} data-aos="fade-left">
+                  <Grid item lg={12}>
                     <div className="content">
-                      <Typography variant="h4">Web Developer</Typography>
+                      <Typography marginTop={2} variant="h5">
+                        Web Developer
+                      </Typography>
                       <Typography textAlign="justify" variant="body1" className="font-italic">
                         Building a website is, in many ways, an exercise of willpower. It’s tempting
                         to get distracted by the bells and whistles of the design process, and
