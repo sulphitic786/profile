@@ -158,15 +158,17 @@ const Layout1Topbar = () => {
                 </StyledItem>
 
                 <StyledItem>
-                  <Link to="/page-layouts/user-profile">
+                  <Link to="/user-profile">
                     <Icon> person </Icon>
                     <Span> Profile </Span>
                   </Link>
                 </StyledItem>
 
                 <StyledItem>
-                  <Icon> settings </Icon>
-                  <Span> Settings </Span>
+                  <Link to="/account">
+                    <Icon> settings </Icon>
+                    <Span> Settings </Span>
+                  </Link>
                 </StyledItem>
 
                 <StyledItem onClick={logout}>

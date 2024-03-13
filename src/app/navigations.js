@@ -134,7 +134,7 @@ export const navigations = [
   //   ],
   // },
   { name: "User Profile", path: "/page-layouts/user-profile", icon: "person", auth: authRoles.admin },
-  { name: "Account", path: "/page-layouts/account", icon: "manage_accounts", auth: authRoles.admin },
+  { name: "Account", path: "/account", icon: "manage_accounts", auth: authRoles.admin },
 
   { label: "Apps", type: "label", auth: authRoles.admin },
   {

@@ -116,14 +116,15 @@ const BasicInformation = () => {
 
           <Box mt={2}>
             <H4 fontWeight={600} textAlign="center">
-              Pixy Krovasky
+              Waseem Qasim
             </H4>
 
-            <FlexBetween maxWidth={400} flexWrap="wrap" margin="auto" mt={1}>
+            <FlexBetween maxWidth={500} flexWrap="wrap" margin="auto" mt={1}>
               <FlexBox alignItems="center" gap={1}>
                 <Bratislava sx={{ color: "text.disabled" }} />
                 <Small fontWeight={600} color="text.disabled">
-                  Developer
+                  Software Engineer | Project Manager | Reactjs Developer | Nextjs Software Engineer
+                  | Project Manager | Reactjs Developer | Nextjs
                 </Small>
               </FlexBox>
 

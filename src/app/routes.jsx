@@ -185,7 +185,7 @@ const routes = [
       { path: "/page-layouts/user-profile", element: <UserProfile />, auth: authRoles.editor },
 
       // Account routes
-      { path: "/page-layouts/account", element: <Account />, auth: authRoles.editor },
+      { path: "/account", element: <Account />, auth: authRoles.editor },
 
       // ecommerce routes
       { path: "/ecommerce/shop", element: <Shop />, auth: authRoles.admin },

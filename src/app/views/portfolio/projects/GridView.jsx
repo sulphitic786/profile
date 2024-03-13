@@ -14,6 +14,7 @@ const StyledIcon = styled(Icon)({
 const IMG = styled("img")({
   width: "100%",
   minHeight: "150px",
+  maxHeight: "200px",
   display: "block",
   boxSizing: "content-box"
 });
