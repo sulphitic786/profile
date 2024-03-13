@@ -11,24 +11,12 @@ import {
   ListItem
 } from "@mui/material";
 import { CameraAlt, DateRange, KeyboardArrowDown, MoreHoriz } from "@mui/icons-material";
-import IconButton from "@mui/material/IconButton";
 import LinearProgress from "@mui/material/LinearProgress";
-import AvatarBadge from "../../components/AvatarBadge";
 import { Breadcrumb } from "../../components";
 import { FlexBox, FlexBetween } from "../../components/FlexBox";
-import Bratislava from "../../components/icons/Bratislava";
 import { Small, H4 } from "../../components/Typography";
 import MapMarkerIcon from "../../components/icons/MapMarkerIcon";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { stringToJson } from "../../utils/utils";
-// import Campaigns from './shared/Campaigns';
-// import DoughnutChart from './shared/Doughnut';
-// import RowCards from './shared/RowCards';
-// import StatCards from './shared/StatCards';
-// import StatCards2 from './shared/StatCards2';
-// import TopSellingTable from './shared/TopSellingTable';
-// import UpgradeCard from './shared/UpgradeCard';
 
 const ContentBox = styled("div")(({ theme }) => ({
   margin: "30px",
