@@ -67,7 +67,7 @@ const CardRoot = styled(Card)(({ theme }) => ({
     "& .grid__card-overlay": { opacity: 1 },
     "& .grid__card-bottom": {
       "& small": {
-        display: "none",
+        // display: "none",
         color: theme.palette.text.secondary
       }
     }
