@@ -25,19 +25,13 @@ export const navigations = [
     icon: "store",
     auth: authRoles.admin
   },
-  {
-    name: 'Profile',
-    icon: 'person',
-    children: [
-      { name: 'About', iconText: 'AB', path: '/portfolio/about' },
-      { name: 'Education', iconText: 'SU', path: '/portfolio/education' },
-      // { name: 'Experience', iconText: 'FP', path: '/session/forgot-password' },
-      // { name: 'Skills', iconText: '404', path: '/session/404' },
-      { name: 'Projects', iconText: 'PR', path: '/portfolio/projects' },
-      { name: 'Services', iconText: 'SR', path: '/portfolio/services' },
-      { name: 'Contact Us', iconText: 'CU', path: '/portfolio/contact_us' },
-    ]
-  },
+  { name: 'About', iconText: 'AB', path: '/portfolio/about', icon: 'person', },
+  { name: 'Education', iconText: 'SU', path: '/portfolio/education', icon: 'school' },
+  // { name: 'Experience', iconText: 'FP', path: '/session/forgot-password' },
+  // { name: 'Skills', iconText: '404', path: '/session/404' },
+  { name: 'Projects', iconText: 'PR', path: '/portfolio/projects', icon: 'description' },
+  { name: 'Services', iconText: 'SR', path: '/portfolio/services', icon: 'settings' },
+  { name: 'Contact Us', iconText: 'CU', path: '/portfolio/contact_us', icon: 'record_voice_over' },
 
   { label: "Account Management", type: "label", auth: authRoles.admin },
   {

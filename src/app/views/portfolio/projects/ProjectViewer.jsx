@@ -118,7 +118,7 @@ const ProductViewer = (props) => {
               Have questions about this project (Client Info)
             </Paragraph>
 
-            <CallBox sx={{ display: "flex", justifyContent: "space-around" }}>
+            <CallBox flexWrap="wrap" sx={{ display: "flex", justifyContent: "space-around" }}>
               <Span className="text-center">
                 <Icon fontSize="small" color="primary">
                   person
@@ -158,12 +158,13 @@ const ProductViewer = (props) => {
             >
               Description
             </H4>
-            <Paragraph style={{ fontSize: 13, textIndent: "2em" }}>
-              {projectData?.description ?? "-"}
-            </Paragraph>
+            <Paragraph
+              style={{ fontSize: 13, textIndent: "2em" }}
+              dangerouslySetInnerHTML={{ __html: projectData?.description ?? "-" }}
+            ></Paragraph>
           </Grid>
         </Grid>
-        <Divider sx={{ mb: 2 }} />
+        <Divider sx={{ my: 2 }} />
         <Button
           type="submit"
           color="primary"

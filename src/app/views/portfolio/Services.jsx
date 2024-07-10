@@ -1,6 +1,9 @@
 import { Box, Grid, styled, Typography, Icon } from "@mui/material";
+import { useState, useRef } from "react";
 import { Fragment } from "react";
 import { Breadcrumb } from "../../components";
+import Webcam from "react-webcam";
+import Tesseract from "tesseract.js";
 
 const ContentBox = styled(Box)(({ theme }) => ({
   margin: "0px",
@@ -25,6 +28,22 @@ const Container = styled("div")(({ theme }) => ({
 }));
 
 const Services = () => {
+  const [scannedText, setScannedText] = useState("");
+  const webcamRef = useRef(null);
+
+  const captureImage = async () => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    console.log("object", imageSrc, webcamRef);
+    if (imageSrc) {
+      // Use Tesseract.js to process the image and extract text
+      const {
+        data: { text }
+      } = await Tesseract.recognize(imageSrc);
+      console.log("object", text);
+      setScannedText(text);
+    }
+  };
+
   return (
     <Fragment>
       <Container>
@@ -37,6 +56,14 @@ const Services = () => {
           <Grid container spacing={3}>
             <Grid item lg={12} md={12} sm={12} xs={12} className="mx-auto">
               <section id="services" className="services">
+                {/* <Box sx={{ padding: "16px", marginBottom: "16px" }}>
+                  <div>
+                    <h2>Scan the item:</h2>
+                    <Webcam audio={false} ref={webcamRef} screenshotFormat="image/jpeg" />
+                    <button onClick={captureImage}>Capture Image</button>
+                    <p>Scanned Text: {scannedText}</p>
+                  </div>
+                </Box> */}
                 <Box sx={{ padding: "16px", marginBottom: "16px" }}>
                   <H4 className="section-title" variant="h4">
                     Services

@@ -3,6 +3,7 @@ import { AddToCartButton, Breadcrumb } from "../../../../components";
 import { H4, H5, Paragraph, Span } from "../../../../components/Typography";
 import { removeTimeFromDate } from "../../../../utils/utils";
 import { useState } from "react";
+import { FlexBetween } from "../../../../components/FlexBox";
 
 // styled components
 const Container = styled("div")(({ theme }) => ({
@@ -120,24 +121,24 @@ const ProductViewer = (props) => {
               Have questions about this project (Client Info)
             </Paragraph>
 
-            <CallBox sx={{ display: "flex", justifyContent: "space-around" }}>
-              <Span gap={2}>
+            <FlexBetween maxWidth={500} flexWrap="wrap" margin="auto" mt={1}>
+              <Span>
                 <Icon fontSize="small" color="primary">
                   person
                 </Icon>
-                <H5 sx={{ color: secondary }}>{projectData?.client ?? "-"} |</H5>
+                <H5 sx={{ color: secondary }}>{projectData?.client ?? "-"}</H5>
               </Span>
               <Span className="text-center">
                 <Icon fontSize="small" color="primary">
                   contact_mail
                 </Icon>
-                <H5 sx={{ color: secondary }}>{projectData?.client_email ?? "-"} |</H5>
+                <H5 sx={{ color: secondary }}>{projectData?.client_email ?? "-"}</H5>
               </Span>
               <Span className="text-center">
                 <Icon fontSize="small" color="primary">
                   call
                 </Icon>
-                <H5 sx={{ color: secondary }}>{projectData?.client_phone ?? "-"} |</H5>
+                <H5 sx={{ color: secondary }}>{projectData?.client_phone ?? "-"}</H5>
               </Span>
               <Span className="text-center">
                 <Icon fontSize="small" color="primary">
@@ -145,7 +146,7 @@ const ProductViewer = (props) => {
                 </Icon>
                 <H5 sx={{ color: secondary }}>{projectData?.client_region ?? "-"}</H5>
               </Span>
-            </CallBox>
+            </FlexBetween>
             <Divider sx={{ mb: 2 }} />
           </Grid>
 
@@ -153,12 +154,13 @@ const ProductViewer = (props) => {
             <H4 sx={{ ml: 0, mb: 1, fontSize: 16, fontWeight: "bold", color: secondary }}>
               Description
             </H4>
-            <Paragraph style={{ fontSize: 13, textIndent: "2em" }}>
-              {projectData?.description ?? "-"}
-            </Paragraph>
+            <Paragraph
+              style={{ fontSize: 13, textIndent: "2em" }}
+              dangerouslySetInnerHTML={{ __html: projectData?.description ?? "-" }}
+            ></Paragraph>
           </Grid>
         </Grid>
-        <Divider sx={{ mb: 2 }} />
+        <Divider sx={{ my: 2 }} />
         <Button
           type="submit"
           color="primary"

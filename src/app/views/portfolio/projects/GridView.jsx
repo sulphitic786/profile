@@ -1,5 +1,16 @@
 import { useState } from "react";
-import { Box, Button, Card, Checkbox, Grid, Icon, styled, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  Checkbox,
+  Grid,
+  Icon,
+  Link,
+  Tooltip,
+  styled,
+  useTheme
+} from "@mui/material";
 import { FlexAlignCenter, FlexBetween, FlexBox } from "../../../components/FlexBox";
 import { Paragraph, Small } from "../../../components/Typography";
 import { removeTimeFromDate } from "../../../utils/utils";
@@ -91,7 +102,7 @@ const GridView = ({ list = [], sliderValue }) => {
         <ProjectViewer back={back} data={currentProject} />
       ) : (
         <Grid container spacing={2}>
-          {console.log("grid view")}
+          {console.log("grid view", list)}
           {list.map((item) => (
             <Grid item key={item.id} sm={calculateColumnPerRow(sliderValue)}>
               <CardRoot sx={{ boxSizing: "border-box" }} elevation={6}>
@@ -102,12 +113,29 @@ const GridView = ({ list = [], sliderValue }) => {
                     <FlexBetween>
                       <Checkbox sx={{ color: "#fff" }}></Checkbox>
 
-                      {/* <FlexBox alignItems="center">
-                      <StyledIcon fontSize="small">filter_none</StyledIcon>
-                      <StyledIcon fontSize="small">share</StyledIcon>
-                      <StyledIcon fontSize="small">edit</StyledIcon>
-                      <StyledIcon fontSize="small">delete</StyledIcon>
-                    </FlexBox> */}
+                      <FlexBox alignItems="center">
+                        <Tooltip
+                          sx={{ bgcolor: "primary" }}
+                          placement="top-start"
+                          title="Live Link"
+                          arrow
+                        >
+                          <Link
+                            href={
+                              item?.live_url.startsWith("http")
+                                ? item?.live_url
+                                : `http://${item?.live_url}`
+                            }
+                            target="_blank"
+                            sx={{ color: primary }}
+                          >
+                            <StyledIcon fontSize="small">link</StyledIcon>
+                          </Link>
+                        </Tooltip>
+                        {/* <StyledIcon fontSize="small">share</StyledIcon>
+                        <StyledIcon fontSize="small">edit</StyledIcon>
+                        <StyledIcon fontSize="small">delete</StyledIcon> */}
+                      </FlexBox>
                     </FlexBetween>
 
                     <FlexAlignCenter>

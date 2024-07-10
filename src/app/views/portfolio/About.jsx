@@ -178,7 +178,7 @@ const About = () => {
 
               <FlexBetween
                 width="100%"
-                maxWidth={90}
+                maxWidth={100}
                 justifyContent={"flex-end"}
                 flexWrap="wrap"
                 sx={{
@@ -190,7 +190,8 @@ const About = () => {
               >
                 {/* <Button variant="outlined">Follow</Button> */}
                 <Button variant="outlined">
-                  <Link to="/portfolio/contact_us" paddingLeft={5} variant="outlined">
+                  <Link to="/portfolio/contact_us" paddingLeft={1} variant="outlined">
+                    {/* <Icon>send</Icon> */}
                     Hire Me
                   </Link>
                 </Button>

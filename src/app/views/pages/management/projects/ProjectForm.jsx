@@ -212,6 +212,7 @@ const ProjectForm = (props) => {
                   />
 
                   <Flatpickr
+                    style={{ width: "100%", padding: "10px" }}
                     options={{ mode: "range" }}
                     className="form-control mb-3"
                     name="project_duration"
@@ -226,6 +227,7 @@ const ProjectForm = (props) => {
 
                   <StyledTextField
                     select
+                    sx={{ mt: 2 }}
                     fullWidth
                     size="small"
                     name="status"
@@ -365,7 +367,13 @@ const ProjectForm = (props) => {
                 </Grid>
               </Grid>
               <Divider sx={{ mb: 2 }} />
-              <Stack direction="row" className="mb-3" spacing={2} justifyContent="flex-end">
+              <Stack
+                sx={{ mb: 2 }}
+                direction="row"
+                className="mb-3"
+                spacing={2}
+                justifyContent="flex-end"
+              >
                 <Button variant="outlined" color="secondary" onClick={() => props.back()}>
                   Cancel
                 </Button>
