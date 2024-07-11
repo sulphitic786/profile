@@ -86,7 +86,7 @@ const Services = () => {
                 <Grid container spacing={3}>
                   <Grid item lg={4} md={6} xs={12} className="icon-box">
                     <Box sx={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
-                      <div className="icon">
+                      <div className="icon" style={{ padding: "0px 20px" }}>
                         <Icon className="">computer</Icon>
                       </div>
                       <H4 className="" variant="h4" component="h4" sx={{ marginLeft: "20px" }}>
@@ -102,7 +102,7 @@ const Services = () => {
 
                   <Grid item lg={4} md={6} xs={12} className="icon-box">
                     <Box sx={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
-                      <div className="icon">
+                      <div className="icon" style={{ padding: "0px 20px" }}>
                         <Icon className="">layers</Icon>
                       </div>
                       <H4 className="" variant="h4" component="h4" sx={{ marginLeft: "20px" }}>
@@ -118,7 +118,7 @@ const Services = () => {
 
                   <Grid item lg={4} md={6} xs={12} className="icon-box">
                     <Box sx={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
-                      <div className="icon">
+                      <div className="icon" style={{ padding: "0px 20px" }}>
                         <Icon className="">brush</Icon>
                       </div>
                       <H4 className="" variant="h4" component="h4" sx={{ marginLeft: "20px" }}>
@@ -134,7 +134,7 @@ const Services = () => {
 
                   <Grid item lg={4} md={6} xs={12} className="icon-box">
                     <Box sx={{ display: "flex", alignItems: "center", marginBottom: "16px" }}>
-                      <div className="icon">
+                      <div className="icon" style={{ padding: "0px 20px" }}>
                         <Icon className="">shopping_cart</Icon>
                       </div>
                       <H4 className="" variant="h4" component="h4" sx={{ marginLeft: "20px" }}>

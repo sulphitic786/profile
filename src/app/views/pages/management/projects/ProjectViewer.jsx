@@ -163,6 +163,17 @@ const ProductViewer = (props) => {
         <Divider sx={{ my: 2 }} />
         <Button
           type="submit"
+          color="success"
+          variant="contained"
+          justifyContent="end"
+          sx={{ mb: 0, px: 6 }}
+          onClick={() => props.updateProjectHandler(projectData)}
+        >
+          Edit
+        </Button>
+
+        <Button
+          type="submit"
           color="primary"
           variant="contained"
           justifyContent="end"

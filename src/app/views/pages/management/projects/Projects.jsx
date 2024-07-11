@@ -424,7 +424,11 @@ const Projects = () => {
           fetchData={fetchData}
         />
       ) : view == "ProjectViewer" ? (
-        <ProjectViewer back={back} data={currentProject} />
+        <ProjectViewer
+          updateProjectHandler={updateProjectHandler}
+          back={back}
+          data={currentProject}
+        />
       ) : (
         <>
           <Paper sx={{ width: "100%" }}>
