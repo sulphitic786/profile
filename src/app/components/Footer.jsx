@@ -1,4 +1,16 @@
-import { AppBar, Button, ThemeProvider, Toolbar, styled, useTheme } from "@mui/material";
+import {
+  AppBar,
+  Button,
+  Icon,
+  ThemeProvider,
+  Link,
+  Toolbar,
+  styled,
+  useTheme
+} from "@mui/material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import useSettings from "../hooks/useSettings";
 import { topBarHeight } from "../utils/constant";
 import { Paragraph, Span } from "./Typography";
@@ -39,7 +51,35 @@ const Footer = () => {
       <AppBar color="primary" position="static" sx={{ zIndex: 96 }}>
         <AppFooter>
           <FooterContent>
-            <Span sx={{ m: "auto" }}></Span>
+            <Span>
+              <Link
+                href={"https://www.linkedin.com/in/waseemqasim3737/"}
+                target="_blank"
+                sx={{ color: "white" }}
+              >
+                <LinkedInIcon sx={{ mr: 1, fontSize: "2em" }} />
+              </Link>
+              <Link
+                href={"https://github.com/sulphitic786/"}
+                target="_blank"
+                sx={{ color: "white" }}
+              >
+                <GitHubIcon sx={{ mr: 1, fontSize: "2em" }} />
+              </Link>
+              <Link
+                href={"https://www.facebook.com/salman.naike"}
+                target="_blank"
+                sx={{ color: "white" }}
+              >
+                <FacebookIcon sx={{ mr: 1, fontSize: "2em" }} />
+              </Link>
+            </Span>
+
+            <Span sx={{ m: "auto" }}>
+              {/* <Icon sx={{ mr: 1 }} fontSize="small">
+                shopping_cart
+              </Icon> */}
+            </Span>
             <Paragraph sx={{ m: 0 }}>
               COPYRIGHT © {new Date().getFullYear()} SulphiticCo, All rights Reserved
             </Paragraph>
