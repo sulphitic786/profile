@@ -32,13 +32,20 @@ const AppFooter = styled(Toolbar)(() => ({
   }
 }));
 
-const FooterContent = styled("div")(() => ({
+const FooterContent = styled("div")(({ theme }) => ({
   width: "100%",
   display: "flex",
   alignItems: "center",
+  justifyContent: "space-between",
   padding: "0px 1rem",
   maxWidth: "1170px",
-  margin: "0 auto"
+  margin: "0 auto",
+
+  // Responsive styling for mobile devices
+  [theme.breakpoints.down("sm")]: {
+    flexDirection: "column",
+    textAlign: "center" // Optional: Center-align text on smaller screens
+  }
 }));
 
 const Footer = () => {
@@ -60,12 +67,14 @@ const Footer = () => {
               >
                 <LinkedInIcon sx={{ mr: 1, fontSize: "2em" }} />
               </Link>
+
               <Link
-                href={"https://github.com/sulphitic786/"}
+                href={`https://wa.me/923244929494?text=${encodeURIComponent("Hello Waseem")}`}
                 target="_blank"
+                rel="noopener noreferrer"
                 sx={{ color: "white" }}
               >
-                <GitHubIcon sx={{ mr: 1, fontSize: "2em" }} />
+                <WhatsAppIcon sx={{ mr: 1, fontSize: "2em" }} />
               </Link>
 
               <Link
@@ -77,22 +86,16 @@ const Footer = () => {
               </Link>
 
               <Link
-                href={`https://wa.me/923244929494?text=${encodeURIComponent("Hello Waseem")}`}
+                href={"https://github.com/sulphitic786/"}
                 target="_blank"
-                rel="noopener noreferrer"
                 sx={{ color: "white" }}
               >
-                <WhatsAppIcon sx={{ mr: 1, fontSize: "2em" }} />
+                <GitHubIcon sx={{ mr: 1, fontSize: "2em" }} />
               </Link>
             </Span>
 
-            <Span sx={{ m: "auto" }}>
-              {/* <Icon sx={{ mr: 1 }} fontSize="small">
-                shopping_cart
-              </Icon> */}
-            </Span>
             <Paragraph sx={{ m: 0 }}>
-              COPYRIGHT © {new Date().getFullYear()} SulphiticCo, All rights Reserved
+              COPYRIGHT © 2018 - {new Date().getFullYear()} SulphiticCo, All rights Reserved
             </Paragraph>
           </FooterContent>
         </AppFooter>

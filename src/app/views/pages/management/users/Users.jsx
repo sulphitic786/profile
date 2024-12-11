@@ -11,7 +11,8 @@ import {
   createUserWithEmailAndPassword,
   EmailAuthProvider,
   reauthenticateWithCredential,
-  updatePassword
+  updatePassword,
+  updateProfile
 } from "firebase/auth";
 import { MatxLoading } from "../../../../components";
 import { fireStore } from "../../../../../config";
@@ -64,6 +65,7 @@ const Users = () => {
   const [shouldOpenEditorDialog, setShouldOpenEditorDialog] = useState(false);
   const [shouldOpenConfirmationDialog, setShouldOpenConfirmationDialog] = useState(false);
   const { showAlert } = useAlert();
+  const auth = getAuth();
 
   useEffect(() => {
     fetchData(); // Fetch data when the component mounts
@@ -105,7 +107,6 @@ const Users = () => {
   const handleAddUser = async (userData) => {
     try {
       setLoading(true);
-      const auth = getAuth();
       // Create user in Firebase Authentication
       const authUserCredential = await createUserWithEmailAndPassword(
         auth,
@@ -119,6 +120,7 @@ const Users = () => {
       // Add the new user document to Firestore
       await addDoc(collection(fireStore, "users"), newUser);
       showAlert("success", "User added successfully.");
+      setProfile(userData);
       setLoading(false);
       fetchData(); // Fetch updated data
       handleDialogClose();
@@ -146,6 +148,7 @@ const Users = () => {
         await updateDoc(doc(fireStore, "users", currentUser.id), updatedUserData); // Update user data in the Firestore collection
       } else {
         console.log("user update");
+        await setProfile(userData);
         await updateDoc(doc(fireStore, "users", currentUser.id), updatedUserData); // Update user data in the Firestore collection
       }
 
@@ -157,6 +160,22 @@ const Users = () => {
       setLoading(false);
       showAlert("error", "Error while updating user.");
       console.error("Error updating user:", error);
+    }
+  };
+
+  const setProfile = async (userData) => {
+    if (auth.currentUser) {
+      try {
+        await updateProfile(auth.currentUser, {
+          phoneNumber: userData.phone,
+          displayName: userData.name
+        });
+        console.log("Profile updated successfully.");
+      } catch (error) {
+        console.error("Error updating profile:", error.message);
+      }
+    } else {
+      console.log("No authenticated user found.");
     }
   };
 

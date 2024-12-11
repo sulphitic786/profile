@@ -33,14 +33,14 @@ export const navigations = [
   { name: 'Services', iconText: 'SR', path: '/portfolio/services', icon: 'settings' },
   { name: 'Contact Us', iconText: 'CU', path: '/portfolio/contact_us', icon: 'record_voice_over' },
 
-  { label: "Account Management", type: "label", auth: authRoles.admin },
+  { label: "Admin Panel", type: "label", auth: authRoles.admin },
   {
-    name: "Management",
+    name: "Dashboard",
     icon: "manage_accounts",
     children: [
-      { name: "Responses", path: "/pages/contact-us-list", iconText: "R", auth: authRoles.admin },
-      { name: "Projects", path: "/pages/project-management", iconText: "PM", auth: authRoles.admin },
-      { name: "Users", path: "/pages/users", iconText: "U", auth: authRoles.admin },
+      { name: "Account", path: "/account", icon: "person_search", auth: authRoles.admin }, { name: "Responses", path: "/pages/contact-us-list", icon: "forum", auth: authRoles.admin }, // Icon representing responses or discussions
+      { name: "Projects", path: "/pages/project-management", icon: "work", auth: authRoles.admin }, // Icon representing projects or work
+      { name: "Users", path: "/pages/users", icon: "group", auth: authRoles.admin } // Icon representing users or a group
     ],
   },
 
@@ -127,9 +127,6 @@ export const navigations = [
   //     { name: "Error", iconText: "404", path: "/session/404" },
   //   ],
   // },
-  { name: "User Profile", path: "/page-layouts/user-profile", icon: "person", auth: authRoles.admin },
-  { name: "Account", path: "/account", icon: "manage_accounts", auth: authRoles.admin },
-
   { label: "Apps", type: "label", auth: authRoles.admin },
   {
     name: "Ecommerce",

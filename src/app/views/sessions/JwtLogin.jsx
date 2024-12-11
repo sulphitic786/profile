@@ -1,10 +1,21 @@
 import { LoadingButton } from "@mui/lab";
-import { Card, Checkbox, Grid, TextField } from "@mui/material";
+import {
+  Card,
+  Checkbox,
+  Grid,
+  TextField,
+  InputLabel,
+  OutlinedInput,
+  InputAdornment,
+  IconButton
+} from "@mui/material";
 import { Box, styled, useTheme } from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Paragraph } from "../../components/Typography";
 import useAuth from "../../hooks/useAuth";
 import { Formik } from "formik";
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 // import ToastNotification from '../../contexts/ToastNotification';
 import * as Yup from "yup";
@@ -73,6 +84,7 @@ const JwtLogin = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
   const { showAlert } = useAlert();
   const { login } = useAuth();
 
@@ -87,12 +99,22 @@ const JwtLogin = () => {
   //   }
   // };
 
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handleMouseUpPassword = (event) => {
+    event.preventDefault();
+  };
+
   const handleFormSubmit = async (values) => {
     setLoading(true);
     try {
       // Use Firebase signInWithEmail function
       const res = await login(values.email, values.password);
-      // console.log('res', res);
+      console.log("res", res);
       await fetchCurrentUser(res.user.uid);
       showAlert("success", "User Logged in successfully.");
       await navigate("/dashboard/default");
@@ -115,7 +137,7 @@ const JwtLogin = () => {
         ...doc.data()
       }));
       localStorage.setItem("userData", JSON.stringify(dataFromFirebase[0]));
-      // console.log('dataFromFirebase', dataFromFirebase, 'response', response);
+      console.log("dataFromFirebase", dataFromFirebase, "response", response);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -159,7 +181,7 @@ const JwtLogin = () => {
                       fullWidth
                       size="small"
                       name="password"
-                      type="password"
+                      type={showPassword ? "text" : "password"} // Toggle between text and password
                       label="Password"
                       variant="outlined"
                       onBlur={handleBlur}
@@ -168,6 +190,15 @@ const JwtLogin = () => {
                       helperText={touched.password && errors.password}
                       error={Boolean(errors.password && touched.password)}
                       sx={{ mb: 1.5 }}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton onClick={handleClickShowPassword} edge="end">
+                              {showPassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
+                          </InputAdornment>
+                        )
+                      }}
                     />
 
                     <FlexBox justifyContent="space-between">

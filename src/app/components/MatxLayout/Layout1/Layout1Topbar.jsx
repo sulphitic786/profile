@@ -86,6 +86,7 @@ const Layout1Topbar = () => {
   const { settings, updateSettings } = useSettings();
   const { logout, user, isAuthenticated } = useAuth();
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const userData = JSON.parse(localStorage.getItem("userData"));
 
   const updateSidebarMode = (sidebarSettings) => {
     updateSettings({ layout1Settings: { leftSidebar: { ...sidebarSettings } } });
@@ -141,10 +142,10 @@ const Layout1Topbar = () => {
               <UserMenu>
                 <Hidden xsDown>
                   <Span>
-                    <strong>{user?.name}</strong>
+                    <strong>{user?.name?.split(" ")[0]}</strong>
                   </Span>
                 </Hidden>
-                <Avatar src={user?.avatar} sx={{ cursor: "pointer" }} />
+                <Avatar src={userData?.profileImage} sx={{ cursor: "pointer" }} />
               </UserMenu>
             }
           >
