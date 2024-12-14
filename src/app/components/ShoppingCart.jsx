@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Badge, Button, Drawer, IconButton, ThemeProvider, Box, styled } from "@mui/material";
 import { Clear, KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";

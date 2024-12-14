@@ -18,6 +18,7 @@ import { NotificationProvider } from "../../../contexts/NotificationContext";
 import useAuth from "../../../hooks/useAuth";
 import useSettings from "../../../hooks/useSettings";
 import { topBarHeight } from "../../../utils/constant";
+import React from "react";
 
 import { Span } from "../../Typography";
 import NotificationBar from "../../NotificationBar/NotificationBar";

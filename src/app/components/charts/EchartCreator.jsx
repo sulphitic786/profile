@@ -3,6 +3,8 @@ import * as echarts from "echarts";
 import ReactEcharts from "echarts-for-react";
 import PropTypes from "prop-types";
 import { EchartTheme } from "../MatxTheme/EchartTheme";
+import React from 'react';
+
 
 const EchartCreator = ({ height, option }) => {
   const theme = useTheme();

@@ -17,6 +17,7 @@ import Scrollbar from "react-perfect-scrollbar";
 import { themeShadows } from "../MatxTheme/themeColors";
 import { H5, Span } from "../Typography";
 import BadgeSelected from "./BadgeSelected";
+import React from "react";
 
 const Label = styled(Span)(({ theme }) => ({
   fontWeight: 700,

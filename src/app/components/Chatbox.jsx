@@ -1,3 +1,4 @@
+import React from "react";
 import { Avatar, Box, Divider, Icon, IconButton, styled, TextField, useTheme } from "@mui/material";
 import { ChatAvatar } from "../components";
 import { convertHexToRGB } from "../utils/utils";

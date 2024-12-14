@@ -1,4 +1,4 @@
-import { useEffect, useRef, memo } from "react";
+import React, { useEffect, useRef, memo } from "react";
 import { ThemeProvider, useMediaQuery, Box, styled, useTheme } from "@mui/material";
 import Scrollbar from "react-perfect-scrollbar";
 import { Outlet } from "react-router-dom";
@@ -77,11 +77,24 @@ const Layout1 = () => {
   useEffect(() => {
     let { settings } = ref.current;
     let sidebarMode = settings.layout1Settings.leftSidebar.mode;
+
     if (settings.layout1Settings.leftSidebar.show) {
       let mode = isMdScreen ? "close" : sidebarMode;
-      updateSettings({ layout1Settings: { leftSidebar: { mode } } });
+
+      if (mode !== sidebarMode) {
+        updateSettings({ layout1Settings: { leftSidebar: { mode } } });
+      }
     }
-  }, [isMdScreen, ref, updateSettings]);
+  }, [isMdScreen, updateSettings]); // Removed 'ref' as it's not necessary here
+
+  // useEffect(() => {
+  //   let { settings } = ref.current;
+  //   let sidebarMode = settings.layout1Settings.leftSidebar.mode;
+  //   if (settings.layout1Settings.leftSidebar.show) {
+  //     let mode = isMdScreen ? "close" : sidebarMode;
+  //     updateSettings({ layout1Settings: { leftSidebar: { mode } } });
+  //   }
+  // }, [isMdScreen, ref, updateSettings]);
 
   return (
     <Layout1Root className={layoutClasses}>

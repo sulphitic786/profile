@@ -1,5 +1,6 @@
 import { Delete, FilterList } from "@mui/icons-material";
 import { alpha, IconButton, Toolbar, Tooltip, Typography } from "@mui/material";
+import React from "react";
 
 const TableToolbar = ({ numSelected, title }) => {
   return (
@@ -9,8 +10,8 @@ const TableToolbar = ({ numSelected, title }) => {
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
           bgcolor: (theme) =>
-            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity),
-        }),
+            alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity)
+        })
       }}
     >
       {numSelected > 0 ? (

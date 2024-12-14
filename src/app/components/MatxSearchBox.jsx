@@ -1,6 +1,7 @@
 import { useState, Fragment } from "react";
 import { Icon, IconButton, styled } from "@mui/material";
 import { topBarHeight } from "../utils/constant";
+import React from "react";
 
 const SearchContainer = styled("div")(({ theme }) => ({
   position: "absolute",

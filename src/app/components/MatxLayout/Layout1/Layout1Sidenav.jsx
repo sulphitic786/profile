@@ -1,4 +1,4 @@
-import { memo } from "react";
+import React, { memo } from "react";
 import { Hidden, Switch, Box, styled, useTheme } from "@mui/material";
 import { themeShadows } from "../../../components/MatxTheme/themeColors";
 import useSettings from "../../../hooks/useSettings";

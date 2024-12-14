@@ -17,6 +17,7 @@ import { FlexBox, FlexBetween } from "../../components/FlexBox";
 import { Small, H4 } from "../../components/Typography";
 import MapMarkerIcon from "../../components/icons/MapMarkerIcon";
 import { Link } from "react-router-dom";
+import UsersReviews from "./UsersReviews";
 
 const ContentBox = styled("div")(({ theme }) => ({
   margin: "30px",
@@ -292,6 +293,9 @@ const About = () => {
             </section>
           </Grid>
         </Grid>
+      </Card>
+      <Card sx={{ padding: 3, position: "relative" }}>
+        <UsersReviews />
       </Card>
     </Container>
   );

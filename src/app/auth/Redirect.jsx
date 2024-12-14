@@ -1,11 +1,12 @@
-import { Navigate, useLocation } from 'react-router-dom';
+import React from "react";
+import { Navigate, useLocation } from "react-router-dom";
 
 const Redirect = () => {
   let location = useLocation();
 
   // Get redirect location or provide fallback
-  const from = location.state?.from || '/portfolio/about';
-  console.log('location.state?.from', location.state?.from);
+  const from = location.state?.from || "/portfolio/about";
+  console.log("location.state?.from", location.state?.from);
   console.log(from);
 
   // in auth callback logic, once authenticated navigate (redirect) back

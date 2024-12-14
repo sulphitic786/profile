@@ -1,26 +1,21 @@
+import React from "react";
 import { Button, Icon, styled } from "@mui/material";
 import { FlexAlignCenter } from "./FlexBox";
 
 const ButtonContainer = styled("div")({
   width: 160,
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "space-between"
 });
 
 const ProductPrice = styled(FlexAlignCenter)(({ theme }) => ({
   width: 160,
   flexGrow: "1",
-  background: theme.palette.background.paper,
+  background: theme.palette.background.paper
 }));
 
-const AddToCartButton = ({
-  color,
-  amount,
-  propStyle,
-  totalUnit,
-  handleAddCart,
-  handleRemoveCart,
-}) => {
+const AddToCartButton = ({ propStyle, totalUnit, handleAddCart, handleRemoveCart }) => {
+  let amount = 0;
   return (
     <div>
       {amount === 0 && (

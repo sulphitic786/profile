@@ -1,5 +1,5 @@
 import { SvgIcon } from "@mui/material";
-
+import React from "react";
 const SettingsOutlined = (props) => {
   return (
     <SvgIcon viewBox="0 0 24 24" {...props}>

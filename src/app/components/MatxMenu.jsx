@@ -1,6 +1,7 @@
 import { Fragment, useState, Children } from "react";
 import { Menu, ThemeProvider, Box, styled } from "@mui/material";
 import useSettings from "../hooks/useSettings";
+import React from "react";
 
 const MenuButton = styled(Box)(({ theme }) => ({
   display: "inline-block",

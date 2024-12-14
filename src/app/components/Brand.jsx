@@ -3,6 +3,7 @@ import { MatxLogo } from "../components";
 import logo from "../images/logo.png";
 import useSettings from "../hooks/useSettings";
 import { Span } from "./Typography";
+import React from "react";
 
 const BrandRoot = styled(Box)(() => ({
   display: "flex",

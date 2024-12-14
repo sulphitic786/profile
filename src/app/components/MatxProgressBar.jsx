@@ -1,15 +1,16 @@
-import { Grid, LinearProgress, Typography, styled, useTheme } from '@mui/material';
-import { Small } from './Typography';
+import { Grid, LinearProgress, Typography, styled, useTheme } from "@mui/material";
+import { Small } from "./Typography";
+import React from "react";
 
 const CustomLinearProgress = styled(LinearProgress)({
   borderRadius: 2,
-  background: 'rgba(0, 0, 0, 0.1)'
+  background: "rgba(0, 0, 0, 0.1)"
 });
 
 const MatxProgressBar = ({
   value = 75,
-  color = 'primary',
-  text = '',
+  color = "primary",
+  text = "",
   spacing = 2,
   coloredText = false
 }) => {
@@ -25,10 +26,10 @@ const MatxProgressBar = ({
           variant="determinate"
         ></CustomLinearProgress>
       </Grid>
-      {text !== '' && (
+      {text !== "" && (
         <Grid item xs={text ? 4 : false}>
           <Typography color={color}>
-            <Small sx={{ color: coloredText ? '' : secondary }}>{text}</Small>
+            <Small sx={{ color: coloredText ? "" : secondary }}>{text}</Small>
           </Typography>
         </Grid>
       )}
