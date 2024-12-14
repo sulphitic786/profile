@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Grid,
@@ -18,6 +19,9 @@ import { Small, H4 } from "../../components/Typography";
 import MapMarkerIcon from "../../components/icons/MapMarkerIcon";
 import { Link } from "react-router-dom";
 import UsersReviews from "./UsersReviews";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { fireStore } from "../../../config";
+import { MatxLoading } from "../../components";
 
 const ContentBox = styled("div")(({ theme }) => ({
   margin: "30px",
@@ -94,10 +98,36 @@ const Container = styled("div")(({ theme }) => ({
 }));
 
 const About = () => {
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(false);
   const theme = useTheme();
+
+  useEffect(() => {
+    fetchData(); // Fetch data when the component mounts
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await getDocs(
+        query(collection(fireStore, "reviews"), where("status", "==", "active"))
+      );
+      const dataFromFirebase = response?.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      console.log("dataFromFirebase", dataFromFirebase);
+      setLoading(false);
+      setList(dataFromFirebase);
+    } catch (error) {
+      setLoading(false);
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
     <Container>
+      {loading && <MatxLoading />}
       <Box className="breadcrumb">
         <Breadcrumb
           routeSegments={[{ name: "Profile", path: "/portfolio/about" }, { name: "About" }]}
@@ -212,13 +242,17 @@ const About = () => {
             <section id="about" className={"section"}>
               <div className="container">
                 <div className="section-title my-2">
-                  <Typography variant="h5">About</Typography>
-                  <Typography textAlign="justify" variant="body1">
-                    As a web developer focused on customer satisfaction, I manage all aspects of web
-                    development from concept to requirements definition, design, development,
-                    launch, maintenance and user support. I enjoy the client-facing role and working
-                    closely with team members to produce high-quality deliverables.
-                  </Typography>
+                  <Grid item xs={12} md={12} xl={8} textAlign="center">
+                    <Typography variant="h4" sx={{ mb: 4 }}>
+                      About
+                    </Typography>
+                    <Typography variant="body1" sx={{ mb: 4, pb: 2, mbMd: 5, pbMd: 0 }}>
+                      As a web developer focused on customer satisfaction, I manage all aspects of
+                      web development from concept to requirements definition, design, development,
+                      launch, maintenance and user support. I enjoy the client-facing role and
+                      working closely with team members to produce high-quality deliverables.
+                    </Typography>
+                  </Grid>
                 </div>
                 <Grid container spacing={4}>
                   {/* <Grid item lg={4} data-aos="fade-right">
@@ -295,7 +329,7 @@ const About = () => {
         </Grid>
       </Card>
       <Card sx={{ padding: 3, position: "relative" }}>
-        <UsersReviews />
+        <UsersReviews reviews={list} />
       </Card>
     </Container>
   );
