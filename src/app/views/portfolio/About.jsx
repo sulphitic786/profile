@@ -328,9 +328,9 @@ const About = () => {
           </Grid>
         </Grid>
       </Card>
-      <Card sx={{ padding: 3, position: "relative" }}>
+      {/* <Card sx={{ padding: 3, position: "relative" }}>
         <UsersReviews reviews={list} />
-      </Card>
+      </Card> */}
     </Container>
   );
 };
