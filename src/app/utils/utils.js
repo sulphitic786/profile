@@ -1,4 +1,3 @@
-import { differenceInSeconds } from "date-fns";
 
 export const convertHexToRGB = (hex) => {
   // check if it's a rgba

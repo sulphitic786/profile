@@ -22,6 +22,7 @@ const ProjectForm = Loadable(lazy(() => import("./views/pages/management/project
 const ProjectViewer = Loadable(
   lazy(() => import("./views/pages/management/projects/ProjectViewer"))
 );
+const Reviews = Loadable(lazy(() => import("./views/pages/management/reviews/index")));
 
 // customer pages
 const CustomerList = Loadable(lazy(() => import("./views/pages/customers/CustomerList")));
@@ -139,6 +140,7 @@ const routes = [
       { path: "/pages/project-management", element: <ProjectsList />, auth: authRoles.admin },
       { path: "/pages/new-project", element: <ProjectForm />, auth: authRoles.admin },
       { path: "/pages/view-project", element: <ProjectViewer />, auth: authRoles.admin },
+      { path: "/pages/reviews", element: <Reviews />, auth: authRoles.admin },
 
       // customer routes
       { path: "/pages/customer-list", element: <CustomerList /> },

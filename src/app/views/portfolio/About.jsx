@@ -1,27 +1,26 @@
-import React, { useEffect, useState } from "react";
+import { DateRange } from "@mui/icons-material";
 import {
+  Box,
+  Button,
   Card,
   Grid,
-  Button,
-  styled,
-  useTheme,
-  Box,
-  Typography,
   Icon,
   List,
-  ListItem
+  ListItem,
+  styled,
+  Typography,
+  useTheme
 } from "@mui/material";
-import { CameraAlt, DateRange, KeyboardArrowDown, MoreHoriz } from "@mui/icons-material";
 import LinearProgress from "@mui/material/LinearProgress";
-import { Breadcrumb } from "../../components";
-import { FlexBox, FlexBetween } from "../../components/FlexBox";
-import { Small, H4 } from "../../components/Typography";
-import MapMarkerIcon from "../../components/icons/MapMarkerIcon";
-import { Link } from "react-router-dom";
-import UsersReviews from "./UsersReviews";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fireStore } from "../../../config";
-import { MatxLoading } from "../../components";
+import { Breadcrumb, MatxLoading } from "../../components";
+import { FlexBetween, FlexBox } from "../../components/FlexBox";
+import { H4, Small } from "../../components/Typography";
+import MapMarkerIcon from "../../components/icons/MapMarkerIcon";
+import UsersReviews from "./UsersReviews";
 
 const ContentBox = styled("div")(({ theme }) => ({
   margin: "30px",
@@ -273,21 +272,23 @@ const About = () => {
                           <List>
                             {/* <li><i className="icofont-rounded-right"></i> <strong>Birthday:</strong> 22 Feb 1994</li> */}
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon> <strong>Website: </strong>
+                              <Icon color="primary">chevron_right</Icon>
+                              <strong style={{ marginRight: "5px" }}>Website: </strong>
                               <Link
                                 href={`http://sulphitic.netlify.app`}
                                 target="_blank"
-                                sx={{ color: "primary" }}
+                                sx={{ color: "primary", m: 1 }}
                               >
                                 sulphitic.netlify.app
                               </Link>
                             </ListItem>
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon> <strong>Phone: </strong>{" "}
-                              +923244929494
+                              <Icon color="primary">chevron_right</Icon>{" "}
+                              <strong style={{ marginRight: "5px" }}>Phone: </strong> +923244929494
                             </ListItem>
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon> <strong>City: </strong>
+                              <Icon color="primary">chevron_right</Icon>{" "}
+                              <strong style={{ marginRight: "5px" }}>City: </strong>
                               Islamabad
                             </ListItem>
                           </List>
@@ -296,19 +297,22 @@ const About = () => {
                           <List>
                             <ListItem>
                               <Icon color="primary">chevron_right</Icon>
-                              <strong>Activities: </strong> Reseach | Badminton | Cricket
+                              <strong style={{ marginRight: "5px" }}>Activities: </strong> Reseach |
+                              Badminton | Cricket
                             </ListItem>
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon> <strong>Degree: </strong>{" "}
-                              Master in Computer Science
+                              <Icon color="primary">chevron_right</Icon>{" "}
+                              <strong style={{ marginRight: "5px" }}>Degree: </strong> Master in
+                              Computer Science
                             </ListItem>
                             <ListItem>
-                              <Icon color="primary">chevron_right</Icon> <strong>Email: </strong>{" "}
+                              <Icon color="primary">chevron_right</Icon>{" "}
+                              <strong style={{ marginRight: "5px" }}>Email: </strong>{" "}
                               wqasimg@gmail.com
                             </ListItem>
                             <ListItem>
                               <Icon color="primary">chevron_right</Icon>{" "}
-                              <strong>Freelance: </strong> Available
+                              <strong style={{ marginRight: "5px" }}>Freelance: </strong> Available
                             </ListItem>
                           </List>
                         </Grid>
@@ -328,9 +332,9 @@ const About = () => {
           </Grid>
         </Grid>
       </Card>
-      {/* <Card sx={{ padding: 3, position: "relative" }}>
+      <Card sx={{ padding: 3, position: "relative" }}>
         <UsersReviews reviews={list} />
-      </Card> */}
+      </Card>
     </Container>
   );
 };

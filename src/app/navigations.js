@@ -40,7 +40,8 @@ export const navigations = [
     children: [
       { name: "Account", path: "/account", icon: "person_search", auth: authRoles.admin }, { name: "Responses", path: "/pages/contact-us-list", icon: "forum", auth: authRoles.admin }, // Icon representing responses or discussions
       { name: "Projects", path: "/pages/project-management", icon: "work", auth: authRoles.admin }, // Icon representing projects or work
-      { name: "Users", path: "/pages/users", icon: "group", auth: authRoles.admin } // Icon representing users or a group
+      { name: "Users", path: "/pages/users", icon: "group", auth: authRoles.admin }, // Icon representing users or a group
+      { name: "Reviews", path: "/pages/reviews", icon: "brightness_auto", auth: authRoles.admin } // Icon representing users or a group
     ],
   },
 
