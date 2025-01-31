@@ -112,7 +112,8 @@ const UsersReviews = ({ reviews }) => {
           loop={true}
           autoplay={{
             delay: 5000, // 5 seconds
-            disableOnInteraction: true
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true
           }}
           breakpoints={{
             640: { slidesPerView: 2 },
@@ -148,7 +149,7 @@ const UsersReviews = ({ reviews }) => {
                         marginX: "auto"
                       }}
                     />
-                    <Typography variant="h5">{testimonial?.name}</Typography>
+                    <Typography variant="h6">{testimonial?.name}</Typography>
                     <Typography variant="body" color="primary">
                       {testimonial?.location}
                     </Typography>
