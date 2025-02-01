@@ -12,11 +12,9 @@ import {
   useTheme
 } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { fireStore } from "../../../config";
-import { Breadcrumb, MatxLoading } from "../../components";
+import { Breadcrumb } from "../../components";
 import { FlexBetween, FlexBox } from "../../components/FlexBox";
 import { H4, Small } from "../../components/Typography";
 import MapMarkerIcon from "../../components/icons/MapMarkerIcon";
@@ -97,36 +95,10 @@ const Container = styled("div")(({ theme }) => ({
 }));
 
 const About = () => {
-  const [list, setList] = useState([]);
-  const [loading, setLoading] = useState(false);
   const theme = useTheme();
-
-  useEffect(() => {
-    fetchData(); // Fetch data when the component mounts
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const response = await getDocs(
-        query(collection(fireStore, "reviews"), where("status", "==", "active"))
-      );
-      const dataFromFirebase = response?.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      console.log("dataFromFirebase", dataFromFirebase);
-      setLoading(false);
-      setList(dataFromFirebase);
-    } catch (error) {
-      setLoading(false);
-      console.error("Error fetching data:", error);
-    }
-  };
 
   return (
     <Container>
-      {loading && <MatxLoading />}
       <Box className="breadcrumb">
         <Breadcrumb
           routeSegments={[{ name: "Profile", path: "/portfolio/about" }, { name: "About" }]}
@@ -333,7 +305,7 @@ const About = () => {
         </Grid>
       </Card>
       <Card sx={{ padding: 3, position: "relative" }}>
-        <UsersReviews reviews={list} />
+        <UsersReviews />
       </Card>
     </Container>
   );

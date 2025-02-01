@@ -8,55 +8,26 @@ import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fireStore } from "../../../config";
+import { MatxLoading } from "../../components";
 
-const UsersReviews = ({ reviews }) => {
+const UsersReviews = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [slidesPerGroup, setSlidesPerGroup] = useState(3);
 
   useEffect(() => {
-    if (reviews.length) setList(reviews); // Fetch data when the component mounts
-  }, [reviews]);
+    const updateSlidesPerGroup = () => {
+      const width = window.innerWidth;
+      if (width < 640) setSlidesPerGroup(1);
+      else if (width < 960) setSlidesPerGroup(2);
+      else setSlidesPerGroup(3);
+    };
 
-  const testimonials = [
-    {
-      name: "John Smith",
-      location: "United States",
-      date: "23-11-2024",
-      message:
-        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
-      rating: 4.5,
-      image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
-    },
-    {
-      name: "John Smith",
-      location: "United States",
-      date: "23-11-2024",
-      message:
-        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti.",
-      rating: 5,
-      image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
-    },
-    {
-      name: "John Smith",
-      location: "United States",
-      date: "23-11-2024",
-      message:
-        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti. ",
-      rating: 4.9,
-      image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
-    },
-    {
-      name: "John Smith",
-      location: "United States",
-      date: "23-11-2024",
-      message:
-        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti. t iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti",
-      rating: 4,
-      image: "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
-      totalRating: 5
-    }
-    // Add more testimonial objects here...
-  ];
+    updateSlidesPerGroup();
+    window.addEventListener("resize", updateSlidesPerGroup);
+
+    return () => window.removeEventListener("resize", updateSlidesPerGroup);
+  }, []);
 
   useEffect(() => {
     fetchData(); // Fetch data when the component mounts
@@ -84,6 +55,7 @@ const UsersReviews = ({ reviews }) => {
 
   return (
     <Container sx={{ py: 5 }}>
+      {loading && <MatxLoading />}
       <Grid container justifyContent="center">
         <Grid item xs={12} md={10} xl={8} textAlign="center">
           <Badge badgeContent={list.length} color="secondary">
@@ -106,7 +78,7 @@ const UsersReviews = ({ reviews }) => {
         <Swiper
           spaceBetween={10}
           slidesPerView={3}
-          slidesPerGroup={3}
+          slidesPerGroup={slidesPerGroup}
           // pagination={{ clickable: true }}
           navigation
           loop={true}
@@ -116,6 +88,7 @@ const UsersReviews = ({ reviews }) => {
             pauseOnMouseEnter: true
           }}
           breakpoints={{
+            320: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
             960: { slidesPerView: 3 },
             1280: { slidesPerView: 3 }
