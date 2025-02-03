@@ -217,7 +217,16 @@ const About = () => {
                     <Typography variant="h4" sx={{ mb: 4 }}>
                       About
                     </Typography>
-                    <Typography variant="body1" sx={{ mb: 4, pb: 2, mbMd: 5, pbMd: 0 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        mb: 4,
+                        pb: 2,
+                        mbMd: 5,
+                        pbMd: 0,
+                        textAlign: { xs: "justify", md: "center" }
+                      }}
+                    >
                       As a web developer focused on customer satisfaction, I manage all aspects of
                       web development from concept to requirements definition, design, development,
                       launch, maintenance and user support. I enjoy the client-facing role and
