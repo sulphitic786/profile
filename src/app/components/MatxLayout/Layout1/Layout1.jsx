@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, memo } from "react";
-import { ThemeProvider, useMediaQuery, Box, styled, useTheme } from "@mui/material";
+import { Box, styled, ThemeProvider, useMediaQuery, useTheme } from "@mui/material";
+import React, { memo, useEffect, useRef } from "react";
 import Scrollbar from "react-perfect-scrollbar";
 import { Outlet } from "react-router-dom";
 import { MatxSuspense } from "../../../components";
@@ -72,20 +72,27 @@ const Layout1 = () => {
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const ref = useRef({ isMdScreen, settings });
+  const lastMode = useRef(null);
   const layoutClasses = `theme-${theme.palette.type}`;
 
   useEffect(() => {
-    let { settings } = ref.current;
     let sidebarMode = settings.layout1Settings.leftSidebar.mode;
+    let mode = isMdScreen ? "close" : sidebarMode;
 
-    if (settings.layout1Settings.leftSidebar.show) {
-      let mode = isMdScreen ? "close" : sidebarMode;
-
-      if (mode !== sidebarMode) {
-        updateSettings({ layout1Settings: { leftSidebar: { mode } } });
-      }
+    if (settings.layout1Settings.leftSidebar.show && mode !== lastMode.current) {
+      lastMode.current = mode;
+      updateSettings({
+        ...settings,
+        layout1Settings: {
+          ...settings.layout1Settings,
+          leftSidebar: {
+            ...settings.layout1Settings.leftSidebar,
+            mode
+          }
+        }
+      });
     }
-  }, [isMdScreen, updateSettings]); // Removed 'ref' as it's not necessary here
+  }, [isMdScreen, settings.layout1Settings.leftSidebar.show]);
 
   // useEffect(() => {
   //   let { settings } = ref.current;
