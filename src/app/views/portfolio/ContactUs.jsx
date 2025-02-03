@@ -1,12 +1,10 @@
-import { Fragment } from "react";
-import { Breadcrumb } from "../../components";
-import { MatxLoading } from "../../components";
-import { Button, Grid, Icon, Box, styled } from "@mui/material";
-import { Paragraph, H5, H4, Span } from "../../components/Typography";
-import { useEffect, useState } from "react";
+import { Box, Button, Grid, Icon, styled } from "@mui/material";
+import { addDoc, collection } from "firebase/firestore";
+import { Fragment, useState } from "react";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { fireStore } from "../../../config";
+import { Breadcrumb, MatxLoading } from "../../components";
+import { H4, Paragraph, Span } from "../../components/Typography";
 import { useAlert } from "../../contexts/AlertContext";
 import { getIsoDate } from "../../utils/utils";
 
@@ -138,7 +136,7 @@ const About = () => {
                     label="Name *"
                     value={name || ""}
                     onChange={handleChange}
-                    errorMessages={["this field is required"]}
+                    errorMessages={["This field is required!"]}
                     validators={["required", "minStringLength: 4", "maxStringLength: 35"]}
                   />
 
@@ -150,15 +148,15 @@ const About = () => {
                     onChange={handleChange}
                     validators={[
                       "required",
-                      "isNumber",
-                      "minStringLength:10",
-                      "maxStringLength:10"
+                      "isNumber"
+                      // "minStringLength:10",
+                      // "maxStringLength:10"
                     ]}
                     errorMessages={[
-                      "this field is required",
-                      "phone number must contain only digits",
-                      "phone number must be 10 digits",
-                      "phone number must be 10 digits"
+                      "This field is required!",
+                      "phone number must contain only digits"
+                      // "phone number must be 10 digits",
+                      // "phone number must be 10 digits"
                     ]}
                   />
 
@@ -192,7 +190,7 @@ const About = () => {
                     onChange={handleChange}
                     value={message || ""}
                     validators={["required"]}
-                    errorMessages={["this field is required"]}
+                    errorMessages={["This field is required!"]}
                   />
 
                   <Button
