@@ -32,6 +32,7 @@ h5,
 h6 {
   font-family: "Raleway", sans-serif;
 }
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -412,6 +413,7 @@ h6 {
 .about {
   background-color: #f5f8fd;
 }
+
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
@@ -667,7 +669,7 @@ h6 {
   background: rgba(20, 157, 221, 0.95);
 }
 
-.portfolio .portfolio-wrap .portfolio-links a + a {
+.portfolio .portfolio-wrap .portfolio-links a+a {
   border-left: 1px solid #37b3ed;
 }
 
@@ -683,13 +685,16 @@ h6 {
   opacity: 1;
   bottom: 0;
 }
+
 .accordion-body {
   max-height: 250px;
   overflow: scroll;
 }
+
 .accordion-button:focus {
   box-shadow: none;
 }
+
 .accordion-button.collapsed {
   color: #173b6c;
   font-style: italic;
@@ -698,6 +703,7 @@ h6 {
   background-color: #f5f8fd;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
+
 .accordion-button:not(.collapsed) {
   color: #173b6c;
   font-style: italic;
@@ -706,6 +712,7 @@ h6 {
   background-color: #f5f8fd;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
+
 .accordion-button {
   justify-content: center;
 }
@@ -965,7 +972,7 @@ h6 {
   font-weight: 600;
 }
 
-.contact .php-email-form .error-message br + br {
+.contact .php-email-form .error-message br+br {
   margin-top: 25px;
 }
 
@@ -1030,6 +1037,7 @@ h6 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1039,6 +1047,7 @@ h6 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1066,11 +1075,11 @@ h6 {
   font-size: 15px;
 }
 
-.breadcrumbs ol li + li {
+.breadcrumbs ol li+li {
   padding-left: 10px;
 }
 
-.breadcrumbs ol li + li::before {
+.breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
   color: #0e2442;
@@ -1081,9 +1090,11 @@ h6 {
   .breadcrumbs .d-flex {
     display: block !important;
   }
+
   .breadcrumbs ol {
     display: block;
   }
+
   .breadcrumbs ol li {
     display: inline-block;
   }
@@ -1148,7 +1159,7 @@ h6 {
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li + li {
+.portfolio-details .portfolio-info ul li+li {
   margin-top: 10px;
 }
 
@@ -1171,6 +1182,7 @@ h6 {
   .portfolio-details .portfolio-description h2 {
     width: 100%;
   }
+
   .portfolio-details .portfolio-info {
     position: static;
     margin-top: 30px;
@@ -1208,4 +1220,16 @@ h6 {
     width: auto;
     padding-right: 20px 15px;
   }
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 25px !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: var(--swiper-navigation-top-offset, 38%) !important;
+  width: calc(var(--swiper-navigation-size) / 44* 27);
 }

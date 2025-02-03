@@ -54,7 +54,7 @@ const UsersReviews = () => {
   };
 
   return (
-    <Container sx={{ py: 5 }}>
+    <Container sx={{ py: 5, px: 0 }}>
       {loading && <MatxLoading />}
       <Grid container justifyContent="center">
         <Grid item xs={12} md={10} xl={8} textAlign="center">
