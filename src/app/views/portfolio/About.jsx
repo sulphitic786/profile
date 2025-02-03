@@ -1,4 +1,8 @@
 import { DateRange } from "@mui/icons-material";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import FolderIcon from "@mui/icons-material/Folder";
+import GroupsIcon from "@mui/icons-material/Groups";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import {
   Box,
   Button,
@@ -13,10 +17,11 @@ import {
 } from "@mui/material";
 import LinearProgress from "@mui/material/LinearProgress";
 import React from "react";
+import CountUp from "react-countup";
 import { Link } from "react-router-dom";
 import { Breadcrumb } from "../../components";
 import { FlexBetween, FlexBox } from "../../components/FlexBox";
-import { H4, Small } from "../../components/Typography";
+import { Small } from "../../components/Typography";
 import MapMarkerIcon from "../../components/icons/MapMarkerIcon";
 import UsersReviews from "./UsersReviews";
 
@@ -97,6 +102,29 @@ const Container = styled("div")(({ theme }) => ({
 const About = () => {
   const theme = useTheme();
 
+  const stats = [
+    {
+      icon: <EmojiEmotionsIcon sx={{ fontSize: 40, color: "primary.main" }} />,
+      count: 75,
+      label: "Happy Clients"
+    },
+    {
+      icon: <FolderIcon sx={{ fontSize: 40, color: "primary.main" }} />,
+      count: 100,
+      label: "Projects Plus"
+    },
+    {
+      icon: <SupportAgentIcon sx={{ fontSize: 40, color: "primary.main" }} />,
+      count: 1463,
+      label: "Hours of Support"
+    },
+    {
+      icon: <GroupsIcon sx={{ fontSize: 40, color: "primary.main" }} />,
+      count: 15,
+      label: "Hard Co-workers"
+    }
+  ];
+
   return (
     <Container>
       <Box className="breadcrumb">
@@ -130,9 +158,9 @@ const About = () => {
           </FlexBox>
 
           <Box textAlign="center" mt={2}>
-            <H4 fontWeight={600} textAlign="center">
+            <Typography variant="h5" fontWeight="bold" color="primary" gutterBottom>
               Waseem Qasim
-            </H4>
+            </Typography>
 
             <FlexBetween maxWidth={500} flexWrap="wrap" margin="auto" mt={1}>
               <FlexBox alignItems="center" gap={1}>
@@ -313,6 +341,63 @@ const About = () => {
           </Grid>
         </Grid>
       </Card>
+      <Card sx={{ padding: 3, marginY: 2, position: "relative" }}>
+        {/* <!-- ======= Facts Section ======= --> */}
+        <Box component="section" id="facts">
+          <Container>
+            {/* Section Title */}
+            <Box textAlign="center">
+              <Typography variant="h4" sx={{ mb: 4 }}>
+                Facts
+              </Typography>
+              <Typography variant="body1" maxWidth="md" mx="auto">
+                “To give real service you must add something which cannot be bought or measured with
+                money, and that is sincerity and integrity. We see our customers as invited guests
+                to a party, and we are the hosts. It’s our job every day to make every important
+                aspect of the customer a little bit better.”
+              </Typography>
+            </Box>
+
+            {/* Stats Section */}
+            <Grid container spacing={3} mt={2} justifyContent="center">
+              {stats.map((stat, index) => (
+                <Grid
+                  item
+                  xs={12}
+                  sm={6}
+                  md={3}
+                  key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      p: 3,
+                      borderRadius: 2,
+                      boxShadow: 3,
+                      backgroundColor: "white",
+                      textAlign: "center"
+                    }}
+                  >
+                    {stat.icon}
+                    <Typography variant="h4" color="primary">
+                      <CountUp enableScrollSpy={true} end={stat.count} duration={13} />
+                    </Typography>
+                    <Typography variant="body1" fontWeight="bold">
+                      {stat.label}
+                    </Typography>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
+          </Container>
+        </Box>
+      </Card>
+
       <Card sx={{ padding: 3, position: "relative" }}>
         <UsersReviews />
       </Card>
