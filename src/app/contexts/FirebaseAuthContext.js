@@ -1,5 +1,3 @@
-import { MatxLoading } from "../components";
-import { firebaseConfig } from "../../config.js";
 import { initializeApp } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
@@ -12,6 +10,8 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
+import { firebaseConfig } from "../../config.js";
+import { MatxLoading } from "../components";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);

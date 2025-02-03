@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Box,
   Button,
@@ -11,6 +10,7 @@ import {
   styled,
   useTheme
 } from "@mui/material";
+import { useState } from "react";
 import { FlexAlignCenter, FlexBetween, FlexBox } from "../../../components/FlexBox";
 import { Paragraph, Small } from "../../../components/Typography";
 import { removeTimeFromDate } from "../../../utils/utils";
@@ -102,7 +102,6 @@ const GridView = ({ list = [], sliderValue }) => {
         <ProjectViewer back={back} data={currentProject} />
       ) : (
         <Grid container spacing={2}>
-          {console.log("grid view", list)}
           {list.map((item) => (
             <Grid item key={item.id} sm={calculateColumnPerRow(sliderValue)}>
               <CardRoot sx={{ boxSizing: "border-box" }} elevation={6}>

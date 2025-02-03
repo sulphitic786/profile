@@ -1,28 +1,27 @@
-import { memo } from "react";
-import { Link } from "react-router-dom";
 import {
   Avatar,
+  Box,
   Hidden,
   Icon,
   IconButton,
   MenuItem,
-  useMediaQuery,
-  Box,
   styled,
+  useMediaQuery,
   useTheme
 } from "@mui/material";
+import { memo } from "react";
+import { Link } from "react-router-dom";
 
+import React from "react";
 import { MatxMenu, MatxSearchBox } from "../../../components";
 import { themeShadows } from "../../../components/MatxTheme/themeColors";
 import { NotificationProvider } from "../../../contexts/NotificationContext";
 import useAuth from "../../../hooks/useAuth";
 import useSettings from "../../../hooks/useSettings";
 import { topBarHeight } from "../../../utils/constant";
-import React from "react";
 
-import { Span } from "../../Typography";
 import NotificationBar from "../../NotificationBar/NotificationBar";
-import ShoppingCart from "../../ShoppingCart";
+import { Span } from "../../Typography";
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
   color: theme.palette.text.primary
@@ -87,7 +86,18 @@ const Layout1Topbar = () => {
   const { settings, updateSettings } = useSettings();
   const { logout, user, isAuthenticated } = useAuth();
   const isMdScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const userData = JSON.parse(localStorage.getItem("userData"));
+
+  const storedUserData = localStorage.getItem("userData");
+
+  let userData = null;
+  if (storedUserData) {
+    try {
+      userData = JSON.parse(storedUserData);
+    } catch (error) {
+      console.error("Invalid JSON in localStorage:", error);
+      userData = null; // Fallback value
+    }
+  }
 
   const updateSidebarMode = (sidebarSettings) => {
     updateSettings({ layout1Settings: { leftSidebar: { ...sidebarSettings } } });
