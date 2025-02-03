@@ -63,7 +63,10 @@ const UsersReviews = () => {
               Testimonials
             </Typography>
           </Badge>
-          <Typography variant="body1" sx={{ mb: 4, pb: 2, mbMd: 5, pbMd: 0 }}>
+          <Typography
+            variant="body1"
+            sx={{ mb: 4, pb: 2, mbMd: 5, pbMd: 0, textAlign: { xs: "justify", md: "center" } }}
+          >
             Over the years, I have received incredible reviews and feedback from clients worldwide,
             including Fiverr, as well as local and international projects. These testimonials
             reflect my dedication to delivering high-quality work, meeting deadlines, and ensuring
