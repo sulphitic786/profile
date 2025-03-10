@@ -103,7 +103,6 @@ const ProjectForm = (props) => {
 
   const handleSubmit = async (values) => {
     values.date = removeTimeFromDate(dateRange);
-    console.log("Add values", values);
     if (props?.action == "update") {
       updateReview(values);
     } else {
@@ -373,7 +372,7 @@ const ProjectForm = (props) => {
                     variant="outlined"
                     onChange={handleChange}
                     value={values.rating || ""}
-                    inputProps={{ min: 0, max: 5 }}
+                    inputProps={{ min: 0, max: 5, step: 0.1 }}
                     // onBlur={handleBlur}
                     // error={Boolean(touched.rating && errors.rating)}
                     // helperText={touched.rating && errors.rating}

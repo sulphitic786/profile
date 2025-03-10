@@ -1,18 +1,9 @@
-import {
-  AppBar,
-  Button,
-  Icon,
-  ThemeProvider,
-  Link,
-  Toolbar,
-  styled,
-  useTheme
-} from "@mui/material";
-import React from "react";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { AppBar, Link, ThemeProvider, Toolbar, styled, useTheme } from "@mui/material";
+import React from "react";
 import useSettings from "../hooks/useSettings";
 import { topBarHeight } from "../utils/constant";
 import { Paragraph, Span } from "./Typography";
@@ -66,7 +57,7 @@ const Footer = () => {
                 target="_blank"
                 sx={{ color: "white" }}
               >
-                <LinkedInIcon sx={{ mr: 1, fontSize: "2em" }} />
+                <LinkedInIcon sx={{ mr: 1, fontSize: "2.2em" }} />
               </Link>
 
               <Link
@@ -75,7 +66,15 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 sx={{ color: "white" }}
               >
-                <WhatsAppIcon sx={{ mr: 1, fontSize: "2em" }} />
+                <WhatsAppIcon
+                  sx={{
+                    mr: 1,
+                    fontSize: "2.2em",
+                    "&:hover": {
+                      color: "#25D366" // WhatsApp green color
+                    }
+                  }}
+                />
               </Link>
 
               <Link
@@ -83,7 +82,7 @@ const Footer = () => {
                 target="_blank"
                 sx={{ color: "white" }}
               >
-                <FacebookIcon sx={{ mr: 1, fontSize: "2em" }} />
+                <FacebookIcon sx={{ mr: 1, fontSize: "2.2em" }} />
               </Link>
 
               <Link

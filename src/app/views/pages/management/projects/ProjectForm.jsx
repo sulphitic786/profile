@@ -6,26 +6,24 @@ import {
   Grid,
   Icon,
   MenuItem,
+  Stack,
   styled,
-  TextField,
-  Stack
+  TextField
 } from "@mui/material";
-import { Breadcrumb } from "../../../../components";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { collection, addDoc, doc, updateDoc } from "firebase/firestore";
-import { fireStore } from "../../../../../config";
-import { FlexAlignCenter, FlexBox } from "../../../../components/FlexBox";
-import { H4 } from "../../../../components/Typography";
-import { convertHexToRGB, removeTimeFromDate, getIsoDate } from "../../../../utils/utils";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import "flatpickr/dist/themes/material_green.css";
 import { Formik } from "formik";
-import { useAlert } from "../../../../contexts/AlertContext";
 import { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Flatpickr from "react-flatpickr";
-import "flatpickr/dist/themes/material_green.css";
-import { useNavigate, useLocation } from "react-router-dom";
 import * as yup from "yup";
+import { fireStore } from "../../../../../config";
 import { MatxLoading } from "../../../../components";
+import { FlexAlignCenter, FlexBox } from "../../../../components/FlexBox";
+import { H4 } from "../../../../components/Typography";
+import { useAlert } from "../../../../contexts/AlertContext";
+import { convertHexToRGB, getIsoDate } from "../../../../utils/utils";
 
 // styled components
 const Container = styled("div")(({ theme }) => ({

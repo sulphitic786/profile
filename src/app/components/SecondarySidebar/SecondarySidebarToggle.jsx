@@ -1,7 +1,8 @@
-import { Fab, Icon, IconButton } from "@mui/material";
-import { styled, useTheme } from "@mui/material";
-import useSettings from "../../hooks/useSettings";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Fab, Icon, IconButton, Link, styled, useTheme } from "@mui/material";
 import clsx from "clsx";
+import useAuth from "../../hooks/useAuth";
+import useSettings from "../../hooks/useSettings";
 
 const Toggle = styled("div")(() => ({
   position: "fixed",
@@ -16,6 +17,7 @@ const Toggle = styled("div")(() => ({
 
 const SecondarySidebarToggle = () => {
   const { settings, updateSettings } = useSettings();
+  const { isAuthenticated } = useAuth();
 
   const toggle = () => {
     updateSettings({ secondarySidebar: { open: !settings.secondarySidebar.open } });
@@ -33,9 +35,29 @@ const SecondarySidebarToggle = () => {
       )}
 
       {!settings.secondarySidebar.open && (
-        <Fab color="primary" aria-label="expand" onClick={toggle}>
-          <Icon sx={{ color: textColor }}>settings</Icon>
-        </Fab>
+        <>
+          {isAuthenticated ? (
+            <Fab color="primary" aria-label="expand" onClick={toggle}>
+              <Icon sx={{ color: textColor }}>settings</Icon>
+            </Fab>
+          ) : (
+            <Fab color="primary" aria-label="expand">
+              <Link
+                href={`https://wa.me/923244929494?text=${encodeURIComponent("Hello Waseem")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: "white",
+                  "&:hover": {
+                    color: "#25D366" // WhatsApp green color
+                  }
+                }}
+              >
+                <WhatsAppIcon sx={{ fontSize: "3em" }} />
+              </Link>
+            </Fab>
+          )}
+        </>
       )}
     </Toggle>
   );
