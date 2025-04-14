@@ -113,7 +113,9 @@ const ProjectForm = (props) => {
       const downloadURLs = []; // Array to store download URLs of uploaded images
       await Promise.all(
         acceptedFiles.map(async (file) => {
-          const storageRef = ref(storage, "project-files/" + file.name);
+          const timestamp = Date.now();
+          const fileNameWithTimestamp = `project-files/${timestamp}_${file.name}`;
+          const storageRef = ref(storage, fileNameWithTimestamp);
           await uploadBytes(storageRef, file);
           const downloadURL = await getDownloadURL(storageRef); // Get download URL for the uploaded image and add it to the array
           downloadURLs.push(downloadURL);
